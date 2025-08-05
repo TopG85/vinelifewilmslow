@@ -1,0 +1,15 @@
+h1 {
+    color: #eeffc9;
+    text-align: left;
+    margin-top: 20px;
+    text-transform: uppercase;
+}
+
+body {
+    
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #2b1215;
+}
