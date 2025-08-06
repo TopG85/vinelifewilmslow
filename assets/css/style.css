@@ -177,38 +177,120 @@ section {
 
 #about {
     background-color: var(--grape-royal-purple);
+    position: relative;
+    overflow: hidden;
+}
+
+#about-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.about-bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0.2;
+    filter: brightness(0.6);
+}
+
+#about .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Justify text in About section paragraphs */
+#about p {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+/* Justify text in Meet our leaders section */
+#about .lead {
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 #services {
     background: linear-gradient(45deg, var(--grape-royal-purple) 0%, var(--grape-deep-purple) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+#services-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.services-bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0.2;
+    filter: brightness(0.6);
+}
+
+#services::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 30% 70%, rgba(255, 107, 71, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 70% 30%, rgba(255, 112, 67, 0.08) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+#services .container {
+    position: relative;
+    z-index: 2;
 }
 
 #services .text-center {
     text-align: center;
+    padding: 3rem 2rem;
 }
 
 #services h4 {
     text-align: center;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     color: var(--cream);
+    font-size: 1.8rem;
+    font-weight: 600;
 }
 
 #services p {
     text-align: center;
     color: var(--cream);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 0;
 }
 
 #services i {
-    font-size: 3rem;
+    font-size: 4rem;
     color: var(--complement-coral);
     display: block;
-    margin-bottom: 1rem;
-    transition: color 0.3s ease, transform 0.3s ease;
+    margin-bottom: 1.5rem;
+    transition: all 0.4s ease;
 }
 
 #services i:hover {
     color: var(--complement-sunset);
-    transform: scale(1.1);
+    transform: scale(1.2) rotate(5deg);
 }
 
 #events {
@@ -440,24 +522,67 @@ section {
 
 /* Local Resources Section */
 #local-resources {
-    background-color: var(--grape-royal-purple);
+    background: linear-gradient(135deg, var(--grape-royal-purple) 0%, var(--grape-deep-purple) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+#local-resources-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.local-resources-bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0.2;
+    filter: brightness(0.6);
+}
+
+#local-resources::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(255, 107, 71, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 112, 67, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+#local-resources .container {
+    position: relative;
+    z-index: 2;
 }
 
 .resource-box {
-    background: var(--grape-champagne);
-    border-radius: 12px;
-    padding: 2rem 1.5rem;
+    background: linear-gradient(145deg, var(--grape-champagne) 0%, rgba(255, 255, 255, 0.95) 100%);
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
     margin-bottom: 1.5rem;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 
+        0 8px 24px rgba(0, 0, 0, 0.3),
+        0 4px 12px rgba(255, 107, 71, 0.2);
+    transition: all 0.4s ease;
     text-align: center;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    border: 2px solid transparent;
+    background-clip: padding-box;
     position: relative;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    overflow: hidden;
 }
 
 .resource-box::before {
@@ -466,29 +591,76 @@ section {
     top: 0;
     left: 0;
     right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--complement-coral) 0%, var(--complement-sunset) 100%);
-    border-radius: 12px 12px 0 0;
+    height: 6px;
+    background: linear-gradient(90deg, #ff6b47 0%, #ff7043 50%, #ff6b47 100%);
+    border-radius: 16px 16px 0 0;
+    z-index: 1;
+}
+
+.resource-box::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #ff6b47, #ff7043, #ff6b47, #ff7043);
+    border-radius: 18px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s ease;
 }
 
 .resource-box:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 
+        0 16px 40px rgba(0, 0, 0, 0.4),
+        0 8px 20px rgba(255, 107, 71, 0.3),
+        0 0 30px rgba(255, 112, 67, 0.2);
+}
+
+.resource-box:hover::after {
+    opacity: 1;
 }
 
 .resource-box h3 {
     color: var(--grape-deep-purple);
-    font-size: 1.4rem;
-    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    margin-bottom: 1.2rem;
     font-weight: 700;
     text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.resource-box h3 i {
+    color: #ff6b47;
+    margin-right: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.resource-box:hover h3 i {
+    color: #ff7043;
+    transform: scale(1.1);
 }
 
 .resource-box p {
     color: var(--charcoal);
-    margin-bottom: 0.5rem;
-    font-size: 1rem;
+    margin-bottom: 0.8rem;
+    font-size: 1.05rem;
     text-align: center;
+    line-height: 1.6;
+    position: relative;
+    z-index: 2;
+}
+
+.resource-box p strong {
+    color: #ff6b47;
+    font-weight: 600;
+}
+
+.resource-box p i {
+    color: #ff7043;
 }
 
 .resource-box img {
@@ -496,14 +668,84 @@ section {
     height: auto;
     object-fit: contain;
     display: block;
-    margin: 0 auto 1rem auto;
+    margin: 0 auto 1.5rem auto;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.resource-box:hover img {
+    transform: scale(1.05);
 }
 
 .resource-box .btn {
-    margin: 1rem 0;
+    margin: 1.5rem 0;
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: fit-content;
+    background: linear-gradient(45deg, #ff6b47, #ff7043);
+    border: none;
+    color: white;
+    font-weight: 600;
+    padding: 0.8rem 2rem;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 4px 15px rgba(255, 107, 71, 0.3);
 }
 
+.resource-box .btn:hover {
+    background: linear-gradient(45deg, #ff7043, #ff6b47);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 107, 71, 0.4);
+    color: white;
+}
+
+/* Media queries */
+
+/* Small screens and up */
+@media screen and (min-width: 576px) {
+    /* increase font size in events table when screen size is large enough */
+    #events .table {
+        font-size: 1rem;
+    }
+    .student-discount {
+        font-size: 1rem;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media screen and (min-width: 768px) {
+    /* Make all service cards the same height for consistency */
+    #services .card-body {
+        min-height: 191px;
+    }
+}
+
+/* Large devices (small laptops, 992px and up) */
+@media screen and (min-width: 992px) {
+    /* Make all service cards the same height for consistency */
+    #services .card-body {
+        min-height: auto;
+    }
+}
+
+/* xl devices (large desktops, 1200px and up) */
+@media screen and (min-width: 1200px) {
+    /* make all service cards the same height for consistency */
+    #services .card-body {
+        min-height: 220px;
+    }
+}
+
+/* xxl devices (larger desktops, 1400px and up) */
+@media screen and (min-width: 1400px) {
+    /* make all service cards the same height for consistency */
+    #services .card-body {
+        min-height: 195px;
+    }
+}
