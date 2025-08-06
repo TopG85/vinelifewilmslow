@@ -56,6 +56,9 @@
                         <a class="nav-link" href="#about">About</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="#leaders">Leaders</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="#services">Services</a>
                     </li>
                     <li class="nav-item">
@@ -81,7 +84,7 @@
             <div class="row align-items-center min-vh-100">
                 <div class="col-lg-8 col-md-10 col-12 mx-auto text-center">
                     <h1 class="display-1 mb-4 hero-title">Welcome to Vinelife Wilmslow</h1>
-                    <p class="lead mb-4">A community church in the heart of Wilmslow, UK. Join us as we grow in faith,
+                    <p class="lead mb-4">A community church in the heart of Wilmslow, Cheshire, UK. Join us as we grow in faith,
                         hope, and love together.</p>
                     <a href="#about" class="btn btn-primary btn-lg me-3">Learn More</a>
                     <a href="#contact" class="btn btn-outline-light btn-lg">Get In Touch</a>
@@ -142,26 +145,37 @@
                             lunch and a Christian Thought for the Day. Robert Larkman, our Senior Leader, wrote the
                             constitution for “Hope Central” ensuring that the propagation of the Gospel was included as
                             a stated aim of the charity alongside its aims of preventing and relieving poverty. He also
-                            served as its founding Director helping to establish a sustainable foundation for the charity.
+                            served as its founding Director helping to establish a sustainable foundation for the
+                            charity.
                         </p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                        <div class="row">
-                            <div class="col-lg-8 col-md-10 col-12 mx-auto text-center">
-                                <h2 class="display-4 mb-4">Meet our leaders</h2>
-                                <img src="assets/images/2305+R-C-1920w.webp"
-                                    alt="Robert and Cheryl Larkman standing side by side, Cheryl wearing a light blazer with a heart-shaped pin and Robert in a dark shirt, both appearing relaxed and friendly against a soft pink background. The setting is informal and welcoming, conveying a warm and approachable atmosphere. No visible text in the image."
-                                    class="img-fluid rounded mb-4">
-                                <p class="lead">
-                                    We have lived in Wilmslow most of our lives and currently reside in Handforth
-                                    where we raised our three children and launched them on their own journeys to change
-                                    the world! We believe that church is all about relationships, firstly with God
-                                    through the person of Jesus and the presence of His Spirit and then with others as
-                                    we share the love, grace and power He has so freely given us. Our vision is to see a
-                                    family of believers who encounter God and become an encounter with God for their
-                                    family, friends, colleagues and communities.
-                                </p>
-                            </div>
-                        </div>
+        <!-- Leaders Section -->
+        <section id="leaders" class="py-5">
+            <!-- Background Image -->
+            <div id="leaders-bg-image">
+                <img src="assets/images/bokeh.webp" alt="Abstract bokeh effect with soft glowing circles in various colors and sizes, set against a blurred background suggesting a sunrise or sunset over a field. The atmosphere feels dreamy and uplifting. No visible text." class="leaders-bg-image">
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-10 col-12 mx-auto text-center">
+                        <h2 class="display-4 mb-4">Meet our leaders</h2>
+                        <img src="assets/images/2305+R-C-1920w.webp"
+                            alt="Robert and Cheryl Larkman standing side by side, Cheryl wearing a light blazer with a heart-shaped pin and Robert in a dark shirt, both appearing relaxed and friendly against a soft pink background. The setting is informal and welcoming, conveying a warm and approachable atmosphere. No visible text in the image."
+                            class="img-fluid rounded mb-4">
+                        <p class="lead">
+                            We have lived in Wilmslow most of our lives and currently reside in Handforth
+                            where we raised our three children and launched them on their own journeys to change
+                            the world! We believe that church is all about relationships, firstly with God
+                            through the person of Jesus and the presence of His Spirit and then with others as
+                            we share the love, grace and power He has so freely given us. Our vision is to see a
+                            family of believers who encounter God and become an encounter with God for their
+                            family, friends, colleagues and communities.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -304,6 +318,11 @@
     <!-- mt-auto added to push footer to the bottom of the page -->
     <footer class="mt-auto">
         <div id="footer-contact">
+            <!-- Background Image -->
+            <div id="contact-bg-image">
+                <img src="assets/images/bokeh1.webp" alt="Vinelife Wilmslow Contact" class="contact-bg-image">
+            </div>
+            
             <div class="container section">
                 <div class="row justify-content-center">
                     <div class="col-12 text-center"></div>
@@ -315,11 +334,19 @@
                                     <h2 class="display-6">Contact us!</h2>
                                 </div>
                                 <!-- Form submission is handled via JavaScript below; 'action="#"' is a placeholder and does not submit to a server. -->
-                                <form action="#" method="POST" id="contact-form">
+                                <form id="contact-form">
                                     <div class="mb-3">
                                         <label for="name" class="form-label">Your Name</label>
                                         <input type="text" class="form-control" id="name" name="name"
                                             placeholder="Enter your name">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="phone" class="form-label">Phone number</label>
+                                        <input type="tel" class="form-control" id="phone" name="phone" required
+                                            placeholder="Enter your phone number">
+                                        <div id="phone-feedback" class="invalid-feedback" style="display:none;">
+                                            Please enter a valid phone number.
+                                        </div>
                                     </div>
                                     <div class="mb-3">
                                         <label for="email" class="form-label">Your Email</label>
@@ -383,7 +410,7 @@
         </div>
 
         <!-- Copyright -->
-        <div class="text-center py-3 border-top">
+        <div class="text-center py-3">
             <p class="mb-0">&copy; Vinelife Church Wilmslow</p>
         </div>
     </footer>
@@ -396,7 +423,73 @@
     <!-- Form handling JavaScript -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Form handling
+            // Contact form handling
+            const contactForm = document.getElementById('contact-form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    const formData = new FormData(contactForm);
+                    const name = formData.get('name');
+                    const phone = formData.get('phone');
+                    const email = formData.get('email');
+                    const message = formData.get('message');
+                    const emailInput = document.getElementById('email');
+                    const emailFeedback = document.getElementById('email-feedback');
+                    const phoneInput = document.getElementById('phone');
+                    const phoneFeedback = document.getElementById('phone-feedback');
+
+                    // Basic validation
+                    let isValid = true;
+
+                    // Email validation (if provided)
+                    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                        emailInput.classList.add('is-invalid');
+                        emailFeedback.style.display = 'block';
+                        emailInput.focus();
+                        isValid = false;
+                    } else {
+                        emailInput.classList.remove('is-invalid');
+                        emailFeedback.style.display = 'none';
+                    }
+
+                    // Phone validation (now required)
+                    if (!phone || phone.trim().length === 0) {
+                        phoneInput.classList.add('is-invalid');
+                        phoneFeedback.textContent = 'Phone number is required.';
+                        phoneFeedback.style.display = 'block';
+                        if (isValid) phoneInput.focus();
+                        isValid = false;
+                    } else if (!/^[\+]?[0-9\s\-\(\)]{10,}$/.test(phone)) {
+                        phoneInput.classList.add('is-invalid');
+                        phoneFeedback.textContent = 'Please enter a valid phone number.';
+                        phoneFeedback.style.display = 'block';
+                        if (isValid) phoneInput.focus();
+                        isValid = false;
+                    } else {
+                        phoneInput.classList.remove('is-invalid');
+                        phoneFeedback.style.display = 'none';
+                    }
+
+                    // Message validation
+                    if (!message || message.trim().length < 10) {
+                        alert('Please provide a message with at least 10 characters.');
+                        return;
+                    }
+
+                    // Name validation
+                    if (!name || name.trim().length < 2) {
+                        alert('Please provide your name.');
+                        return;
+                    }
+
+                    if (isValid) {
+                        alert(`Thank you ${name}! Your message has been received. We'll get back to you soon.\n\nFor immediate assistance, you can also:\n• Call/Text: 07957 813 360\n• Email: info@vinelifewilmslow.com`);
+                        contactForm.reset();
+                    }
+                });
+            }
+
+            // Form handling (legacy safeguarding form - keeping for compatibility)
             const form = document.getElementById('safeguarding-form');
             if (form) {
                 form.addEventListener('submit', function (e) {

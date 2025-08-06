@@ -86,13 +86,13 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Navigation */
 .navbar {
-    background-color: var(--grape-deep-purple) !important;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    background-color: var(--grape-rosé) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4), 0 2px 6px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
 }
 
 .navbar-brand .logo {
-    height: 40px;
+    height: 55px;
     width: auto;
 }
 
@@ -124,6 +124,8 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     position: relative;
     overflow: hidden;
+    margin-top: -76px; /* Compensate for body padding-top */
+    padding-top: 76px; /* Add back the padding to maintain spacing */
 }
 
 .hero-background {
@@ -212,6 +214,47 @@ section {
 
 /* Justify text in Meet our leaders section */
 #about .lead {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+/* Leaders Section */
+#leaders {
+    background: linear-gradient(135deg, var(--grape-rich-plum) 0%, var(--grape-royal-purple) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+#leaders-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.leaders-bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0.2;
+    filter: brightness(0.6);
+}
+
+#leaders .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Justify text in Leaders section paragraphs */
+#leaders p {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+#leaders .lead {
     text-align: justify;
     text-justify: inter-word;
 }
@@ -703,6 +746,41 @@ section {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(255, 107, 71, 0.4);
     color: white;
+}
+
+/* Contact Section */
+#footer-contact {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--grape-deep-purple) 0%, var(--grape-royal-purple) 100%);
+}
+
+#contact-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.contact-bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0.2;
+    filter: brightness(0.6);
+}
+
+#footer-contact .container {
+    position: relative;
+    z-index: 2;
+}
+
+#contact {
+    position: relative;
+    z-index: 2;
 }
 
 /* Media queries */
