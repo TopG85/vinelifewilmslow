@@ -14,10 +14,30 @@
     --grape-blush: #e8a4b8;
     
     /* Green Grapes */
+    --grape-deep-forest: #2d4a22;
+    --grape-midnight-green: #1a3d1a;
+    --grape-emerald: #4a6741;
+    --grape-forest: #6b8e5a;
     --grape-sage: #9caf88;
     --grape-chartreuse: #b8d67c;
     --grape-lime: #d4e69b;
     --grape-mint: #e8f5d0;
+    --grape-seafoam: #b8e6b8;
+    --grape-olive: #8fbc8f;
+    --grape-spring: #a8d8a8;
+    --grape-hunter: #355e3b;
+    --grape-jade: #5a7c65;
+    --grape-pine: #1b4332;
+    --grape-moss: #2d5016;
+    --grape-fern: #4f6741;
+    --grape-basil: #7d8471;
+    --grape-eucalyptus: #95a99c;
+    --grape-cedar: #3a5e39;
+    --grape-ivy: #2f4f2f;
+    --grape-malachite: #3f704d;
+    --grape-viridian: #4a6849;
+    --grape-laurel: #6b8a47;
+    --grape-thyme: #8faa54;
     
     /* Golden/Yellow Grapes */
     --grape-champagne: #f7e7b4;
@@ -55,7 +75,7 @@ body {
     background-color: var(--grape-deep-purple);
     color: var(--cream);
     scroll-behavior: smooth;
-    padding-top: 76px; /* Offset for fixed navbar */
+    padding-top: 90px; /* Increased offset for fixed navbar */
 }
 
 html {
@@ -86,7 +106,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Navigation */
 .navbar {
-    background-color: var(--grape-rosé) !important;
+    background-color: var(--grape-royal-purple) !important;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4), 0 2px 6px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
 }
@@ -97,7 +117,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar-nav .nav-link {
-    color: var(--cream) !important;
+    color: var(--grape-mint) !important;
     font-weight: 500;
     margin: 0 10px;
     transition: color 0.3s ease;
@@ -105,7 +125,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link.active {
-    color: var(--complement-coral) !important;
+    color: var(--cream) !important;
 }
 
 .navbar-toggler {
@@ -118,14 +138,14 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Hero */
 .hero-section {
-    background: linear-gradient(135deg, var(--grape-deep-purple) 0%, var(--grape-royal-purple) 50%, var(--grape-rich-plum) 100%);
+    background: linear-gradient(135deg, var(--grape-deep-purple) 0%, var(--grape-pine) 30%, var(--grape-royal-purple) 50%, var(--grape-rich-plum) 100%);
     min-height: 100vh;
     display: flex;
     align-items: center;
     position: relative;
     overflow: hidden;
-    margin-top: -76px; /* Compensate for body padding-top */
-    padding-top: 76px; /* Add back the padding to maintain spacing */
+    margin-top: -90px; /* Compensate for body padding-top */
+    padding-top: 90px; /* Add back the padding to maintain spacing */
 }
 
 .hero-background {
@@ -142,7 +162,7 @@ h1, h2, h3, h4, h5, h6 {
     height: 100%;
     object-fit: cover;
     object-position: center;
-    opacity: 0.3;
+    opacity: 0.7;
     filter: brightness(0.7);
 }
 
@@ -154,9 +174,11 @@ h1, h2, h3, h4, h5, h6 {
     right: 0;
     bottom: 0;
     background: linear-gradient(135deg, 
-        rgba(46, 46, 46, 0.8) 0%, 
-        rgba(46, 46, 46, 0.7) 50%, 
-        rgba(46, 46, 46, 0.8) 100%);
+        rgba(46, 46, 46, 0.7) 0%, 
+        rgba(247, 231, 180, 0.3) 25%,
+        rgba(46, 46, 46, 0.6) 50%, 
+        rgba(247, 231, 180, 0.2) 75%,
+        rgba(46, 46, 46, 0.7) 100%);
     z-index: 1;
 }
 
@@ -174,13 +196,14 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Sections */
 section {
-    scroll-margin-top: 80px;
+    scroll-margin-top: 140px;
 }
 
 #about {
-    background-color: var(--grape-royal-purple);
+    background: linear-gradient(135deg, var(--grape-royal-purple) 0%, var(--grape-cedar) 50%, var(--grape-deep-forest) 100%);
     position: relative;
     overflow: hidden;
+    padding-top: 2rem;
 }
 
 #about-bg-image {
@@ -220,9 +243,10 @@ section {
 
 /* Leaders Section */
 #leaders {
-    background: linear-gradient(135deg, var(--grape-rich-plum) 0%, var(--grape-royal-purple) 100%);
+    background: linear-gradient(135deg, var(--grape-rich-plum) 0%, var(--grape-malachite) 30%, var(--grape-emerald) 50%, var(--grape-viridian) 70%, var(--grape-royal-purple) 100%);
     position: relative;
     overflow: hidden;
+    padding-top: 2rem;
 }
 
 #leaders-bg-image {
@@ -260,9 +284,10 @@ section {
 }
 
 #services {
-    background: linear-gradient(45deg, var(--grape-royal-purple) 0%, var(--grape-deep-purple) 100%);
+    background: linear-gradient(45deg, var(--grape-royal-purple) 0%, var(--grape-ivy) 25%, var(--grape-midnight-green) 50%, var(--grape-moss) 75%, var(--grape-deep-purple) 100%);
     position: relative;
     overflow: hidden;
+    padding-top: 2rem;
 }
 
 #services-bg-image {
@@ -325,21 +350,22 @@ section {
 
 #services i {
     font-size: 4rem;
-    color: var(--complement-coral);
+    color: var(--grape-eucalyptus);
     display: block;
     margin-bottom: 1.5rem;
     transition: all 0.4s ease;
 }
 
 #services i:hover {
-    color: var(--complement-sunset);
+    color: var(--grape-laurel);
     transform: scale(1.2) rotate(5deg);
 }
 
 #events {
-    background-color: var(--grape-rich-plum);
+    background: linear-gradient(135deg, var(--grape-rich-plum) 0%, var(--grape-fern) 25%, var(--grape-hunter) 50%, var(--grape-basil) 75%, var(--grape-deep-purple) 100%);
     position: relative;
     overflow: hidden;
+    padding-top: 2rem;
 }
 
 /* Events Background Image */
@@ -368,7 +394,7 @@ section {
 
 /* Meetup Boxes */
 .meetup-box {
-    background: var(--grape-champagne);
+    background: linear-gradient(145deg, var(--grape-spring) 0%, var(--grape-eucalyptus) 100%);
     border-radius: 12px;
     padding: 2rem 1.5rem;
     margin-bottom: 1.5rem;
@@ -395,7 +421,7 @@ section {
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, var(--complement-coral) 0%, var(--complement-sunset) 100%);
+    background: linear-gradient(90deg, var(--grape-pine) 0%, var(--grape-moss) 50%, var(--grape-fern) 100%);
     border-radius: 12px 12px 0 0;
 }
 
@@ -478,16 +504,16 @@ section {
 
 /* Buttons */
 .btn-primary {
-    background-color: var(--grape-golden);
-    border-color: var(--grape-golden);
-    color: var(--charcoal);
+    background: linear-gradient(45deg, var(--grape-cedar) 0%, var(--grape-hunter) 100%);
+    border-color: var(--grape-hunter);
+    color: var(--cream);
     font-weight: 600;
 }
 
 .btn-primary:hover {
-    background-color: var(--grape-amber);
-    border-color: var(--grape-amber);
-    color: var(--charcoal);
+    background: linear-gradient(45deg, var(--grape-malachite) 0%, var(--grape-emerald) 100%);
+    border-color: var(--grape-emerald);
+    color: var(--cream);
 }
 
 /* Complementary accent button */
@@ -551,7 +577,7 @@ section {
 }
 
 .social-links a:hover {
-    color: var(--complement-coral);
+    color: var(--grape-laurel);
     transform: scale(1.1);
 }
 
@@ -565,9 +591,10 @@ section {
 
 /* Local Resources Section */
 #local-resources {
-    background: linear-gradient(135deg, var(--grape-royal-purple) 0%, var(--grape-deep-purple) 100%);
+    background: linear-gradient(135deg, var(--grape-royal-purple) 0%, var(--grape-viridian) 25%, var(--grape-midnight-green) 50%, var(--grape-ivy) 75%, var(--grape-deep-purple) 100%);
     position: relative;
     overflow: hidden;
+    padding-top: 2rem;
 }
 
 #local-resources-bg-image {
@@ -607,15 +634,103 @@ section {
     z-index: 2;
 }
 
-.resource-box {
+/* Find Us Section */
+#find-us {
+    background: linear-gradient(135deg, var(--grape-deep-purple) 0%, var(--grape-cedar) 25%, var(--grape-royal-purple) 50%, var(--grape-emerald) 75%, var(--grape-rich-plum) 100%);
+    position: relative;
+    overflow: hidden;
+    padding-top: 2rem;
+}
+
+#find-us-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.find-us-bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0.2;
+    filter: brightness(0.6);
+}
+
+#find-us .container {
+    position: relative;
+    z-index: 2;
+}
+
+.map-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.map-container:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+}
+
+.location-info {
     background: linear-gradient(145deg, var(--grape-champagne) 0%, rgba(255, 255, 255, 0.95) 100%);
+    border-radius: 12px;
+    padding: 2rem 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.location-info:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.location-info i {
+    font-size: 2.5rem;
+    color: var(--grape-hunter);
+    transition: all 0.3s ease;
+}
+
+.location-info:hover i {
+    color: var(--grape-emerald);
+    transform: scale(1.1);
+}
+
+.location-info h4 {
+    color: var(--grape-deep-purple);
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.location-info p {
+    color: var(--charcoal);
+    margin-bottom: 0;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.resource-box {
+    background: linear-gradient(145deg, var(--grape-mint) 0%, var(--grape-seafoam) 25%, var(--grape-spring) 50%, rgba(255, 255, 255, 0.95) 100%);
     border-radius: 16px;
     padding: 2.5rem 2rem;
     margin-bottom: 1.5rem;
     box-shadow: 
         0 8px 24px rgba(0, 0, 0, 0.3),
-        0 4px 12px rgba(255, 107, 71, 0.2);
-    transition: all 0.4s ease;
+        0 4px 12px var(--grape-emerald, rgba(74, 103, 65, 0.2));
     text-align: center;
     backdrop-filter: blur(15px);
     border: 2px solid transparent;
@@ -635,7 +750,7 @@ section {
     left: 0;
     right: 0;
     height: 6px;
-    background: linear-gradient(90deg, #ff6b47 0%, #ff7043 50%, #ff6b47 100%);
+    background: linear-gradient(90deg, var(--grape-forest) 0%, var(--grape-emerald) 25%, var(--grape-jade) 50%, var(--grape-forest) 100%);
     border-radius: 16px 16px 0 0;
     z-index: 1;
 }
@@ -647,23 +762,10 @@ section {
     left: -2px;
     right: -2px;
     bottom: -2px;
-    background: linear-gradient(45deg, #ff6b47, #ff7043, #ff6b47, #ff7043);
+    background: linear-gradient(45deg, var(--grape-emerald), var(--grape-forest), var(--grape-jade), var(--grape-malachite));
     border-radius: 18px;
     z-index: -1;
     opacity: 0;
-    transition: opacity 0.4s ease;
-}
-
-.resource-box:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 
-        0 16px 40px rgba(0, 0, 0, 0.4),
-        0 8px 20px rgba(255, 107, 71, 0.3),
-        0 0 30px rgba(255, 112, 67, 0.2);
-}
-
-.resource-box:hover::after {
-    opacity: 1;
 }
 
 .resource-box h3 {
@@ -677,14 +779,8 @@ section {
 }
 
 .resource-box h3 i {
-    color: #ff6b47;
+    color: var(--complement-coral);
     margin-right: 0.5rem;
-    transition: all 0.3s ease;
-}
-
-.resource-box:hover h3 i {
-    color: #ff7043;
-    transform: scale(1.1);
 }
 
 .resource-box p {
@@ -698,12 +794,12 @@ section {
 }
 
 .resource-box p strong {
-    color: #ff6b47;
+    color: var(--grape-forest);
     font-weight: 600;
 }
 
 .resource-box p i {
-    color: #ff7043;
+    color: var(--complement-coral);
 }
 
 .resource-box img {
@@ -713,13 +809,8 @@ section {
     display: block;
     margin: 0 auto 1.5rem auto;
     border-radius: 8px;
-    transition: transform 0.3s ease;
     position: relative;
     z-index: 2;
-}
-
-.resource-box:hover img {
-    transform: scale(1.05);
 }
 
 .resource-box .btn {
@@ -728,31 +819,23 @@ section {
     margin-left: auto;
     margin-right: auto;
     width: fit-content;
-    background: linear-gradient(45deg, #ff6b47, #ff7043);
+    background: linear-gradient(45deg, var(--grape-forest), var(--grape-emerald));
     border: none;
     color: white;
     font-weight: 600;
     padding: 0.8rem 2rem;
     border-radius: 25px;
-    transition: all 0.3s ease;
     text-decoration: none;
     position: relative;
     z-index: 2;
-    box-shadow: 0 4px 15px rgba(255, 107, 71, 0.3);
-}
-
-.resource-box .btn:hover {
-    background: linear-gradient(45deg, #ff7043, #ff6b47);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(255, 107, 71, 0.4);
-    color: white;
+    box-shadow: 0 4px 15px var(--grape-sage, rgba(156, 175, 136, 0.3));
 }
 
 /* Contact Section */
 #footer-contact {
     position: relative;
     overflow: hidden;
-    background: linear-gradient(135deg, var(--grape-deep-purple) 0%, var(--grape-royal-purple) 100%);
+    background: linear-gradient(135deg, var(--grape-deep-purple) 0%, var(--grape-pine) 50%, var(--grape-royal-purple) 100%);
 }
 
 #contact-bg-image {
