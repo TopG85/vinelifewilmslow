@@ -517,14 +517,14 @@ section {
 /* Complementary accent button */
 .btn-accent {
     background-color: var(--complement-coral);
-    border-color: var(--complement-coral);
+    border-color: var(--complement-sunset);
     color: var(--cream);
     font-weight: 600;
 }
 
 .btn-accent:hover {
     background-color: var(--complement-sunset);
-    border-color: var(--complement-sunset);
+    border-color: var(--complement-terracotta);
     color: var(--cream);
 }
 
