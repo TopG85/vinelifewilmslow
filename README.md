@@ -1,2 +1,2 @@
 # Vinelife Wilmslow
-<img width="2048" height="1152" alt="Screenshot 2025-09-22 at 14 18 31 (3)" src="https://github.com/user-attachments/assets/3d5674d3-5490-4296-8aa5-18547357a1d9" />
+<img width="1800" height="1062" alt="image" src="https://github.com/user-attachments/assets/d85431cc-739b-4e92-be67-1de14de8610b" />
