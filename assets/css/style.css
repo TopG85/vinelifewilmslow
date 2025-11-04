@@ -163,7 +163,7 @@ h1, h2, h3, h4, h5, h6 {
     object-fit: cover;
     object-position: center;
     opacity: 1;
-    filter: brightness(0.8);
+    filter: brightness(0.6);
 }
 
 .hero-section::before {
@@ -359,6 +359,190 @@ section {
 #services i:hover {
     color: var(--grape-laurel);
     transform: scale(1.2) rotate(5deg);
+}
+
+/* YouTube Section */
+#youtube {
+    background: linear-gradient(45deg, var(--grape-deep-purple) 0%, var(--grape-royal-purple) 25%, var(--grape-rich-plum) 50%, var(--grape-burgundy) 75%, var(--grape-wine-red) 100%);
+    position: relative;
+    overflow: hidden;
+    padding-top: 2rem;
+}
+
+#youtube-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.youtube-bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0.15;
+    filter: brightness(0.5);
+}
+
+#youtube::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 25% 75%, rgba(255, 0, 0, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 75% 25%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+#youtube .container {
+    position: relative;
+    z-index: 2;
+}
+
+.youtube-box {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 249, 250, 0.9) 100%);
+    border-radius: 20px;
+    padding: 3rem 2.5rem;
+    box-shadow: 
+        0 12px 30px rgba(0, 0, 0, 0.4),
+        0 6px 15px rgba(255, 0, 0, 0.2);
+    backdrop-filter: blur(15px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.youtube-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, #ff0000 0%, #cc0000 50%, #ff0000 100%);
+    border-radius: 20px 20px 0 0;
+}
+
+.youtube-icon {
+    font-size: 6rem;
+    color: #ff0000;
+    transition: all 0.4s ease;
+    filter: drop-shadow(0 4px 8px rgba(255, 0, 0, 0.3));
+}
+
+.youtube-icon:hover {
+    transform: scale(1.1) rotate(-5deg);
+    color: #cc0000;
+}
+
+.youtube-box h3 {
+    color: var(--grape-deep-purple);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.youtube-box p {
+    color: var(--charcoal);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.youtube-features {
+    list-style: none;
+    padding: 0;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.8rem;
+    color: var(--charcoal);
+    font-size: 1rem;
+}
+
+.feature-item i {
+    color: #ff0000;
+    font-size: 1.2rem;
+    width: 20px;
+}
+
+.youtube-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.btn-youtube {
+    background: linear-gradient(45deg, #ff0000 0%, #cc0000 100%);
+    border: none;
+    color: white;
+    font-weight: 600;
+    padding: 0.8rem 2rem;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+}
+
+.btn-youtube:hover {
+    background: linear-gradient(45deg, #cc0000 0%, #990000 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 0, 0, 0.4);
+    color: white;
+}
+
+.btn-outline-youtube {
+    border: 2px solid #ff0000;
+    color: #ff0000;
+    background: transparent;
+    font-weight: 600;
+    padding: 0.8rem 2rem;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-youtube:hover {
+    background: #ff0000;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+}
+
+.youtube-note {
+    color: var(--cream);
+    font-style: italic;
+    font-size: 1.1rem;
+    margin-top: 2rem;
+    opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+    .youtube-box {
+        padding: 2rem 1.5rem;
+    }
+    
+    .youtube-icon {
+        font-size: 4rem;
+        margin-bottom: 2rem;
+    }
+    
+    .youtube-box h3 {
+        font-size: 1.5rem;
+    }
+    
+    .youtube-buttons {
+        justify-content: center;
+    }
 }
 
 #events {
