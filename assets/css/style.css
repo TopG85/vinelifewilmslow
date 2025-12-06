@@ -486,7 +486,8 @@ section {
 .feature-item i {
     color: #ff0000;
     font-size: 1.2rem;
-    width: 20px;
+    display: block;
+    margin: 0 auto 0.5rem auto;
 }
 
 .youtube-buttons {
