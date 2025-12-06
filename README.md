@@ -48,12 +48,13 @@ A modern, responsive church website for Vinelife Wilmslow - a community church i
 - Location and timing details
 - Visual event categorization with icons
 
-#### 🎬 **NEW! YouTube Channel Section**
-- **Dedicated YouTube section** with channel branding
-- **Direct links** to https://www.youtube.com/@vinelifewilmslow5572
+#### 🎬 **YouTube Channel Section**
+- **Dedicated YouTube section** with channel branding and icon
+- **Direct links** to YouTube channel (UC0G20x3mVQwmqGUAig_MAcA)
 - **Feature highlights**: Live Services, Sermons, Events
-- **Subscribe button** for easy channel subscription
-- **Animated YouTube icon** with pulse effect
+- **Centered Call-to-Action buttons**: "Visit Channel" and "Subscribe"
+- **Responsive design** - adapts to all screen sizes
+- **Animated YouTube icon** with hover effects
 
 #### 🔗 Resources Section
 - **CAP (Christians Against Poverty)** - Debt support services
@@ -175,13 +176,20 @@ vinelifewilmslow/
 ## 🌐 Social Media Links
 
 - **Facebook**: [VinelifeChurchWilmslow](https://www.facebook.com/VinelifeChurchWilmslow)
-- **YouTube**: [@vinelifewilmslow5572](https://www.youtube.com/@vinelifewilmslow5572)
+- **YouTube**: [Vinelife Wilmslow Channel](https://www.youtube.com/channel/UC0G20x3mVQwmqGUAig_MAcA)
 
 ## 📋 Recent Updates
 
+### December 2025
+- ✅ **Centered event cards** - Fixed alignment of meetup boxes in events section
+- ✅ **Centered YouTube buttons** - Improved layout of YouTube channel call-to-action buttons
+- ✅ **Fixed YouTube button structure** - Reorganized HTML for proper centering
+- ✅ **Updated YouTube channel URL** - Now using correct channel ID (UC0G20x3mVQwmqGUAig_MAcA)
+- ✅ **December events** - Updated events section with December schedule
+
 ### November 2025
 - ✅ Added dedicated YouTube channel section
-- ✅ Updated all YouTube links to new channel URL
+- ✅ Updated all YouTube links to channel URL
 - ✅ Enhanced responsive design
 - ✅ Improved accessibility features
 - ✅ Optimized performance with WebP images
