@@ -163,7 +163,7 @@ h1, h2, h3, h4, h5, h6 {
     object-fit: cover;
     object-position: center;
     opacity: 1;
-    filter: brightness(0.6);
+    filter: brightness(0.5);
 }
 
 .hero-section::before {
@@ -174,11 +174,11 @@ h1, h2, h3, h4, h5, h6 {
     right: 0;
     bottom: 0;
     background: linear-gradient(135deg, 
-        rgba(46, 46, 46, 0.4) 0%, 
-        rgba(247, 231, 180, 0.2) 25%,
-        rgba(46, 46, 46, 0.3) 50%, 
-        rgba(247, 231, 180, 0.15) 75%,
-        rgba(46, 46, 46, 0.4) 100%);
+        rgba(46, 46, 46, 0.5) 0%, 
+        rgba(247, 231, 180, 0.3) 25%,
+        rgba(46, 46, 46, 0.4) 50%, 
+        rgba(247, 231, 180, 0.2) 75%,
+        rgba(46, 46, 46, 0.5) 100%);
     z-index: 1;
 }
 
