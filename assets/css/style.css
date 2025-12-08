@@ -965,6 +965,7 @@ section {
     text-decoration: none;
     line-height: 1;
     vertical-align: middle;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
 }
 
 .social-links i {
