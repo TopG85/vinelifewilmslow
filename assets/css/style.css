@@ -964,6 +964,11 @@ section {
     transition: all 0.3s ease;
     text-decoration: none;
     line-height: 1;
+    vertical-align: middle;
+}
+
+.social-links i {
+    transition: color 0.3s ease;
 }
 
 .social-links .fa-square-facebook {
@@ -975,8 +980,12 @@ section {
 }
 
 .social-links a:hover {
-    color: var(--cream);
     transform: scale(1.1);
+}
+
+.social-links a:hover .fa-square-facebook,
+.social-links a:hover .fa-youtube {
+    color: var(--cream);
 }
 
 /* Local Resources Section */
