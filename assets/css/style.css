@@ -956,22 +956,21 @@ section {
     display: inline-block;
     margin: 0 15px;
     font-size: 2.5rem;
-    color: var(--cream);
     transition: all 0.3s ease;
     text-decoration: none;
 }
 
-.social-links a:hover {
-    color: var(--grape-laurel);
-    transform: scale(1.1);
-}
-
-.social-links .fa-square-facebook:hover {
+.social-links .fa-square-facebook {
     color: #1877f2;
 }
 
-.social-links .fa-youtube:hover {
+.social-links .fa-youtube {
     color: #ff0000;
+}
+
+.social-links a:hover {
+    color: var(--cream);
+    transform: scale(1.1);
 }
 
 /* Local Resources Section */
