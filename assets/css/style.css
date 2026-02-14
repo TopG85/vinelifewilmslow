@@ -1695,6 +1695,195 @@ section .container {
   backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
 }
 
+/* Make headings, cards, images and common components centered site-wide */
+
+#services section h1,#services 
+  section h2,#services 
+  section h3,#services 
+  section h4,#services 
+  section h5,#services 
+  section h6 {
+  text-align: center;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+@media (max-width: 768px) {
+  #services section h1,#services 
+  section h2,#services 
+  section h3,#services 
+  section h4,#services 
+  section h5,#services 
+  section h6 {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+section h1,
+  section h2,
+  section h3,
+  section h4,
+  section h5,
+  section h6 {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+/* Ensure section containers center their contents (headings, text, CTAs) */
+
+#services section .container {
+  text-align: center;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+@media (max-width: 768px) {
+  #services section .container {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+section .container {
+  text-align: center;
+}
+
+/* Cards and component centering */
+
+#services .resource-box {
+  text-align: center;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+@media (max-width: 768px) {
+  #services .resource-box {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+.resource-box {
+  align-items: center;
+  text-align: center;
+}
+
+#services .meetup-box {
+  text-align: center;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+@media (max-width: 768px) {
+  #services .meetup-box {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+.meetup-box {
+  align-items: center;
+  text-align: center;
+}
+
+#services .youtube-container,#services 
+  .youtube-content {
+  text-align: center;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+@media (max-width: 768px) {
+  #services .youtube-container,#services 
+  .youtube-content {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+.youtube-container,
+  .youtube-content {
+  text-align: center;
+}
+
+#services .location-info {
+  text-align: center;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+@media (max-width: 768px) {
+  #services .location-info {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+.location-info {
+  align-items: center;
+  text-align: center;
+}
+
+#services .contact-form {
+  text-align: center;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+@media (max-width: 768px) {
+  #services .contact-form {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+.contact-form {
+  text-align: center;
+}
+
+.map-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Center images inside section containers */
+
+section .container img {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* Form control utilities removed (inputs use Tailwind utilities directly in markup) */
 
 /* Buttons */
