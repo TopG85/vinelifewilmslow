@@ -242,7 +242,9 @@
   }
 
   .feature-item {
-    @apply p-4 bg-white/70 rounded-xl mb-4 transition-all duration-300 h-full flex flex-col items-center justify-center;
+    @apply p-4 bg-white/70 rounded-xl mb-4 transition-all duration-300 flex flex-col items-center justify-center;
+    width: 94.96px;
+    height: 112px;
   }
 
   .feature-item:hover {
