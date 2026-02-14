@@ -403,6 +403,7 @@
 
   .location-info {
     @apply bg-gradient-to-br from-grape-champagne to-white/95 rounded-lg p-8 mb-6 shadow-lg transition-all duration-300 backdrop-blur-2xl border border-white/30 h-full flex flex-col justify-center hover:-translate-y-1 hover:shadow-xl;
+    min-height: 260px;
   }
 
   .location-info i {
