@@ -2038,23 +2038,22 @@ footer {
   line-height: 1.75rem;
 }
 
+.font-bold {
+  font-weight: 700;
+}
+
 .font-semibold {
   font-weight: 600;
+}
+
+.text-cream {
+  --tw-text-opacity: 1;
+  color: rgb(250 247 240 / var(--tw-text-opacity, 1));
 }
 
 .text-grape-forest {
   --tw-text-opacity: 1;
   color: rgb(107 142 90 / var(--tw-text-opacity, 1));
-}
-
-.text-grape-royal-purple {
-  --tw-text-opacity: 1;
-  color: rgb(74 14 78 / var(--tw-text-opacity, 1));
-}
-
-.text-gray-700 {
-  --tw-text-opacity: 1;
-  color: rgb(55 65 81 / var(--tw-text-opacity, 1));
 }
 
 .text-red-600 {
@@ -2093,9 +2092,9 @@ footer {
   background-color: rgb(185 28 28 / var(--tw-bg-opacity, 1));
 }
 
-.hover\:text-grape-royal-purple:hover {
+.hover\:text-grape-champagne:hover {
   --tw-text-opacity: 1;
-  color: rgb(74 14 78 / var(--tw-text-opacity, 1));
+  color: rgb(247 231 180 / var(--tw-text-opacity, 1));
 }
 
 @media (min-width: 768px) {
