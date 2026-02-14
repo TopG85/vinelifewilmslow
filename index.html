@@ -46,12 +46,11 @@
             <a class="navbar-brand" href="index.html">
                 <img src="assets/images/vinelifewilmslowlogo.webp" alt="" class="logo" width="55" height="55">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+            <button id="navbar-toggle" class="md:hidden p-2 rounded-md" aria-label="Toggle navigation">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto flex items-center space-x-4">
+            <div id="navbarNav" class="hidden md:flex md:items-center md:ml-auto">
+                <ul class="flex flex-col md:flex-row md:items-center md:space-x-4">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#hero">Home</a>
                     </li>
@@ -168,22 +167,18 @@
         </section>
 
         <!-- Leaders Section -->
-        <section id="leaders" class="py-5">
+        <section id="leaders" class="py-10">
             <!-- Background Image -->
             <div id="leaders-bg-image">
-                <img src="assets/images/bokeh.webp"
-                    alt="Abstract bokeh effect with soft glowing circles in various colors and sizes, set against a blurred background suggesting a sunrise or sunset over a field. The atmosphere feels dreamy and uplifting. No visible text."
-                    class="leaders-bg-image" width="1920" height="1080" loading="lazy">
+                <img src="assets/images/bokeh.webp" alt="Abstract bokeh effect" class="leaders-bg-image" width="1920" height="1080" loading="lazy">
             </div>
 
             <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-md-10 col-12 mx-auto text-center">
-                        <h2 class="display-4 mb-4">Meet our leaders</h2>
-                        <img src="assets/images/2305+R-C-1920w.webp"
-                            alt="Robert and Cheryl Larkman standing side by side, Cheryl wearing a light blazer with a heart-shaped pin and Robert in a dark shirt, both appearing relaxed and friendly against a soft pink background. The setting is informal and welcoming, conveying a warm and approachable atmosphere. No visible text in the image."
-                            class="img-fluid rounded mb-4" width="600" height="400">
-                        <p class="lead">
+                <div class="">
+                    <div class="lg:w-8/12 md:w-10/12 w-full mx-auto text-center px-4">
+                        <h2 class="text-4xl font-crimson mb-6">Meet our leaders</h2>
+                        <img src="assets/images/2305+R-C-1920w.webp" alt="Robert and Cheryl Larkman standing side by side" class="rounded mb-6 w-full max-w-lg mx-auto" width="600" height="400">
+                        <p class="lead text-base md:text-lg">
                             We have lived in Wilmslow most of our lives and currently reside in Handforth
                             where we raised our three children and launched them on their own journeys to change
                             the world! We believe that church is all about relationships, firstly with God
@@ -198,7 +193,7 @@
         </section>
 
         <!-- Services Section -->
-        <section id="services" style="padding-top: 0; padding-bottom: 1rem;">
+        <section id="services" class="pt-6 pb-4">
             <!-- Background Image -->
             <!-- <div id="services-bg-image">
                 <img src="assets/images/worship.webp" alt="Vinelife Wilmslow Worship" class="services-bg-image"
@@ -206,17 +201,14 @@
             </div> -->
 
             <div class="container">
-                <div class="row">
-                    <div class="col-12 text-center" style="margin-bottom: 0;">
-                        <h2 class="display-4" style="margin-bottom: 0;">Our Services</h2>
-                    </div>
-                    <div class="col-lg-6 col-md-8 col-10 mx-auto" style="margin-top: -2.5rem;">
-                        <div class="text-center">
-                            <i class="fa-solid fa-hands-praying" style="display: block; margin-bottom: 0.75rem;"></i>
-                            <h4 style="margin-bottom: 0.1rem;">Sunday Worship</h4>
-                            <p style="margin-bottom: 0;">Worship meetings - 10.30 am most Sundays.
-                            </p>
-                        </div>
+                <div class="w-full text-center mb-0">
+                    <h2 class="text-4xl mb-0">Our Services</h2>
+                </div>
+                <div class="lg:w-1/2 md:w-2/3 w-10/12 mx-auto -mt-8">
+                    <div class="text-center px-4">
+                        <i class="fa-solid fa-hands-praying text-5xl block mb-3"></i>
+                        <h4 class="text-xl mb-1">Sunday Worship</h4>
+                        <p class="mb-0">Worship meetings - 10.30 am most Sundays.</p>
                     </div>
                 </div>
             </div>
@@ -231,62 +223,59 @@
             </div> -->
 
             <div class="container">
-                <div class="row">
-                    <div class="col-12 text-center mb-5">
-                        <h2 class="display-4">March Events</h2>
-                        <p class="lead">Stay connected with what's happening at Vinelife Wilmslow</p>
-                    </div>
+                <div class="text-center mb-5">
+                    <h2 class="text-4xl">March Events</h2>
+                    <p class="lead">Stay connected with what's happening at Vinelife Wilmslow</p>
                 </div>
 
                 <!-- Meetup Boxes -->
-                <div class="row g-4 justify-content-center">
-                    <div class="col-lg-4 col-md-6 col-12">
+                <div class="flex flex-wrap gap-4 justify-center">
+                    <div class="lg:w-1/3 md:w-1/2 w-full">
                         <div class="meetup-box">
-                            <h3><i class="fa-solid fa-hands-praying me-2"></i>Worship Meeting</h3>
+                            <h3><i class="fa-solid fa-hands-praying mr-2"></i>Worship Meeting</h3>
                             <p><strong>Sunday 1st</strong></p>
                             <p>The Open Arms</p>
-                            <p><i class="fa-solid fa-clock me-2"></i>10:30 am</p>
+                            <p><i class="fa-solid fa-clock mr-2"></i>10:30 am</p>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 col-12">
+                    <div class="lg:w-1/3 md:w-1/2 w-full">
                         <div class="meetup-box">
-                            <h3><i class="fa-solid fa-mug-hot me-2"></i>Informal Meeting</h3>
+                            <h3><i class="fa-solid fa-mug-hot mr-2"></i>Informal Meeting</h3>
                             <p><strong>Sunday 8th</strong></p>
                             <p>Costa Coffee, The Paddock, Handforth</p>
-                            <p><i class="fa-solid fa-clock me-2"></i>10:30 am</p>
+                            <p><i class="fa-solid fa-clock mr-2"></i>10:30 am</p>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 col-12">
+                    <div class="lg:w-1/3 md:w-1/2 w-full">
                         <div class="meetup-box">
-                            <h3><i class="fa-solid fa-church me-2"></i>Church Meeting</h3>
+                            <h3><i class="fa-solid fa-church mr-2"></i>Church Meeting</h3>
                             <p><strong>Sunday 15th</strong></p>
                             <p>The Open Arms</p>
-                            <p><i class="fa-solid fa-clock me-2"></i>10:30 am</p>
+                            <p><i class="fa-solid fa-clock mr-2"></i>10:30 am</p>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 col-12">
+                    <div class="lg:w-1/3 md:w-1/2 w-full">
                         <div class="meetup-box">
-                            <h3><i class="fa-solid fa-hands-praying me-2"></i>Worship Meeting</h3>
+                            <h3><i class="fa-solid fa-hands-praying mr-2"></i>Worship Meeting</h3>
                             <p><strong>Sunday 22nd</strong></p>
                             <p>The Open Arms</p>
-                            <p><i class="fa-solid fa-clock me-2"></i>10:30 am</p>
+                            <p><i class="fa-solid fa-clock mr-2"></i>10:30 am</p>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 col-12">
+                    <div class="lg:w-1/3 md:w-1/2 w-full">
                         <div class="meetup-box">
-                            <h3><i class="fa-solid fa-hands-praying me-2"></i>Worship Meeting</h3>
+                            <h3><i class="fa-solid fa-hands-praying mr-2"></i>Worship Meeting</h3>
                             <p><strong>Sunday 29th</strong></p>
                             <p>The Open Arms</p>
-                            <p><i class="fa-solid fa-clock me-2"></i>10:30 am</p>
+                            <p><i class="fa-solid fa-clock mr-2"></i>10:30 am</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="row mt-4">
-                    <div class="col-12 text-center">
-                        <a href="#contact" class="btn btn-primary mt-3">Get More Information</a>
-                    </div>
+                <div class="text-center mt-4">
+                    <a href="#contact" class="inline-block bg-grape-royal-purple text-white font-semibold py-2 px-6 rounded shadow mt-3">Get More Information</a>
                 </div>
+            </div>
         </section>
 
         <!-- YouTube Channel Section -->
@@ -373,7 +362,7 @@
     </main>
 
     <!-- Local Resources -->
-    <section id="local-resources" class="py-5">
+    <section id="local-resources" class="py-10">
         <!-- Background Image -->
         <!-- <div id="local-resources-bg-image">
             <img src="assets/images/resources.webp" alt="Vinelife Wilmslow Resources" class="local-resources-bg-image"
@@ -389,41 +378,34 @@
             </div>
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6 col-12">
-                    <div class="resource-box">
-                        <h3><i class="fa-solid fa-hand me-2"></i>CAP</h3>
-                        <img src="assets/images/caplogo.webp" alt="Christian Against Poverty" class="img-fluid mb-3"
-                            width="300" height="200">
-                        <p>Christian Against Poverty</p>
-                        <a href="https://www.capuk.org" target="_blank" class="btn btn-outline-primary">Visit
-                            Website</a>
+                    <div class="container">
+                    <div class="flex flex-wrap gap-4">
+                        <div class="lg:w-1/3 md:w-1/2 w-full">
+                            <div class="resource-box">
+                                <h3><i class="fa-solid fa-hand mr-2"></i>CAP</h3>
+                                <img src="assets/images/caplogo.webp" alt="Christian Against Poverty" class="w-full mb-3 mx-auto" width="300" height="200">
+                                <p>Christian Against Poverty</p>
+                                <a href="https://www.capuk.org" target="_blank" class="inline-block border-2 border-grape-forest text-grape-forest py-2 px-4 rounded">Visit Website</a>
+                            </div>
+                        </div>
+                        <div class="lg:w-1/3 md:w-1/2 w-full">
+                            <div class="resource-box">
+                                <h3><i class="fa-solid fa-graduation-cap mr-2"></i>Alpha</h3>
+                                <img src="assets/images/alphalogo.webp" alt="Alpha" class="w-full mb-3 mx-auto" width="300" height="200">
+                                <p>Alpha Course</p>
+                                <a href="https://alpha.org.uk/try-alpha#matomo-btn-try-alpha" target="_blank" class="inline-block border-2 border-grape-forest text-grape-forest py-2 px-4 rounded">Visit Website</a>
+                            </div>
+                        </div>
+                        <div class="lg:w-1/3 md:w-1/2 w-full">
+                            <div class="resource-box">
+                                <h3><i class="fa-solid fa-heart mr-2"></i>Hope Central</h3>
+                                <img src="assets/images/hopecentral.webp" alt="Hope Central" class="w-full mb-3 mx-auto" width="300" height="200">
+                                <p>Knutsford, Wilmslow & Handforth</p>
+                                <a href="https://www.hopecentral.org.uk" target="_blank" class="inline-block border-2 border-grape-forest text-grape-forest py-2 px-4 rounded">Visit Website</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div class="resource-box">
-                        <h3><i class="fa-solid fa-graduation-cap me-2"></i>Alpha</h3>
-                        <img src="assets/images/alphalogo.webp" alt="Alpha" class="img-fluid mb-3" width="300"
-                            height="200">
-                        <p>Alpha Course</p>
-                        <a href="https://alpha.org.uk/try-alpha#matomo-btn-try-alpha" target="_blank"
-                            class="btn btn-outline-primary">Visit
-                            Website</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div class="resource-box">
-                        <h3><i class="fa-solid fa-heart me-2"></i>Hope Central</h3>
-                        <img src="assets/images/hopecentral.webp" alt="Hope Central" class="img-fluid mb-3" width="300"
-                            height="200">
-                        <p>Knutsford, Wilmslow & Handforth</p>
-                        <a href="https://www.hopecentral.org.uk" target="_blank" class="btn btn-outline-primary">Visit
-                            Website</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Find Us Section -->
     <section id="find-us" class="py-5">
         <!-- Background Image -->
         <div id="find-us-bg-image">
@@ -439,32 +421,29 @@
                 </div>
             </div>
 
-            <div class="row justify-content-center">
-                <div class="col-lg-10 col-md-12 col-12">
+            <div class="flex justify-center">
+                <div class="lg:w-10/12 md:w-full w-full">
                     <div class="map-container mb-4">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d900.0923325708396!2d-2.213721284864264!3d53.33826320781932!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487a4d3ebf596883%3A0x261308f27ece1c71!2sVinelife%20Church%20Wilmslow!5e1!3m2!1sen!2suk!4v1754432126080!5m2!1sen!2suk"
-                            class="w-100" height="450" style="border:0; border-radius: 12px;" allowfullscreen=""
-                            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d900.0923325708396!2d-2.213721284864264!3d53.33826320781932!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487a4d3ebf596883%3A0x261308f27ece1c71!2sVinelife%20Church%20Wilmslow!5e1!3m2!1sen!2suk!4v1754432126080!5m2!1sen!2suk" class="w-full" height="450" style="border:0; border-radius: 12px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
 
                     <!-- Location Information -->
-                    <div class="row mt-4">
-                        <div class="col-lg-4 col-md-6 col-12 mb-3">
+                    <div class="flex flex-wrap mt-4 gap-4">
+                        <div class="lg:w-1/3 md:w-1/2 w-full mb-3">
                             <div class="location-info text-center">
                                 <i class="fa-solid fa-map-marker-alt mb-3"></i>
                                 <h4>Address</h4>
                                 <p>The Open Arms Youth Project<br>Howty Close, Wilmslow<br>SK9 2SH</p>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 col-12 mb-3">
+                        <div class="lg:w-1/3 md:w-1/2 w-full mb-3">
                             <div class="location-info text-center">
                                 <i class="fa-solid fa-clock mb-3"></i>
                                 <h4>Service Times</h4>
                                 <p>Sunday Worship<br>10:30 AM<br>Most Sundays</p>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-12 col-12 mb-3">
+                        <div class="lg:w-1/3 md:w-full w-full mb-3">
                             <div class="location-info text-center">
                                 <i class="fa-solid fa-car mb-3"></i>
                                 <h4>Parking</h4>
@@ -493,40 +472,32 @@
                     <!-- Contact Section -->
                     <div class="container mb-5">
                         <div class="row justify-content-center">
-                            <div class="col-lg-8 col-md-10 col-12">
-                                <div class="col-12 text-center">
-                                    <h2 class="display-6">Contact us!</h2>
+                                <div class="lg:w-8/12 md:w-10/12 w-full">
+                                <div class="text-center">
+                                    <h2 class="text-2xl font-semibold">Contact us!</h2>
                                 </div>
                                 <!-- Form submission is handled via JavaScript below; 'action="#"' is a placeholder and does not submit to a server. -->
                                 <form id="contact-form">
                                     <div class="mb-3">
-                                        <label for="name" class="form-label">Your Name</label>
-                                        <input type="text" class="form-control" id="name" name="name"
-                                            placeholder="Enter your name">
+                                        <label for="name" class="block mb-1">Your Name</label>
+                                        <input type="text" class="w-full px-3 py-2 border rounded-md" id="name" name="name" placeholder="Enter your name">
                                     </div>
                                     <div class="mb-3">
-                                        <label for="phone" class="form-label">Phone number</label>
-                                        <input type="tel" class="form-control" id="phone" name="phone" required
-                                            placeholder="Enter your phone number">
-                                        <div id="phone-feedback" class="invalid-feedback" style="display:none;">
-                                            Please enter a valid phone number.
-                                        </div>
+                                        <label for="phone" class="block mb-1">Phone number</label>
+                                        <input type="tel" class="w-full px-3 py-2 border rounded-md" id="phone" name="phone" required placeholder="Enter your phone number">
+                                        <div id="phone-feedback" class="text-red-600 text-sm mt-1" style="display:none;">Please enter a valid phone number.</div>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="email" class="form-label">Your Email</label>
-                                        <input type="email" class="form-control" id="email" name="email"
-                                            placeholder="Enter your email">
-                                        <div id="email-feedback" class="invalid-feedback" style="display:none;">
-                                            Please enter a valid email address.
-                                        </div>
+                                        <label for="email" class="block mb-1">Your Email</label>
+                                        <input type="email" class="w-full px-3 py-2 border rounded-md" id="email" name="email" placeholder="Enter your email">
+                                        <div id="email-feedback" class="text-red-600 text-sm mt-1" style="display:none;">Please enter a valid email address.</div>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="message" class="form-label">Message</label>
-                                        <textarea class="form-control" id="message" name="message" rows="5" required
-                                            placeholder="Enter your message"></textarea>
+                                        <label for="message" class="block mb-1">Message</label>
+                                        <textarea class="w-full px-3 py-2 border rounded-md" id="message" name="message" rows="5" required placeholder="Enter your message"></textarea>
                                     </div>
-                                    <div class="col-12 text-center">
-                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    <div class="text-center">
+                                        <button type="submit" class="inline-block bg-grape-royal-purple text-white font-semibold py-2 px-6 rounded">Submit</button>
                                     </div>
                                 </form>
                                 <!-- Contact Information -->
@@ -558,15 +529,29 @@
         </div>
     </footer>
 
-    <!-- Bootstrap JS -->
-    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
-        </script>
-
-    <!-- Form handling JavaScript -->
+    <!-- Custom JS: toggler, form validation, smooth scrolling -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Contact form handling
+            // Mobile nav toggler
+            const toggler = document.getElementById('navbar-toggle');
+            const navMenu = document.getElementById('navbarNav');
+            if (toggler && navMenu) {
+                toggler.addEventListener('click', () => {
+                    navMenu.classList.toggle('hidden');
+                });
+            }
+
+            // Collapse menu on nav link click (mobile)
+            const navLinks = document.querySelectorAll('#navbarNav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navMenu && !navMenu.classList.contains('hidden') && window.innerWidth < 768) {
+                        navMenu.classList.add('hidden');
+                    }
+                });
+            });
+
+            // Contact form handling (with Tailwind-friendly invalid styles)
             const contactForm = document.getElementById('contact-form');
             if (contactForm) {
                 contactForm.addEventListener('submit', function (e) {
@@ -581,45 +566,40 @@
                     const phoneInput = document.getElementById('phone');
                     const phoneFeedback = document.getElementById('phone-feedback');
 
-                    // Basic validation
                     let isValid = true;
 
-                    // Email validation (if provided)
                     if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-                        emailInput.classList.add('is-invalid');
+                        emailInput.classList.add('border-red-500', 'ring-1', 'ring-red-500');
                         emailFeedback.style.display = 'block';
                         emailInput.focus();
                         isValid = false;
                     } else {
-                        emailInput.classList.remove('is-invalid');
+                        emailInput.classList.remove('border-red-500', 'ring-1', 'ring-red-500');
                         emailFeedback.style.display = 'none';
                     }
 
-                    // Phone validation (now required)
                     if (!phone || phone.trim().length === 0) {
-                        phoneInput.classList.add('is-invalid');
+                        phoneInput.classList.add('border-red-500', 'ring-1', 'ring-red-500');
                         phoneFeedback.textContent = 'Phone number is required.';
                         phoneFeedback.style.display = 'block';
                         if (isValid) phoneInput.focus();
                         isValid = false;
                     } else if (!/^[\+]?[0-9\s\-\(\)]{10,}$/.test(phone)) {
-                        phoneInput.classList.add('is-invalid');
+                        phoneInput.classList.add('border-red-500', 'ring-1', 'ring-red-500');
                         phoneFeedback.textContent = 'Please enter a valid phone number.';
                         phoneFeedback.style.display = 'block';
                         if (isValid) phoneInput.focus();
                         isValid = false;
                     } else {
-                        phoneInput.classList.remove('is-invalid');
+                        phoneInput.classList.remove('border-red-500', 'ring-1', 'ring-red-500');
                         phoneFeedback.style.display = 'none';
                     }
 
-                    // Message validation
                     if (!message || message.trim().length < 10) {
                         alert('Please provide a message with at least 10 characters.');
                         return;
                     }
 
-                    // Name validation
                     if (!name || name.trim().length < 2) {
                         alert('Please provide your name.');
                         return;
@@ -632,71 +612,18 @@
                 });
             }
 
-            // Form handling (legacy safeguarding form - keeping for compatibility)
-            const form = document.getElementById('safeguarding-form');
-            if (form) {
-                form.addEventListener('submit', function (e) {
-                    e.preventDefault();
-                    const formData = new FormData(form);
-                    const urgency = formData.get('urgency');
-                    const message = formData.get('message');
-                    const email = formData.get('email');
-                    const emailInput = document.getElementById('email');
-                    const emailFeedback = document.getElementById('email-feedback');
-
-                    // Validation
-                    if (!urgency) {
-                        alert('Please select an urgency level.');
-                        return;
-                    }
-                    if (!message || message.trim().length < 10) {
-                        alert('Please provide more details about your concern (at least 10 characters).');
-                        return;
-                    }
-                    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-                        emailInput.classList.add('is-invalid');
-                        emailFeedback.style.display = 'block';
-                        emailInput.focus();
-                        return;
-                    } else {
-                        emailInput.classList.remove('is-invalid');
-                        emailFeedback.style.display = 'none';
-                    }
-
-                    // Response based on urgency
-                    let alertMessage = urgency === 'immediate'
-                        ? 'IMMEDIATE DANGER ALERT: If someone is in immediate danger, please call 999 right now!\n\nYour report has been noted, but for immediate help, contact emergency services directly.'
-                        : `Thank you for your report. Your concern has been recorded and will be reviewed by our safeguarding team.\n\nReference ID: SAF-${Date.now().toString().slice(-6)}`;
-
-                    alert(alertMessage);
-                    form.reset();
-                });
-            }
-
-            // Mobile navigation auto-collapse
-            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
-            const navCollapse = document.querySelector('.navbar-collapse');
-
-            navLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    if (navCollapse.classList.contains('show')) {
-                        new bootstrap.Collapse(navCollapse).hide();
-                    }
-                });
-            });
-
             // Smooth scrolling for anchor links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
+                    // Ignore external anchors like '#'
+                    const href = this.getAttribute('href');
+                    if (!href || href === '#') return;
+                    const target = document.querySelector(href);
                     if (target) {
-                        const navbarHeight = 90; // Account for fixed navbar height
-                        const targetPosition = target.offsetTop - navbarHeight;
-                        window.scrollTo({
-                            top: targetPosition,
-                            behavior: 'smooth'
-                        });
+                        e.preventDefault();
+                        const navbarHeight = 90;
+                        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+                        window.scrollTo({ top: targetPosition, behavior: 'smooth' });
                     }
                 });
             });
