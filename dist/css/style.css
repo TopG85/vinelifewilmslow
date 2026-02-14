@@ -2205,6 +2205,10 @@ footer {
   gap: 1.5rem;
 }
 
+.gap-y-10 {
+  row-gap: 2.5rem;
+}
+
 .rounded {
   border-radius: 0.25rem;
 }
@@ -2474,6 +2478,10 @@ footer {
 
   .md\:items-center {
     align-items: center;
+  }
+
+  .md\:gap-8 {
+    gap: 2rem;
   }
 
   .md\:space-x-4 > :not([hidden]) ~ :not([hidden]) {
