@@ -345,7 +345,7 @@
   }
 
   .resource-box {
-    @apply bg-gradient-to-br from-grape-mint via-grape-seafoam via-grape-spring to-white/95 rounded-2xl p-10 mb-6 shadow-lg text-center backdrop-blur-2xl border-2 border-transparent relative h-full flex flex-col justify-between overflow-hidden;
+    @apply bg-gradient-to-br from-grape-mint via-grape-seafoam via-grape-spring to-white/95 rounded-2xl p-8 mb-6 shadow-lg text-center backdrop-blur-2xl border-2 border-transparent relative h-full flex flex-col justify-between overflow-hidden max-w-md mx-auto;
   }
 
   .resource-box::before {
@@ -374,7 +374,7 @@
   }
 
   .resource-box img {
-    @apply max-w-xs h-auto object-contain block mx-auto mb-6 rounded-lg relative z-[2];
+    @apply max-w-xs h-auto object-contain block mx-auto mb-4 rounded-lg relative z-[2];
   }
 
   /* Resource .btn and .btn-outline-primary removed (use Tailwind utilities directly) */

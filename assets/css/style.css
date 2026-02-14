@@ -1400,9 +1400,12 @@ section .container {
 
 .resource-box {
   position: relative;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 1.5rem;
   display: flex;
   height: 100%;
+  max-width: 28rem;
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
@@ -1418,7 +1421,7 @@ section .container {
   --tw-gradient-to: rgb(168 216 168 / 0)  var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), #a8d8a8 var(--tw-gradient-via-position), var(--tw-gradient-to);
   --tw-gradient-to: rgb(255 255 255 / 0.95) var(--tw-gradient-to-position);
-  padding: 2.5rem;
+  padding: 2rem;
   text-align: center;
   --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
@@ -1508,7 +1511,7 @@ section .container {
   z-index: 2;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   display: block;
   height: auto;
   max-width: 20rem;
@@ -2280,6 +2283,10 @@ footer {
 
 .pt-6 {
   padding-top: 1.5rem;
+}
+
+.text-left {
+  text-align: left;
 }
 
 .text-center {
