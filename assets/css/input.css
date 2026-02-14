@@ -71,6 +71,11 @@
     scroll-margin-top: 140px;
   }
 
+  /* Center headings and main text inside each section for consistent layout */
+  section .container {
+    @apply text-center px-4;
+  }
+
   #about {
     @apply relative overflow-hidden pt-8 bg-gradient-to-br from-grape-royal-purple via-grape-cedar to-grape-deep-forest;
   }
@@ -89,13 +94,13 @@
   }
 
   #about p {
-    text-align: justify;
-    text-justify: inter-word;
+    text-align: center;
+    @apply mx-auto max-w-3xl;
   }
 
   #about .lead {
-    text-align: justify;
-    text-justify: inter-word;
+    text-align: center;
+    @apply mx-auto max-w-3xl;
   }
 
   /* Leaders Section */
@@ -117,13 +122,13 @@
   }
 
   #leaders p {
-    text-align: justify;
-    text-justify: inter-word;
+    text-align: center;
+    @apply mx-auto max-w-3xl;
   }
 
   #leaders .lead {
-    text-align: justify;
-    text-justify: inter-word;
+    text-align: center;
+    @apply mx-auto max-w-3xl;
   }
 
   /* Services Section */
@@ -431,6 +436,52 @@
 
   .contact-form {
     @apply bg-white/10 backdrop-blur-xl rounded-2xl p-8 border border-white/20;
+  }
+
+  /* Make headings, cards, images and common components centered site-wide */
+  section h1,
+  section h2,
+  section h3,
+  section h4,
+  section h5,
+  section h6 {
+    @apply text-center mx-auto;
+  }
+
+  /* Ensure section containers center their contents (headings, text, CTAs) */
+  section .container {
+    @apply text-center;
+  }
+
+  /* Cards and component centering */
+  .resource-box {
+    @apply items-center text-center;
+  }
+
+  .meetup-box {
+    @apply items-center text-center;
+  }
+
+  .youtube-container,
+  .youtube-content {
+    @apply text-center;
+  }
+
+  .location-info {
+    @apply items-center text-center;
+  }
+
+  .contact-form {
+    @apply text-center;
+  }
+
+  .map-container {
+    @apply flex items-center justify-center;
+  }
+
+  /* Center images inside section containers */
+  section .container img {
+    @apply mx-auto;
   }
 
   /* Form control utilities removed (inputs use Tailwind utilities directly in markup) */
