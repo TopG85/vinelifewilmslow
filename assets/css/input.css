@@ -484,6 +484,34 @@
     @apply mx-auto;
   }
 
+  /* High-specificity overrides: ensure common elements inside sections are centered
+     This helps when legacy utility classes (e.g., `text-left`) or grid markup interfere. */
+  section .container h1,
+  section .container h2,
+  section .container h3,
+  section .container h4,
+  section .container h5,
+  section .container h6,
+  section .container p,
+  section .container ul,
+  section .container ol,
+  section .container li,
+  section .container a,
+  section .container button,
+  section .container form,
+  section .container input,
+  section .container textarea,
+  section .container img,
+  section .container iframe,
+  section .container .meetup-box,
+  section .container .resource-box,
+  section .container .location-info,
+  section .container .youtube-container {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
   /* Form control utilities removed (inputs use Tailwind utilities directly in markup) */
 
   /* Buttons */
