@@ -1913,6 +1913,40 @@ section .container h1,
   margin-right: auto !important;
 }
 
+/* Force direct children and common column wrappers inside section containers to center
+     This helps when markup uses grid/row/col wrappers from Bootstrap which set widths. */
+
+#services section .container > * {
+  text-align: center !important;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+@media (max-width: 768px) {
+  #services section .container > * {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+section .container > * {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center !important;
+}
+
+section .container .row > *,
+  section .container .row > div,
+  section .container [class*="col-"] {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center !important;
+}
+
 /* Form control utilities removed (inputs use Tailwind utilities directly in markup) */
 
 /* Buttons */
