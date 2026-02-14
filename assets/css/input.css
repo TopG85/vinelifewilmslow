@@ -71,6 +71,11 @@
     scroll-margin-top: 140px;
   }
 
+  /* Ensure the `.container` element is horizontally centered on the page */
+  .container {
+    @apply mx-auto;
+  }
+
   /* Center headings and main text inside each section for consistent layout */
   section .container {
     @apply text-center px-4;

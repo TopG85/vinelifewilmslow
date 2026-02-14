@@ -700,6 +700,13 @@ section {
   scroll-margin-top: 140px;
 }
 
+/* Ensure the `.container` element is horizontally centered on the page */
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* Center headings and main text inside each section for consistent layout */
 
 #services section .container {
