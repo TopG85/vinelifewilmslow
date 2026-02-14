@@ -18,9 +18,7 @@
     @apply font-crimson font-bold uppercase;
   }
 
-  .display-1, .display-2, .display-3, .display-4, .display-5, .display-6 {
-    @apply font-crimson font-black uppercase;
-  }
+  /* Display utility classes removed (replaced with Tailwind text utilities in markup) */
 }
 
 /* Navigation */
@@ -33,17 +31,7 @@
     @apply h-14 w-auto;
   }
 
-  .nav-link {
-    @apply text-grape-mint font-semibold mx-2.5 hover:text-cream transition-colors duration-300;
-  }
-
-  .nav-link.active {
-    @apply text-cream;
-  }
-
-  .navbar-toggler {
-    @apply border border-cream;
-  }
+  /* Navigation link styles moved to inline Tailwind utilities in markup; removed redundant .nav-link/.navbar-toggler rules. */
 
   /* Hero Section */
   .hero-section {
@@ -73,8 +61,7 @@
   }
 
   .hero-section h1,
-  .hero-section p,
-  .hero-section .btn {
+  .hero-section p {
     @apply text-cream;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
   }
@@ -272,13 +259,7 @@
     @apply mt-8 flex flex-wrap gap-4 justify-center;
   }
 
-  .btn-youtube {
-    @apply bg-gradient-to-r from-red-600 to-red-700 border-none text-white font-semibold py-2 px-8 rounded-full no-underline shadow-lg transition-all duration-300 hover:from-red-700 hover:to-red-800 hover:-translate-y-0.5 hover:shadow-xl;
-  }
-
-  .btn-outline-youtube {
-    @apply border-2 border-red-600 text-red-600 bg-transparent font-semibold py-2 px-8 rounded-full no-underline transition-all duration-300 hover:bg-red-600 hover:text-white hover:-translate-y-0.5 hover:shadow-lg;
-  }
+  /* YouTube-specific button component styles removed in favor of inline Tailwind utilities in markup */
 
   /* Events Section */
   #events {
@@ -386,13 +367,7 @@
     @apply max-w-xs h-auto object-contain block mx-auto mb-6 rounded-lg relative z-[2];
   }
 
-  .resource-box .btn {
-    @apply bg-gradient-to-r from-grape-forest to-grape-emerald border-none text-white font-semibold py-2 px-8 rounded-full no-underline relative z-[2] shadow-lg mx-auto mt-6 block w-fit transition-all duration-300 hover:from-grape-emerald hover:to-grape-jade hover:-translate-y-0.5 hover:shadow-xl;
-  }
-
-  .btn-outline-primary {
-    @apply border-2 border-grape-forest text-grape-forest bg-transparent font-semibold py-2 px-8 rounded-lg no-underline transition-all duration-300 hover:bg-grape-forest hover:text-white;
-  }
+  /* Resource .btn and .btn-outline-primary removed (use Tailwind utilities directly) */
 
   /* Find Us Section */
   #find-us {
@@ -458,50 +433,10 @@
     @apply bg-white/10 backdrop-blur-xl rounded-2xl p-8 border border-white/20;
   }
 
-  .form-label {
-    @apply text-cream font-semibold mb-2 block;
-  }
-
-  .form-control {
-    @apply w-full bg-white/10 border border-white/30 rounded-lg px-4 py-2 text-white placeholder-gray-300 focus:outline-none focus:border-grape-mint transition-all duration-300 mb-4;
-  }
-
-  .form-control::placeholder {
-    @apply text-gray-400;
-  }
-
-  .form-control:focus {
-    @apply ring-2 ring-grape-mint;
-  }
-
-  .form-control.is-invalid {
-    @apply border-red-500 ring-2 ring-red-500;
-  }
-
-  .invalid-feedback {
-    @apply text-red-400 text-sm mt-1;
-  }
+  /* Form control utilities removed (inputs use Tailwind utilities directly in markup) */
 
   /* Buttons */
-  .btn-primary {
-    @apply bg-gradient-to-r from-grape-cedar to-grape-hunter border-grape-hunter text-cream font-semibold py-2 px-8 rounded-lg no-underline transition-all duration-300 hover:from-grape-malachite hover:to-grape-emerald hover:border-grape-emerald hover:text-cream;
-  }
-
-  .btn-accent {
-    @apply bg-complement-coral border-complement-sunset text-cream font-semibold transition-all duration-300 hover:bg-complement-sunset hover:border-complement-terracotta hover:text-cream;
-  }
-
-  .btn-outline-light {
-    @apply border-2 border-cream text-cream no-underline transition-all duration-300 hover:bg-cream hover:text-grape-deep-purple py-2 px-8 rounded-lg;
-  }
-
-  .btn-outline-accent {
-    @apply border-2 border-complement-coral text-complement-coral no-underline transition-all duration-300 hover:bg-complement-coral hover:text-cream;
-  }
-
-  .hero-section .btn-outline-light {
-    @apply border-cream text-cream hover:bg-cream hover:text-charcoal;
-  }
+  /* Legacy .btn-* variants removed — buttons are now styled via Tailwind utilities in markup */
 
   /* Social Media Icons */
   .social-links {
