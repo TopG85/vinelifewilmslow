@@ -700,6 +700,31 @@ section {
   scroll-margin-top: 140px;
 }
 
+/* Center headings and main text inside each section for consistent layout */
+
+#services section .container {
+  text-align: center;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+@media (max-width: 768px) {
+  #services section .container {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+section .container {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  text-align: center;
+}
+
 #about {
   position: relative;
   overflow: hidden;
@@ -736,13 +761,17 @@ section {
 }
 
 #about p {
-  text-align: justify;
-  text-justify: inter-word;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 48rem;
 }
 
 #about .lead {
-  text-align: justify;
-  text-justify: inter-word;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 48rem;
 }
 
 /* Leaders Section */
@@ -787,13 +816,17 @@ section {
 }
 
 #leaders p {
-  text-align: justify;
-  text-justify: inter-word;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 48rem;
 }
 
 #leaders .lead {
-  text-align: justify;
-  text-justify: inter-word;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 48rem;
 }
 
 /* Services Section */
