@@ -1,0 +1,565 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Typography */
+@layer base {
+  body {
+    @apply font-opensans text-cream bg-grape-deep-purple scroll-smooth;
+    line-height: 1.6;
+    padding-top: 90px;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-crimson font-bold uppercase;
+  }
+
+  .display-1, .display-2, .display-3, .display-4, .display-5, .display-6 {
+    @apply font-crimson font-black uppercase;
+  }
+}
+
+/* Navigation */
+@layer components {
+  .navbar {
+    @apply bg-grape-royal-purple fixed top-0 left-0 right-0 shadow-lg z-50;
+  }
+
+  .navbar-brand .logo {
+    @apply h-14 w-auto;
+  }
+
+  .nav-link {
+    @apply text-grape-mint font-semibold mx-2.5 hover:text-cream transition-colors duration-300;
+  }
+
+  .nav-link.active {
+    @apply text-cream;
+  }
+
+  .navbar-toggler {
+    @apply border border-cream;
+  }
+
+  /* Hero Section */
+  .hero-section {
+    @apply relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-grape-deep-purple via-grape-pine to-grape-royal-purple -mt-[90px] pt-[90px];
+  }
+
+  .hero-background {
+    @apply absolute inset-0 z-0;
+  }
+
+  .hero-background::after {
+    @apply absolute inset-0 bg-transparent z-[1];
+    content: '';
+  }
+
+  .hero-image {
+    @apply w-full h-full object-cover object-center opacity-100;
+  }
+
+  .hero-section::before {
+    @apply absolute inset-0 bg-transparent z-[1];
+    content: '';
+  }
+
+  .hero-section .container {
+    @apply relative z-[2];
+  }
+
+  .hero-section h1,
+  .hero-section p,
+  .hero-section .btn {
+    @apply text-cream;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  }
+
+  /* Sections */
+  section {
+    scroll-margin-top: 140px;
+  }
+
+  #about {
+    @apply relative overflow-hidden pt-8 bg-gradient-to-br from-grape-royal-purple via-grape-cedar to-grape-deep-forest;
+  }
+
+  #about-bg-image {
+    @apply absolute inset-0 z-0;
+  }
+
+  .about-bg-image {
+    @apply w-full h-full object-cover object-center opacity-20;
+    filter: brightness(0.6);
+  }
+
+  #about .container {
+    @apply relative z-[2];
+  }
+
+  #about p {
+    text-align: justify;
+    text-justify: inter-word;
+  }
+
+  #about .lead {
+    text-align: justify;
+    text-justify: inter-word;
+  }
+
+  /* Leaders Section */
+  #leaders {
+    @apply relative overflow-hidden pt-8 bg-gradient-to-br from-grape-rich-plum via-grape-malachite via-grape-emerald via-grape-viridian to-grape-royal-purple;
+  }
+
+  #leaders-bg-image {
+    @apply absolute inset-0 z-0;
+  }
+
+  .leaders-bg-image {
+    @apply w-full h-full object-cover object-center opacity-20;
+    filter: brightness(0.6);
+  }
+
+  #leaders .container {
+    @apply relative z-[2];
+  }
+
+  #leaders p {
+    text-align: justify;
+    text-justify: inter-word;
+  }
+
+  #leaders .lead {
+    text-align: justify;
+    text-justify: inter-word;
+  }
+
+  /* Services Section */
+  #services {
+    @apply relative overflow-hidden pt-8 bg-gradient-to-r from-grape-royal-purple via-grape-ivy via-grape-midnight-green via-grape-moss to-grape-deep-purple;
+  }
+
+  #services::before {
+    @apply absolute inset-0 z-[1] pointer-events-none;
+    background: 
+      radial-gradient(circle at 30% 70%, rgba(255, 107, 71, 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 70% 30%, rgba(255, 112, 67, 0.08) 0%, transparent 50%);
+    content: '';
+  }
+
+  #services .container {
+    @apply relative z-[2];
+  }
+
+  #services .text-center {
+    text-align: center;
+    @apply py-12 px-8;
+  }
+
+  #services h4 {
+    text-align: center;
+    @apply mb-6 text-cream text-3xl font-semibold;
+  }
+
+  #services p {
+    text-align: center;
+    @apply text-cream text-lg leading-relaxed mb-0;
+  }
+
+  #services i {
+    @apply text-6xl text-grape-eucalyptus block mb-6 transition-all duration-400 hover:text-grape-laurel hover:scale-125 hover:rotate-5;
+  }
+
+  /* YouTube Section */
+  #youtube {
+    @apply relative overflow-hidden pt-8 bg-gradient-to-r from-grape-deep-purple via-grape-royal-purple via-grape-rich-plum via-grape-burgundy to-grape-wine-red;
+  }
+
+  #youtube-bg-image {
+    @apply absolute inset-0 z-0;
+  }
+
+  .youtube-bg-image {
+    @apply w-full h-full object-cover object-center opacity-15;
+    filter: brightness(0.5);
+  }
+
+  #youtube::before {
+    @apply absolute inset-0 z-[1] pointer-events-none;
+    background: 
+      radial-gradient(circle at 25% 75%, rgba(255, 0, 0, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 75% 25%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+    content: '';
+  }
+
+  #youtube .container {
+    @apply relative z-[2];
+  }
+
+  .youtube-container {
+    @apply bg-gradient-to-br from-white/95 to-grape-champagne rounded-3xl p-12 shadow-2xl backdrop-blur-2xl border-2 border-white/30 relative overflow-hidden;
+  }
+
+  .youtube-container::before {
+    @apply absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-red-600 via-red-700 to-red-600 z-0;
+    content: '';
+  }
+
+  .youtube-content h3 {
+    @apply text-grape-deep-purple text-4xl font-bold mb-6;
+  }
+
+  .youtube-content p {
+    @apply text-charcoal text-lg leading-relaxed;
+  }
+
+  .youtube-icon-container {
+    @apply flex justify-center items-center mb-6;
+  }
+
+  .youtube-icon {
+    @apply text-6xl text-red-600 transition-all duration-400;
+    animation: pulse 2s infinite;
+  }
+
+  .youtube-icon:hover {
+    @apply scale-110 text-red-700;
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      @apply scale-100;
+    }
+    50% {
+      @apply scale-105;
+    }
+  }
+
+  .youtube-features {
+    @apply mt-8;
+  }
+
+  .feature-item {
+    @apply p-4 bg-white/70 rounded-xl mb-4 transition-all duration-300 h-full flex flex-col items-center justify-center;
+  }
+
+  .feature-item:hover {
+    @apply bg-white/90 -translate-y-0.5 shadow-lg;
+  }
+
+  .feature-item i {
+    @apply text-2xl text-grape-hunter transition-colors duration-300;
+  }
+
+  .feature-item:hover i {
+    @apply text-red-600;
+  }
+
+  .feature-item p {
+    @apply text-grape-deep-purple font-semibold m-0 text-base text-center;
+  }
+
+  .feature-item a {
+    @apply flex flex-col items-center justify-center text-center no-underline text-inherit w-full;
+  }
+
+  .youtube-buttons {
+    @apply mt-8 flex flex-wrap gap-4 justify-center;
+  }
+
+  .btn-youtube {
+    @apply bg-gradient-to-r from-red-600 to-red-700 border-none text-white font-semibold py-2 px-8 rounded-full no-underline shadow-lg transition-all duration-300 hover:from-red-700 hover:to-red-800 hover:-translate-y-0.5 hover:shadow-xl;
+  }
+
+  .btn-outline-youtube {
+    @apply border-2 border-red-600 text-red-600 bg-transparent font-semibold py-2 px-8 rounded-full no-underline transition-all duration-300 hover:bg-red-600 hover:text-white hover:-translate-y-0.5 hover:shadow-lg;
+  }
+
+  /* Events Section */
+  #events {
+    @apply relative overflow-hidden pt-8 bg-gradient-to-r from-grape-rich-plum via-grape-fern via-grape-hunter via-grape-basil to-grape-deep-purple;
+  }
+
+  .events-background {
+    @apply absolute inset-0 z-0;
+  }
+
+  .events-bg-image {
+    @apply w-full h-full object-cover object-center opacity-20;
+    filter: brightness(0.6);
+  }
+
+  #events .container {
+    @apply relative z-[2];
+  }
+
+  .meetup-box {
+    @apply bg-gradient-to-br from-grape-spring to-grape-eucalyptus rounded-lg p-8 mb-6 shadow-lg transition-all duration-300 text-center backdrop-blur-2xl border border-white/20 relative h-full flex flex-col justify-between hover:-translate-y-1.5 hover:shadow-2xl;
+  }
+
+  .meetup-box::before {
+    @apply absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-grape-pine via-grape-moss to-grape-fern z-0;
+    content: '';
+  }
+
+  .meetup-box * {
+    @apply text-center;
+  }
+
+  .meetup-box h3 {
+    @apply text-grape-deep-purple text-2xl mb-4 font-bold;
+  }
+
+  .meetup-box h3 i {
+    @apply text-complement-coral transition-colors duration-300;
+  }
+
+  .meetup-box:hover h3 i {
+    @apply text-complement-sunset;
+  }
+
+  .meetup-box p {
+    @apply text-charcoal mb-2 text-base;
+    width: 100%;
+  }
+
+  .meetup-box p strong {
+    @apply text-grape-deep-purple font-semibold;
+  }
+
+  .meetup-box p i {
+    @apply text-complement-coral;
+  }
+
+  /* Local Resources Section */
+  #local-resources {
+    @apply relative overflow-hidden pt-8 bg-gradient-to-r from-grape-royal-purple via-grape-viridian via-grape-midnight-green via-grape-ivy to-grape-deep-purple;
+  }
+
+  #local-resources::before {
+    @apply absolute inset-0 z-[1] pointer-events-none;
+    background: 
+      radial-gradient(circle at 20% 80%, rgba(255, 107, 71, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(255, 112, 67, 0.1) 0%, transparent 50%);
+    content: '';
+  }
+
+  #local-resources .container {
+    @apply relative z-[2];
+  }
+
+  .resource-box {
+    @apply bg-gradient-to-br from-grape-mint via-grape-seafoam via-grape-spring to-white/95 rounded-2xl p-10 mb-6 shadow-lg text-center backdrop-blur-2xl border-2 border-transparent relative h-full flex flex-col justify-between overflow-hidden;
+  }
+
+  .resource-box::before {
+    @apply absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-grape-forest via-grape-emerald via-grape-jade to-grape-forest z-[1];
+    content: '';
+  }
+
+  .resource-box h3 {
+    @apply text-grape-deep-purple text-2xl mb-4 font-bold relative z-[2];
+  }
+
+  .resource-box h3 i {
+    @apply text-complement-coral mr-2;
+  }
+
+  .resource-box p {
+    @apply text-charcoal mb-2 text-base text-center leading-relaxed relative z-[2];
+  }
+
+  .resource-box p strong {
+    @apply text-grape-forest font-semibold;
+  }
+
+  .resource-box p i {
+    @apply text-complement-coral;
+  }
+
+  .resource-box img {
+    @apply max-w-xs h-auto object-contain block mx-auto mb-6 rounded-lg relative z-[2];
+  }
+
+  .resource-box .btn {
+    @apply bg-gradient-to-r from-grape-forest to-grape-emerald border-none text-white font-semibold py-2 px-8 rounded-full no-underline relative z-[2] shadow-lg mx-auto mt-6 block w-fit transition-all duration-300 hover:from-grape-emerald hover:to-grape-jade hover:-translate-y-0.5 hover:shadow-xl;
+  }
+
+  .btn-outline-primary {
+    @apply border-2 border-grape-forest text-grape-forest bg-transparent font-semibold py-2 px-8 rounded-lg no-underline transition-all duration-300 hover:bg-grape-forest hover:text-white;
+  }
+
+  /* Find Us Section */
+  #find-us {
+    @apply relative overflow-hidden pt-8 bg-gradient-to-r from-grape-deep-purple via-grape-cedar via-grape-royal-purple via-grape-emerald to-grape-rich-plum;
+  }
+
+  #find-us-bg-image {
+    @apply absolute inset-0 z-0;
+  }
+
+  .find-us-bg-image {
+    @apply w-full h-full object-cover object-center opacity-20;
+    filter: brightness(0.6);
+  }
+
+  #find-us .container {
+    @apply relative z-[2];
+  }
+
+  .map-container {
+    @apply relative overflow-hidden rounded-xl shadow-lg transition-all duration-300 mb-6 hover:-translate-y-0.5 hover:shadow-2xl;
+  }
+
+  .location-info {
+    @apply bg-gradient-to-br from-grape-champagne to-white/95 rounded-lg p-8 mb-6 shadow-lg transition-all duration-300 backdrop-blur-2xl border border-white/30 h-full flex flex-col justify-center hover:-translate-y-1 hover:shadow-xl;
+  }
+
+  .location-info i {
+    @apply text-5xl text-grape-hunter transition-all duration-300 mb-4 hover:text-grape-emerald hover:scale-110;
+  }
+
+  .location-info h4 {
+    @apply text-grape-deep-purple text-2xl mb-4 font-bold;
+  }
+
+  .location-info p {
+    @apply text-charcoal mb-0 text-base leading-relaxed;
+  }
+
+  /* Contact Section */
+  #footer-contact {
+    @apply relative overflow-hidden bg-gradient-to-r from-grape-deep-purple via-grape-pine to-grape-royal-purple;
+  }
+
+  #contact-bg-image {
+    @apply absolute inset-0 z-0;
+  }
+
+  .contact-bg-image {
+    @apply w-full h-full object-cover object-center opacity-20;
+    filter: brightness(0.6);
+  }
+
+  #footer-contact .container {
+    @apply relative z-[2];
+  }
+
+  #contact {
+    @apply relative z-[2];
+  }
+
+  .contact-form {
+    @apply bg-white/10 backdrop-blur-xl rounded-2xl p-8 border border-white/20;
+  }
+
+  .form-label {
+    @apply text-cream font-semibold mb-2 block;
+  }
+
+  .form-control {
+    @apply w-full bg-white/10 border border-white/30 rounded-lg px-4 py-2 text-white placeholder-gray-300 focus:outline-none focus:border-grape-mint transition-all duration-300 mb-4;
+  }
+
+  .form-control::placeholder {
+    @apply text-gray-400;
+  }
+
+  .form-control:focus {
+    @apply ring-2 ring-grape-mint;
+  }
+
+  .form-control.is-invalid {
+    @apply border-red-500 ring-2 ring-red-500;
+  }
+
+  .invalid-feedback {
+    @apply text-red-400 text-sm mt-1;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply bg-gradient-to-r from-grape-cedar to-grape-hunter border-grape-hunter text-cream font-semibold py-2 px-8 rounded-lg no-underline transition-all duration-300 hover:from-grape-malachite hover:to-grape-emerald hover:border-grape-emerald hover:text-cream;
+  }
+
+  .btn-accent {
+    @apply bg-complement-coral border-complement-sunset text-cream font-semibold transition-all duration-300 hover:bg-complement-sunset hover:border-complement-terracotta hover:text-cream;
+  }
+
+  .btn-outline-light {
+    @apply border-2 border-cream text-cream no-underline transition-all duration-300 hover:bg-cream hover:text-grape-deep-purple py-2 px-8 rounded-lg;
+  }
+
+  .btn-outline-accent {
+    @apply border-2 border-complement-coral text-complement-coral no-underline transition-all duration-300 hover:bg-complement-coral hover:text-cream;
+  }
+
+  .hero-section .btn-outline-light {
+    @apply border-cream text-cream hover:bg-cream hover:text-charcoal;
+  }
+
+  /* Social Media Icons */
+  .social-links {
+    text-align: center;
+    @apply flex justify-center items-center gap-8;
+  }
+
+  .social-links a {
+    @apply inline-flex items-center justify-center text-4xl transition-all duration-300 no-underline leading-none align-middle;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
+  }
+
+  .social-links i {
+    @apply transition-colors duration-300;
+  }
+
+  .social-links .fa-square-facebook {
+    @apply text-blue-600;
+  }
+
+  .social-links .fa-youtube {
+    @apply text-red-600;
+  }
+
+  .social-links a:hover {
+    @apply scale-110;
+  }
+
+  .social-links a:hover .fa-square-facebook,
+  .social-links a:hover .fa-youtube {
+    @apply text-cream;
+  }
+
+  /* Footer */
+  footer {
+    @apply mt-auto;
+  }
+
+  /* Media Queries */
+  @media (max-width: 768px) {
+    .youtube-container {
+      @apply p-8;
+    }
+
+    .youtube-icon {
+      @apply text-5xl mb-4;
+    }
+
+    .youtube-content h3 {
+      @apply text-2xl;
+    }
+
+    .youtube-buttons {
+      @apply justify-center;
+    }
+
+    #services .text-center {
+      @apply py-8 px-4;
+    }
+  }
+}

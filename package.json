@@ -1,0 +1,16 @@
+{
+  "name": "vinelife-wilmslow",
+  "version": "1.0.0",
+  "description": "Vinelife Church Wilmslow website",
+  "type": "module",
+  "scripts": {
+    "build:css": "tailwindcss -i ./assets/css/input.css -o ./assets/css/style.css",
+    "watch:css": "tailwindcss -i ./assets/css/input.css -o ./assets/css/style.css --watch",
+    "dev": "tailwindcss -i ./assets/css/input.css -o ./assets/css/style.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.1",
+    "postcss": "^8.4.32",
+    "autoprefixer": "^10.4.16"
+  }
+}
