@@ -512,6 +512,20 @@
     margin-right: auto !important;
   }
 
+  /* Force direct children and common column wrappers inside section containers to center
+     This helps when markup uses grid/row/col wrappers from Bootstrap which set widths. */
+  section .container > * {
+    @apply mx-auto text-center !important;
+  }
+
+  section .container .row > *,
+  section .container .row > div,
+  section .container [class*="col-"] {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+  }
+
   /* Form control utilities removed (inputs use Tailwind utilities directly in markup) */
 
   /* Buttons */
