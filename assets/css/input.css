@@ -545,8 +545,10 @@
   }
 
   .hero-social-links a {
-    @apply inline-flex items-center justify-center text-4xl transition-all duration-300 no-underline leading-none align-middle -mx-5;
+    @apply inline-flex items-center justify-center text-4xl transition-all duration-300 no-underline leading-none align-middle;
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
   }
 
   .hero-social-links i {
