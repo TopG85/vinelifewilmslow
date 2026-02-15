@@ -375,7 +375,7 @@
   }
 
   .resource-box img {
-    @apply max-w-xs h-auto object-contain block mx-auto mb-4 rounded-lg relative z-[2];
+    @apply w-full h-auto object-contain block mx-auto mb-4 rounded-lg relative z-[2];
   }
 
   /* Resource .btn and .btn-outline-primary removed (use Tailwind utilities directly) */
