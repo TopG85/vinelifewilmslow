@@ -7,7 +7,6 @@
   body {
     @apply font-opensans text-cream bg-grape-deep-purple scroll-smooth;
     line-height: 1.6;
-    padding-top: 90px;
   }
 
   html {
