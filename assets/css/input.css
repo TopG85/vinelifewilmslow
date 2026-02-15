@@ -541,7 +541,7 @@
   /* Social Media Icons */
   .social-links {
     text-align: center;
-    @apply flex justify-center items-center gap-1;
+    @apply flex justify-center items-center gap-0;
   }
 
   .social-links a {
