@@ -567,7 +567,7 @@
 
   .social-links a:hover .fa-square-facebook,
   .social-links a:hover .fa-youtube {
-    @apply text-cream;
+    @apply text-grape-champagne;
   }
 
   /* Footer */
