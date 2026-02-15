@@ -545,7 +545,7 @@
   }
 
   .social-links a {
-    @apply inline-flex items-center justify-center text-4xl transition-all duration-300 no-underline leading-none align-middle -mx-2;
+    @apply inline-flex items-center justify-center text-4xl transition-all duration-300 no-underline leading-none align-middle -mx-4;
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
   }
 
