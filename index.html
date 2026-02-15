@@ -46,15 +46,15 @@
             <a class="navbar-brand" href="index.html">
                 <img src="assets/images/vinelifewilmslowlogo.webp" alt="" class="logo" width="55" height="55">
             </a>
-            <button id="navbar-toggle" class="lg:hidden p-2 rounded-md" aria-label="Toggle navigation">
+            <button id="navbar-toggle" class="xl:hidden p-2 rounded-md" aria-label="Toggle navigation">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
                     </path>
                 </svg>
             </button>
-            <div id="navbarNav" class="hidden w-full lg:flex lg:items-center lg:ml-auto lg:w-auto mt-4 lg:mt-0">
-                <ul class="flex flex-col lg:flex-row lg:items-center lg:space-x-4 w-full lg:w-auto">
+            <div id="navbarNav" class="hidden w-full xl:flex xl:items-center xl:ml-auto xl:w-auto mt-4 xl:mt-0">
+                <ul class="flex flex-col xl:flex-row xl:items-center xl:space-x-4 w-full xl:w-auto">
                     <li>
                         <a class="px-3 py-2 text-white font-bold" aria-current="page" href="#hero">Home</a>
                     </li>
@@ -564,7 +564,7 @@
             const navLinks = document.querySelectorAll('#navbarNav a');
             navLinks.forEach(link => {
                 link.addEventListener('click', () => {
-                    if (navMenu && !navMenu.classList.contains('hidden') && window.innerWidth < 1024) {
+                    if (navMenu && !navMenu.classList.contains('hidden') && window.innerWidth < 1280) {
                         navMenu.classList.add('hidden');
                     }
                 });
