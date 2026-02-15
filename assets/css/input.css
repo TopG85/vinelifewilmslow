@@ -541,9 +541,7 @@
   /* Social Media Icons - Hero Section */
   .hero-social-links {
     text-align: center;
-    @apply flex justify-center items-center;
-    gap: 0;
-    letter-spacing: -1rem;
+    @apply flex justify-center items-center gap-2;
   }
 
   .hero-social-links a {
