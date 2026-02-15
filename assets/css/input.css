@@ -540,8 +540,11 @@
 
   /* Social Media Icons - Hero Section */
   .hero-social-links {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 0 !important;
     text-align: center;
-    @apply flex justify-center items-center gap-0;
   }
 
   .hero-social-links a {
