@@ -541,7 +541,7 @@
   /* Social Media Icons */
   .social-links {
     text-align: center;
-    @apply flex justify-center items-center gap-4;
+    @apply flex justify-center items-center gap-2;
   }
 
   .social-links a {
@@ -554,11 +554,11 @@
   }
 
   .social-links .fa-square-facebook {
-    @apply text-blue-600;
+    @apply text-white;
   }
 
   .social-links .fa-youtube {
-    @apply text-red-600;
+    @apply text-white;
   }
 
   .social-links a:hover {
