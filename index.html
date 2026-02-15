@@ -41,7 +41,7 @@
 
 <body class="flex flex-col min-h-screen">
     <!-- Navigation -->
-    <nav id="navbar" class="navbar">
+    <nav id="navbar" class="navbar sticky top-0 z-50 backdrop-blur-sm bg-white/90">
         <div class="container flex items-center justify-between">
             <a class="navbar-brand" href="index.html">
                 <img src="assets/images/vinelifewilmslowlogo.webp" alt="" class="logo" width="55" height="55">
@@ -59,28 +59,28 @@
                         <a class="px-3 py-2 text-white font-bold" aria-current="page" href="#hero">Home</a>
                     </li>
                     <li>
-                        <a class="px-3 py-2 text-white hover:text-grape-champagne" href="#about">About</a>
+                        <a class="px-3 py-2 text-white hover:text-grape-champagne transition-colors duration-300" href="#about">About</a>
                     </li>
                     <li>
-                        <a class="px-3 py-2 text-cream hover:text-grape-champagne" href="#leaders">Leaders</a>
+                        <a class="px-3 py-2 text-cream hover:text-grape-champagne transition-colors duration-300" href="#leaders">Leaders</a>
                     </li>
                     <li>
-                        <a class="px-3 py-2 text-cream hover:text-grape-champagne" href="#services">Services</a>
+                        <a class="px-3 py-2 text-cream hover:text-grape-champagne transition-colors duration-300" href="#services">Services</a>
                     </li>
                     <li>
-                        <a class="px-3 py-2 text-cream hover:text-grape-champagne" href="#events">Events</a>
+                        <a class="px-3 py-2 text-cream hover:text-grape-champagne transition-colors duration-300" href="#events">Events</a>
                     </li>
                     <li>
-                        <a class="px-3 py-2 text-cream hover:text-grape-champagne" href="#youtube">YouTube</a>
+                        <a class="px-3 py-2 text-cream hover:text-grape-champagne transition-colors duration-300" href="#youtube">YouTube</a>
                     </li>
                     <li>
-                        <a class="px-3 py-2 text-cream hover:text-grape-champagne" href="#local-resources">Resources</a>
+                        <a class="px-3 py-2 text-cream hover:text-grape-champagne transition-colors duration-300" href="#local-resources">Resources</a>
                     </li>
                     <li>
-                        <a class="px-3 py-2 text-cream hover:text-grape-champagne" href="#find-us">Find Us</a>
+                        <a class="px-3 py-2 text-cream hover:text-grape-champagne transition-colors duration-300" href="#find-us">Find Us</a>
                     </li>
                     <li>
-                        <a class="px-3 py-2 text-cream hover:text-grape-champagne" href="#contact">Contact</a>
+                        <a class="px-3 py-2 text-cream hover:text-grape-champagne transition-colors duration-300" href="#contact">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -105,18 +105,18 @@
                         Him!
                     </p>
                     <a href="#about"
-                        class="inline-block bg-grape-royal-purple hover:bg-grape-700 text-white font-semibold py-4 px-8 rounded mr-3">Learn
+                        class="inline-block bg-grape-royal-purple hover:bg-grape-700 text-white font-semibold py-4 px-8 rounded mr-3 transform hover:scale-105 hover:shadow-xl transition-all duration-300 active:scale-95">Learn
                         More</a>
                     <a href="#contact"
-                        class="inline-block border border-white text-white font-semibold py-4 px-8 rounded">Get In
+                        class="inline-block border border-white text-white font-semibold py-4 px-8 rounded hover:bg-white hover:text-grape-royal-purple transform hover:scale-105 transition-all duration-300 active:scale-95">Get In
                         Touch</a>
                     <!-- Social Media Links -->
                     <div class="social-links mt-4">
                         <a href="https://www.facebook.com/VinelifeChurchWilmslow" target="_blank"
-                            aria-label="Visit our Facebook page (opens in a new tab)" rel="noopener"><i
+                            aria-label="Visit our Facebook page (opens in a new tab)" rel="noopener" class="transform hover:scale-110 transition-transform duration-300"><i
                                 class="fa-brands fa-square-facebook"></i></a>
                         <a href="https://www.youtube.com/channel/UC0G20x3mVQwmqGUAig_MAcA" target="_blank"
-                            aria-label="Visit our YouTube page (opens in a new tab)" rel="noopener"><i
+                            aria-label="Visit our YouTube page (opens in a new tab)" rel="noopener" class="transform hover:scale-110 transition-transform duration-300"><i
                                 class="fa-brands fa-youtube"></i></a>
                     </div>
                 </div>
@@ -137,15 +137,15 @@
             <div class="container">
                 <div class="flex justify-center">
                     <div class="lg:w-8/12 md:w-10/12 w-full mx-auto px-4">
-                        <h2 class="text-3xl md:text-4xl font-semibold mb-4 text-center">About Vinelife Wilmslow...</h2>
-                        <p class="text-lg md:text-xl text-center">Vinelife Church Wilmslow was founded in 2000 as the
+                        <h2 class="text-3xl md:text-4xl font-semibold mb-6 text-center">About Vinelife Wilmslow...</h2>
+                        <p class="text-lg md:text-xl text-center leading-relaxed mb-6 max-w-prose mx-auto">Vinelife Church Wilmslow was founded in 2000 as the
                             SHED (Salvation, Healing, Equipping & Discipleship) Christian Fellowship coming under the
                             church planting scheme of what was
                             then Manchester Vineyard, led by Martyn and Linda Smith. Our leaders, Robert & Cheryl
                             Larkman, completed several Leadership and Church Planting training programmes with them and
                             have also undergone training with Bethel Leaders Network.
                         </p>
-                        <p class="text-lg md:text-xl text-center">We have always been an evangelical and charismatic
+                        <p class="text-lg md:text-xl text-center leading-relaxed mb-6 max-w-prose mx-auto">We have always been an evangelical and charismatic
                             church with orthodox Christian
                             beliefs and were established to provide a more culturally accessible expression of church
                             for unchurched people. This vision was informed by our experience of outreach, particularly
@@ -154,13 +154,13 @@
                             prioritise the presence of the Holy Spirit and seek to operate in the gifts and power he
                             brings.
                         </p>
-                        <p class="text-lg md:text-xl text-center">We are members of Churches Together in Handforth
+                        <p class="text-lg md:text-xl text-center leading-relaxed mb-6 max-w-prose mx-auto">We are members of Churches Together in Handforth
                             through which we participate in community and outreach events such as an outdoor Christmas
                             Eve carol service which attracts more than a thousand people each year and a community act
                             of remembrance on Remembrance
                             Sunday which is also very well attended.
                         </p>
-                        <p class="text-lg md:text-xl text-center">We are founder members of Hope Central, a local
+                        <p class="text-lg md:text-xl text-center leading-relaxed mb-6 max-w-prose mx-auto">We are founder members of Hope Central, a local
                             charity that provides two food banks, a community pantry, a Debt Centre in partnership with
                             Christians Against Poverty, a CAP Job Club, plus other courses including Alpha and a number
                             of ‘Hope Centres’ where we provide friendship and support to our local communities, a free
@@ -189,8 +189,8 @@
                         <h2 class="text-4xl font-crimson mb-6 text-center">Meet our leaders</h2>
                         <img src="assets/images/2305+R-C-1920w.webp"
                             alt="Robert and Cheryl Larkman standing side by side"
-                            class="rounded mb-6 w-full max-w-lg mx-auto block" width="600" height="400">
-                        <p class="text-lg md:text-xl text-justify">
+                            class="rounded-lg shadow-xl mb-6 w-full max-w-lg mx-auto block" width="600" height="400">
+                        <p class="text-lg md:text-xl text-justify leading-relaxed max-w-prose mx-auto">
                             We have lived in Wilmslow most of our lives and currently reside in Handforth
                             where we raised our three children and launched them on their own journeys to change
                             the world! We believe that church is all about relationships, firstly with God
@@ -244,7 +244,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 justify-items-center">
 
                     <div class="px-2">
-                        <div class="meetup-box">
+                        <div class="meetup-box transform hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
                             <h3><i class="fa-solid fa-hands-praying mr-2"></i>Worship Meeting</h3>
                             <p><strong>Sunday 1st</strong></p>
                             <p>The Open Arms</p>
@@ -252,7 +252,7 @@
                         </div>
                     </div>
                     <div class="px-2">
-                        <div class="meetup-box">
+                        <div class="meetup-box transform hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
                             <h3><i class="fa-solid fa-mug-hot mr-2"></i>Informal Meeting</h3>
                             <p><strong>Sunday 8th</strong></p>
                             <p>Costa Coffee, The Paddock, Handforth</p>
@@ -260,7 +260,7 @@
                         </div>
                     </div>
                     <div class="px-2">
-                        <div class="meetup-box">
+                        <div class="meetup-box transform hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
                             <h3><i class="fa-solid fa-church mr-2"></i>Church Meeting</h3>
                             <p><strong>Sunday 15th</strong></p>
                             <p>The Open Arms</p>
@@ -268,7 +268,7 @@
                         </div>
                     </div>
                     <div class="px-2">
-                        <div class="meetup-box">
+                        <div class="meetup-box transform hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
                             <h3><i class="fa-solid fa-hands-praying mr-2"></i>Worship Meeting</h3>
                             <p><strong>Sunday 22nd</strong></p>
                             <p>The Open Arms</p>
@@ -276,7 +276,7 @@
                         </div>
                     </div>
                     <div class="px-2">
-                        <div class="meetup-box">
+                        <div class="meetup-box transform hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
                             <h3><i class="fa-solid fa-hands-praying mr-2"></i>Worship Meeting</h3>
                             <p><strong>Sunday 29th</strong></p>
                             <p>The Open Arms</p>
@@ -287,7 +287,7 @@
 
                 <div class="text-center mt-4">
                     <a href="#contact"
-                        class="inline-block bg-grape-royal-purple text-white font-semibold py-2 px-6 rounded shadow mt-3">Get
+                        class="inline-block bg-grape-royal-purple text-white font-semibold py-2 px-6 rounded shadow hover:shadow-lg transform hover:scale-105 transition-all duration-300 active:scale-95 mt-3">Get
                         More Information</a>
                 </div>
             </div>
@@ -323,7 +323,7 @@
                             <div class="youtube-features mb-4">
                                 <div class="grid grid-cols-1 md:grid-cols-3 gap-3 justify-items-center">
                                     <div>
-                                        <div class="feature-item text-center">
+                                        <div class="feature-item text-center transform hover:scale-110 hover:shadow-lg transition-all duration-300">
                                             <a href="https://www.youtube.com/@vinelifewilmslow5572/videos"
                                                 target="_blank" rel="noopener">
                                                 <i class="fa-solid fa-microphone mb-2"></i>
@@ -332,7 +332,7 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <div class="feature-item text-center">
+                                        <div class="feature-item text-center transform hover:scale-110 hover:shadow-lg transition-all duration-300">
                                             <a href="https://www.youtube.com/@vinelifewilmslow5572/streams"
                                                 target="_blank" rel="noopener">
                                                 <i class="fa-solid fa-video mb-2"></i>
@@ -341,7 +341,7 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <div class="feature-item text-center">
+                                        <div class="feature-item text-center transform hover:scale-110 hover:shadow-lg transition-all duration-300">
                                             <a href="https://www.youtube.com/@vinelifewilmslow5572/playlists"
                                                 target="_blank" rel="noopener">
                                                 <i class="fa-solid fa-calendar-check mb-2"></i>
@@ -359,13 +359,13 @@
             <div class="w-full text-center">
                 <div class="youtube-buttons inline-flex flex-wrap justify-center gap-3">
                     <a href="https://www.youtube.com/channel/UC0G20x3mVQwmqGUAig_MAcA" target="_blank"
-                        class="inline-block bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded mr-3"
+                        class="inline-block bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded mr-3 transform hover:scale-105 hover:shadow-lg transition-all duration-300 active:scale-95"
                         rel="noopener" aria-label="Visit our YouTube channel (opens in a new tab)">
                         <i class="fa-brands fa-youtube mr-2"></i>Visit Channel
                     </a>
                     <a href="https://www.youtube.com/channel/UC0G20x3mVQwmqGUAig_MAcA?sub_confirmation=1"
                         target="_blank"
-                        class="inline-block border-2 border-red-600 text-red-600 font-semibold py-3 px-6 rounded"
+                        class="inline-block border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white font-semibold py-3 px-6 rounded transform hover:scale-105 transition-all duration-300 active:scale-95"
                         rel="noopener" aria-label="Subscribe to our YouTube channel (opens in a new tab)">
                         <i class="fa-solid fa-bell mr-2"></i>Subscribe
                     </a>
@@ -392,34 +392,34 @@
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-y-8 gap-x-4 md:gap-y-10 md:gap-x-6 justify-items-center">
             <div class="px-2">
-                <div class="resource-box">
+                <div class="resource-box transform hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
                     <h3><i class="fa-solid fa-hand mr-2"></i>CAP</h3>
-                    <img src="assets/images/caplogo.webp" alt="Christian Against Poverty" class="mb-3 mx-auto"
+                    <img src="assets/images/caplogo.webp" alt="Christian Against Poverty" class="mb-3 mx-auto rounded-lg"
                         width="300" height="200">
                     <p>Christian Against Poverty</p>
                     <a href="https://www.capuk.org" target="_blank"
-                        class="inline-block border-2 border-grape-forest text-grape-forest py-3 px-6 rounded">Visit
+                        class="inline-block border-2 border-grape-forest text-grape-forest hover:bg-grape-forest hover:text-white py-3 px-6 rounded transition-all duration-300">Visit
                         Website</a>
                 </div>
             </div>
             <div class="px-2">
-                <div class="resource-box">
+                <div class="resource-box transform hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
                     <h3><i class="fa-solid fa-graduation-cap mr-2"></i>Alpha</h3>
-                    <img src="assets/images/alphalogo.webp" alt="Alpha" class="mb-3 mx-auto" width="300" height="200">
+                    <img src="assets/images/alphalogo.webp" alt="Alpha" class="mb-3 mx-auto rounded-lg" width="300" height="200">
                     <p>Alpha Course</p>
                     <a href="https://alpha.org.uk/try-alpha#matomo-btn-try-alpha" target="_blank"
-                        class="inline-block border-2 border-grape-forest text-grape-forest py-3 px-6 rounded">Visit
+                        class="inline-block border-2 border-grape-forest text-grape-forest hover:bg-grape-forest hover:text-white py-3 px-6 rounded transition-all duration-300">Visit
                         Website</a>
                 </div>
             </div>
             <div class="px-2">
-                <div class="resource-box">
+                <div class="resource-box transform hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
                     <h3><i class="fa-solid fa-heart mr-2"></i>Hope Central</h3>
-                    <img src="assets/images/hopecentral.webp" alt="Hope Central" class="mb-3 mx-auto" width="300"
+                    <img src="assets/images/hopecentral.webp" alt="Hope Central" class="mb-3 mx-auto rounded-lg" width="300"
                         height="200">
                     <p>Knutsford, Wilmslow & Handforth</p>
                     <a href="https://www.hopecentral.org.uk" target="_blank"
-                        class="inline-block border-2 border-grape-forest text-grape-forest py-3 px-6 rounded">Visit
+                        class="inline-block border-2 border-grape-forest text-grape-forest hover:bg-grape-forest hover:text-white py-3 px-6 rounded transition-all duration-300">Visit
                         Website</a>
                 </div>
             </div>
@@ -443,7 +443,7 @@
 
         <div class="flex justify-center">
             <div class="lg:w-10/12 md:w-full w-full">
-                <div class="map-container mb-4">
+                <div class="map-container mb-4 shadow-xl">
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d900.0923325708396!2d-2.213721284864264!3d53.33826320781932!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487a4d3ebf596883%3A0x261308f27ece1c71!2sVinelife%20Church%20Wilmslow!5e1!3m2!1sen!2suk!4v1754432126080!5m2!1sen!2suk"
                         class="w-full" height="450" style="border:0; border-radius: 12px;" allowfullscreen=""
@@ -495,32 +495,32 @@
                     <!-- Form submission is handled via JavaScript below; 'action="#"' is a placeholder and does not submit to a server. -->
                     <form id="contact-form" class="mt-4">
                         <div class="mb-3 text-left">
-                            <label for="name" class="block mb-1">Your Name</label>
-                            <input type="text" class="w-full px-3 py-2 border rounded-md" id="name" name="name"
+                            <label for="name" class="block mb-1 font-medium">Your Name</label>
+                            <input type="text" class="w-full px-3 py-2 border rounded-md focus:ring-2 focus:ring-grape-royal-purple focus:border-transparent transition-all duration-300" id="name" name="name"
                                 placeholder="Enter your name">
                         </div>
                         <div class="mb-3 text-left">
-                            <label for="phone" class="block mb-1">Phone number</label>
-                            <input type="tel" class="w-full px-3 py-2 border rounded-md" id="phone" name="phone"
+                            <label for="phone" class="block mb-1 font-medium">Phone number</label>
+                            <input type="tel" class="w-full px-3 py-2 border rounded-md focus:ring-2 focus:ring-grape-royal-purple focus:border-transparent transition-all duration-300" id="phone" name="phone"
                                 required placeholder="Enter your phone number">
                             <div id="phone-feedback" class="text-red-600 text-sm mt-1" style="display:none;">Please
                                 enter a valid phone number.</div>
                         </div>
                         <div class="mb-3 text-left">
-                            <label for="email" class="block mb-1">Your Email</label>
-                            <input type="email" class="w-full px-3 py-2 border rounded-md" id="email" name="email"
+                            <label for="email" class="block mb-1 font-medium">Your Email</label>
+                            <input type="email" class="w-full px-3 py-2 border rounded-md focus:ring-2 focus:ring-grape-royal-purple focus:border-transparent transition-all duration-300" id="email" name="email"
                                 placeholder="Enter your email">
                             <div id="email-feedback" class="text-red-600 text-sm mt-1" style="display:none;">Please
                                 enter a valid email address.</div>
                         </div>
                         <div class="mb-3 text-left">
-                            <label for="message" class="block mb-1">Message</label>
-                            <textarea class="w-full px-3 py-2 border rounded-md" id="message" name="message" rows="5"
+                            <label for="message" class="block mb-1 font-medium">Message</label>
+                            <textarea class="w-full px-3 py-2 border rounded-md focus:ring-2 focus:ring-grape-royal-purple focus:border-transparent transition-all duration-300" id="message" name="message" rows="5"
                                 required placeholder="Enter your message"></textarea>
                         </div>
                         <div class="text-center">
                             <button type="submit"
-                                class="inline-block bg-grape-royal-purple text-white font-semibold py-2 px-6 rounded">Submit</button>
+                                class="inline-block bg-grape-royal-purple text-white font-semibold py-2 px-6 rounded hover:bg-grape-700 transform hover:scale-105 hover:shadow-lg transition-all duration-300 active:scale-95">Submit</button>
                         </div>
                     </form>
                     <!-- Contact Information -->
@@ -533,10 +533,10 @@
                     <!-- Social Media Links -->
                     <div class="social-links mt-4">
                         <a href="https://www.facebook.com/VinelifeChurchWilmslow" target="_blank"
-                            aria-label="Visit our Facebook page (opens in a new tab)" rel="noopener"><i
+                            aria-label="Visit our Facebook page (opens in a new tab)" rel="noopener" class="transform hover:scale-110 transition-transform duration-300"><i
                                 class="fa-brands fa-square-facebook"></i></a>
                         <a href="https://www.youtube.com/channel/UC0G20x3mVQwmqGUAig_MAcA" target="_blank"
-                            aria-label="Visit our YouTube page (opens in a new tab)" rel="noopener"><i
+                            aria-label="Visit our YouTube page (opens in a new tab)" rel="noopener" class="transform hover:scale-110 transition-transform duration-300"><i
                                 class="fa-brands fa-youtube"></i></a>
                     </div>
                 </div>
