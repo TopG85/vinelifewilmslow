@@ -539,34 +539,34 @@
   /* Legacy .btn-* variants removed — buttons are now styled via Tailwind utilities in markup */
 
   /* Social Media Icons - Hero Section */
-  .social-links {
+  .hero-social-links {
     text-align: center;
-    @apply flex justify-center items-center gap-2;
+    @apply flex justify-center items-center gap-0;
   }
 
-  .social-links a {
-    @apply inline-flex items-center justify-center text-4xl transition-all duration-300 no-underline leading-none align-middle;
+  .hero-social-links a {
+    @apply inline-flex items-center justify-center text-4xl transition-all duration-300 no-underline leading-none align-middle -mx-3;
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
   }
 
-  .social-links i {
+  .hero-social-links i {
     @apply transition-colors duration-300;
   }
 
-  .social-links .fa-square-facebook {
+  .hero-social-links .fa-square-facebook {
     @apply text-white;
   }
 
-  .social-links .fa-youtube {
+  .hero-social-links .fa-youtube {
     @apply text-white;
   }
 
-  .social-links a:hover {
+  .hero-social-links a:hover {
     @apply scale-110;
   }
 
-  .social-links a:hover .fa-square-facebook,
-  .social-links a:hover .fa-youtube {
+  .hero-social-links a:hover .fa-square-facebook,
+  .hero-social-links a:hover .fa-youtube {
     @apply text-grape-champagne;
   }
 
