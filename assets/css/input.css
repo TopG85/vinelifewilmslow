@@ -558,17 +558,13 @@
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
-    gap: 0 !important;
+    gap: 0.5rem !important;
     text-align: center;
-    margin-left: -0.5rem;
-    margin-right: -0.5rem;
   }
 
   .hero-social-links a {
     @apply inline-flex items-center justify-center text-4xl transition-all duration-300 no-underline leading-none align-middle;
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
-    margin-left: -0.25rem;
-    margin-right: -0.25rem;
   }
 
   .hero-social-links i {
