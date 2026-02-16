@@ -571,7 +571,7 @@
     @apply transition-colors duration-300;
   }
 
-  .hero-social-links .fa-square-facebook {
+  .hero-social-links .fa-facebook {
     @apply text-white;
   }
 
@@ -583,7 +583,7 @@
     @apply scale-110;
   }
 
-  .hero-social-links a:hover .fa-square-facebook,
+  .hero-social-links a:hover .fa-facebook,
   .hero-social-links a:hover .fa-youtube {
     @apply text-grape-champagne;
   }
