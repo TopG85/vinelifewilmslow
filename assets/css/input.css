@@ -292,7 +292,19 @@
 
   .meetup-box {
     @apply bg-gradient-to-br from-grape-spring to-grape-eucalyptus rounded-lg p-8 mb-6 shadow-lg transition-all duration-300 text-center backdrop-blur-2xl border border-white/20 relative flex flex-col justify-between hover:-translate-y-1.5 hover:shadow-2xl;
-    height: 240px;
+  }
+  
+  @media (min-width: 768px) {
+    .meetup-box {
+      height: 240px;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .meetup-box {
+      min-height: 200px;
+      height: auto;
+    }
   }
 
   .meetup-box::before {
