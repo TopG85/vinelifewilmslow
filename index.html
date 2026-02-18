@@ -37,6 +37,17 @@
 
     <!-- Custom Stylesheet -->
     <!-- Note: compiled Tailwind stylesheet already included above; duplicate link removed -->
+    <style>
+        /* Center single event box */
+        #events-container.single-event {
+            display: flex !important;
+            justify-content: center !important;
+        }
+        
+        #events-container.single-event .meetup-box {
+            max-width: 350px !important;
+        }
+    </style>
 </head>
 
 <body class="flex flex-col min-h-screen">
@@ -241,49 +252,155 @@
 
             <div class="container">
                 <div class="text-center mb-5">
-                    <h2 class="text-4xl">March Events</h2>
+                    <h2 class="text-4xl">Upcoming Events</h2>
                     <p class="text-lg md:text-xl">Stay connected with what's happening at Vinelife Wilmslow</p>
                 </div>
 
-                <!-- Meetup Boxes -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 justify-items-center">
+                <!-- Dynamic Events Loader -->
+                <div id="events-container" class="grid grid-cols-1 md:grid-cols-3 gap-6 justify-items-center"></div>
+                <script>
+                    // Google Calendar API integration
+                    const calendarId = 'e7685f9a0985b807155b873efdc0f555df73f3ddc26aa1b1e99777d08600516b@group.calendar.google.com';
+                    const apiKey = 'AIzaSyBm_ped86z47xN3XxmaiLW2WzEQbpVh8nc';
+                    const maxResults = 6;
+                    const eventsContainer = document.getElementById('events-container');
+                    const now = new Date().toISOString();
+                    const endpoint = `https://www.googleapis.com/calendar/v3/calendars/${calendarId}/events?key=${apiKey}&timeMin=${now}&maxResults=${maxResults}&orderBy=startTime&singleEvents=true`;
 
-                        <div
-                            class="meetup-box transform hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
-                            <h3><i class="fa-solid fa-hands-praying mr-2"></i>Worship Meeting</h3>
-                            <p><strong>Sunday 1st</strong></p>
-                            <p>The Open Arms</p>
-                            <p><i class="fa-solid fa-clock mr-2\"></i>10:30 am</p>
-                        </div>
-                        <div
-                            class="meetup-box transform hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
-                            <h3><i class="fa-solid fa-mug-hot mr-2"></i>Informal Meeting</h3>
-                            <p><strong>Sunday 8th</strong></p>
-                            <p>Costa Coffee, The Paddock, Handforth</p>
-                            <p><i class="fa-solid fa-clock mr-2"></i>10:30 am</p>
-                        </div>
-                        <div
-                            class="meetup-box transform hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
-                            <h3><i class="fa-solid fa-church mr-2"></i>Church Meeting</h3>
-                            <p><strong>Sunday 15th</strong></p>
-                            <p>The Open Arms</p>
-                            <p><i class="fa-solid fa-clock mr-2"></i>10:30 am</p>
-                        </div>
-                        <div
-                            class="meetup-box transform hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
-                            <h3><i class="fa-solid fa-hands-praying mr-2"></i>Worship Meeting</h3>
-                            <p><strong>Sunday 22nd</strong></p>
-                            <p>The Open Arms</p>
-                            <p><i class="fa-solid fa-clock mr-2"></i>10:30 am</p>
-                        </div>
-                        <div
-                            class="meetup-box transform hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
-                            <h3><i class="fa-solid fa-hands-praying mr-2"></i>Worship Meeting</h3>
-                            <p><strong>Sunday 29th</strong></p>
-                            <p>The Open Arms</p>
-                            <p><i class="fa-solid fa-clock mr-2"></i>10:30 am</p>
-                        </div>
-                </div>
+                    function formatDate(dateStr) {
+                        const date = new Date(dateStr);
+                        return date.toLocaleDateString('en-GB', {
+                            weekday: 'long', day: 'numeric', month: 'long', year: 'numeric',
+                            timeZone: 'Europe/London'
+                        });
+                    }
+
+                    function formatTime(dateStr) {
+                        return '10:30 am';
+                    }
+
+                    function getIcon(summary) {
+                        if (/worship/i.test(summary)) return '<i class="fa-solid fa-hands-praying mr-2"></i>';
+                        if (/church/i.test(summary)) return '<i class="fa-solid fa-church mr-2"></i>';
+                        if (/coffee|informal/i.test(summary)) return '<i class="fa-solid fa-mug-hot mr-2"></i>';
+                        return '<i class="fa-solid fa-calendar-check mr-2"></i>';
+                    }
+
+                    console.log('Making API request to:', endpoint);
+                    
+                    fetch(endpoint)
+                        .then(response => {
+                            console.log('API Response status:', response.status);
+                            console.log('API Response headers:', response.headers);
+                            if (!response.ok) {
+                                throw new Error(`HTTP error! status: ${response.status}`);
+                            }
+                            return response.json();
+                        })
+                        .then(data => {
+                            console.log('Full API Response:', data);
+                            
+                            if (data.error) {
+                                console.error('Google Calendar API Error:', data.error);
+                                eventsContainer.innerHTML = `<div class="col-span-3 text-center text-lg text-red-600">
+                                    <h3>Google Calendar API Error:</h3>
+                                    <p>${data.error.message}</p>
+                                    <p>Code: ${data.error.code}</p>
+                                    <p>Check console for more details</p>
+                                </div>`;
+                                return;
+                            }
+                            
+                            console.log('Total events found:', data.items ? data.items.length : 0);
+                            
+                            if (!data.items || data.items.length === 0) {
+                                eventsContainer.innerHTML = `<div class="col-span-3 text-center text-lg">
+                                    <h3>No events found in calendar</h3>
+                                    <p>Calendar ID: ${calendarId}</p>
+                                    <p>Time range: from ${now}</p>
+                                    <p>Check the browser console for API details</p>
+                                </div>`;
+                                return;
+                            }
+                            
+                            // Show ALL events with corrected day parsing
+                            console.log(`Showing all ${data.items.length} events with detailed date debugging`);
+                            
+                            eventsContainer.innerHTML = '';
+                            
+                            // Show only worship/service events from the CURRENT MONTH
+                            console.log(`Filtering for current month events...`);
+                            const currentDate = new Date();
+                            const currentMonth = currentDate.getMonth(); // 0-11 (0=Jan, 1=Feb, etc.)
+                            const currentYear = currentDate.getFullYear();
+                            
+                            // Filter events that are worship/service AND in the current month
+                            const currentMonthEvents = data.items.filter(event => {
+                                const summary = event.summary || '';
+                                const eventDate = new Date(event.start.dateTime || event.start.date);
+                                
+                                // Check if it's a worship/service event
+                                const isWorshipEvent = summary.toLowerCase().includes('worship') || 
+                                                     summary.toLowerCase().includes('service') || 
+                                                     summary.toLowerCase().includes('meeting') ||
+                                                     summary.toLowerCase().includes('sunday');
+                                
+                                // Check if it's in the current month and year
+                                const isCurrentMonth = eventDate.getMonth() === currentMonth && 
+                                                     eventDate.getFullYear() === currentYear;
+                                
+                                console.log(`Event: ${summary}, Date: ${eventDate.toDateString()}, Month: ${eventDate.getMonth()}, Current Month: ${currentMonth}, Include: ${isWorshipEvent && isCurrentMonth}`);
+                                
+                                return isWorshipEvent && isCurrentMonth;
+                            });
+                            
+                            const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
+                                              'July', 'August', 'September', 'October', 'November', 'December'];
+                            const currentMonthName = monthNames[currentMonth];
+                            
+                            if (currentMonthEvents.length === 0) {
+                                eventsContainer.innerHTML = `<div class="col-span-3 text-center text-lg">No worship events found for ${currentMonthName} ${currentYear}</div>`;
+                                return;
+                            }
+                            
+                            // Display the current month's events
+                            eventsContainer.innerHTML = '';
+                            if (currentMonthEvents.length === 1) {
+                                eventsContainer.classList.add('single-event');
+                                eventsContainer.classList.remove('two-events');
+                            } else if (currentMonthEvents.length === 2) {
+                                eventsContainer.classList.add('two-events');
+                                eventsContainer.classList.remove('single-event');
+                            } else {
+                                eventsContainer.classList.remove('two-events', 'single-event');
+                            }
+                            
+                            console.log(`Showing ${currentMonthEvents.length} events for ${currentMonthName} ${currentYear}`);
+                            
+                            currentMonthEvents.forEach(event => {
+                                const summary = event.summary || 'Sunday Service';
+                                const location = event.location || '';
+                                const eventDate = new Date(event.start.dateTime || event.start.date);
+                                const icon = getIcon(summary);
+                                const displayDate = eventDate.toLocaleDateString('en-GB', {
+                                    weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'
+                                });
+                                
+                                eventsContainer.innerHTML += `
+                                    <div class="meetup-box transform hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+                                        <h3>${icon}${summary}</h3>
+                                        <p><strong>${displayDate}</strong></p>
+                                        <p>${location}</p>
+                                        <p><i class="fa-solid fa-clock mr-2"></i>10:30 am</p>
+                                    </div>
+                                `;
+                            });
+                        })
+                        .catch(error => {
+                            console.error('Error fetching calendar events:', error);
+                            eventsContainer.innerHTML = '<div class="col-span-3 text-center text-lg text-red-600">Error loading events. Please check the console for details.</div>';
+                        });
+                </script>
 
                 <div class="text-center mt-4">
                     <a href="#contact"
