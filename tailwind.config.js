@@ -45,7 +45,7 @@ module.exports = {
         'grape-thyme': '#8faa54',
         
         // Golden/Yellow Grapes
-        'grape-champagne': '#f7e7b4',
+        'grape-champagne': '#f4d03f',
         'grape-golden': '#f0d882',
         'grape-amber': '#e6c547',
         
