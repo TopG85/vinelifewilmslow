@@ -615,3 +615,26 @@
     }
   }
 }
+
+/* Contact Form Text Fixes - Override forced center alignment */
+.contact-form input,
+.contact-form textarea {
+  text-align: left !important;
+  color: #000000 !important;
+  background-color: #ffffff !important;
+  padding: 12px !important;
+  font-size: 16px !important;
+}
+
+.contact-form textarea::placeholder,
+.contact-form input::placeholder {
+  color: #666666 !important;
+  text-align: left !important;
+}
+
+.contact-form label {
+  text-align: left !important;
+  display: block !important;
+  margin-bottom: 4px !important;
+  color: #ffffff !important;
+}
