@@ -43,7 +43,7 @@
             display: flex !important;
             justify-content: center !important;
         }
-        
+
         #events-container.single-event .meetup-box {
             max-width: 350px !important;
         }
@@ -288,7 +288,7 @@
                     }
 
                     console.log('Making API request to:', endpoint);
-                    
+
                     fetch(endpoint)
                         .then(response => {
                             console.log('API Response status:', response.status);
@@ -300,7 +300,7 @@
                         })
                         .then(data => {
                             console.log('Full API Response:', data);
-                            
+
                             if (data.error) {
                                 console.error('Google Calendar API Error:', data.error);
                                 eventsContainer.innerHTML = `<div class="col-span-3 text-center text-lg text-red-600">
@@ -311,9 +311,9 @@
                                 </div>`;
                                 return;
                             }
-                            
+
                             console.log('Total events found:', data.items ? data.items.length : 0);
-                            
+
                             if (!data.items || data.items.length === 0) {
                                 eventsContainer.innerHTML = `<div class="col-span-3 text-center text-lg">
                                     <h3>No events found in calendar</h3>
@@ -323,47 +323,47 @@
                                 </div>`;
                                 return;
                             }
-                            
+
                             // Show ALL events with corrected day parsing
                             console.log(`Showing all ${data.items.length} events with detailed date debugging`);
-                            
+
                             eventsContainer.innerHTML = '';
-                            
+
                             // Show only worship/service events from the CURRENT MONTH
                             console.log(`Filtering for current month events...`);
                             const currentDate = new Date();
                             const currentMonth = currentDate.getMonth(); // 0-11 (0=Jan, 1=Feb, etc.)
                             const currentYear = currentDate.getFullYear();
-                            
+
                             // Filter events that are worship/service AND in the current month
                             const currentMonthEvents = data.items.filter(event => {
                                 const summary = event.summary || '';
                                 const eventDate = new Date(event.start.dateTime || event.start.date);
-                                
+
                                 // Check if it's a worship/service event
-                                const isWorshipEvent = summary.toLowerCase().includes('worship') || 
-                                                     summary.toLowerCase().includes('service') || 
-                                                     summary.toLowerCase().includes('meeting') ||
-                                                     summary.toLowerCase().includes('sunday');
-                                
+                                const isWorshipEvent = summary.toLowerCase().includes('worship') ||
+                                    summary.toLowerCase().includes('service') ||
+                                    summary.toLowerCase().includes('meeting') ||
+                                    summary.toLowerCase().includes('sunday');
+
                                 // Check if it's in the current month and year
-                                const isCurrentMonth = eventDate.getMonth() === currentMonth && 
-                                                     eventDate.getFullYear() === currentYear;
-                                
+                                const isCurrentMonth = eventDate.getMonth() === currentMonth &&
+                                    eventDate.getFullYear() === currentYear;
+
                                 console.log(`Event: ${summary}, Date: ${eventDate.toDateString()}, Month: ${eventDate.getMonth()}, Current Month: ${currentMonth}, Include: ${isWorshipEvent && isCurrentMonth}`);
-                                
+
                                 return isWorshipEvent && isCurrentMonth;
                             });
-                            
+
                             const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
-                                              'July', 'August', 'September', 'October', 'November', 'December'];
+                                'July', 'August', 'September', 'October', 'November', 'December'];
                             const currentMonthName = monthNames[currentMonth];
-                            
+
                             if (currentMonthEvents.length === 0) {
                                 eventsContainer.innerHTML = `<div class="col-span-3 text-center text-lg">No worship events found for ${currentMonthName} ${currentYear}</div>`;
                                 return;
                             }
-                            
+
                             // Display the current month's events
                             eventsContainer.innerHTML = '';
                             if (currentMonthEvents.length === 1) {
@@ -375,9 +375,9 @@
                             } else {
                                 eventsContainer.classList.remove('two-events', 'single-event');
                             }
-                            
+
                             console.log(`Showing ${currentMonthEvents.length} events for ${currentMonthName} ${currentYear}`);
-                            
+
                             currentMonthEvents.forEach(event => {
                                 const summary = event.summary || 'Sunday Service';
                                 const location = event.location || '';
@@ -386,7 +386,7 @@
                                 const displayDate = eventDate.toLocaleDateString('en-GB', {
                                     weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'
                                 });
-                                
+
                                 eventsContainer.innerHTML += `
                                     <div class="meetup-box transform hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
                                         <h3>${icon}${summary}</h3>
@@ -617,40 +617,43 @@
             <div class="container py-10">
                 <div class="lg:w-8/12 md:w-10/12 w-full mx-auto text-center">
                     <h2 class="text-2xl font-semibold">Contact us!</h2>
-                    <!-- Form submission is handled via JavaScript below; 'action="#"' is a placeholder and does not submit to a server. -->
-                    <form id="contact-form" class="mt-4">
+                    <!-- Replace your current form with this -->
+                    <form id="contact-form" action="https://formspree.io/f/xjgeebza" method="POST">
                         <div class="mb-3 text-left">
                             <label for="name" class="block mb-1 font-medium">Your Name</label>
-                            <input type="text"
+                            <input type="text" name="name" id="name" required
                                 class="w-full px-3 py-2 border rounded-md focus:ring-2 focus:ring-grape-royal-purple focus:border-transparent transition-all duration-300"
-                                id="name" name="name" placeholder="Enter your name">
+                                placeholder="Enter your name">
                         </div>
                         <div class="mb-3 text-left">
                             <label for="phone" class="block mb-1 font-medium">Phone number</label>
-                            <input type="tel"
+                            <input type="tel" name="phone" id="phone" required
                                 class="w-full px-3 py-2 border rounded-md focus:ring-2 focus:ring-grape-royal-purple focus:border-transparent transition-all duration-300"
-                                id="phone" name="phone" required placeholder="Enter your phone number">
-                            <div id="phone-feedback" class="text-red-600 text-sm mt-1" style="display:none;">Please
-                                enter a valid phone number.</div>
+                                placeholder="Enter your phone number">
+                            <div id="phone-feedback" class="text-red-600 text-sm mt-1" style="display:none;">Please enter a valid phone number.</div>
                         </div>
                         <div class="mb-3 text-left">
                             <label for="email" class="block mb-1 font-medium">Your Email</label>
-                            <input type="email"
+                            <input type="email" name="_replyto" id="email"
                                 class="w-full px-3 py-2 border rounded-md focus:ring-2 focus:ring-grape-royal-purple focus:border-transparent transition-all duration-300"
-                                id="email" name="email" placeholder="Enter your email">
-                            <div id="email-feedback" class="text-red-600 text-sm mt-1" style="display:none;">Please
-                                enter a valid email address.</div>
+                                placeholder="Enter your email">
+                            <div id="email-feedback" class="text-red-600 text-sm mt-1" style="display:none;">Please enter a valid email address.</div>
                         </div>
                         <div class="mb-3 text-left">
                             <label for="message" class="block mb-1 font-medium">Message</label>
-                            <textarea
+                            <textarea name="message" id="message" rows="5" required
                                 class="w-full px-3 py-2 border rounded-md focus:ring-2 focus:ring-grape-royal-purple focus:border-transparent transition-all duration-300"
-                                id="message" name="message" rows="5" required
                                 placeholder="Enter your message"></textarea>
                         </div>
+                        <!-- Hidden fields for Formspree -->
+                        <input type="hidden" name="_subject" value="New Contact from Vinelife Wilmslow Website">
+                        <input type="hidden" name="_next" value="https://topg85.github.io/vinelifewilmslow/#contact">
+
                         <div class="text-center">
                             <button type="submit"
-                                class="inline-block bg-grape-royal-purple text-white font-semibold py-2 px-6 rounded hover:bg-grape-700 hover:text-grape-champagne transform hover:scale-105 hover:shadow-lg transition-all duration-300 active:scale-95">Submit</button>
+                                class="inline-block bg-grape-royal-purple text-white font-semibold py-2 px-6 rounded hover:bg-grape-700 hover:text-grape-champagne transform hover:scale-105 hover:shadow-lg transition-all duration-300 active:scale-95">
+                                Send Message
+                            </button>
                         </div>
                     </form>
                     <!-- Contact Information -->
@@ -703,66 +706,8 @@
                 });
             });
 
-            // Contact form handling (with Tailwind-friendly invalid styles)
-            const contactForm = document.getElementById('contact-form');
-            if (contactForm) {
-                contactForm.addEventListener('submit', function (e) {
-                    e.preventDefault();
-                    const formData = new FormData(contactForm);
-                    const name = formData.get('name');
-                    const phone = formData.get('phone');
-                    const email = formData.get('email');
-                    const message = formData.get('message');
-                    const emailInput = document.getElementById('email');
-                    const emailFeedback = document.getElementById('email-feedback');
-                    const phoneInput = document.getElementById('phone');
-                    const phoneFeedback = document.getElementById('phone-feedback');
-
-                    let isValid = true;
-
-                    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-                        emailInput.classList.add('border-red-500', 'ring-1', 'ring-red-500');
-                        emailFeedback.style.display = 'block';
-                        emailInput.focus();
-                        isValid = false;
-                    } else {
-                        emailInput.classList.remove('border-red-500', 'ring-1', 'ring-red-500');
-                        emailFeedback.style.display = 'none';
-                    }
-
-                    if (!phone || phone.trim().length === 0) {
-                        phoneInput.classList.add('border-red-500', 'ring-1', 'ring-red-500');
-                        phoneFeedback.textContent = 'Phone number is required.';
-                        phoneFeedback.style.display = 'block';
-                        if (isValid) phoneInput.focus();
-                        isValid = false;
-                    } else if (!/^[\+]?[0-9\s\-\(\)]{10,}$/.test(phone)) {
-                        phoneInput.classList.add('border-red-500', 'ring-1', 'ring-red-500');
-                        phoneFeedback.textContent = 'Please enter a valid phone number.';
-                        phoneFeedback.style.display = 'block';
-                        if (isValid) phoneInput.focus();
-                        isValid = false;
-                    } else {
-                        phoneInput.classList.remove('border-red-500', 'ring-1', 'ring-red-500');
-                        phoneFeedback.style.display = 'none';
-                    }
-
-                    if (!message || message.trim().length < 10) {
-                        alert('Please provide a message with at least 10 characters.');
-                        return;
-                    }
-
-                    if (!name || name.trim().length < 2) {
-                        alert('Please provide your name.');
-                        return;
-                    }
-
-                    if (isValid) {
-                        alert(`Thank you ${name}! Your message has been received. We'll get back to you soon.\n\nFor immediate assistance, you can also:\n• Call/Text: 07957 813 360\n• Email: info@vinelifewilmslow.com`);
-                        contactForm.reset();
-                    }
-                });
-            }
+            // Contact form now handled by Formspree - no JavaScript interference needed
+            // Form will submit directly to Formspree endpoint
 
             // Smooth scrolling for anchor links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
