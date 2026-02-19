@@ -2,7 +2,7 @@
 
 A modern, responsive church website for Vinelife Wilmslow - a community church in the heart of Wilmslow, Cheshire, UK.
 
-<img width="2031" height="797" alt="image" src="https://github.com/user-attachments/assets/4879576a-6a0f-4075-99e8-3b5beceb85e2" />
+<img width="2031" height="797" alt="image" src="https://github.com/vinelifewilmslow)" />
 
 ## 🌟 Features
 
