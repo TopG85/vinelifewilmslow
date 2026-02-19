@@ -9,7 +9,7 @@ A modern, responsive church website for Vinelife Wilmslow - a community church i
 ### 📱 Responsive Design
 - Fully responsive design that works on desktop, tablet, and mobile devices
 - Modern CSS Grid and Flexbox layout
-- Bootstrap 5 integration for consistent styling
+- **Tailwind CSS v3.4.19** integration for utility-first styling and better performance
 
 ### 🎨 Visual Design
 - **Grape-inspired color palette** with deep purples, greens, and complementary corals
@@ -168,7 +168,7 @@ vinelifewilmslow/
 
 - **Google Fonts** (Crimson Text & Open Sans)
 - **Font Awesome** icons
-- **Bootstrap 5** CSS framework
+- **Tailwind CSS v3.4.19** utility-first framework
 - **Google Maps** embed
 - **Facebook** page integration
 - **YouTube** channel integration
@@ -197,6 +197,32 @@ vinelifewilmslow/
 
 ### February 16, 2026
 - ✅ **Tailwind CSS Migration** - Migrated from Bootstrap to Tailwind CSS v3.4.19 for better customization and performance
+
+#### 🎯 Why We Migrated from Bootstrap to Tailwind CSS
+
+**🚀 Performance Benefits:**
+- **Smaller bundle size** - Only generates CSS for classes actually used in the project
+- **No unused CSS bloat** - Bootstrap includes many components we never used
+- **Faster load times** - Tailwind's purging removes unused styles automatically
+- **Better caching** - Utility classes are reused across components
+
+**🎨 Design Flexibility:**
+- **Utility-first approach** - Build custom designs without writing custom CSS
+- **Easy customization** - Custom color palette (grape-inspired colors) integrated seamlessly
+- **No component override battles** - No need to fight Bootstrap's opinionated component styles
+- **Responsive design made simple** - Built-in responsive prefixes (sm:, md:, lg:, xl:)
+
+**👨‍💻 Developer Experience:**
+- **Faster prototyping** - Build layouts directly in HTML without switching to CSS files
+- **Consistent spacing** - Predefined spacing scale prevents inconsistent margins/padding
+- **IntelliSense support** - Better autocomplete and class suggestions in VS Code
+- **Maintainable code** - Styles are co-located with HTML, easier to update and debug
+
+**🎯 Project-Specific Benefits:**
+- **Custom grape color palette** - Easy to implement and maintain across all components
+- **Contact form styling** - Better control over form element appearance and states
+- **Hover effects** - Simple utility classes for our champagne hover effects
+- **Social media icons** - Consistent spacing and positioning with utility classes
 - ✅ **Social Media Icon Styling** - Updated hero and footer social media icons with consistent white color and champagne hover effects
 - ✅ **Button Hover States** - Unified all button hover colors to champagne (#f7e7b4) for consistent branding across the site
 - ✅ **Social Icon Spacing** - Implemented separate styling for hero and footer social icons with optimized spacing
@@ -353,7 +379,7 @@ vinelife-cms/
 #### Technical Stack:
 - **Backend**: Django 4.2+ with Python 3.9+
 - **Database**: PostgreSQL (production) / SQLite (development)
-- **Frontend**: Bootstrap 5 + existing CSS/JS
+- **Frontend**: Tailwind CSS v3.4.19 + Custom CSS/JS
 - **Media Storage**: AWS S3 or local file storage
 - **Deployment**: Docker containers for consistency
 
