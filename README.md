@@ -1,8 +1,8 @@
 # Vinelife Wilmslow
 
-A modern, responsive church website for Vinelife Wilmslow - a community church in the heart of Wilmslow, Cheshire, UK.
+![Vinelife Wilmslow Logo](assets/images/vinelifewilmslow.png)
 
-<img width="1800" height="1062" alt="Vinelife Wilmslow Website Screenshot" src="https://github.com/user-attachments/assets/d85431cc-739b-4e92-be67-1de14de8610b" />
+A modern, responsive church website for Vinelife Wilmslow - a community church in the heart of Wilmslow, Cheshire, UK.
 
 ## 🌟 Features
 
@@ -180,7 +180,7 @@ vinelifewilmslow/
 
 ## 📋 Recent Updates
 
-### February 18, 2026 - Google Calendar Integration Complete ✅
+### February 19, 2026 - Google Calendar Integration & API Security Complete ✅
 - ✅ **Google Calendar API Integration** - Successfully integrated Google Calendar API for dynamic event loading
 - ✅ **Sunday Events Filtering** - Implemented smart filtering to show only worship/service events (by event name)
 - ✅ **Current Month Display** - Added automatic filtering to show only events from the current month
@@ -191,6 +191,9 @@ vinelifewilmslow/
 - ✅ **10:30am Display** - All events consistently show 10:30am regardless of timezone storage issues
 - ✅ **API Error Handling** - Added comprehensive error handling and debugging for calendar API
 - ✅ **Console Debugging** - Implemented detailed logging for troubleshooting calendar integration
+- ✅ **API Security Configuration** - Finalized secure API key setup with appropriate restrictions for public calendar access
+- ✅ **GitHub Security Response** - Properly addressed GitHub/Google security alerts with optimal configuration
+- ✅ **Production Deployment** - Website fully functional on GitHub Pages with working calendar integration
 
 ### February 16, 2026
 - ✅ **Tailwind CSS Migration** - Migrated from Bootstrap to Tailwind CSS v3.4.19 for better customization and performance
@@ -218,16 +221,17 @@ vinelifewilmslow/
 ## 🚀 Future Development Possibilities
 ### 📅 Google Calendar API Integration ✅ **COMPLETED**
 
-**Status**: ✅ **Successfully Implemented** - February 18, 2026
+**Status**: ✅ **Successfully Implemented & Deployed** - February 19, 2026
 
-The events section has been enhanced with dynamic Google Calendar integration, automatically pulling upcoming church events from a Google Calendar and displaying them on the website.
+The events section has been enhanced with dynamic Google Calendar integration, automatically pulling upcoming church events from a Google Calendar and displaying them on the website. **All implementation phases are now complete and fully operational.**
 
 #### ✅ **Completed Implementation:**
 
 ##### **✅ Google Calendar Setup**
 - ✅ Integrated with existing Vinelife Wilmslow Google Calendar
-- ✅ Configured Google Calendar API credentials and key
+- ✅ Configured Google Calendar API credentials with proper security restrictions
 - ✅ Calendar ID: `e7685f9a0985b807155b873efdc0f555df73f3ddc26aa1b1e99777d08600516b@group.calendar.google.com`
+- ✅ Resolved GitHub/Google security alerts with optimal API key configuration
 
 ##### **✅ Smart Event Features**
 - ✅ **Event Name Recognition**: Automatically identifies worship events by keywords (worship, service, meeting, sunday)
@@ -237,98 +241,15 @@ The events section has been enhanced with dynamic Google Calendar integration, a
 - ✅ **Consistent Display**: All events show 10:30am regardless of timezone storage
 - ✅ **Error Handling**: Comprehensive API error handling and debugging
 - ✅ **Mobile Responsive**: Maintains existing card-based design
+- ✅ **Production Ready**: Deployed and fully functional on GitHub Pages
 
-##### **✅ Benefits Achieved:**
+##### **✅ Security & Production Benefits:**
+- ✅ **Secure API Configuration**: API key restricted to Google Calendar API only, appropriate for public calendar data
 - ✅ **Easy Management**: Church staff update calendar, website updates automatically
 - ✅ **Always Current**: No outdated information, shows only current month events  
 - ✅ **Reduced Maintenance**: No manual HTML editing needed
 - ✅ **Automatic Updates**: Website shows new month's events when month changes
-```javascript
-// Load Google Calendar API
-const CALENDAR_ID = 'your-calendar-id@group.calendar.google.com';
-const API_KEY = 'your-api-key';
-
-async function loadEvents() {
-  const response = await fetch(
-    `https://www.googleapis.com/calendar/v3/calendars/${CALENDAR_ID}/events?key=${API_KEY}&timeMin=${new Date().toISOString()}&maxResults=10&singleEvents=true&orderBy=startTime`
-  );
-  const data = await response.json();
-  displayEvents(data.items);
-}
-```
-
-##### **Phase 3: Dynamic Event Display**
-- **Auto-update**: Events automatically refresh from Google Calendar
-- **Event Details**: Pull title, date, time, location, and description
-- **Event Types**: Categorize events (Coffee & Chat, Worship, Special Events)
-- **Responsive Cards**: Maintain current card-based design
-- **No Manual Updates**: Church staff update calendar, website updates automatically
-
-##### **Features to Implement:**
-- ✅ **Real-time sync** with Google Calendar
-- ✅ **Automatic sorting** by date
-- ✅ **Event categories** with color-coding
-- ✅ **Location information** from calendar entries
-- ✅ **Description parsing** for rich event details
-- ✅ **Recurring events** support
-- ✅ **Mobile-responsive** event cards
-- ✅ **Loading states** and error handling
-
-##### **Benefits:**
-- **Easy Management**: Update calendar from any device
-- **Always Current**: No outdated information on website
-- **Reduced Maintenance**: No manual HTML editing needed
-- **Shareable**: Calendar can be subscribed to by church members
-- **Integration**: Works with existing church management tools
-
-##### **Technical Stack:**
-- **API**: Google Calendar API v3
-- **Frontend**: Vanilla JavaScript (no frameworks needed)
-- **Styling**: Tailwind CSS for consistent design
-- **Caching**: LocalStorage for offline viewing
-- **Error Handling**: Fallback to static events if API fails
-
-##### **Security Considerations:**
-- **API Key**: Restricted to specific domains
-- **Read-only**: No write permissions for security
-- **Rate Limiting**: Implement caching to avoid quota issues
-- **CORS**: Properly configured for client-side requests
-
-##### **Implementation Files:**
-```
-vinelifewilmslow/
-├── assets/
-│   └── js/
-│       ├── calendar-config.js    # API configuration
-│       ├── calendar-loader.js    # Fetch and parse events
-│       └── event-renderer.js     # Display event cards
-└── index.html                    # Updated events section
-```
-
-##### **Calendar Event Structure:**
-```json
-{
-  "summary": "Coffee & Chat",
-  "description": "Informal gathering at local café",
-  "location": "Costa Coffee, Wilmslow",
-  "start": {
-    "dateTime": "2026-02-20T10:00:00+00:00"
-  },
-  "end": {
-    "dateTime": "2026-02-20T11:30:00+00:00"
-  },
-  "colorId": "1"  // For event categorization
-}
-```
-
-##### **Migration Strategy:**
-1. **Keep static events** as fallback during development
-2. **Test API integration** with dummy calendar
-3. **Gradual rollout** with feature flag
-4. **Monitor performance** and user feedback
-5. **Complete migration** once stable
-
-> **Status**: Planning phase - API setup and JavaScript implementation in progress
+- ✅ **GitHub Security Compliance**: Properly addressed security alerts with best-practice configuration
 ### 🐍 Django Content Management System
 
 The current static website could be enhanced with a Django-powered backend to enable dynamic content management. This would allow church administrators to easily update content without technical knowledge.
