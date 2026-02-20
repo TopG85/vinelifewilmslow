@@ -116,9 +116,9 @@
             <div class="flex items-center min-h-screen justify-center">
                 <div class="lg:w-8/12 md:w-10/12 w-full mx-auto text-center px-4">
                     <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-crimson mb-4 hero-title">Welcome to
-                        Vinelife Wilmslow</h1>
+                        Vinelife Church Wilmslow</h1>
                     <p class="text-xl md:text-2xl mb-4">An evangelical and charismatic church in the heart of Wilmslow,
-                        Cheshire, UK.
+                        Cheshire.
                         Focusing on the presence of God and His power to change us, heal us and set us free - becoming
                         an encounter for others as we encounter
                         Him!
@@ -282,8 +282,26 @@
                         });
                     }
 
-                    function formatTime(dateStr) {
-                        return '10:30 am';
+                    function formatTime(eventStart) {
+                        if (!eventStart) return 'Time TBA';
+                        
+                        // Check if it's an all-day event (has 'date' instead of 'dateTime')
+                        if (eventStart.date && !eventStart.dateTime) {
+                            return 'All Day';
+                        }
+                        
+                        // Handle timed events
+                        if (eventStart.dateTime) {
+                            const date = new Date(eventStart.dateTime);
+                            return date.toLocaleTimeString('en-GB', {
+                                hour: 'numeric',
+                                minute: '2-digit',
+                                hour12: true,
+                                timeZone: 'Europe/London'
+                            }).toLowerCase();
+                        }
+                        
+                        return 'Time TBA';
                     }
 
                     function getIcon(summary) {
@@ -346,19 +364,24 @@
                                 const summary = event.summary || '';
                                 const eventDate = new Date(event.start.dateTime || event.start.date);
 
-                                // Check if it's a worship/service event
-                                const isWorshipEvent = summary.toLowerCase().includes('worship') ||
-                                    summary.toLowerCase().includes('service') ||
-                                    summary.toLowerCase().includes('meeting') ||
-                                    summary.toLowerCase().includes('sunday');
-
-                                // Check if it's in the current month and year
+                                // Only check if it's in the current month and year (no title filtering)
                                 const isCurrentMonth = eventDate.getMonth() === currentMonth &&
                                     eventDate.getFullYear() === currentYear;
 
-                                console.log(`Event: ${summary}, Date: ${eventDate.toDateString()}, Month: ${eventDate.getMonth()}, Current Month: ${currentMonth}, Include: ${isWorshipEvent && isCurrentMonth}`);
+                                console.log(`Event: ${summary}, Date: ${eventDate.toDateString()}, Month: ${eventDate.getMonth()}, Current Month: ${currentMonth}, Include: ${isCurrentMonth}`);
 
-                                return isWorshipEvent && isCurrentMonth;
+                                return isCurrentMonth;
+                            }).sort((a, b) => {
+                                // Sort events by start date and time (chronological order)
+                                const dateTimeA = a.start.dateTime || a.start.date + 'T00:00:00';
+                                const dateTimeB = b.start.dateTime || b.start.date + 'T00:00:00';
+                                const dateA = new Date(dateTimeA);
+                                const dateB = new Date(dateTimeB);
+                                
+                                console.log(`Sorting: "${a.summary}" at ${dateTimeA} (${dateA}) vs "${b.summary}" at ${dateTimeB} (${dateB})`);
+                                console.log(`Comparison result: ${dateA.getTime() - dateB.getTime()}`);
+                                
+                                return dateA.getTime() - dateB.getTime();
                             });
 
                             const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
@@ -366,7 +389,7 @@
                             const currentMonthName = monthNames[currentMonth];
 
                             if (currentMonthEvents.length === 0) {
-                                eventsContainer.innerHTML = `<div class="col-span-3 text-center text-lg">No worship events found for ${currentMonthName} ${currentYear}</div>`;
+                                eventsContainer.innerHTML = `<div class="col-span-3 text-center text-lg">No events found for ${currentMonthName} ${currentYear}</div>`;
                                 return;
                             }
 
@@ -398,7 +421,7 @@
                                         <h3>${icon}${summary}</h3>
                                         <p><strong>${displayDate}</strong></p>
                                         <p>${location}</p>
-                                        <p><i class="fa-solid fa-clock mr-2"></i>10:30 am</p>
+                                        <p><i class="fa-solid fa-clock mr-2"></i>${formatTime(event.start)}</p>
                                     </div>
                                 `;
                             });
@@ -462,7 +485,7 @@
                                             <a href="https://www.youtube.com/@vinelifewilmslow5572/streams"
                                                 target="_blank" rel="noopener">
                                                 <i class="fa-solid fa-video mb-2"></i>
-                                                <p>Streams</p>
+                                                <p>Live streams</p>
                                             </a>
                                         </div>
                                     </div>
