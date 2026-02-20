@@ -114,9 +114,38 @@
     <!-- Hero Section -->
     <section id="hero" class="hero-section">
         <div class="hero-background">
+            <img id="hero-img" src="assets/images/ChatGPT Image Feb 14, 2026, 12_57_33 PM.png" alt="ChatGPT Hero Image Feb 14, 2026"
+                class="hero-image" width="1920" height="1080" loading="eager" fetchpriority="high">
             <img src="assets/images/vinelifewilmslowhero.webp" alt="Vinelife Church Wilmslow"
                 class="hero-image" width="1920" height="1080" loading="eager" fetchpriority="high"
-                style="filter: grayscale(100%) contrast(1.1) brightness(0.7);">
+                style="filter: grayscale(100%) contrast(1.1) brightness(0.5) drop-shadow(0 0 0 rgba(60,0,60,0.3));">
+            <!-- See <attachments> above for file contents. You may not need to search or read the file again. -->
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    const heroImages = [
+                        {
+                            src: 'assets/images/ChatGPT Image Feb 14, 2026, 12_57_33 PM.png',
+                            alt: 'ChatGPT Hero Image Feb 14, 2026',
+                            filter: 'brightness(0.7) drop-shadow(0 0 0 rgba(60,0,60,0.3))'
+                        },
+                        {
+                            src: 'assets/images/vinelifewilmslowhero.webp',
+                            alt: 'Vinelife Church Wilmslow',
+                            filter: 'grayscale(100%) contrast(1.1) brightness(0.5) drop-shadow(0 0 0 rgba(60,0,60,0.3))'
+                        }
+                    ];
+                    let current = 0;
+                    const heroImg = document.getElementById('hero-img');
+                    setInterval(() => {
+                        current = (current + 1) % heroImages.length;
+                        heroImg.src = heroImages[current].src;
+                        heroImg.alt = heroImages[current].alt;
+                        heroImg.style.filter = heroImages[current].filter;
+                    }, 15000); // Change every 15 seconds
+                    // Set initial filter
+                    heroImg.style.filter = heroImages[0].filter;
+                });
+            </script>
         </div>
         <div class="container px-4">
             <div class="flex items-center min-h-screen justify-center">
