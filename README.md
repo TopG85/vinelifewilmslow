@@ -14,8 +14,10 @@ A modern, responsive church website for Vinelife Wilmslow - a community church i
 ### 🎨 Visual Design
 - **Grape-inspired color palette** with deep purples, greens, and complementary corals
 - **Elegant typography** using Crimson Text for headings and Open Sans for body text
-- **Parallax backgrounds** with gradient overlays for visual depth
+- **Subtle text shadows** with consistent rgba opacity system for modern appearance
+- **Three-tier shadow hierarchy** - headings (0.5), subheadings (0.4), body text (0.3) opacity
 - **Smooth animations** and hover effects throughout
+- **Enhanced readability** with refined contrast and shadow optimization
 
 ### 📄 Website Sections
 
@@ -179,6 +181,17 @@ vinelifewilmslow/
 - **YouTube**: [Vinelife Wilmslow Channel](https://www.youtube.com/channel/UC0G20x3mVQwmqGUAig_MAcA)
 
 ## 📋 Recent Updates
+
+### February 20, 2026 - Text Shadow Refinements & Visual Polish ✅
+- ✅ **Consistent Text Shadow Styling** - Unified text shadows throughout entire website for cohesive visual design
+- ✅ **Subtle Shadow Effects** - Reduced heavy black shadows to gentle rgba shadows for modern appearance
+- ✅ **YouTube Section Polish** - Refined text shadows on YouTube channel section for improved readability
+- ✅ **Location Info Refinements** - Softened text shadows on Find Us section address, service times, and parking info
+- ✅ **Hero Section Optimization** - Balanced text shadow intensity for optimal contrast against grayscale background
+- ✅ **Section Header Consistency** - Applied uniform shadow styling across all section headings (About, Leaders, Services, etc.)
+- ✅ **Comprehensive Shadow System** - Implemented three-tier shadow system: headings (0.5 opacity), subheadings (0.4 opacity), body text (0.3 opacity)
+- ✅ **Contact Section Updates** - Refined contact form area and footer text shadows for better visual hierarchy
+- ✅ **Cross-Browser Compatibility** - Ensured shadow effects render consistently across all major browsers
 
 ### February 19, 2026 - Google Calendar Integration & API Security Complete ✅
 - ✅ **Google Calendar API Integration** - Successfully integrated Google Calendar API for dynamic event loading
