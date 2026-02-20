@@ -11,6 +11,7 @@ A modern, responsive church website for Vinelife Wilmslow - a community church i
 - Modern CSS Grid and Flexbox layout
 - **Tailwind CSS v3.4.19** integration for utility-first styling and better performance
 
+
 ### 🎨 Visual Design
 - **Grape-inspired color palette** with deep purples, greens, and complementary corals
 - **Elegant typography** using Crimson Text for headings and Open Sans for body text
@@ -18,6 +19,8 @@ A modern, responsive church website for Vinelife Wilmslow - a community church i
 - **Three-tier shadow hierarchy** - headings (0.5), subheadings (0.4), body text (0.3) opacity
 - **Smooth animations** and hover effects throughout
 - **Enhanced readability** with refined contrast and shadow optimization
+- **Hero image slideshow** alternates between two images every 15 seconds
+- **Tinted hero images**: vinelifewilmslowhero.webp is black and white with a dark tint, ChatGPT image has a balanced dark tint for improved contrast
 
 ### 📄 Website Sections
 
