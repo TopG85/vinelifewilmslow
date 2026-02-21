@@ -1,5 +1,3 @@
-
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -15,7 +13,12 @@
     @apply scroll-smooth;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-crimson font-bold uppercase;
   }
 
@@ -45,7 +48,7 @@
 
   .hero-background::after {
     @apply absolute inset-0 bg-transparent z-[1];
-    content: '';
+    content: "";
   }
 
   .hero-image {
@@ -54,7 +57,7 @@
 
   .hero-section::before {
     @apply absolute inset-0 bg-transparent z-[1];
-    content: '';
+    content: "";
   }
 
   .hero-section .container {
@@ -144,10 +147,18 @@
 
   #services::before {
     @apply absolute inset-0 z-[1] pointer-events-none;
-    background: 
-      radial-gradient(circle at 30% 70%, rgba(255, 107, 71, 0.08) 0%, transparent 50%),
-      radial-gradient(circle at 70% 30%, rgba(255, 112, 67, 0.08) 0%, transparent 50%);
-    content: '';
+    background:
+      radial-gradient(
+        circle at 30% 70%,
+        rgba(255, 107, 71, 0.08) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 70% 30%,
+        rgba(255, 112, 67, 0.08) 0%,
+        transparent 50%
+      );
+    content: "";
   }
 
   #services .container {
@@ -190,10 +201,18 @@
 
   #youtube::before {
     @apply absolute inset-0 z-[1] pointer-events-none;
-    background: 
-      radial-gradient(circle at 25% 75%, rgba(255, 0, 0, 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 75% 25%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
-    content: '';
+    background:
+      radial-gradient(
+        circle at 25% 75%,
+        rgba(255, 0, 0, 0.1) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 75% 25%,
+        rgba(255, 255, 255, 0.05) 0%,
+        transparent 50%
+      );
+    content: "";
   }
 
   #youtube .container {
@@ -206,7 +225,7 @@
 
   .youtube-container::before {
     @apply absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-red-600 via-red-700 to-red-600 z-0;
-    content: '';
+    content: "";
   }
 
   .youtube-content h3 {
@@ -231,7 +250,8 @@
   }
 
   @keyframes pulse {
-    0%, 100% {
+    0%,
+    100% {
       @apply scale-100;
     }
     50% {
@@ -272,7 +292,31 @@
   .youtube-buttons {
     @apply mt-8 flex flex-wrap gap-4 justify-center;
   }
-
+  .youtube-subscribe-btn {
+    background-color: #b83030;
+    color: #fff;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+    display: inline-block;
+  }
+  .youtube-subscribe-btn:hover,
+  .youtube-subscribe-btn:focus {
+    background-color: #fde047 !important;
+    color: #b91c1c !important;
+  }
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 2rem;
+    box-shadow: 0 4px 32px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(16px) saturate(180%) brightness(1.2);
+    -webkit-backdrop-filter: blur(16px) saturate(180%) brightness(1.2);
+    border: 1.5px solid rgba(255, 255, 255, 0.25);
+    padding: 2rem;
+    margin-top: 2rem;
+  }
   /* YouTube-specific button component styles removed in favor of inline Tailwind utilities in markup */
 
   /* Events Section */
@@ -298,13 +342,13 @@
     width: 100%;
     max-width: 100%;
   }
-  
+
   @media (min-width: 768px) {
     .meetup-box {
       height: 240px;
     }
   }
-  
+
   @media (max-width: 767px) {
     .meetup-box {
       min-height: 200px;
@@ -314,7 +358,7 @@
 
   .meetup-box::before {
     @apply absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-grape-pine via-grape-moss to-grape-fern z-0;
-    content: '';
+    content: "";
   }
 
   .meetup-box * {
@@ -353,10 +397,18 @@
 
   #local-resources::before {
     @apply absolute inset-0 z-[1] pointer-events-none;
-    background: 
-      radial-gradient(circle at 20% 80%, rgba(255, 107, 71, 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 80% 20%, rgba(255, 112, 67, 0.1) 0%, transparent 50%);
-    content: '';
+    background:
+      radial-gradient(
+        circle at 20% 80%,
+        rgba(255, 107, 71, 0.1) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 80% 20%,
+        rgba(255, 112, 67, 0.1) 0%,
+        transparent 50%
+      );
+    content: "";
   }
 
   #local-resources .container {
@@ -369,7 +421,7 @@
 
   .resource-box::before {
     @apply absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-grape-forest via-grape-emerald via-grape-jade to-grape-forest z-[1];
-    content: '';
+    content: "";
   }
 
   .resource-box h3 {
