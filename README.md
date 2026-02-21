@@ -213,6 +213,15 @@ Below are the Lighthouse performance test results for different devices:
 
 ![Lighthouse Mobile](assets/images/Lighthouse-mobile.png)
 
+## 📝 Today's Updates (21st February)
+
+### 💡 Thought for the Day Section
+
+- Added a "Thought for the Day" feature to the website.
+- Displays a daily inspirational message or scripture.
+- Uses JavaScript to dynamically load and update the content.
+- Designed for easy updates and future integration with external sources (e.g. Google Sheets or JSON).
+
 ### February 21, 2026
 - Restored the YouTube section to a simpler earlier layout and removed experimental helper styles (`box-drop`, `enhanced-shadow`, `muted-note`).
 - Removed the temporary `README.d` changelog file and merged relevant notes into this `README.md`.
