@@ -195,11 +195,11 @@ The code for this project has been validated and passes both HTML and CSS valida
 
 ### HTML Validation
 
-![HTML Validation Results](assets/images/htmlvaildation.png)
+![HTML Validation Results](assets/images/htmlvalidation.png)
 
 ### CSS Validation
 
-![CSS Validation Results](assets/images/CSSvaildation.png)
+![CSS Validation Results](assets/images/CSSvalidation.png)
 
 ## Lighthouse Performance Test
 
@@ -207,11 +207,11 @@ Below are the Lighthouse performance test results for different devices:
 
 ### Desktop
 
-![Lighthouse Desktop](assets/images/lighthouse-desktop.png)
+![Lighthouse Desktop](assets/images/Lighthouse-desktop.png)
 
 ### Mobile
 
-![Lighthouse Mobile](assets/images/lighthouse-mobile.png)
+![Lighthouse Mobile](assets/images/Lighthouse-mobile.png)
 
 ### February 21, 2026
 - Restored the YouTube section to a simpler earlier layout and removed experimental helper styles (`box-drop`, `enhanced-shadow`, `muted-note`).
