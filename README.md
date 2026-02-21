@@ -195,7 +195,7 @@ The code for this project has been validated and passes both HTML and CSS valida
 
 ### HTML Validation
 
-![HTML Validation Results](assets/images/htmlvalidation.png)
+![HTML Validation Results](assets/images/HTMLvalidation.png)
 
 ### CSS Validation
 
