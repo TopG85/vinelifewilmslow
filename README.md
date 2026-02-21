@@ -185,6 +185,34 @@ vinelifewilmslow/
 
 ## 📋 Recent Updates
 
+# Vinelife Wilmslow
+
+A community church in Wilmslow, UK.
+
+## HTML & CSS Validation
+
+The code for this project has been validated and passes both HTML and CSS validation checks.
+
+### HTML Validation
+
+![HTML Validation Results](assets/images/htmlvaildation.png)
+
+### CSS Validation
+
+![CSS Validation Results](assets/images/CSSvaildation.png)
+
+## Lighthouse Performance Test
+
+Below are the Lighthouse performance test results for different devices:
+
+### Desktop
+
+![Lighthouse Desktop](assets/images/lighthouse-desktop.png)
+
+### Mobile
+
+![Lighthouse Mobile](assets/images/lighthouse-mobile.png)
+
 ### February 21, 2026
 - Restored the YouTube section to a simpler earlier layout and removed experimental helper styles (`box-drop`, `enhanced-shadow`, `muted-note`).
 - Removed the temporary `README.d` changelog file and merged relevant notes into this `README.md`.
