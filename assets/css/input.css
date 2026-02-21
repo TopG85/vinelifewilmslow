@@ -1,3 +1,5 @@
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -172,6 +174,7 @@
   }
 
   /* YouTube Section */
+
   #youtube {
     @apply relative overflow-hidden pt-8 bg-gradient-to-r from-grape-deep-purple via-grape-royal-purple via-grape-rich-plum via-grape-burgundy to-grape-wine-red;
   }
