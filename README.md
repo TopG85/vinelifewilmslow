@@ -399,6 +399,16 @@ vinelife-cms/
 - **Media Storage**: AWS S3 or local file storage
 - **Deployment**: Docker containers for consistency
 
+## Changelog
+
+### February 21, 2026
+- Restored the YouTube section to a simpler earlier layout and removed experimental helper styles (`box-drop`, `enhanced-shadow`, `muted-note`).
+- Removed the temporary `README.d` changelog file and merged relevant notes into this `README.md`.
+- Kept the `glass-effect` styling on the YouTube container and restored the embedded YouTube iframe and subscribe widget.
+- Committed and pushed these changes to the `main` branch on the remote `origin` repository.
+
+If you'd like a more detailed changelog entry or a separate `CHANGELOG.md` file formatted for release notes, I can add that as well.
+
 > **Note**: The current static website would remain fully functional during development, allowing for gradual migration to the Django-powered version.
 
 ## �👥 About Vinelife Wilmslow
