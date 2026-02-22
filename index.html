@@ -53,11 +53,42 @@
             box-shadow: none !important;
             border-image: none !important;
         }
-        html, body {
+
+        html,
+        body {
             background: #241040 !important;
         }
+
+        /* Ensure hero content is always offset below the fixed navbar (override compiled CSS/caching) */
+        #hero {
+            padding-top: calc(56px + env(safe-area-inset-top)) !important;
+            scroll-margin-top: calc(56px + env(safe-area-inset-top)) !important;
+        }
+
+        /* Anchor target offset for in-page links (extra safety if compiled CSS is not applied)
+           This creates a hidden pseudo element so anchors land below the fixed navbar. */
+        section[id]::before {
+            content: "";
+            display: block;
+            height: calc(56px + env(safe-area-inset-top));
+            margin-top: calc(-1 * (56px + env(safe-area-inset-top)));
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        /* Force-centre hero content to avoid layout jump on hard-refresh */
+        #hero .hero-content {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            text-align: center !important;
+            flex-direction: column;
+        }
+        #hero .hero-content .flex {
+            justify-content: center !important;
+        }
     </style>
-    
+
 </head>
 
 <body class="flex flex-col min-h-screen" style="height: 100%; overflow-x: hidden; background: #241040;">
@@ -156,8 +187,7 @@
             <div class="flex items-center min-h-screen justify-center">
                 <div class="lg:w-8/12 md:w-10/12 w-full mx-auto text-center px-4">
                     <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-crimson mb-4 hero-title"
-                        style="color: white; text-shadow: 1px 1px 2px rgba(0,0,0,0.6);">Welcome to
-                        Vinelife Church Wilmslow</h1>
+                        style="color: white; text-shadow: 1px 1px 2px rgba(0,0,0,0.6);">Vinelife Church Wilmslow</h1>
                     <p class="text-xl md:text-2xl mb-4" style="color: white; text-shadow: 1px 1px 1px rgba(0,0,0,0.5);">
                         An evangelical and charismatic church in the heart of Wilmslow,
                         Cheshire.
@@ -696,7 +726,7 @@
                         <div class="mb-3">
                             <div class="location-info text-center">
                                 <i class="fa-solid fa-map-marker-alt mb-3"></i>
-                                <h3 style="text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);">Address</h3>
+                                <h2 style="color: black; text-shadow: 1px 1px 1px rgba(0,0,0,0.4);">Address</h2>
                                 <p style="text-shadow: 1px 1px 1px rgba(0,0,0,0.3);">The Open Arms Youth
                                     Project<br>Howty
                                     Close, Wilmslow<br>SK9 2SH</p>
@@ -705,7 +735,7 @@
                         <div class="mb-3">
                             <div class="location-info text-center">
                                 <i class="fa-solid fa-clock mb-3"></i>
-                                <h3 style="text-shadow: 1px 1px 1px rgba(0,0,0,0.4);">Service Times</h3>
+                                <h2 style="color: black; text-shadow: 1px 1px 1px rgba(0,0,0,0.4);">Service Times</h2>
                                 <p style="text-shadow: 1px 1px 1px rgba(0,0,0,0.3);">Sunday Worship<br>10:30 AM<br>Most
                                     Sundays</p>
                             </div>
@@ -713,7 +743,7 @@
                         <div class="mb-3">
                             <div class="location-info text-center">
                                 <i class="fa-solid fa-car mb-3"></i>
-                                <h3 style="text-shadow: 1px 1px 1px rgba(0,0,0,0.4);">Parking</h3>
+                                <h2 style="color: black; text-shadow: 1px 1px 1px rgba(0,0,0,0.4);">Parking</h2>
                                 <p style="text-shadow: 1px 1px 1px rgba(0,0,0,0.3);">Free parking
                                     available<br>on-site<br>Easy access</p>
                             </div>
@@ -723,12 +753,14 @@
             </section>
             <!-- Footer / contact section -->
             <!-- mt-auto added to push footer to the bottom of the page -->
-            <footer class="mt-auto" id="contact" style="position: relative; z-index: 1; background: #4a0e4e !important;">
-                <div id="footer-contact"
-                    style="position: relative; background: #4a0e4e; overflow: hidden;">
+            <footer class="mt-auto" id="contact"
+                style="position: relative; z-index: 1; background: #4a0e4e !important;">
+                <div id="footer-contact" style="position: relative; background: #4a0e4e; overflow: hidden;">
                     <!-- Bokeh background image layered behind form -->
                     <div id="footer-bg-image" style="position: absolute; inset: 0; z-index: 0;">
-                        <img src="assets/images/bokeh1.webp" alt="Bokeh background" class="contact-bg-image" style="width:100%; height:100%; object-fit:cover; opacity:0.22; filter:brightness(0.7);" loading="lazy">
+                        <img src="assets/images/bokeh1.webp" alt="Bokeh background" class="contact-bg-image"
+                            style="width:100%; height:100%; object-fit:cover; opacity:0.22; filter:brightness(0.7);"
+                            loading="lazy">
                     </div>
                     <div class="container py-10" style="position: relative; z-index: 2;">
                         <div class="lg:w-8/12 md:w-10/12 w-full mx-auto text-center">
@@ -865,30 +897,47 @@
                     }
                 });
             </script>
-                    <!-- Debug: outline elements touching bottom of viewport -->
-                    <script id="debug-bottom-strip">
-                        window.addEventListener('load', function () {
+            <!-- Debug script removed. Clean up any leftover debug outline on the hero element
+                 Also: enforce centering after load and observe DOM mutations that may reapply right-alignment. -->
+            <script>
+                window.addEventListener('load', function () {
+                    try {
+                        const h = document.getElementById('hero');
+                        if (h) h.style.outline = '';
+
+                        // Enforce centering on key containers inside the hero.
+                        function enforceCentering() {
                             try {
-                                const hits = [];
-                                const vh = window.innerHeight;
-                                document.querySelectorAll('body *').forEach(el => {
-                                    const rect = el.getBoundingClientRect();
-                                    if (rect.bottom >= vh - 6 && rect.bottom <= vh + 6) {
-                                        const cs = getComputedStyle(el);
-                                        const bg = cs.backgroundImage || cs.background || cs.backgroundColor;
-                                        if (bg && bg !== 'none' && bg !== 'rgba(0, 0, 0, 0)') {
-                                            console.log('DEBUG: bottom-touch element', el, 'rect:', rect, 'background:', bg);
-                                            el.style.outline = '3px solid magenta';
-                                            hits.push({el, rect, bg});
-                                        }
-                                    }
+                                const hero = document.getElementById('hero');
+                                if (!hero) return;
+                                const selectors = ['.hero-content', '.hero-content .flex', '.flex'];
+                                selectors.forEach(sel => {
+                                    hero.querySelectorAll(sel).forEach(el => {
+                                        el.style.justifyContent = 'center';
+                                        el.style.alignItems = 'center';
+                                        el.style.textAlign = 'center';
+                                    });
                                 });
-                                if (hits.length === 0) console.log('DEBUG: no bottom-touch elements with visible background found');
-                            } catch (e) {
-                                console.error('DEBUG script error', e);
+                            } catch (e) { /* ignore */ }
+                        }
+
+                        // Run immediately and again after a short delay to counter late scripts/styles.
+                        enforceCentering();
+                        setTimeout(enforceCentering, 250);
+
+                        // Observe mutations under #hero and re-enforce centering if classes/styles change.
+                        try {
+                            const hero = document.getElementById('hero');
+                            if (hero && window.MutationObserver) {
+                                const mo = new MutationObserver(() => enforceCentering());
+                                mo.observe(hero, { attributes: true, childList: true, subtree: true });
                             }
-                        });
-                    </script>
+                        } catch (e) { /* ignore */ }
+                    } catch (e) {
+                        /* ignore */
+                    }
+                });
+            </script>
 </body>
 
 </html>

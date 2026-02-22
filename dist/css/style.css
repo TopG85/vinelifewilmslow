@@ -634,7 +634,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero-section {
   position: relative;
-  margin-top: -90px;
+  margin-top: 0; /* remove negative overlap with navbar */
   display: flex;
   min-height: 100vh;
   align-items: center;
@@ -646,7 +646,7 @@ h1, h2, h3, h4, h5, h6 {
   --tw-gradient-to: rgb(27 67 50 / 0)  var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), #1b4332 var(--tw-gradient-via-position), var(--tw-gradient-to);
   --tw-gradient-to: #4a0e4e var(--tw-gradient-to-position);
-  padding-top: 90px;
+  padding-top: calc(56px + env(safe-area-inset-top)); /* match navbar height + notch inset */
 }
 
 .hero-background {
@@ -693,10 +693,23 @@ h1, h2, h3, h4, h5, h6 {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
+/* Hero centering: use Tailwind utility classes in markup for alignment */
+
+
 /* Sections */
 
 section {
-  scroll-margin-top: 140px;
+  scroll-margin-top: calc(56px + env(safe-area-inset-top)); /* match navbar height + notch inset */
+}
+
+/* Ensure anchor targets (e.g., #about) don't end up hidden under the fixed navbar */
+section[id]::before {
+  content: "";
+  display: block;
+  height: calc(56px + env(safe-area-inset-top));
+  margin-top: calc(-1 * (56px + env(safe-area-inset-top)));
+  visibility: hidden;
+  pointer-events: none;
 }
 
 /* Ensure the `.container` element is horizontally centered on the page */
