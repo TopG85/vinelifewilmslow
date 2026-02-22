@@ -131,7 +131,7 @@
                 document.addEventListener('DOMContentLoaded', function () {
                     const heroImages = [
                         {
-                            src: 'assets/images/ChatGPT Image Feb 14, 2026, 12_57_33 PM.png',
+                            src: 'assets/images/ChatGPTImageFeb14,2026,12_57_33PM.png',
                             alt: 'ChatGPT Hero Image Feb 14, 2026',
                             filter: 'brightness(0.7) drop-shadow(0 0 0 rgba(60,0,60,0.3))'
                         },
@@ -438,11 +438,11 @@
                             if (data.error) {
                                 console.error('Google Calendar API Error:', data.error);
                                 eventsContainer.innerHTML = `<div class="col-span-3 text-center text-lg text-red-600">
-                                    <h3>Google Calendar API Error:</h3>
-                                    <p>${data.error.message}</p>
-                                    <p>Code: ${data.error.code}</p>
-                                    <p>Check console for more details</p>
-                                </div>`;
+                            <h3>Google Calendar API Error:</h3>
+                            <p>${data.error.message}</p>
+                            <p>Code: ${data.error.code}</p>
+                            <p>Check console for more details</p>
+                        </div>`;
                                 return;
                             }
 
@@ -517,12 +517,12 @@
                                 });
 
                                 eventsContainer.innerHTML += `
-                                    <div class="meetup-box transform hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
-                                        <h3 class="enhanced-shadow">${icon}${summary}</h3>
-                                        <p><strong>${displayDate}</strong></p>
-                                        <p>${location}</p>
-                                        <p><i class="fa-solid fa-clock mr-2"></i>${formatTime(event.start)}</p>
-                                    </div>
+                        <div class="meetup-box transform hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+                            <h3 class="enhanced-shadow">${icon}${summary}</h3>
+                            <p><strong>${displayDate}</strong></p>
+                            <p>${location}</p>
+                            <p><i class="fa-solid fa-clock mr-2"></i>${formatTime(event.start)}</p>
+                        </div>
                                 `;
                             });
                         })
@@ -822,26 +822,29 @@
                 });
             });
 
-            // Contact form now handled by Formspree - no JavaScript interference needed
-            // Form will submit directly to Formspree endpoint
-
             // Smooth scrolling for anchor links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
-                    // Ignore external anchors like '#'
                     const href = this.getAttribute('href');
                     if (!href || href === '#') return;
                     const target = document.querySelector(href);
                     if (target) {
                         e.preventDefault();
-                        const navbarHeight = 90;
+                        const navbarHeight = document.getElementById('navbar').offsetHeight;
                         const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
                         window.scrollTo({ top: targetPosition, behavior: 'smooth' });
                     }
                 });
             });
+
+            // Dynamic hero-section padding
+            const navbar = document.getElementById('navbar');
+            const heroSection = document.getElementById('hero');
+            if (navbar && heroSection) {
+                const navbarHeight = navbar.offsetHeight;
+                heroSection.style.paddingTop = navbarHeight + 'px';
+            }
         });
     </script>
 </body>
-
 </html>
