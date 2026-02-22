@@ -512,7 +512,7 @@
   }
 
   .contact-form {
-    @apply bg-white/10 backdrop-blur-xl rounded-2xl p-8 border border-white/20;
+    @apply bg-white/5 backdrop-blur-xl rounded-2xl p-8 border border-white/20 text-center;
   }
 
   /* Make headings, cards, images and common components centered site-wide */
