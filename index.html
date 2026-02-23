@@ -93,6 +93,10 @@
             display: inline-block;
             margin: 0 auto;
             text-align: center;
+            /* ensure centring even when overflowing */
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
             /* scale font to viewport width so it stays on one line */
             font-size: clamp(1.5rem, 6vw, 4.5rem);
         }
