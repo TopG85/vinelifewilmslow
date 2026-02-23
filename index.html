@@ -87,6 +87,13 @@
         #hero .hero-content .flex {
             justify-content: center !important;
         }
+        /* ensure the heading text stays on one line */
+        .hero-title {
+            white-space: nowrap;
+            display: inline-block;
+            margin: 0 auto;
+            text-align: center;
+        }
     </style>
 
 </head>
@@ -186,15 +193,8 @@
         <div class="container px-4">
             <div class="flex items-center min-h-screen justify-center">
                 <div class="lg:w-8/12 md:w-10/12 w-full mx-auto text-center px-4">
-                    <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-crimson mb-4 hero-title"
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-crimson mb-4 hero-title whitespace-nowrap mx-auto text-center"
                         style="color: white; text-shadow: 1px 1px 2px rgba(0,0,0,0.6);">Vinelife Church Wilmslow</h1>
-                    <p class="text-xl md:text-2xl mb-4" style="color: white; text-shadow: 1px 1px 1px rgba(0,0,0,0.5);">
-                        An evangelical and charismatic church in the heart of Wilmslow,
-                        Cheshire.
-                        Focusing on the presence of God and his power to change us, heal us and set us free - becoming
-                        an encounter for others as we encounter
-                        him!
-                    </p>
                     <a href="#about"
                         class="inline-block bg-grape-royal-purple hover:bg-grape-700 hover:text-grape-champagne text-white font-semibold py-4 px-8 rounded mr-3 transform hover:scale-105 hover:shadow-xl transition-all duration-300 active:scale-95"
                         style="box-shadow: 0 6px 12px rgba(0,0,0,0.4), 0 3px 6px rgba(0,0,0,0.2), 0 1px 3px rgba(0,0,0,0.1); filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));">Learn
