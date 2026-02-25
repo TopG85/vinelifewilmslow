@@ -84,9 +84,11 @@
             text-align: center !important;
             flex-direction: column;
         }
+
         #hero .hero-content .flex {
             justify-content: center !important;
         }
+
         /* ensure the heading text stays on one line */
         .hero-title {
             white-space: nowrap;
@@ -137,6 +139,10 @@
                     <li>
                         <a class="px-3 py-2 text-cream hover:text-grape-champagne transition-colors duration-300"
                             href="#events">Worship Meetings</a>
+                    </li>
+                    <li>
+                        <a class="px-3 py-2 text-cream hover:text-grape-champagne transition-colors duration-300"
+                            href="#groups">Groups</a>
                     </li>
                     <li>
                         <a class="px-3 py-2 text-cream hover:text-grape-champagne transition-colors duration-300"
@@ -200,7 +206,8 @@
             <div class="flex items-center min-h-screen justify-center">
                 <div class="lg:w-8/12 md:w-10/12 w-full mx-auto text-center px-4">
                     <h1 class="text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-crimson mb-4 hero-title whitespace-nowrap mx-auto text-center"
-                        style="color: white; text-shadow: 1px 1px 2px rgba(0,0,0,0.6); font-size: clamp(1.5rem,6vw,3.75rem);">Vinelife Church Wilmslow</h1>
+                        style="color: white; text-shadow: 1px 1px 2px rgba(0,0,0,0.6); font-size: clamp(1.5rem,6vw,3.75rem);">
+                        Vinelife Church Wilmslow</h1>
                     <a href="#about"
                         class="inline-block bg-grape-royal-purple hover:bg-grape-700 hover:text-grape-champagne text-white font-semibold py-4 px-8 rounded mr-3 transform hover:scale-105 hover:shadow-xl transition-all duration-300 active:scale-95"
                         style="box-shadow: 0 6px 12px rgba(0,0,0,0.4), 0 3px 6px rgba(0,0,0,0.2), 0 1px 3px rgba(0,0,0,0.1); filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));">Learn
@@ -437,6 +444,7 @@
                         const apiKey = 'AIzaSyAW-E5EY9eefCJ_SG-N4J9HsDboRWw59xk';
                         const maxResults = 6;
                         const eventsContainer = document.getElementById('events-container');
+                        const titleEl = document.getElementById('worship-title');
                         const now = new Date().toISOString();
                         const endpoint = `https://www.googleapis.com/calendar/v3/calendars/${calendarId}/events?key=${apiKey}&timeMin=${now}&maxResults=${maxResults}&orderBy=startTime&singleEvents=true`;
                         function formatDate(dateStr) {
@@ -515,9 +523,9 @@
                                 console.log(`Filtering for current month events...`);
                                 const currentDate = new Date();
                                 const currentMonth = currentDate.getMonth();
-                                const currentYear = currentDate.getFullYear();
+                                let currentYear = currentDate.getFullYear();
 
-                                const currentMonthEvents = data.items.filter(event => {
+                                let currentMonthEvents = data.items.filter(event => {
                                     const summary = event.summary || '';
                                     const eventDate = new Date(event.start.dateTime || event.start.date);
                                     const isCurrentMonth = eventDate.getMonth() === currentMonth &&
@@ -537,8 +545,30 @@
 
                                 const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
                                     'July', 'August', 'September', 'October', 'November', 'December'];
-                                const currentMonthName = monthNames[currentMonth];
+                                let currentMonthName = monthNames[currentMonth];
 
+                                // if no events remain this month but there are future items, show next month's
+                                if (currentMonthEvents.length === 0 && data.items.length > 0) {
+                                    const firstEvent = new Date(data.items[0].start.dateTime || data.items[0].start.date);
+                                    const nextMonth = firstEvent.getMonth();
+                                    const nextYear = firstEvent.getFullYear();
+                                    // update currentYear so subsequent logging/headers are accurate
+                                    currentYear = nextYear;
+                                    currentMonthEvents = data.items.filter(ev => {
+                                        const ed = new Date(ev.start.dateTime || ev.start.date);
+                                        return ed.getMonth() === nextMonth && ed.getFullYear() === nextYear;
+                                    }).sort((a, b) => {
+                                        const da = new Date(a.start.dateTime || a.start.date);
+                                        const db = new Date(b.start.dateTime || b.start.date);
+                                        return da - db;
+                                    });
+                                    currentMonthName = monthNames[nextMonth];
+                                    console.log(`Falling back to next month: ${currentMonthName} ${currentYear}`);
+                                    // update displayed section title as well
+                                    if (titleEl) {
+                                        titleEl.textContent = `Sunday Worship Meetings in ${currentMonthName}`;
+                                    }
+                                }
                                 if (currentMonthEvents.length === 0) {
                                     eventsContainer.innerHTML = `<div class="col-span-3 text-center text-lg">No events found for ${currentMonthName} ${currentYear}</div>`;
                                     return;
@@ -588,6 +618,46 @@
                             style="filter: drop-shadow(0 6px 18px rgba(0,0,0,0.45));">Get
                             More Information</a>
                     </div>
+                </div>
+            </section>
+            <!-- Groups Section -->
+            <section id="groups" class="py-10">
+                <div class="container px-4">
+                    <div class="w-full text-center mb-5">
+                        <h2 class="text-3xl md:text-4xl font-semibold"
+                            style="text-shadow: 1px 1px 1px rgba(0,0,0,0.5);">
+                            Groups at Vinelife Church
+                        </h2>
+                        <p class="text-lg md:text-xl" style="text-shadow: 1px 1px 1px rgba(0,0,0,0.3);">
+                            We have groups for men and women. More details coming soon!
+                        </p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center">
+                        <!-- Men's Group -->
+                        <div class="w-full">
+                            <div class="resource-box p-6 rounded shadow-lg bg-white/80">
+                                <h3 class="text-2xl font-bold mb-2"><i class="fa-solid fa-person mr-2"></i>Men's Group
+                                </h3>
+                                <p>Details coming soon. Watch this space for meeting dates and info.</p>
+                                <div id="mens-group-events" class="mt-4"></div>
+                            </div>
+                        </div>
+                        <!-- Women's Group -->
+                        <div class="w-full">
+                            <div class="resource-box p-6 rounded shadow-lg bg-white/80">
+                                <h3 class="text-2xl font-bold mb-2"><i class="fa-solid fa-person-dress mr-2"></i>Women's Group</h3>
+                                <p>Details coming soon. Watch this space for meeting dates and info.</p>
+                                <div id="womens-group-events" class="mt-4"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-4">
+                    <a href="#contact"
+                        class="inline-block bg-grape-royal-purple hover:text-grape-champagne text-white font-semibold py-2 px-6 rounded shadow hover:shadow-lg transform hover:scale-105 transition-all duration-300 active:scale-95 mt-3"
+                        style="filter: drop-shadow(0 6px 18px rgba(0,0,0,0.45));">Get
+                        More Information</a>
+                </div>
                 </div>
             </section>
             <!-- YouTube Channel Section -->
