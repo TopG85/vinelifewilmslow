@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" style="height: 100%; background: #241040;">
+<html lang="en" style="height: 100%; background: #fff;">
 
 <head>
     <meta charset="utf-8">
@@ -17,13 +17,14 @@
     <link rel="icon" type="image/x-icon" href="assets/images/vinelifewilmslowlogo.webp">
 
     <!-- Tailwind generated CSS (compiled output) -->
-    <link rel="stylesheet" href="dist/css/style.css?v=202602191602">
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap"
         rel="stylesheet">
 
     <!-- Font Awesome for Icons -->
@@ -35,323 +36,210 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     </noscript>
 
-    <!-- Custom Stylesheet -->
-    <!-- Note: compiled Tailwind stylesheet already included above; duplicate link removed -->
-    <style>
-        /* Remove green gradient/background from About and footer sections */
-        #about,
-        #about::before,
-        #about::after,
-        #footer-contact,
-        #footer-contact::before,
-        #footer-contact::after,
-        footer,
-        footer::before,
-        footer::after {
-            background-image: none !important;
-            background-color: #4a0e4e !important;
-            box-shadow: none !important;
-            border-image: none !important;
-        }
-
-        html,
-        body {
-            background: #241040 !important;
-        }
-
-        /* Ensure hero content is always offset below the fixed navbar (override compiled CSS/caching) */
-        #hero {
-            padding-top: calc(56px + env(safe-area-inset-top)) !important;
-            scroll-margin-top: calc(56px + env(safe-area-inset-top)) !important;
-        }
-
-        /* Anchor target offset for in-page links (extra safety if compiled CSS is not applied)
-           This creates a hidden pseudo element so anchors land below the fixed navbar. */
-        section[id]::before {
-            content: "";
-            display: block;
-            height: calc(56px + env(safe-area-inset-top));
-            margin-top: calc(-1 * (56px + env(safe-area-inset-top)));
-            visibility: hidden;
-            pointer-events: none;
-        }
-
-        /* Force-centre hero content to avoid layout jump on hard-refresh */
-        #hero .hero-content {
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            text-align: center !important;
-            flex-direction: column;
-        }
-
-        #hero .hero-content .flex {
-            justify-content: center !important;
-        }
-
-        /* ensure the heading text stays on one line */
-        .hero-title {
-            white-space: nowrap;
-            display: inline-block;
-            margin: 0 auto;
-            text-align: center;
-            /* ensure centring even when overflowing */
-            position: relative;
-            left: 50%;
-            transform: translateX(-50%);
-            /* scale font to viewport width so it stays on one line */
-            font-size: clamp(1.5rem, 6vw, 4.5rem);
-        }
-    </style>
-
 </head>
 
-<body class="flex flex-col min-h-screen" style="height: 100%; overflow-x: hidden; background: #241040;">
-    <nav id="navbar" class="navbar fixed top-0 left-0 w-full z-50">
-        <div class="container flex items-center justify-between">
+<body class="flex flex-col min-h-screen bg-beige-section text-main-text"
+    style="height: 100%; overflow-x: hidden; background: #fff;">
+    <nav id="navbar" class="navbar fixed top-0 left-0 w-full z-50 bg-beige-section">
+        <div class="container flex items-center justify-between"
+            style="max-width: none; width: 100vw; margin: 0; padding-left: 48px; padding-right: 48px; min-height: 90px; padding-bottom: 8px; padding-top: 24px; align-items: center;">
             <a class="navbar-brand" href="index.html">
-                <img src="assets/images/vinelifewilmslowlogo.webp" alt="" class="logo" width="55" height="55">
+                <img src="assets/images/vinelifewilmslowlogo.webp" alt="" class="logo" width="80" height="80">
             </a>
-            <button id="navbar-toggle" class="lg:hidden p-2 rounded-md" aria-label="Toggle navigation">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
-                    </path>
-                </svg>
+            <!-- Burger icon for mobile/tablet -->
+            <button id="navbar-toggle" class="block lg:hidden p-3 ml-2 text-main-text focus:outline-none" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navbarNav">
+                <span class="sr-only">Open main menu</span>
+                <span class="block w-8 h-1 bg-main-text rounded-full mb-1 transition-all duration-400"></span>
+                <span class="block w-6 h-1 bg-main-text rounded-full mb-1 transition-all duration-400"></span>
+                <span class="block w-4 h-1 bg-main-text rounded-full transition-all duration-400"></span>
             </button>
-            <div id="navbarNav" class="hidden w-full lg:flex lg:items-center lg:ml-auto lg:w-auto mt-4 lg:mt-0">
-                <ul class="flex flex-col lg:flex-row lg:items-center lg:space-x-4 w-full lg:w-auto">
+            <div id="navbarNav" class="hidden lg:flex lg:items-center lg:justify-end lg:w-auto mt-4 lg:mt-0 bg-beige-section w-full absolute left-0 top-full shadow-lg lg:shadow-none lg:static lg:bg-transparent z-40 px-6 py-4 lg:px-0 lg:py-0">
+                <ul class="flex flex-col lg:flex-row items-start lg:items-center space-y-2 lg:space-y-0 lg:space-x-4 justify-start lg:justify-end w-full lg:w-auto">
                     <li>
-                        <a class="px-3 py-2 text-white font-bold" aria-current="page" href="#hero">Home</a>
+                        <a class="block w-full px-3 py-3 text-white font-bold rounded hover:text-[#1E6B3A] hover:bg-gold-accent transition-colors duration-300" aria-current="page" href="#hero">Home</a>
                     </li>
                     <li>
-                        <a class="px-3 py-2 text-white hover:text-grape-champagne transition-colors duration-300"
-                            href="#about">About</a>
+                        <a class="block w-full px-3 py-3 text-white hover:text-[#1E6B3A] hover:bg-gold-accent/20 rounded transition-colors duration-300" href="#about">About</a>
                     </li>
                     <li>
-                        <a class="px-3 py-2 text-cream hover:text-grape-champagne transition-colors duration-300"
-                            href="#leaders">Founders</a>
+                        <a class="block w-full px-3 py-3 text-white hover:text-[#1E6B3A] hover:bg-gold-accent/20 rounded transition-colors duration-300" href="#founders">Founders</a>
                     </li>
                     <li>
-                        <a class="px-3 py-2 text-cream hover:text-grape-champagne transition-colors duration-300"
-                            href="#thought">Thought for the day</a>
+                        <a class="block w-full px-3 py-3 text-white hover:text-[#1E6B3A] hover:bg-gold-accent/20 rounded transition-colors duration-300" href="#thought">Thought for the day</a>
                     </li>
                     <li>
-                        <a class="px-3 py-2 text-cream hover:text-grape-champagne transition-colors duration-300"
-                            href="#events">Worship Meetings</a>
+                        <a class="block w-full px-3 py-3 text-white hover:text-[#1E6B3A] hover:bg-gold-accent/20 rounded transition-colors duration-300" href="#events">Worship Meetings</a>
                     </li>
                     <li>
-                        <a class="px-3 py-2 text-cream hover:text-grape-champagne transition-colors duration-300"
-                            href="#groups">Groups</a>
+                        <a class="block w-full px-3 py-3 text-white hover:text-[#1E6B3A] hover:bg-gold-accent/20 rounded transition-colors duration-300" href="#groups">Groups</a>
                     </li>
                     <li>
-                        <a class="px-3 py-2 text-cream hover:text-grape-champagne transition-colors duration-300"
-                            href="#youtube">YouTube</a>
+                        <a class="block w-full px-3 py-3 text-white hover:text-[#1E6B3A] hover:bg-gold-accent/20 rounded transition-colors duration-300" href="#youtube">YouTube</a>
                     </li>
                     <li>
-                        <a class="px-3 py-2 text-cream hover:text-grape-champagne transition-colors duration-300"
-                            href="#local-resources">Resources</a>
+                        <a class="block w-full px-3 py-3 text-white hover:text-[#1E6B3A] hover:bg-gold-accent/20 rounded transition-colors duration-300" href="#local-resources">Resources</a>
                     </li>
                     <li>
-                        <a class="px-3 py-2 text-cream hover:text-grape-champagne transition-colors duration-300"
-                            href="#find-us">Find Us</a>
+                        <a class="block w-full px-3 py-3 text-white hover:text-[#1E6B3A] hover:bg-gold-accent/20 rounded transition-colors duration-300" href="#find-us">Find Us</a>
                     </li>
                     <li>
-                        <a class="px-3 py-2 text-cream hover:text-grape-champagne transition-colors duration-300"
-                            href="#contact">Contact</a>
+                        <a class="block w-full px-3 py-3 text-white hover:text-[#1E6B3A] hover:bg-gold-accent/20 rounded transition-colors duration-300" href="#contact">Contact</a>
                     </li>
                 </ul>
             </div>
         </div> <!-- Add this closing div before </nav> -->
     </nav>
 
+    <style>
+        /* Navbar text color white and hover Deep Forest Green */
+        .navbar a,
+        .navbar .navbar-brand,
+        .navbar .nav-link,
+        .navbar .nav-item,
+        #navbarNav a,
+        #navbarNav .nav-link {
+            color: #fff !important;
+            transition: color 0.2s;
+        }
+        .navbar a:hover,
+        .navbar .navbar-brand:hover,
+        .navbar .nav-link:hover,
+        .navbar .nav-item:hover,
+        #navbarNav a:hover,
+        #navbarNav .nav-link:hover {
+            color: #1E6B3A !important;
+        }
+        /* For mobile menu button (burger icon) */
+        #navbar-toggle {
+            color: #fff !important;
+        }
+        #navbar-toggle:hover {
+            color: #1E6B3A !important;
+        }
+    </style>
+
     <!-- Hero Section -->
     <section id="hero" class="hero-section">
-        <div class="hero-background">
-            <img id="hero-img" src="assets/images/ChatGPTImageFeb14,2026,12_57_33PM.png"
-                alt="ChatGPT Hero Image Feb 14, 2026" class="hero-image" width="1920" height="1080" loading="eager"
+        <div class="hero-bg-container">
+            <img id="hero-img-1" src="assets/images/ChatGPTImageFeb14,2026,12_57_33PM.png"
+                alt="ChatGPT Hero Image Feb 14, 2026" class="hero-bg-img" style="opacity:1;" loading="eager"
                 fetchpriority="high">
-            <img src="assets/images/vinelifewilmslowhero.webp" alt="Vinelife Church Wilmslow" class="hero-image"
-                width="1920" height="1080" loading="eager" fetchpriority="high"
-                style="filter: grayscale(100%) contrast(1.1) brightness(0.5) drop-shadow(0 0 0 rgba(60,0,60,0.3));">
-            <!-- See <attachments> above for file contents. You may not need to search or read the file again. -->
-            <script>
-                document.addEventListener('DOMContentLoaded', function () {
-                    const heroImages = [
-                        {
-                            src: 'assets/images/ChatGPTImageFeb14,2026,12_57_33PM.png',
-                            alt: 'ChatGPT Hero Image Feb 14, 2026',
-                            filter: 'brightness(0.7) drop-shadow(0 0 0 rgba(60,0,60,0.3))'
-                        },
-                        {
-                            src: 'assets/images/vinelifewilmslowhero.webp',
-                            alt: 'Vinelife Church Wilmslow',
-                            filter: 'grayscale(100%) contrast(1.1) brightness(0.5) drop-shadow(0 0 0 rgba(60,0,60,0.3))'
-                        }
-                    ];
-                    let current = 0;
-                    const heroImg = document.getElementById('hero-img');
-                    setInterval(() => {
-                        current = (current + 1) % heroImages.length;
-                        heroImg.src = heroImages[current].src;
-                        heroImg.alt = heroImages[current].alt;
-                        heroImg.style.filter = heroImages[current].filter;
-                    }, 15000); // Change every 15 seconds
-                    // Set initial filter
-                    heroImg.style.filter = heroImages[0].filter;
-                });
-            </script>
-        </div>
-        <div class="container px-4">
-            <div class="flex items-center min-h-screen justify-center">
-                <div class="lg:w-8/12 md:w-10/12 w-full mx-auto text-center px-4">
-                    <h1
-                        class="text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-crimson mb-4 hero-title text-center">
-                        Vinelife Church Wilmslow</h1>
+            <img id="hero-img-2" src="assets/images/vinelifewilmslowhero.webp" alt="Vinelife Church Wilmslow"
+                class="hero-bg-img" style="opacity:0; filter: grayscale(100%) contrast(1.1);" loading="eager"
+                fetchpriority="high">
+            <div id="hero-img-2-tint"
+                style="opacity:0; position:absolute; top:0; left:0; width:100vw; height:90vh; background:rgba(0,0,0,0.45); z-index:2; pointer-events:none;">
+            </div>
+            <div class="hero-overlay">
+                <h1 class="font-playfair font-bold mb-8 text-center"
+                    style="color: #2f2f2f; text-shadow: 0 2px 8px rgba(0,0,0,0.18); line-height: 1.01; letter-spacing: normal; font-size: clamp(2.5rem, 6vw, 6.5rem); max-width: 100vw; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                    Vinelife Church Wilmslow</h1>
+                <div class="flex flex-row justify-center gap-6 mb-8">
                     <a href="#about"
-                        class="inline-block bg-grape-royal-purple hover:bg-grape-700 hover:text-grape-champagne text-white font-semibold py-4 px-8 rounded mr-3 transform hover:scale-105 hover:shadow-xl transition-all duration-300 active:scale-95"
-                        style="box-shadow: 0 6px 12px rgba(0,0,0,0.4), 0 3px 6px rgba(0,0,0,0.2), 0 1px 3px rgba(0,0,0,0.1); filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));">Learn
+                        class="inline-block bg-primary-green text-warm-white font-semibold py-4 px-8 rounded-lg hover:bg-green-hover transition-all duration-400 border-2 border-primary-green hover:text-gold-accent shadow">Learn
                         More</a>
                     <a href="#contact"
-                        class="inline-block border-2 border-grape-royal-purple bg-white text-grape-royal-purple font-semibold py-4 px-8 rounded hover:bg-grape-royal-purple hover:text-white transform hover:scale-105 transition-all duration-300 active:scale-95"
-                        style="box-shadow: 0 6px 12px rgba(0,0,0,0.4), 0 3px 6px rgba(0,0,0,0.2), 0 1px 3px rgba(0,0,0,0.1); filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));">Get
-                        In
-                        Touch</a>
-                    <!-- Social Media Links -->
-                    <div class="social-links text-center" style="margin-top: 40px;">
-                        <a href="https://www.facebook.com/VinelifeChurchWilmslow" target="_blank"
-                            aria-label="Visit our Facebook page (opens in a new tab)" rel="noopener"
-                            class="text-3xl transform hover:scale-110 transition-transform duration-300"
-                            style="color: white; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5)) drop-shadow(0 2px 4px rgba(0,0,0,0.3));"><i
-                                class="fa-brands fa-square-facebook"></i></a>
-                    </div>
+                        class="inline-block bg-gold-accent text-main-text font-semibold py-4 px-8 rounded-lg hover:bg-primary-green transition-all duration-400 border-2 border-gold-accent hover:text-warm-white shadow">Get
+                        In Touch</a>
+                </div>
+                <div class="social-links text-center mt-6">
+                    <a href="https://www.facebook.com/VinelifeChurchWilmslow" target="_blank"
+                        aria-label="Visit our Facebook page (opens in a new tab)" rel="noopener"
+                        class="text-3xl transform hover:scale-110 transition-transform duration-300"
+                        style="color: #4E7F3A; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5)) drop-shadow(0 2px 4px rgba(0,0,0,0.3));"><i
+                            class="fa-brands fa-square-facebook"></i></a>
                 </div>
             </div>
         </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const img1 = document.getElementById('hero-img-1');
+                const img2 = document.getElementById('hero-img-2');
+                let showing = 1;
+                const tint = document.getElementById('hero-img-2-tint');
+                setInterval(() => {
+                    if (showing === 1) {
+                        img1.style.opacity = 0;
+                        img2.style.opacity = 1;
+                        if (tint) tint.style.opacity = 1;
+                        showing = 2;
+                    } else {
+                        img1.style.opacity = 1;
+                        img2.style.opacity = 0;
+                        if (tint) tint.style.opacity = 0;
+                        showing = 1;
+                    }
+                }, 15000);
+            });
+        </script>
     </section>
-
     <!-- Main section -->
-    <main>
+    <main class=" flex flex-col items-center mt-0">
         <!-- About Section -->
-        <section id="about" class="py-5">
-            <!-- Background Image -->
-            <!-- <div id="about-bg-image">
-                <img src="assets/images/Vinelife.webp" alt="Vinelife Wilmslow About" class="about-bg-image" width="1920"
-                    height="1080" loading="lazy">
-            </div> -->
-
-            <div id="about-content" class="py-5">
-                <div class="container">
-                    <div class="flex justify-center">
-                        <div class="lg:w-8/12 md:w-10/12 w-full mx-auto px-4">
-                            <h2 class="text-3xl md:text-4xl font-semibold mb-6 text-center enhanced-shadow">About
-                                Vinelife Wilmslow...</h2>
-                            <p
-                                class="text-lg md:text-xl text-center leading-relaxed mb-6 max-w-prose mx-auto muted-note">
-                                Vinelife Church Wilmslow is a welcoming, evangelical and charismatic church rooted in
-                                practical faith and community care. We focus on accessible teaching, heartfelt worship,
-                                and real-life discipleship for all ages.
+                <section id="about" class="py-8 mt-8 flex flex-col items-center justify-center text-center w-full" style="background: #4B2E83; color: #fff;">
+                    <div id="about-content" class="py-5 flex flex-col items-center justify-center text-center w-full">
+                        <h2 class="text-3xl md:text-4xl font-semibold mb-6 text-center w-full">About Vinelife Wilmslow...</h2>
+                        <p class="text-base md:text-lg text-justify leading-relaxed mb-6 muted-note" style="font-family: 'Lato', Arial, sans-serif;">
+                            Vinelife Church Wilmslow is a welcoming, evangelical and charismatic church rooted in practical faith and community care. We focus on accessible teaching, heartfelt worship, and real-life discipleship for all ages.
+                        </p>
+                        <div class="text-center w-full">
+                            <button id="about-readmore-btn" class="inline-block bg-sage-background text-main-text font-semibold py-2 px-6 rounded transition-all duration-300 border border-main-text">
+                                Read More
+                            </button>
+                        </div>
+                        <div id="about-full-text" style="display:none; margin-top:2rem;" class="mx-auto max-w-prose">
+                            <p class="text-base md:text-lg text-justify leading-relaxed mb-6 muted-note max-w-prose mx-auto" style="font-family: 'Lato', Arial, sans-serif;">
+                                Vinelife Church Wilmslow was founded in 2000 as the SHED (Salvation, Healing, Equipping & Discipleship) Christian Fellowship coming under the church planting scheme of what was then Manchester Vineyard, led by Martyn and Linda Smith. Our founders, Robert & Cheryl Larkman, completed several Leadership and Church Planting training programmes with them and have also undergone training with Bethel Leaders Network.
                             </p>
-                            <div class="text-center">
-                                <button id="about-readmore-btn"
-                                    class="inline-block bg-grape-royal-purple hover:bg-grape-700 text-white font-semibold py-2 px-6 rounded transition-all duration-300">
-                                    Read More
-                                </button>
-                            </div>
-                            <div id="about-full-text" style="display:none; margin-top:2rem;">
-                                <p
-                                    class="text-lg md:text-xl text-center leading-relaxed mb-6 max-w-prose mx-auto muted-note">
-                                    Vinelife Church Wilmslow was founded in 2000 as the SHED (Salvation, Healing,
-                                    Equipping & Discipleship) Christian Fellowship coming under the church planting
-                                    scheme of what was then Manchester Vineyard, led by Martyn and Linda Smith. Our
-                                    founders, Robert & Cheryl Larkman, completed several Leadership and Church Planting
-                                    training programmes with them and have also undergone training with Bethel Leaders
-                                    Network.
-                                </p>
-                                <p
-                                    class="text-lg md:text-xl text-center leading-relaxed mb-6 max-w-prose mx-auto muted-note">
-                                    Our church is rooted in practical faith and community care. We focus on accessible
-                                    teaching, heartfelt worship and real-life discipleship. We run regular courses,
-                                    small groups and community projects that support people at every stage of life.
-                                </p>
-                                <p
-                                    class="text-lg md:text-xl text-center leading-relaxed mb-6 max-w-prose mx-auto muted-note">
-                                    We have always been an evangelical and charismatic church with orthodox Christian
-                                    beliefs and were established to provide a more culturally accessible expression of
-                                    church for unchurched people. This vision was informed by our experience of
-                                    outreach, particularly through the Alpha Course, where we found people who embraced
-                                    the Christian faith but found it difficult to integrate into more traditional
-                                    expressions of church. We also prioritise the presence of the Holy Spirit and seek
-                                    to operate in the gifts and power he brings.</p>
-                                <p class="text-lg md:text-xl text-center leading-relaxed mb-6 max-w-prose mx-auto"
-                                    style="text-shadow: 1px 1px 2px rgba(0,0,0,0.3), 0px 0px 2px rgba(0,0,0,0.2);">We
-                                    are members of Churches Together in Handforth through which we participate in
-                                    community and outreach events such as an outdoor Christmas Eve carol service which
-                                    attracts more than a thousand people each year and a community act of remembrance on
-                                    Remembrance Sunday which is also very well attended.</p>
-                                <p class="text-lg md:text-xl text-center leading-relaxed mb-6 max-w-prose mx-auto"
-                                    style="text-shadow: 1px 1px 2px rgba(0,0,0,0.3), 0px 0px 2px rgba(0,0,0,0.2);">We
-                                    are founder members of Hope Central, a local charity that provides two food banks, a
-                                    community pantry, a Debt Centre in partnership with Christians Against Poverty, a
-                                    CAP Job Club, plus other courses including Alpha and a number of ‘Hope Centres’
-                                    where we provide friendship and support to our local communities, a free lunch and a
-                                    Christian Thought for the Day. Robert Larkman, our Senior Leader, wrote the
-                                    constitution for “Hope Central” ensuring that the propagation of the Gospel was
-                                    included as a stated aim of the charity alongside its aims of preventing and
-                                    relieving poverty. He also served as its founding Director helping to establish a
-                                    sustainable foundation for the charity.</p>
-                            </div>
+                            <p class="text-base md:text-lg text-justify leading-relaxed mb-6 muted-note" style="font-family: 'Lato', Arial, sans-serif;">
+                                Our church is rooted in practical faith and community care. We focus on accessible teaching, heartfelt worship and real-life discipleship. We run regular courses, small groups and community projects that support people at every stage of life.
+                            </p>
+                            <p class="text-base md:text-lg text-justify leading-relaxed mb-6 muted-note" style="font-family: 'Lato', Arial, sans-serif;">
+                                We have always been an evangelical and charismatic church with orthodox Christian beliefs and were established to provide a more culturally accessible expression of church for unchurched people. This vision was informed by our experience of outreach, particularly through the Alpha Course, where we found people who embraced the Christian faith but found it difficult to integrate into more traditional expressions of church. We also prioritise the presence of the Holy Spirit and seek to operate in the gifts and power he brings.
+                            </p>
+                            <p class="text-base md:text-lg text-justify leading-relaxed mb-6" style="font-family: 'Lato', Arial, sans-serif;">
+                                We are members of Churches Together in Handforth through which we participate in community and outreach events such as an outdoor Christmas Eve carol service which attracts more than a thousand people each year and a community act of remembrance on Remembrance Sunday which is also very well attended.
+                            </p>
+                            <p class="text-base md:text-lg text-justify leading-relaxed mb-6" style="font-family: 'Lato', Arial, sans-serif;">
+                                We are founder members of Hope Central, a local charity that provides two food banks, a community pantry, a Debt Centre in partnership with Christians Against Poverty, a CAP Job Club, plus other courses including Alpha and a number of ‘Hope Centres’ where we provide friendship and support to our local communities, a free lunch and a Christian Thought for the Day. Robert Larkman, our Senior Leader, wrote the constitution for “Hope Central” ensuring that the propagation of the Gospel was included as a stated aim of the charity alongside its aims of preventing and relieving poverty. He also served as its founding Director helping to establish a sustainable foundation for the charity.
+                            </p>
                         </div>
                     </div>
-                </div>
-            </div>
+                </section>
 
             <!-- Founders Section -->
-            <section id="leaders" class="py-10">
-                <!-- Background Image -->
-                <div id="leaders-bg-image">
-                    <img src="assets/images/bokeh.webp" alt="Abstract bokeh effect" class="leaders-bg-image"
-                        width="1920" height="1080" loading="lazy">
-                </div>
-
-                <div class="container">
-                    <div class="">
-                        <div class="lg:w-8/12 md:w-10/12 w-full mx-auto px-4 box-drop enhanced-shadow">
-                            <h2 class="text-4xl font-crimson mb-6 text-center enhanced-shadow">Founders</h2>
-                            <img src="assets/images/2305+R-C-1920w.webp"
-                                alt="Robert and Cheryl Larkman standing side by side"
-                                class="rounded-lg shadow-xl mb-6 w-full max-w-lg mx-auto block" width="600"
-                                height="400">
-                            <p class="text-lg md:text-xl text-justify leading-relaxed max-w-prose mx-auto muted-note"
-                                style="text-shadow: 1px 1px 1px rgba(0,0,0,0.3);">
-                                We have lived in Wilmslow most of our lives and currently reside in Handforth
-                                where we raised our three children and launched them on their own journeys to change
-                                the world! We believe that church is all about relationships, firstly with God
-                                through the person of Jesus and the presence of His Spirit and then with others as
-                                we share the love, grace and power He has so freely given us. Our vision is to see a
-                                family of believers who encounter God and become an encounter with God for their
-                                family, friends, colleagues and communities.
-                            </p>
-                        </div>
+            <section class="flex flex-col items-center justify-center text-center w-full" style="background: #1E6B3A; color: #fff;">
+                <div id="founders" class="py-8 mt-8 flex flex-col items-center justify-center text-center w-full">
+                    <div id="founders-content" class="py-5 flex flex-col items-center justify-center text-center w-full">
+                        <h2 class="text-4xl font-crimson mb-6 text-center w-full">Founders</h2>
+                        <img src="assets/images/2305+R-C-1920w.webp"
+                            alt="Robert and Cheryl Larkman standing side by side"
+                            class="rounded-lg shadow-xl mb-6 w-full max-w-lg mx-auto block" width="600"
+                            height="400">
+                        <p class="text-lg md:text-xl text-justify leading-relaxed mb-6 muted-note max-w-prose mx-auto" style="font-family: 'Lato', Arial, sans-serif;">
+                            We have lived in Wilmslow most of our lives and currently reside in Handforth
+                            where we raised our three children and launched them on their own journeys to change
+                            the world! We believe that church is all about relationships, firstly with God
+                            through the person of Jesus and the presence of His Spirit and then with others as
+                            we share the love, grace and power He has so freely given us. Our vision is to see a
+                            family of believers who encounter God and become an encounter with God for their
+                            family, friends, colleagues and communities.
+                        </p>
                     </div>
                 </div>
             </section>
 
             <!-- Thought for the Day Section -->
-            <section id="thought"
-                class="py-5 relative overflow-hidden pt-8 bg-gradient-to-r from-grape-deep-purple via-grape-royal-purple via-grape-rich-plum via-grape-burgundy">
-                <div class="container">
+            <section id="thought" class="py-20 relative overflow-hidden mt-40 px-0" style="background: #4B2E83; width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw);">
+                <div class="flex flex-col items-center justify-center text-center w-full">
                     <div class="w-full text-center mb-8">
-                        <h2 class="text-3xl md:text-4xl font-semibold mb-4" style="color: white;">Thought for the Day
-                        </h2>
-                        <div id="thought-content" class="max-w-xl mx-auto p-6 rounded text-neutral-800"
-                            style="color: white;">
-                            <div class="loader mb-4" style="display:none; color: white;">Loading...</div>
-                            <blockquote id="bible-verse" class="italic text-lg mb-2" style="color: white;"></blockquote>
-                            <div id="bible-ref" class="font-semibold" style="color: white;"></div>
+                        <h2 class="text-3xl md:text-4xl font-semibold mb-4 text-center w-full">Thought for the Day</h2>
+                        <div id="thought-content" class="max-w-xl mx-auto p-6 rounded text-neutral-800 w-full">
+                            <div class="loader mb-4" style="display:none;">Loading...</div>
+                            <blockquote id="bible-verse" class="italic text-lg mb-2" style="font-family: Georgia, serif !important; font-style: italic !important;"></blockquote>
+                            <div id="bible-ref" class="font-semibold"></div>
                         </div>
                     </div>
-                </div>
                 <!-- Removed custom gradient, now uses Tailwind gradient for consistency -->
                 <script>
                     // Bible-API fetch for random verse, persist for one day
@@ -408,18 +296,10 @@
             </section>
 
             <!-- Worship Meeting Section -->
-            <section id="events" class="py-5">
-                <!-- Background Image -->
-                <!-- <div class="events-background">
-                <img src="assets/images/Vineyardchurch.webp" alt="Vinelife Wilmslow Event" class="events-bg-image"
-                    width="1920" height="1080" loading="lazy">
-            </div> -->
-
-                <div class="container">
-                    <div class="text-center mb-5">
-                        <h2 id="worship-title" class="text-4xl" style="text-shadow: 2px 2px 10px rgba(0,0,0,0.6);">
-                            Sunday
-                            Worship Meetings in [Month]</h2>
+            <section id="events" class="py-20 mt-64 pt-32 px-8" style="background: #F2C94C; color: #fff;">
+                <div class="flex flex-col items-center justify-center text-center w-full">
+                    <div class="w-full text-center mb-5">
+                        <h2 id="worship-title" class="text-4xl text-center w-full">Sunday Worship Meetings in [Month]</h2>
                         <script>
                             // Dynamic title for Worship Meetings section
                             (function () {
@@ -430,17 +310,15 @@
                                 document.getElementById('worship-title').textContent = title;
                             })();
                         </script>
-                        <p class="text-lg md:text-xl" style="text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">Stay connected
+                        <p class="text-lg md:text-xl w-full">Stay connected
                             with
                             what's happening at Vinelife Wilmslow.</p>
                     </div>
-
                     <!-- Dynamic Events Loader -->
-                    <div id="events-container" class="grid grid-cols-1 md:grid-cols-3 gap-6 justify-items-center"></div>
+                    <div id="events-container" class="grid grid-cols-1 md:grid-cols-3 gap-6 justify-items-center w-full"></div>
                     <script>
                         // Google Calendar API integration
                         const calendarId = 'e7685f9a0985b807155b873efdc0f555df73f3ddc26aa1b1e99777d08600516b@group.calendar.google.com';
-                        // Google Calendar API integration
                         const apiKey = 'AIzaSyAW-E5EY9eefCJ_SG-N4J9HsDboRWw59xk';
                         const maxResults = 6;
                         const eventsContainer = document.getElementById('events-container');
@@ -473,28 +351,21 @@
                         }
 
                         function getIcon(summary) {
-                            if (/worship/i.test(summary)) return '<i class="fa-solid fa-hands-praying mr-2"></i>';
-                            if (/church/i.test(summary)) return '<i class="fa-solid fa-church mr-2"></i>';
-                            if (/coffee|informal/i.test(summary)) return '<i class="fa-solid fa-mug-hot mr-2"></i>';
-                            return '<i class="fa-solid fa-calendar-check mr-2"></i>';
+                            if (/worship/i.test(summary)) return '<i class="fa-solid fa-hands-praying mr-2" style="color:rgb(255 107 71)"></i>';
+                            if (/church/i.test(summary)) return '<i class="fa-solid fa-church mr-2" style="color:rgb(255 107 71)"></i>';
+                            if (/coffee|informal/i.test(summary)) return '<i class="fa-solid fa-mug-hot mr-2" style="color:rgb(255 107 71)"></i>';
+                            return '<i class="fa-solid fa-calendar-check mr-2" style="color:rgb(255 107 71)"></i>';
                         }
-
-                        console.log('Making API request to:', endpoint);
 
                         fetch(endpoint)
                             .then(response => {
-                                console.log('API Response status:', response.status);
-                                console.log('API Response headers:', response.headers);
                                 if (!response.ok) {
                                     throw new Error(`HTTP error! status: ${response.status}`);
                                 }
                                 return response.json();
                             })
                             .then(data => {
-                                console.log('Full API Response:', data);
-
                                 if (data.error) {
-                                    console.error('Google Calendar API Error:', data.error);
                                     eventsContainer.innerHTML = `<div class="col-span-3 text-center text-lg text-red-600">
                             <h3>Google Calendar API Error:</h3>
                             <p>${data.error.message}</p>
@@ -503,8 +374,6 @@
                         </div>`;
                                     return;
                                 }
-
-                                console.log('Total events found:', data.items ? data.items.length : 0);
 
                                 if (!data.items || data.items.length === 0) {
                                     eventsContainer.innerHTML = `<div class="col-span-3 text-center text-lg">
@@ -516,11 +385,8 @@
                                     return;
                                 }
 
-                                console.log(`Showing all ${data.items.length} events with detailed date debugging`);
-
                                 eventsContainer.innerHTML = '';
 
-                                console.log(`Filtering for current month events...`);
                                 const currentDate = new Date();
                                 const currentMonth = currentDate.getMonth();
                                 let currentYear = currentDate.getFullYear();
@@ -530,16 +396,12 @@
                                     const eventDate = new Date(event.start.dateTime || event.start.date);
                                     const isCurrentMonth = eventDate.getMonth() === currentMonth &&
                                         eventDate.getFullYear() === currentYear;
-
-                                    console.log(`Event: ${summary}, Date: ${eventDate.toDateString()}, Month: ${eventDate.getMonth()}, Current Month: ${currentMonth}, Include: ${isCurrentMonth}`);
-
                                     return isCurrentMonth;
                                 }).sort((a, b) => {
                                     const dateTimeA = a.start.dateTime || a.start.date + 'T00:00:00';
                                     const dateTimeB = b.start.dateTime || b.start.date + 'T00:00:00';
                                     const dateA = new Date(dateTimeA);
                                     const dateB = new Date(dateTimeB);
-                                    console.log(`Sorting: "${a.summary}" at ${dateTimeA} (${dateA}) vs "${b.summary}" at ${dateTimeB} (${dateB})`);
                                     return dateA.getTime() - dateB.getTime();
                                 });
 
@@ -552,7 +414,6 @@
                                     const firstEvent = new Date(data.items[0].start.dateTime || data.items[0].start.date);
                                     const nextMonth = firstEvent.getMonth();
                                     const nextYear = firstEvent.getFullYear();
-                                    // update currentYear so subsequent logging/headers are accurate
                                     currentYear = nextYear;
                                     currentMonthEvents = data.items.filter(ev => {
                                         const ed = new Date(ev.start.dateTime || ev.start.date);
@@ -563,8 +424,6 @@
                                         return da - db;
                                     });
                                     currentMonthName = monthNames[nextMonth];
-                                    console.log(`Falling back to next month: ${currentMonthName} ${currentYear}`);
-                                    // update displayed section title as well
                                     if (titleEl) {
                                         titleEl.textContent = `Sunday Worship Meetings in ${currentMonthName}`;
                                     }
@@ -585,8 +444,6 @@
                                     eventsContainer.classList.remove('two-events', 'single-event');
                                 }
 
-                                console.log(`Showing ${currentMonthEvents.length} events for ${currentMonthName} ${currentYear}`);
-
                                 currentMonthEvents.forEach(event => {
                                     const summary = event.summary || 'Sunday Service';
                                     const location = event.location || '';
@@ -597,46 +454,39 @@
                                     });
 
                                     eventsContainer.innerHTML += `
-                        <div class="meetup-box transform hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
-                            <h3 class="enhanced-shadow">${icon}${summary}</h3>
+                        <div class="meetup-box shadow-xl rounded-lg transform hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between items-center w-full h-96">
+                            <h3 class="enhanced-shadow" style="color: rgb(255 107 71);">${icon}${summary}</h3>
                             <p><strong>${displayDate}</strong></p>
                             <p>${location}</p>
-                            <p><i class="fa-solid fa-clock mr-2"></i>${formatTime(event.start)}</p>
+                            <p><i class="fa-solid fa-clock mr-2" style="color: rgb(255 107 71);"></i>${formatTime(event.start)}</p>
                         </div>
                                 `;
                                 });
                             })
                             .catch(error => {
-                                console.error('Error fetching calendar events:', error);
                                 eventsContainer.innerHTML = '<div class="col-span-3 text-center text-lg text-red-600">Error loading events. Please check the console for details.</div>';
                             });
                     </script>
-
-                    <div class="text-center mt-4">
-                        <a href="#contact"
-                            class="inline-block bg-grape-royal-purple hover:text-grape-champagne text-white font-semibold py-2 px-6 rounded shadow hover:shadow-lg transform hover:scale-105 transition-all duration-300 active:scale-95 mt-3"
-                            style="filter: drop-shadow(0 6px 18px rgba(0,0,0,0.45));">Get
+                    <div class="text-center mt-4 w-full">
+                        <a href="#contact" class="inline-block bg-white">Get
                             More Information</a>
                     </div>
                 </div>
             </section>
             <!-- Groups Section -->
-            <section id="groups" class="py-10">
-                <div class="container px-4">
+            <section id="groups" class="py-20 mt-40 px-0" style="background: #E5E5E5; color: #000; width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw);">
+                <div class="flex flex-col items-center justify-center text-center w-full">
                     <div class="w-full text-center mb-5">
-                        <h2 class="text-3xl md:text-4xl font-semibold"
-                            style="text-shadow: 1px 1px 1px rgba(0,0,0,0.5);">
-                            Groups at Vinelife Church
-                        </h2>
-                        <p class="text-lg md:text-xl" style="text-shadow: 1px 1px 1px rgba(0,0,0,0.3);">
+                        <h2 class="text-3xl md:text-4xl font-semibold text-center w-full">Groups at Vinelife Church</h2>
+                        <p class="text-lg md:text-xl w-full">
                             We have groups for men & women.
                         </p>
                     </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
                         <!-- Men's Group -->
                         <div>
-                            <div class="resource-box p-6 rounded shadow-lg bg-white/80">
-                                <h3 class="text-2xl font-bold mb-1" style="color: rgb(0 0 0);">
+                            <div class="resource-box p-6 rounded shadow-lg flex flex-col h-full">
+                                <h3 class="text-2xl font-bold mb-2" style="color: rgb(0 0 0);">
                                     <i class="fa-solid fa-person mr-2"
                                         style="color: rgb(255 107 71 / var(--tw-text-opacity,1));"></i>
                                     Men's Group
@@ -649,7 +499,7 @@
                                     <dt><strong>Meetings:</strong></dt>
                                     <dd>Every Monday evening</dd>
                                 </dl>
-                                <dl style="color: rgb(0 0 0);">
+                                <dl style="color: rgb(0 0 0); margin-top: auto;">
                                     <strong>
                                         For more info ring Robert on
                                         <a href="tel:07957813360" style="color: rgb(255 107 71);">07957 813360</a>
@@ -659,7 +509,7 @@
                         </div>
                         <!-- Women's Group -->
                         <div>
-                            <div class="resource-box p-6 rounded shadow-lg bg-white/80">
+                            <div class="resource-box p-6 rounded shadow-lg">
                                 <h3 class="text-2xl font-bold mb-2" style="color: rgb(0 0 0);">
                                     <i class="fa-solid fa-person-dress mr-2"
                                         style="color: rgb(255 107 71 / var(--tw-text-opacity,1));"></i>Women's Group
@@ -680,158 +530,174 @@
                             </div>
                         </div>
                     </div>
+                </div>
             </section>
             <!-- YouTube Channel Section -->
-            <section id="youtube" class="py-5">
-                <!-- Background Image -->
-                <div id="youtube-bg-image">
-                    <img src="assets/images/bokeh.webp" alt="Vinelife Wilmslow YouTube Channel background"
-                        class="youtube-bg-image" width="1920" height="1080" loading="lazy">
-                </div>
-                <div class="container glass-effect">
+            <section id="youtube" class="py-20 mt-40 px-0" style="background: #e7e7e7; color: #832e2e; width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw);">
+                <div class="flex flex-col items-center justify-center text-center w-full glass-effect">
                     <div class="w-full text-center mb-5">
-                        <h2 class="text-3xl md:text-4xl font-semibold"
-                            style="text-shadow: 1px 1px 1px rgba(0,0,0,0.5);">The
-                            official Vinelife Wilmslow YouTube Channel</h2>
+                        <h2 class="text-3xl md:text-4xl font-semibold text-center w-full" style="color: #832e2e !important;">YouTube Channel</h2>
                     </div>
                     <!-- Embed latest video -->
-                    <div class="mb-6 flex justify-center">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/7ZSEQlR2YZs"
-                            title="Latest YouTube Video" allowfullscreen aria-label="Latest YouTube Video"></iframe>
+                    <div class="mb-6 flex justify-center w-full">
+                        <iframe 
+                            width="560" 
+                            height="315" 
+                            src="https://www.youtube.com/embed/7ZSEQlR2YZs"
+                            title="Latest YouTube Video" 
+                            allowfullscreen 
+                            aria-label="Latest YouTube Video"
+                            style="border-radius: 1rem; overflow: hidden;"
+                            class="rounded-lg"
+                        ></iframe>
                     </div>
-                    <div class="flex flex-wrap justify-center gap-4 mb-6 mt-4">
+                    <div class="flex flex-wrap justify-center gap-4 mb-6 mt-4 mx-auto">
                         <a href="https://www.youtube.com/@vinelifewilmslow5572/streams" target="_blank"
                             class="playlist-card flex flex-col" aria-label="Live Streams"
                             style="filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));">
-                            <span class="text-[4rem] text-white"
-                                style="filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));">
-                                <i class="fa-solid fa-video"></i>
+                            <span class="text-[4rem]" style="color: #832e2e; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));">
+                                <i class="fa-solid fa-video" style="color: #832e2e;"></i>
                             </span>
-                            <div class="mt-2 text-lg font-bold text-white-700">Videos</div>
+                            <div class="mt-2 text-lg font-bold" style="color: #832e2e;">Videos</div>
                         </a>
                         <a href="https://www.youtube.com/@vinelifewilmslow5572/streams" target="_blank"
                             class="playlist-card flex flex-col" aria-label="Live Streams"
                             style="filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));">
-                            <span class="text-[4rem] text-white"
-                                style="filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));">
-                                <i class="fa-solid fa-microphone"></i>
+                            <span class="text-[4rem]" style="color: #832e2e; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));">
+                                <i class="fa-solid fa-microphone" style="color: #832e2e;"></i>
                             </span>
-                            <div class="mt-2 text-lg font-bold text-white-700">Live Streams</div>
+                            <div class="mt-2 text-lg font-bold" style="color: #832e2e;">Live Streams</div>
                         </a>
                         <a href="https://www.youtube.com/@vinelifewilmslow5572/playlists" target="_blank"
                             class="playlist-card flex flex-col" aria-label="Playlists"
                             style="filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));">
-                            <span class="text-[4rem] text-white"
-                                style="filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));">
-                                <i class="fa-solid fa-list"></i>
+                            <span class="text-[4rem]" style="color: #832e2e; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));">
+                                <i class="fa-solid fa-list" style="color: #832e2e;"></i>
                             </span>
-                            <div class="mt-2 text-lg font-bold text-white-700">Playlists</div>
+                            <div class="mt-2 text-lg font-bold" style="color: #832e2e;">Playlists</div>
                         </a>
+                    </div>
                     </div>
                     <span class="custom-gap"></span>
                     <div class="w-full flex justify-center">
                         <a href="https://www.youtube.com/channel/UC0G20x3mVQwmqGUAig_MAcA?sub_confirmation=1"
                             target="_blank" class="youtube-subscribe-btn transform hover:scale-105 active:scale-95"
-                            rel="noopener" aria-label="Subscribe to our YouTube channel (opens in a new tab)"><i
-                                class="fa-solid fa-bell mr-2"></i>Subscribe</a>
+                            rel="noopener" aria-label="Subscribe to our YouTube channel (opens in a new tab)" style="color: #832e2e;">
+                            <i class="fa-solid fa-bell mr-2" style="color: #832e2e;"></i>Subscribe</a>
                     </div>
                 </div>
             </section>
             <!-- Local Resources -->
-            <section id="local-resources" class="py-10">
-                <!-- Background Image -->
-                <!-- <div id="local-resources-bg-image">
-            <img src="assets/images/resources.webp" alt="Vinelife Wilmslow Resources" class="local-resources-bg-image"
-                width="1920" height="1080" loading="lazy">
-        </div> -->
-
-                <div class="container px-4">
+            <section id="local-resources" class="py-20 mt-40 px-0" style="background:#3F6B2F; width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw);">
+                <div class="flex flex-col items-center justify-center text-center w-full">
                     <div class="w-full text-center mb-5">
-                        <h2 class="text-3xl md:text-4xl font-semibold"
-                            style="text-shadow: 1px 1px 1px rgba(0,0,0,0.5);">
-                            Resources</h2>
-                        <p class="text-lg md:text-xl" style="text-shadow: 1px 1px 1px rgba(0,0,0,0.3);">Explore helpful
+                        <h2 class="text-3xl md:text-4xl font-semibold text-center w-full" style="color: #fff;!important;">Resources</h2>
+                        <p class="text-lg md:text-xl w-full" style="color: #fff !important;">Explore helpful
                             resources in our community</p>
                     </div>
-                    <div
-                        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-8 gap-x-6 md:gap-y-10 md:gap-x-8 justify-items-center">
-                        <div class="w-full">
-                            <div
-                                class="resource-box transform hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
-                                <h3><i class="fa-solid fa-hand mr-2"></i>CAP</h3>
-                                <img src="assets/images/caplogo.webp" alt="Christian Against Poverty"
-                                    class="mb-3 mx-auto rounded-lg" width="300" height="200">
-                                <p>Christian Against Poverty</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-8 gap-x-6 md:gap-y-10 md:gap-x-8 justify-items-center items-stretch w-full px-4">
+                        <div class="w-full h-full">
+                            <div class="resource-box shadow-xl rounded-lg transform hover:-translate-y-2 hover:shadow-xl transition-all duration-300"
+                                style="min-height:16rem; max-width:20rem; width:20rem; height:28rem; display:flex; flex-direction:column; justify-content:space-between; margin-left:auto; margin-right:auto; border-radius: 0.5rem;">
+                                <div class="flex-1 flex flex-col items-center text-center">
+                                    <h3 class="text-center" style="color: #000 !important;"><i class="fa-solid fa-hand mr-2"></i>CAP</h3>
+                                    <img src="assets/images/caplogo.webp" alt="Christian Against Poverty"
+                                        class="mb-3 mx-auto rounded-lg cap-logo-bw" width="300" height="200">
+                                    <p class="text-center" style="color: #000 !important;">Christian Against Poverty</p>
+                                </div>
                                 <a href="https://www.capuk.org" target="_blank"
-                                    class="inline-block border-2 border-grape-forest text-grape-forest hover:bg-grape-forest hover:text-grape-champagne py-3 px-6 rounded transition-all duration-300"
-                                    style="filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));">Visit
-                                    Website</a>
+                                    class="inline-block border-2 py-1 px-3 rounded text-sm transition-all duration-300 mx-auto"
+                                    style="filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3)); border-color: #000 !important; color: #000 !important; background: #fff !important; min-width:6rem; max-width:10rem; width:auto; display:block;">Visit Website</a>
                             </div>
                         </div>
-                        <div class="w-full">
-                            <div
-                                class="resource-box transform hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
-                                <h3><i class="fa-solid fa-graduation-cap mr-2"></i>Alpha</h3>
-                                <img src="assets/images/alphalogo.webp" alt="Alpha" class="mb-3 mx-auto rounded-lg"
-                                    width="300" height="200">
-                                <p>Alpha Course</p>
+                        <div class="w-full h-full">
+                            <div class="resource-box shadow-xl rounded-lg transform hover:-translate-y-2 hover:shadow-xl transition-all duration-300"
+                                style="min-height:16rem; max-width:20rem; width:20rem; height:28rem; display:flex; flex-direction:column; justify-content:space-between; margin-left:auto; margin-right:auto; border-radius: 0.5rem;">
+                                <div class="flex-1 flex flex-col items-center text-center">
+                                    <h3 class="text-center" style="color: #000 !important;"><i class="fa-solid fa-graduation-cap mr-2"></i>Alpha
+                                    </h3>
+                                    <img src="assets/images/alphalogo.webp" alt="Alpha" class="mb-3 mx-auto rounded-lg"
+                                        width="300" height="200">
+                                    <p class="text-center" style="color: #000 !important;">Alpha Course</p>
+                                </div>
                                 <a href="https://alpha.org.uk/try-alpha#matomo-btn-try-alpha" target="_blank"
-                                    class="inline-block border-2 border-grape-forest text-grape-forest hover:bg-grape-forest hover:text-grape-champagne py-3 px-6 rounded transition-all duration-300"
-                                    style="filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));">Visit
-                                    Website</a>
+                                    class="inline-block border-2 py-1 px-3 rounded text-sm transition-all duration-300 mx-auto"
+                                    style="filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3)); border-color: #000 !important; color: #000 !important; background: #fff !important; min-width:6rem; max-width:10rem; width:auto; display:block;">Visit Website</a>
                             </div>
                         </div>
-                        <div class="w-full">
-                            <div
-                                class="resource-box transform hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
-                                <h3><i class="fa-solid fa-heart mr-2"></i>Hope Central</h3>
-                                <img src="assets/images/hopecentral.webp" alt="Hope Central"
-                                    class="mb-3 mx-auto rounded-lg" width="300" height="200">
-                                <p>Knutsford, Wilmslow & Handforth</p>
+                        <div class="w-full h-full">
+                            <div class="resource-box shadow-xl rounded-lg transform hover:-translate-y-2 hover:shadow-xl transition-all duration-300"
+                                style="min-height:16rem; max-width:20rem; width:20rem; height:28rem; display:flex; flex-direction:column; justify-content:space-between; margin-left:auto; margin-right:auto; border-radius: 0.5rem;">
+                                <div class="flex-1 flex flex-col items-center text-center">
+                                    <h3 class="text-center" style="color: #000 !important;"><i class="fa-solid fa-heart mr-2"></i>Hope Central
+                                    </h3>
+                                    <img src="assets/images/hopecentral.webp" alt="Hope Central"
+                                        class="mb-3 mx-auto rounded-lg" width="300" height="200">
+                                    <p class="text-center" style="color: #000 !important;">Knutsford, Wilmslow & Handforth</p>
+                                </div>
                                 <a href="https://www.hopecentral.org.uk" target="_blank"
-                                    class="inline-block border-2 border-grape-forest text-grape-forest hover:bg-grape-forest hover:text-grape-champagne py-3 px-6 rounded transition-all duration-300"
-                                    style="filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));">Visit
-                                    Website</a>
+                                    class="inline-block border-2 py-1 px-3 rounded text-sm transition-all duration-300 mx-auto"
+                                    style="filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3)); border-color: #000 !important; color: #000 !important; background: #fff !important; min-width:6rem; max-width:10rem; width:auto; display:block;">Visit Website</a>
                             </div>
                         </div>
+                    </div>
                     </div>
                 </div>
             </section>
+            <style>
+                .cap-logo-bw {
+                    filter: grayscale(100%) contrast(1.1);
+                    transition: filter 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                }
+
+                .cap-logo-bw:hover {
+                    filter: none;
+                }
+            </style>
             <!-- Find Us Section -->
-            <section id="find-us" class="py-10">
-                <div class="container px-4">
-                    <h2 class="text-3xl md:text-4xl font-semibold text-center mb-6"
-                        style="text-shadow: 1px 1px 1px rgba(0,0,0,0.5);">Find Us</h2>
-                    <div class="map-container mb-4 shadow-xl">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d900.0923325708396!2d-2.213721284864264!3d53.33826320781932!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487a4d3ebf596883%3A0x261308f27ece1c71!2sVinelife%20Church%20Wilmslow!5e1!3m2!1sen!2suk!4v1754432126080!5m2!1sen!2suk"
-                            class="w-full" height="450" style="border:0; border-radius: 12px;" allowfullscreen=""
-                            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <section id="find-us" class="py-20 mt-40 px-0" style="background: #E0ECDC; color: #fff; width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw);">
+                <div class="flex flex-col items-center justify-center text-center w-full">
+                    <div class="w-full text-center mb-5">
+                        <h2 class="text-3xl md:text-4xl font-semibold text-center mb-6 w-full" style="color: #1E6B3A !important;">Find Us</h2>
                     </div>
-                    <div class="grid grid-cols-1 md:grid-cols-3 mt-4 gap-4">
+                    <div class="map-container mb-4 shadow-xl w-full flex justify-center">
+                        <div style="max-width:72rem; margin-left:auto; margin-right:auto; width:100%;">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d900.0923325708396!2d-2.213721284864264!3d53.33826320781932!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487a4d3ebf596883%3A0x261308f27ece1c71!2sVinelife%20Church%20Wilmslow!5e1!3m2!1sen!2suk!4v1754432126080!5m2!1sen!2suk"
+                                width="100%" height="450" style="border:0; border-radius: 12px; display:block;" allowfullscreen=""
+                                loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 mt-4 gap-4 w-full">
                         <div class="mb-3">
-                            <div class="location-info text-center">
-                                <i class="fa-solid fa-map-marker-alt mb-3"></i>
-                                <h2 style="color: black; text-shadow: 1px 1px 1px rgba(0,0,0,0.4);">Address</h2>
-                                <p style="text-shadow: 1px 1px 1px rgba(0,0,0,0.3);">The Open Arms Youth
-                                    Project<br>Howty
-                                    Close, Wilmslow<br>SK9 2SH</p>
+                            <div class="location-info text-center w-full">
+                                <div class="location-info text-center w-full rounded-lg">
+                                    <i class="fa-solid fa-map-marker-alt mb-3" style="color:#1E6B3A;"></i>
+                                    <h2 class="your-class-name" style="color:#1E6B3A;">Address</h2>
+                                    <p style="font-weight: bold; color:#1E6B3A;">The Open Arms Youth
+                                        Project<br>Howty
+                                        Close, Wilmslow<br>SK9 2SH</p>
+                                </div>
                             </div>
                         </div>
                         <div class="mb-3">
-                            <div class="location-info text-center">
-                                <i class="fa-solid fa-clock mb-3"></i>
-                                <h2 style="color: black; text-shadow: 1px 1px 1px rgba(0,0,0,0.4);">Service Times</h2>
-                                <p style="text-shadow: 1px 1px 1px rgba(0,0,0,0.3);">Sunday Worship<br>10:30 AM<br>Most
-                                    Sundays</p>
+                            <div class="location-info text-center w-full">
+                                <div class="location-info text-center w-full rounded-lg">
+                                    <i class="fa-solid fa-clock mb-3" style="color:#1E6B3A;"></i>
+                                    <h2 class="your-class-name" style="color:#1E6B3A;">Service Times</h2>
+                                    <p style="font-weight: bold; color:#1E6B3A;">Sunday Worship<br>10:30 AM<br>Most
+                                        Sundays</p>
+                                </div>
                             </div>
                         </div>
                         <div class="mb-3">
-                            <div class="location-info text-center">
-                                <i class="fa-solid fa-car mb-3"></i>
-                                <h2 style="color: black; text-shadow: 1px 1px 1px rgba(0,0,0,0.4);">Parking</h2>
-                                <p style="text-shadow: 1px 1px 1px rgba(0,0,0,0.3);">Free parking
-                                    available<br>on-site<br>Easy access</p>
+                            <div class="location-info text-center w-full">
+                                <div class="location-info text-center w-full rounded-lg">
+                                    <i class="fa-solid fa-car mb-3" style="color:#1E6B3A;"></i>
+                                    <h2 class="your-class-name" style="color:#1E6B3A;">Parking</h2>
+                                    <p style="font-weight: bold; color:#1E6B3A;">Free parking
+                                        available<br>on-site<br>Easy access</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -839,32 +705,24 @@
             </section>
             <!-- Footer / contact section -->
             <!-- mt-auto added to push footer to the bottom of the page -->
-            <footer class="mt-auto" id="contact"
-                style="position: relative; z-index: 1; background: #4a0e4e !important;">
-                <div id="footer-contact" style="position: relative; background: #4a0e4e; overflow: hidden;">
-                    <!-- Bokeh background image layered behind form -->
-                    <div id="footer-bg-image" style="position: absolute; inset: 0; z-index: 0;">
-                        <img src="assets/images/bokeh1.webp" alt="Bokeh background" class="contact-bg-image"
-                            style="width:100%; height:100%; object-fit:cover; opacity:0.22; filter:brightness(0.7);"
-                            loading="lazy">
-                    </div>
-                    <div class="container py-10" style="position: relative; z-index: 2;">
-                        <div class="lg:w-8/12 md:w-10/12 w-full mx-auto text-center">
-                            <h2 class="text-3xl md:text-4xl font-semibold mb-6"
-                                style="text-shadow: 1px 1px 1px rgba(0,0,0,0.5);">Contact us</h2>
+            <footer class="mt-auto m-0 p-0" id="contact" style="position: relative; z-index: 1; background: #4B2E83; color: #fff;">
+                <div id="footer-contact" class="m-0 p-0 w-full" style="position: relative; background: #4B2E83; overflow: hidden; margin:0; padding:0; width:100vw;">
+                    <div class="m-0 p-0" style="position: relative; z-index: 2; max-width:100vw; background: transparent;">
+                        <div class="m-0 p-0" style="background: transparent;">
+                            <h2 class="text-3xl md:text-4xl font-semibold mb-6 text-center" style="padding-top: 2.5rem; color: #fff !important;">Contact us</h2>
                             <!-- Replace your current form with this -->
-                            <form id="contact-form" class="contact-form" action="https://formspree.io/f/mojnnjnq"
-                                method="POST">
+                            <form id="contact-form" class="w-full" action="https://formspree.io/f/mojnnjnq"
+                                method="POST" style="max-width:48rem;width:100%;margin-left:auto;margin-right:auto;padding:0;background:none;">
                                 <div class="mb-3 text-left">
                                     <label for="name" class="block mb-1 font-medium">Your Name</label>
                                     <input type="text" name="name" id="name" required
-                                        class="w-full px-3 py-2 border rounded-md focus:ring-2 focus:ring-grape-royal-purple focus:border-transparent transition-all duration-300"
+                                        class="w-full px-3 py-2 border rounded-md focus:ring-2 focus:ring-sage-background focus:border-transparent transition-all duration-300"
                                         placeholder="Enter your name">
                                 </div>
                                 <div class="mb-3 text-left">
                                     <label for="phone" class="block mb-1 font-medium">Phone number</label>
                                     <input type="tel" name="phone" id="phone" required
-                                        class="w-full px-3 py-2 border rounded-md focus:ring-2 focus:ring-grape-royal-purple focus:border-transparent transition-all duration-300"
+                                        class="w-full px-3 py-2 border rounded-md focus:ring-2 focus:ring-sage-background focus:border-transparent transition-all duration-300"
                                         placeholder="Enter your phone number">
                                     <div id="phone-feedback" class="text-red-600 text-sm mt-1" style="display:none;">
                                         Please enter a valid phone number.
@@ -873,7 +731,7 @@
                                 <div class="mb-3 text-left">
                                     <label for="email" class="block mb-1 font-medium">Your Email</label>
                                     <input type="email" name="_replyto" id="email" required
-                                        class="w-full px-3 py-2 border rounded-md focus:ring-2 focus:ring-grape-royal-purple focus:border-transparent transition-all duration-300"
+                                        class="w-full px-3 py-2 border rounded-md focus:ring-2 focus:ring-sage-background focus:border-transparent transition-all duration-300"
                                         placeholder="Enter your email">
                                 </div>
                                 <div id="email-feedback" class="text-red-600 text-sm mt-1" style="display:none;">Please
@@ -882,7 +740,7 @@
                                 <div class="mb-3 text-left">
                                     <label for="message" class="block mb-1 font-medium">Message</label>
                                     <textarea name="message" id="message" rows="5" required
-                                        class="w-full px-3 py-2 border rounded-md focus:ring-2 focus:ring-grape-royal-purple focus:border-transparent transition-all duration-300"
+                                        class="w-full px-3 py-2 border rounded-md focus:ring-2 focus:ring-sage-background focus:border-transparent transition-all duration-300"
                                         placeholder="Enter your message"></textarea>
                                 </div>
                                 <!-- Hidden fields for Formspree -->
@@ -891,7 +749,7 @@
                                     value="https://topg85.github.io/vinelifewilmslow/#contact">
                                 <div class="text-center">
                                     <button type="submit"
-                                        class="inline-block bg-grape-royal-purple text-white font-semibold py-2 px-6 rounded hover:bg-grape-700 hover:text-grape-champagne transform hover:scale-105 hover:shadow-lg transition-all duration-300 active:scale-95"
+                                        class="inline-block bg-sage-background text-main-text font-semibold py-2 px-6 rounded border border-main-text hover:bg-beige-section hover:text-primary-green transform hover:scale-105 hover:shadow-lg transition-all duration-300 active:scale-95"
                                         style="filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));">
                                         Send Message
                                     </button>
@@ -899,26 +757,26 @@
                             </form>
                             <!-- Contact Information -->
                             <div class="text-center mt-4">
-                                <p class="mb-2" style="text-shadow: 1px 1px 1px rgba(0,0,0,0.3);">
+                                <p class="mb-2" style="color: #fff;">
                                     <strong>Email:</strong> <a
-                                        href="mailto:info@vinelifewilmslow.com">info@vinelifewilmslow.com</a>
+                                        href="mailto:info@vinelifewilmslow.com" style="color: #fff;">info@vinelifewilmslow.com</a>
                                 </p>
-                                <p class="mb-0" style="text-shadow: 1px 1px 1px rgba(0,0,0,0.3);"><strong>Phone or
-                                        Text:</strong> <a href="tel:07957813360">07957 813
-                                        360</a></p>
-                            </div>
+                                <p class="mb-0" style="color: #fff;"><strong>Phone or
+                                    Text:</strong> <a href="tel:07957813360" style="color: #fff;">07957 813
+                                    360</a></p>
+                                </div>
                             <!-- Social Media Links -->
                             <div class="social-links mt-4 text-center">
                                 <a href="https://www.facebook.com/VinelifeChurchWilmslow" target="_blank"
                                     aria-label="Visit our Facebook page (opens in a new tab)" rel="noopener"
                                     class="transform hover:scale-110 transition-transform duration-300"><i
-                                        class="fa-brands fa-square-facebook"></i></a>
+                                        class="fa-brands fa-square-facebook" style="color: #fff;"></i></a>
                             </div>
                         </div>
                     </div>
                     <!-- Copyright -->
                     <div class="text-center py-3"
-                        style="background: #4a0e4e; color: #fff; position: relative; z-index: 2; margin-top: 2rem;">
+                        style="background: #4B2E83; color: #fff; position: relative; z-index: 2; margin-top: 2rem;">
                         <p class="mb-0">&copy; Vinelife Church Wilmslow</p>
                     </div>
                 </div> <!-- Add this closing div here -->
@@ -1025,5 +883,4 @@
                 });
             </script>
 </body>
-
 </html>
