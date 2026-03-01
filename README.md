@@ -185,42 +185,11 @@ vinelifewilmslow/
 
 ## 📋 Recent Updates
 
-# Vinelife Wilmslow
-
-A community church in Wilmslow, UK.
-
-## HTML & CSS Validation
-
-The code for this project has been validated and passes both HTML and CSS validation checks.
-
-### HTML Validation
-
-![HTML Validation Results](assets/images/HTMLvalidation.png)
-
-### CSS Validation
-
-![CSS Validation Results](assets/images/CSSvalidation.png)
-
-## Lighthouse Performance Test
-
-Below are the Lighthouse performance test results for different devices:
-
-### Desktop
-
-![Lighthouse Desktop](assets/images/Lighthouse-desktop.png)
-
-### Mobile
-
-![Lighthouse Mobile](assets/images/Lighthouse-mobile.png)
-
-## 📝 Today's Updates (21st February)
-
-### 💡 Thought for the Day Section
-
-- Added a "Thought for the Day" feature to the website.
-- Displays a daily inspirational message or scripture.
-- Uses JavaScript to dynamically load and update the content.
-- Designed for easy updates and future integration with external sources (e.g. Google Sheets or JSON).
+### March 1, 2026
+- Fixed navigation bug: restored default anchor navigation by removing faulty JavaScript that prevented navbar links from working.
+- Improved styles for resource boxes and navigation bar.
+- Updated scripts for hero image slideshow and event calendar integration.
+- Committed and pushed all changes to GitHub (`new-design` branch).
 
 ### February 21, 2026
 - Restored the YouTube section to a simpler earlier layout and removed experimental helper styles (`box-drop`, `enhanced-shadow`, `muted-note`).
