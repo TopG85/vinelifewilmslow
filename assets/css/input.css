@@ -12,6 +12,14 @@
     background-color: #E0ECDC;
     line-height: 1.6;
   }
+
+  h1 {
+    font-family: 'Lato', Arial, sans-serif;
+  }
+
+  h2 {
+    font-family: 'Lato', Arial, sans-serif;
+  }
   h1, h2, h3, h4, h5, h6, nav {
     font-family: 'Montserrat', Arial, sans-serif;
     color: #4E7F3A;
@@ -19,7 +27,7 @@
   }
   .title, blockquote, .quote {
     font-family: 'Playfair Display', serif;
-    color: #4E7F3A;
+    color: #ffffff;
   }
 }
 
