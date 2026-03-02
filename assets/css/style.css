@@ -1067,7 +1067,7 @@ body h2, body h3 {
   color: inherit !important; /* Allow inline styles to take precedence */
 }
 .meetup-box {
-  background-color: #9caf88; /* grape-sage */
+  background-color: #c8e7a6; /* grape-sage */
   width: 300px; /* Fixed width */
   height: 200px; /* Fixed height */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Drop shadow */
@@ -1090,18 +1090,36 @@ body h2, body h3 {
     margin-right: calc(50% - 50vw); /* Center alignment */
 }
 /* Ensure all resource-box elements have the same size, drop-shadow, rounded corners, and grape-sage background */
+/* Local Resources section boxes */
 .resource-box {
-    width: 300px; /* Fixed width */
-    height: 400px; /* Fixed height */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Drop shadow */
-    border-radius: 8px; /* Rounded corners */
-    background-color: rgb(156, 175, 136) !important;
-    display: flex; /* Center content */
-    flex-direction: column; /* Stack content vertically */
-    justify-content: center; /* Center content vertically */
-    align-items: center; /* Center content horizontally */
-    margin: 0 auto; /* Centers the box horizontally */
-    text-align: center; /* Aligns text inside the box */
+  width: 300px;
+  height: 400px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background-color: #c8e7a6!important; /* grape-sage background */
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Groups section boxes */
+.groups-box {
+  width: 300px;
+  height: 400px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.13);
+  border-radius: 8px;
+  background-color: #c8e7a6!important; /* lighter grape-sage */
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.18));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  text-align: center;
 }
 /* Adjusting text alignment inside resource-box */
 .resource-box h3 {
