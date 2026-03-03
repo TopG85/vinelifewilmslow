@@ -63,14 +63,17 @@
             </a>
             <!-- Burger icon for mobile/tablet -->
             <button id="navbar-toggle" class="block lg:hidden p-3 ml-2 text-main-text focus:outline-none"
-                aria-label="Toggle navigation" aria-expanded="false" aria-controls="navbarNav">
+                aria-label="Toggle navigation" aria-expanded="false" aria-controls="navbarNav"
+                style="z-index: 60; position: relative;">
                 <span class="sr-only">Open main menu</span>
-                <span class="block w-8 h-1 bg-main-text rounded-full mb-1 transition-all duration-400"></span>
-                <span class="block w-6 h-1 bg-main-text rounded-full mb-1 transition-all duration-400"></span>
-                <span class="block w-4 h-1 bg-main-text rounded-full transition-all duration-400"></span>
+                <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
             </button>
             <div id="navbarNav"
-                class="hidden lg:flex lg:items-center lg:justify-end lg:w-auto mt-4 lg:mt-0 bg-beige-section w-full absolute left-0 top-full shadow-lg lg:shadow-none lg:static lg:bg-transparent z-40 px-6 py-4 lg:px-0 lg:py-0">
+                class="hidden lg:flex lg:items-center lg:justify-end lg:w-auto bg-grape-royal-purple w-full absolute left-0 top-[90px] shadow-lg lg:shadow-none lg:static lg:bg-grape-royal-purple z-50 px-6 pb-4 lg:px-0 lg:py-0 transition-all duration-300"
+                style="max-height: calc(100vh - 90px); overflow-y: auto; background: #4a0e4e !important;">
                 <ul
                     class="flex flex-col lg:flex-row items-start lg:items-center space-y-2 lg:space-y-0 lg:space-x-4 justify-start lg:justify-end w-full lg:w-auto">
                     <li>
@@ -120,7 +123,7 @@
 
     <!-- Hero Section -->
     <section id="hero" class="hero-section">
-        <div class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div class="relative flex items-center justify-center overflow-hidden">
             <!-- Background Images -->
             <img id="hero-img-1" src="assets/images/ChatGPTImageFeb14,2026,12_57_33PM.png"
                 alt="ChatGPT Hero Image Feb 14, 2026"
@@ -186,7 +189,7 @@
     <main class=" flex flex-col items-center mt-0">
         <!-- About Section -->
         <section id="about" class="py-8 mt-8 flex flex-col items-center justify-center text-center w-full"
-            style="background: #4B2E83; color: #fff;">
+            style="background: #4B2E83; color: #fff;" class="py-8 mt-8 flex flex-col items-center justify-center text-center w-full">
             <div id="about-content" class="py-5 flex flex-col items-center justify-center text-center w-full">
                 <h2 class="text-3xl md:text-4xl font-semibold mb-6 text-center w-full">About Vinelife Wilmslow...</h2>
                 <p class="text-base md:text-lg text-justify leading-relaxed mb-6 muted-note max-w-prose mx-auto"
@@ -249,7 +252,7 @@
 
         <!-- Founders Section -->
         <section class="flex flex-col items-center justify-center text-center w-full"
-            style="background: #1E6B3A; color: #fff;">
+              style="background: #1E6B3A; color: #fff;">
             <div id="founders" class="py-8 mt-8 flex flex-col items-center justify-center text-center w-full">
                 <div id="founders-content" class="py-5 flex flex-col items-center justify-center text-center w-full">
                     <h2 class="text-4xl font-crimson mb-6 text-center w-full">Founders</h2>
@@ -270,8 +273,7 @@
         </section>
 
         <!-- Thought for the Day Section -->
-        <section id="thought" class="py-20 relative overflow-hidden mt-40 px-0"
-            style="background: #4B2E83; width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw);">
+        <section id="thought" class="py-20 relative overflow-hidden mt-40 px-0" style="background: #4B2E83;">
             <div class="flex flex-col items-center justify-center text-center w-full">
                 <div class="w-full text-center mb-8">
                     <h2 class="text-3xl md:text-4xl font-semibold mb-4 text-center w-full">Thought for the Day</h2>
@@ -357,7 +359,8 @@
                         what's happening at Vinelife Wilmslow.</p>
                 </div>
                 <!-- Dynamic Events Loader -->
-                <div id="events-container" class="grid grid-cols-1 md:grid-cols-3 gap-6 justify-items-center"></div>
+                <div id="events-container"
+                    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 justify-items-center w-full"></div>
                 <script>
                     // Google Calendar API integration
                     const calendarId = 'e7685f9a0985b807155b873efdc0f555df73f3ddc26aa1b1e99777d08600516b@group.calendar.google.com';
@@ -542,8 +545,7 @@
             </div>
         </section>
         <!-- Groups Section -->
-        <section id="groups" class="py-20 mt-40 px-0"
-            style="background: #472168; color: #ffffff; width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw);">
+        <section id="groups" class="py-20 mt-40 px-0" style="background: #472168; color: #ffffff;">
             <div class="flex flex-col items-center justify-center text-center w-full">
                 <div class="w-full text-center mb-5">
                     <h2 class="text-3xl md:text-4xl font-semibold text-center w-full">Groups at Vinelife Church</h2>
@@ -607,8 +609,7 @@
             </div>
         </section>
         <!-- YouTube Channel Section -->
-        <section id="youtube" class="py-20 mt-40 px-0"
-            style="background: #ffffff; color: #FF0000; width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw);">
+        <section id="youtube" class="py-20 mt-40 px-0" style="background: #ffffff; color: #FF0000;">
             <div class="flex flex-col items-center justify-center text-center w-full glass-effect">
                 <div class="w-full text-center mb-5">
                     <h2 class="text-3xl md:text-4xl font-semibold text-center w-full"
@@ -659,8 +660,7 @@
             </div>
         </section>
         <!-- Local Resources -->
-        <section id="local-resources" class="py-20 mt-40 px-0"
-            style="background:#492f6b; width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw);">
+        <section id="local-resources" class="py-20 mt-40 px-0" style="background:#492f6b;">
             <div class="flex flex-col items-center justify-center text-center w-full">
                 <div class="w-full text-center mb-5">
                     <h2 class="text-3xl md:text-4xl font-semibold text-center w-full"
@@ -672,10 +672,10 @@
                         resources in our community</p>
                 </div>
                 <div
-                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-8 gap-x-6 md:gap-y-10 md:gap-x-8 justify-items-center items-stretch w-full px-4">
+                    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-y-8 gap-x-6 md:gap-y-10 md:gap-x-8 justify-items-center items-stretch w-full px-4">
                     <div class="w-full h-full">
                         <div class="resource-box shadow-xl rounded-lg transform transition-all duration-300"
-                            style="min-height:16rem; max-width:20rem; width:20rem; height:28rem; display:flex; flex-direction:column; justify-content:space-between; margin-left:auto; margin-right:auto; border-radius: 0.5rem;">
+                            style="min-height:16rem; width:100%; display:flex; flex-direction:column; justify-content:space-between; margin-left:auto; margin-right:auto; border-radius: 0.5rem;">
                             <div class="flex-1 flex flex-col items-center text-center">
                                 <h3 class="text-2xl font-bold mb-2" style="color: #000000 !important;"><i
                                         class="fa-solid fa-hand mr-2" style="color: #ff6b47;"></i>CAP</h3>
@@ -691,13 +691,13 @@
                     </div>
                     <div class="w-full h-full">
                         <div class="resource-box shadow-xl rounded-lg transform transition-all duration-300"
-                            style="min-height:16rem; max-width:20rem; width:20rem; height:28rem; display:flex; flex-direction:column; justify-content:space-between; margin-left:auto; margin-right:auto; border-radius: 0.5rem;">
+                            style="min-height:16rem; width:100%; display:flex; flex-direction:column; justify-content:space-between; margin-left:auto; margin-right:auto; border-radius: 0.5rem;">
                             <div class="flex-1 flex flex-col items-center text-center">
                                 <h3 class="text-2xl font-bold mb-2" style="color: #000000 !important;"><i
                                         class="fa-solid fa-graduation-cap mr-2" style="color: #ff6b47;"></i>Alpha
                                 </h3>
                                 <img src="assets/images/alphalogo.webp" alt="Alpha" class="mb-3 mx-auto rounded-lg"
-                                    width="300" height="200">
+                                    width="300" height="200" style="margin-bottom: 2rem;">
                                 <p class="text-center" style="color: #000000 !important;">Alpha Course</p>
                             </div>
                             <a href="https://alpha.org.uk/try-alpha#matomo-btn-try-alpha" target="_blank"
@@ -708,7 +708,7 @@
                     </div>
                     <div class="w-full h-full">
                         <div class="resource-box shadow-xl rounded-lg transform transition-all duration-300"
-                            style="min-height:16rem; max-width:20rem; width:20rem; height:28rem; display:flex; flex-direction:column; justify-content:space-between; margin-left:auto; margin-right:auto; border-radius: 0.5rem;">
+                            style="min-height:16rem; width:100%; display:flex; flex-direction:column; justify-content:space-between; margin-left:auto; margin-right:auto; border-radius: 0.5rem;">
                             <div class="flex-1 flex flex-col items-center text-center">
                                 <h3 class="text-2xl font-bold mb-2" style="color: #000000 !important;"><i
                                         class="fa-solid fa-heart mr-2" style="color: #ff6b47;"></i>Hope Central
@@ -739,8 +739,7 @@
             }
         </style>
         <!-- Find Us Section -->
-        <section id="find-us" class="py-20 mt-40 px-0"
-            style="background: #440845; color: #f0d882; width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw);">
+        <section id="find-us" class="py-20 mt-40 px-0" style="background: #440845; color: #f0d882;">
             <div class="flex flex-col items-center justify-center text-center w-full">
                 <div class="w-full text-center mb-5">
                     <h2 class="text-3xl md:text-4xl font-semibold text-center mb-6 w-full"
@@ -754,7 +753,7 @@
                             loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 mt-4 gap-4 w-full">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 mt-4 gap-4 w-full">
                     <div class="mb-3">
                         <div class="location-info text-justify text-center w-full">
                             <div class="location-info text-center w-full rounded-lg">
@@ -800,8 +799,7 @@
         </section>
         <!-- Footer / contact section -->
         <!-- mt-auto added to push footer to the bottom of the page -->
-        <footer class="mt-auto m-0 p-0" id="contact"
-            style="position: relative; z-index: 1; background: #440845; width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw);">
+        <footer class="mt-auto m-0 p-0" id="contact" style="position: relative; z-index: 1; background: #440845;">
             <div id="footer-contact" class="m-0 p-0 w-full"
                 style="position: relative; background: #440845; overflow: hidden; margin:0; padding:0; width:100vw;">
                 <div class="m-0 p-0" style="position: relative; z-index: 2; max-width:100vw; background: transparent;">
@@ -883,29 +881,46 @@
         <!-- Custom JS: toggler, form validation, smooth scrolling -->
         <script>
             document.addEventListener('DOMContentLoaded', function () {
-                // Mobile nav toggler
+                // Mobile nav toggler (robust)
                 const toggler = document.getElementById('navbar-toggle');
                 const navMenu = document.getElementById('navbarNav');
+                function closeMenu() {
+                    if (navMenu && !navMenu.classList.contains('hidden')) {
+                        navMenu.classList.add('hidden');
+                        if (toggler) toggler.setAttribute('aria-expanded', 'false');
+                    }
+                }
+                function openMenu() {
+                    if (navMenu && navMenu.classList.contains('hidden')) {
+                        navMenu.classList.remove('hidden');
+                        if (toggler) toggler.setAttribute('aria-expanded', 'true');
+                    }
+                }
                 if (toggler && navMenu) {
-                    toggler.addEventListener('click', () => {
-                        navMenu.classList.toggle('hidden');
+                    toggler.addEventListener('click', function () {
+                        if (navMenu.classList.contains('hidden')) {
+                            openMenu();
+                        } else {
+                            closeMenu();
+                        }
+                    });
+                    // Close menu on orientation change or resize (mobile/tablet)
+                    window.addEventListener('orientationchange', closeMenu);
+                    window.addEventListener('resize', function () {
+                        if (window.innerWidth >= 1024) {
+                            closeMenu();
+                        }
                     });
                 }
-
                 // Collapse menu on nav link click (mobile)
                 const navLinks = document.querySelectorAll('#navbarNav a');
                 navLinks.forEach(link => {
                     link.addEventListener('click', function () {
-                        if (navMenu && !navMenu.classList.contains('hidden') && window.innerWidth < 1024) {
-                            navMenu.classList.add('hidden');
+                        if (window.innerWidth < 1024) {
+                            closeMenu();
                         }
-                        // Do not prevent default navigation
                     });
                 });
-
-                // Smooth scrolling for anchor links
-                // Smooth scrolling code removed due to bug. Default anchor navigation restored.
-
                 // Dynamic hero-section padding
                 const navbar = document.getElementById('navbar');
                 const heroSection = document.getElementById('hero');
