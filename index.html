@@ -28,34 +28,15 @@
         rel="stylesheet">
 
     <!-- Font Awesome for Icons -->
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style"
-        onload="this.onload=null;this.rel='stylesheet'"
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer">
-    <noscript>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    </noscript>
-
-    <!-- Consolidated hover styles for navbar links -->
-    <style>
-        .navbar a:hover {
-            color: #e6c547' !important;
-
-        }
-    </style>
-
-    <style>
-        #hero-img-2-tint {
-            pointer-events: auto;
-            /* Ensure interactions are not blocked */
-        }
-    </style>
 
 </head>
 
 <body class="flex flex-col min-h-screen bg-beige-section text-main-text"
     style="height: 100%; overflow-x: hidden; background: #fff;">
-    <nav id="navbar" class="navbar fixed top-0 left-0 w-full z-50 bg-grape-royal-purple">
+    <nav id="navbar" class="navbar fixed top-0 left-0 w-full z-50 shadow-lg" style="background: #2F6237;">
         <div class="container flex items-center justify-between"
             style="max-width: none; width: 100vw; margin: 0; padding-left: 48px; padding-right: 48px; min-height: 90px; padding-bottom: 8px; padding-top: 24px; align-items: center;">
             <a class="navbar-brand" href="index.html">
@@ -72,48 +53,48 @@
                 </svg>
             </button>
             <div id="navbarNav"
-                class="hidden lg:flex lg:items-center lg:justify-end lg:w-auto bg-grape-royal-purple w-full absolute left-0 top-[90px] shadow-lg lg:shadow-none lg:static lg:bg-grape-royal-purple z-50 px-6 pb-4 lg:px-0 lg:py-0 transition-all duration-300"
-                style="max-height: calc(100vh - 90px); overflow-y: auto; background: #4a0e4e !important;">
+                class="hidden lg:flex lg:items-center lg:justify-end lg:w-auto w-full bg-Deep-Green absolute left-0 top-[90px] shadow-lg lg:shadow-none lg:static lg:bg-grape-blush z-50 px-6 pb-4 lg:px-0 lg:py-0 transition-all duration-300"
+                style="max-height: calc(100vh - 90px); overflow-y: auto; background: #2F6237 !important;">
                 <ul
                     class="flex flex-col lg:flex-row items-start lg:items-center space-y-2 lg:space-y-0 lg:space-x-4 justify-start lg:justify-end w-full lg:w-auto">
                     <li>
-                        <a class="block w-full px-3 py-3 text-white font-bold rounded hover:text-grape-golden transition-colors duration-300"
+                        <a class="block w-full px-3 py-3 text-grape-blush rounded transition-colors duration-300"
                             aria-current="page" href="#hero">Home</a>
-                    </li>
+                        </li>
                     <li>
-                        <a class="block w-full px-3 py-3 text-white hover:text-grape-golden rounded transition-colors duration-300"
+                        <a class="block w-full px-3 py-3 text-grape-blush rounded transition-colors duration-300"
                             href="#about">About</a>
                     </li>
                     <li>
-                        <a class="block w-full px-3 py-3 text-white hover:text-grape-golden rounded transition-colors duration-300"
+                        <a class="block w-full px-3 py-3 text-grape-blush rounded transition-colors duration-300"
                             href="#founders">Founders</a>
                     </li>
                     <li>
-                        <a class="block w-full px-3 py-3 text-white hover:text-grape-golden rounded transition-colors duration-300"
+                        <a class="block w-full px-3 py-3 text-grape-blush rounded transition-colors duration-300"
                             href="#thought">Thought</a>
                     </li>
                     <li>
-                        <a class="block w-full px-3 py-3 text-white hover:text-grape-golden rounded transition-colors duration-300"
+                        <a class="block w-full px-3 py-3 text-grape-blush rounded transition-colors duration-300"
                             href="#events">Worship</a>
                     </li>
                     <li>
-                        <a class="block w-full px-3 py-3 text-white hover:text-grape-golden rounded transition-colors duration-300"
+                        <a class="block w-full px-3 py-3 text-grape-blush rounded transition-colors duration-300"
                             href="#groups">Groups</a>
                     </li>
                     <li>
-                        <a class="block w-full px-3 py-3 text-white hover:text-grape-golden rounded transition-colors duration-300"
+                        <a class="block w-full px-3 py-3 text-grape-blush rounded transition-colors duration-300"
                             href="#youtube">YouTube</a>
                     </li>
                     <li>
-                        <a class="block w-full px-3 py-3 text-white hover:text-grape-golden rounded transition-colors duration-300"
+                        <a class="block w-full px-3 py-3 text-grape-blush rounded transition-colors duration-300"
                             href="#local-resources">Resources</a>
                     </li>
                     <li>
-                        <a class="block w-full px-3 py-3 text-white hover:text-grape-golden rounded transition-colors duration-300"
+                        <a class="block w-full px-3 py-3 text-grape-blush rounded transition-colors duration-300"
                             href="#find-us">Find Us</a>
                     </li>
                     <li>
-                        <a class="block w-full px-3 py-3 text-white hover:text-grape-golden rounded transition-colors duration-300"
+                        <a class="block w-full px-3 py-3 text-grape-blush rounded transition-colors duration-300"
                             href="#contact">Contact</a>
                     </li>
                 </ul>
@@ -123,73 +104,51 @@
 
     <!-- Hero Section -->
     <section id="hero" class="hero-section">
-        <div class="relative flex items-center justify-center overflow-hidden">
+        <div class="hero-wrap">
             <!-- Background Images -->
             <img id="hero-img-1" src="assets/images/ChatGPTImageFeb14,2026,12_57_33PM.png"
-                alt="ChatGPT Hero Image Feb 14, 2026"
-                class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000"
-                style="opacity:1; z-index:1;" loading="eager" fetchpriority="high">
+                alt="Vinelife hero background" class="hero-bg is-active" loading="eager" fetchpriority="high" />
+
             <img id="hero-img-2" src="assets/images/vinelifewilmslowhero.webp" alt="Vinelife Church Wilmslow"
-                class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000"
-                style="opacity:0; filter: grayscale(100%) contrast(1.1); z-index:2;" loading="eager"
-                fetchpriority="high">
-            <!-- Overlay for contrast -->
-            <div id="hero-img-2-tint" class="absolute inset-0"
-                style="opacity:0; background:rgba(0,0,0,0.45); z-index:3; pointer-events:none;"></div>
+                class="hero-bg" loading="eager" fetchpriority="high" />
+
+            <!-- Overlay tint for image 2 -->
+            <div id="hero-img-2-tint" class="hero-tint" aria-hidden="true"></div>
+
             <!-- Foreground Content -->
-            <div class="relative z-10 flex flex-col items-center justify-center w-full h-full text-center px-4"
-                style="padding-top: 8vh; padding-bottom: 8vh;">
-                <h1 class="font-playfair font-bold mb-8 text-center text-white drop-shadow-lg"
-                    class="font-lato font-bold mb-8 text-center text-white drop-shadow-lg"
-                    style="text-shadow: 0 2px 16px rgba(0,0,0,0.38); line-height: 1.01; letter-spacing: normal; font-size: clamp(2.5rem, 6vw, 6.5rem); max-width: 100vw; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
-                    Vinelife Church Wilmslow
-                </h1>
-                <div class="flex flex-row justify-center gap-6 mb-8">
+            <div class="hero-content">
+                <h1 class="hero-title drop-shadow-xl" style="filter: drop-shadow(0 4px 8px rgba(2, 2, 2, 0.689));">Vinelife Church Wilmslow</h1>
+
+                <div class="hero-cta">
                     <a href="#about"
-                        class="inline-block bg-primary-green text-white font-semibold py-4 px-8 rounded-lg hover:bg-green-hover transition-all duration-400 border-2 border-primary-green hover:text-gold-accent shadow-lg text-xl"
-                        onclick="document.getElementById('about').scrollIntoView({ behavior: 'smooth' });">Learn
-                        More</a>
+                        class="inline-block bg-primary-green text-white font-semibold py-4 px-8 rounded-lg hero-hover-fern transition-all duration-300 border-2 border-primary-green shadow-lg text-xl">
+                        Learn More
+                    </a>
+
                     <a href="#contact"
-                        class="inline-block bg-gold-accent text-white font-semibold py-4 px-8 rounded-lg hover:bg-primary-green transition-all duration-400 border-2 border-gold-accent hover:text-warm-white shadow-lg text-xl"
-                        onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });">Get
-                        In Touch</a>
+                        class="inline-block bg-gold-accent text-white font-semibold py-4 px-8 rounded-lg hero-hover-fern transition-all duration-300 border-2 border-gold-accent shadow-lg text-xl">
+                        Get In Touch
+                    </a>
                 </div>
+
                 <div class="social-links text-center mt-6">
-                    <a href="https://www.facebook.com/VinelifeChurchWilmslow" target="_blank"
-                        aria-label="Visit our Facebook page (opens in a new tab)" rel="noopener"
-                        class="text-4xl transform hover:scale-110 transition-transform duration-300 text-white drop-shadow-xl"
-                        style="filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5)) drop-shadow(0 2px 4px rgba(0,0,0,0.3));"><i
-                            class="fa-brands fa-square-facebook"></i></a>
+                    <a href="https://www.facebook.com/VinelifeChurchWilmslow" target="_blank" rel="noopener"
+                        aria-label="Visit our Facebook page (opens in a new tab)"
+                        class="text-4xl transform hover:scale-110 transition-transform duration-300 text-white drop-shadow-xl">
+                        <i class="fa-brands fa-square-facebook"></i>
+                    </a>
                 </div>
             </div>
         </div>
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                const img1 = document.getElementById('hero-img-1');
-                const img2 = document.getElementById('hero-img-2');
-                let showing = 1;
-                const tint = document.getElementById('hero-img-2-tint');
-                setInterval(() => {
-                    if (showing === 1) {
-                        img1.style.opacity = 0;
-                        img2.style.opacity = 1;
-                        if (tint) tint.style.opacity = 1;
-                        showing = 2;
-                    } else {
-                        img1.style.opacity = 1;
-                        img2.style.opacity = 0;
-                        if (tint) tint.style.opacity = 0;
-                        showing = 1;
-                    }
-                }, 20000);
-            });
-        </script>
+
+
     </section>
     <!-- Main section -->
     <main class=" flex flex-col items-center mt-0">
         <!-- About Section -->
         <section id="about" class="py-8 mt-8 flex flex-col items-center justify-center text-center w-full"
-            style="background: #4B2E83; color: #fff;" class="py-8 mt-8 flex flex-col items-center justify-center text-center w-full">
+            style="background: #3B1C4A; color: #fff;"
+            class="py-8 mt-8 flex flex-col items-center justify-center text-center w-full">
             <div id="about-content" class="py-5 flex flex-col items-center justify-center text-center w-full">
                 <h2 class="text-3xl md:text-4xl font-semibold mb-6 text-center w-full">About Vinelife Wilmslow...</h2>
                 <p class="text-base md:text-lg text-justify leading-relaxed mb-6 muted-note max-w-prose mx-auto"
@@ -252,7 +211,7 @@
 
         <!-- Founders Section -->
         <section class="flex flex-col items-center justify-center text-center w-full"
-              style="background: #1E6B3A; color: #fff;">
+            style="background: #2F6237; color: #fff;">
             <div id="founders" class="py-8 mt-8 flex flex-col items-center justify-center text-center w-full">
                 <div id="founders-content" class="py-5 flex flex-col items-center justify-center text-center w-full">
                     <h2 class="text-4xl font-crimson mb-6 text-center w-full">Founders</h2>
@@ -273,13 +232,13 @@
         </section>
 
         <!-- Thought for the Day Section -->
-        <section id="thought" class="py-20 relative overflow-hidden mt-40 px-0" style="background: #4B2E83;">
+        <section id="thought" class="py-20 relative overflow-hidden mt-40 px-0" style="background: #2F6237;">
             <div class="flex flex-col items-center justify-center text-center w-full">
                 <div class="w-full text-center mb-8">
                     <h2 class="text-3xl md:text-4xl font-semibold mb-4 text-center w-full">Thought for the Day</h2>
                     <div id="thought-content" class="max-w-xl mx-auto p-6 rounded text-neutral-800 w-full">
                         <div class="loader mb-4" style="display:none;">Loading...</div>
-                        <blockquote id="bible-verse" class="italic text-lg mb-2"
+                        <blockquote id="bible-verse" class="flex justify-center italic text-lg mb-2"
                             style="font-family: Georgia, serif !important; font-style: italic !important;"></blockquote>
                         <div id="bible-ref" class="font-semibold" style="color: #ffffff;"></div>
                     </div>
@@ -340,7 +299,7 @@
         </section>
 
         <!-- Worship Meeting Section -->
-        <section id="events" class="py-20 mt-64 pt-32 px-8" style="background: #6b1e5f;">
+        <section id="events" class="py-20 mt-64 pt-32 px-8" style="background: #3B1C4A;">
             <div class="flex flex-col items-center justify-center text-center w-full" style="color: #ffffff;">
                 <div class="w-full text-center mb-5">
                     <h2 id="worship-title" class="text-4xl text-center w-full">Sunday Worship Meetings in [Month]</h2>
@@ -545,7 +504,7 @@
             </div>
         </section>
         <!-- Groups Section -->
-        <section id="groups" class="py-20 mt-40 px-0" style="background: #472168; color: #ffffff;">
+        <section id="groups" class="py-20 mt-40 px-0" style="background: #3B1C4A; color: #ffffff;">
             <div class="flex flex-col items-center justify-center text-center w-full">
                 <div class="w-full text-center mb-5">
                     <h2 class="text-3xl md:text-4xl font-semibold text-center w-full">Groups at Vinelife Church</h2>
@@ -660,14 +619,14 @@
             </div>
         </section>
         <!-- Local Resources -->
-        <section id="local-resources" class="py-20 mt-40 px-0" style="background:#492f6b;">
+        <section id="local-resources" class="py-20 mt-40 px-0" style="background:#2F6237;">
             <div class="flex flex-col items-center justify-center text-center w-full">
                 <div class="w-full text-center mb-5">
                     <h2 class="text-3xl md:text-4xl font-semibold text-center w-full"
-                        style="color: #f0d882 !important; width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw);">
+                        style="color: #EFC643 !important; width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw);">
                         Resources</h2>
                     <p class="text-lg md:text-xl w-full"
-                        style="color: #f0d882 !important; width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw);">
+                        style="color: #EFC643 !important; width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw);">
                         Explore helpful
                         resources in our community</p>
                 </div>
@@ -739,11 +698,11 @@
             }
         </style>
         <!-- Find Us Section -->
-        <section id="find-us" class="py-20 mt-40 px-0" style="background: #440845; color: #f0d882;">
+        <section id="find-us" class="py-20 mt-40 px-0" style="background: #3B1C4A; color: #EFC643;">
             <div class="flex flex-col items-center justify-center text-center w-full">
                 <div class="w-full text-center mb-5">
                     <h2 class="text-3xl md:text-4xl font-semibold text-center mb-6 w-full"
-                        style="color:  #f0d882 !important;">Find Us</h2>
+                        style="color:  #EFC643 !important;">Find Us</h2>
                 </div>
                 <div class="map-container mb-4 w-full flex justify-center">
                     <div style="max-width:72rem; margin-left:auto; margin-right:auto; width:100%;">
@@ -757,10 +716,10 @@
                     <div class="mb-3">
                         <div class="location-info text-justify text-center w-full">
                             <div class="location-info text-center w-full rounded-lg">
-                                <i class="fa-solid fa-map-marker-alt mb-3" style="color:#f0d882;"></i>
+                                <i class="fa-solid fa-map-marker-alt mb-3" style="color:#EFC643;"></i>
                                 <h2 class="your-class-name">Address</h2>
                                 <div class="flex justify-center w-full">
-                                    <p class="text-center w-full max-w-xs" style="font-weight: bold; color:#f0d882;">The
+                                    <p class="text-center w-full max-w-xs" style="font-weight: bold; color:#EFC643;">The
                                         Open Arms Youth
                                         Project<br>Howty
                                         Close, Wilmslow<br>SK9 2SH</p>
@@ -771,10 +730,10 @@
                     <div class="mb-3">
                         <div class="location-info text-center w-full">
                             <div class="location-info text-center w-full rounded-lg">
-                                <i class="fa-solid fa-clock mb-3" style="color:#f0d882;"></i>
+                                <i class="fa-solid fa-clock mb-3" style="color:#EFC643;"></i>
                                 <h2 class="your-class-name">Service Times</h2>
                                 <div class="flex justify-center w-full">
-                                    <p class="text-center w-full max-w-xs" style="font-weight: bold; color:#f0d882;">
+                                    <p class="text-center w-full max-w-xs" style="font-weight: bold; color:#EFC643;">
                                         Sunday Worship<br>10:30 AM<br>Most
                                         Sundays</p>
                                 </div>
@@ -784,10 +743,10 @@
                     <div class="mb-3">
                         <div class="location-info text-center w-full">
                             <div class="location-info text-center w-full rounded-lg">
-                                <i class="fa-solid fa-car mb-3" style="color:#f0d882;"></i>
+                                <i class="fa-solid fa-car mb-3" style="color:#EFC643;"></i>
                                 <h2 class="your-class-name">Parking</h2>
                                 <div class="flex justify-center w-full">
-                                    <p class="text-center w-full max-w-xs" style="font-weight: bold; color:#f0d882;">
+                                    <p class="text-center w-full max-w-xs" style="font-weight: bold; color:#EFC643;">
                                         Free parking
                                         available<br>on-site<br>Easy access</p>
                                 </div>
@@ -799,13 +758,13 @@
         </section>
         <!-- Footer / contact section -->
         <!-- mt-auto added to push footer to the bottom of the page -->
-        <footer class="mt-auto m-0 p-0" id="contact" style="position: relative; z-index: 1; background: #440845;">
+        <footer class="mt-auto m-0 p-0" id="contact" style="position: relative; z-index: 1; background: #3B1C4A; color: #ffffff;">
             <div id="footer-contact" class="m-0 p-0 w-full"
-                style="position: relative; background: #440845; overflow: hidden; margin:0; padding:0; width:100vw;">
+                style="position: relative; background: #3B1C4A; color: #ffffff; overflow: hidden; margin:0; padding:0; width:100vw;">
                 <div class="m-0 p-0" style="position: relative; z-index: 2; max-width:100vw; background: transparent;">
                     <div class="m-0 p-0" style="background: transparent;">
                         <h2 class="text-3xl md:text-4xl font-semibold mb-6 text-center"
-                            style="padding-top: 2.5rem; color: #fff !important;">Contact us</h2>
+                            style="padding-top: 2.5rem; color: #ffffff !important;">Contact us</h2>
                         <!-- Replace your current form with this -->
                         <form id="contact-form" class="w-full" action="https://formspree.io/f/mojnnjnq" method="POST"
                             style="max-width:48rem;width:100%;margin-left:auto;margin-right:auto;padding:0;background:bg;">
@@ -845,7 +804,7 @@
                                 value="https://topg85.github.io/vinelifewilmslow/#contact">
                             <div class="text-center">
                                 <button type="submit"
-                                    class="inline-block bg-sage-background text-white font-semibold py-2 px-6 rounded border border-main-text hover:bg-beige-section hover:text-primary-green transform hover:scale-105 hover:shadow-lg transition-all duration-300 active:scale-95"
+                                    class="inline-block bg-sage-background text-#EFC643; font-semibold py-2 px-6 rounded border border-main-text transform transition-all duration-300 active:scale-95"
                                     style="filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));">
                                     Send Message
                                 </button>
@@ -853,12 +812,12 @@
                         </form>
                         <!-- Contact Information -->
                         <div class="text-center mt-4">
-                            <p class="mb-2" style="color: #fff;">
+                            <p class="mb-2" style="color: #ffffff;">
                                 <strong>Email:</strong> <a href="mailto:info@vinelifewilmslow.com"
-                                    style="color: #fff;">info@vinelifewilmslow.com</a>
+                                    style="color: #ffffff;">info@vinelifewilmslow.com</a>
                             </p>
-                            <p class="mb-0" style="color: #fff;"><strong>Phone or
-                                    Text:</strong> <a href="tel:07957713360" style="color: #fff;">07957 813
+                            <p class="mb-0" style="color: #ffffff;"><strong>Phone or
+                                    Text:</strong> <a href="tel:07957713360" style="color: #ffffff;">07957 813
                                     360</a></p>
                         </div>
                         <!-- Social Media Links -->
@@ -867,121 +826,98 @@
                                 aria-label="Visit our Facebook page (opens in a new tab)" rel="noopener"
                                 class="text-4xl transform hover:scale-110 transition-transform duration-300 text-white drop-shadow-xl"
                                 style="filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5)) drop-shadow(0 2px 4px rgba(0,0,0,0.3));">
-                                <i class="fa-brands fa-square-facebook" style="color: #fff;"></i></a>
+                                <i class="fa-brands fa-square-facebook" style="color: #ffffff;;"></i></a>
                         </div>
                     </div>
                 </div>
                 <!-- Copyright -->
                 <div class="text-center py-3"
-                    style="background: #440845; color: #fff; position: relative; z-index: 2; margin-top: 2rem;">
+                    style="background: #3B1C4A; color: #ffffff; position: relative; z-index: 2; margin-top: 2rem;">
                     <p class="mb-0">&copy; Vinelife Church Wilmslow</p>
                 </div>
             </div> <!-- Add this closing div here -->
         </footer>
-        <!-- Custom JS: toggler, form validation, smooth scrolling -->
+        <!-- Custom JS -->
         <script>
             document.addEventListener('DOMContentLoaded', function () {
-                // Mobile nav toggler (robust)
+                // Mobile nav toggler
                 const toggler = document.getElementById('navbar-toggle');
                 const navMenu = document.getElementById('navbarNav');
+
                 function closeMenu() {
                     if (navMenu && !navMenu.classList.contains('hidden')) {
                         navMenu.classList.add('hidden');
                         if (toggler) toggler.setAttribute('aria-expanded', 'false');
                     }
                 }
+
                 function openMenu() {
                     if (navMenu && navMenu.classList.contains('hidden')) {
                         navMenu.classList.remove('hidden');
                         if (toggler) toggler.setAttribute('aria-expanded', 'true');
                     }
                 }
+
                 if (toggler && navMenu) {
                     toggler.addEventListener('click', function () {
-                        if (navMenu.classList.contains('hidden')) {
-                            openMenu();
-                        } else {
-                            closeMenu();
-                        }
+                        if (navMenu.classList.contains('hidden')) openMenu();
+                        else closeMenu();
                     });
-                    // Close menu on orientation change or resize (mobile/tablet)
+
                     window.addEventListener('orientationchange', closeMenu);
                     window.addEventListener('resize', function () {
-                        if (window.innerWidth >= 1024) {
-                            closeMenu();
-                        }
+                        if (window.innerWidth >= 1024) closeMenu();
                     });
                 }
-                // Collapse menu on nav link click (mobile)
-                const navLinks = document.querySelectorAll('#navbarNav a');
-                navLinks.forEach(link => {
+
+                // Close menu on nav link click (mobile)
+                document.querySelectorAll('#navbarNav a').forEach(link => {
                     link.addEventListener('click', function () {
-                        if (window.innerWidth < 1024) {
-                            closeMenu();
-                        }
+                        if (window.innerWidth < 1024) closeMenu();
                     });
                 });
-                // Dynamic hero-section padding
+
+                // ✅ Set CSS variable for navbar height (hero + dropdown + scroll offset)
                 const navbar = document.getElementById('navbar');
-                const heroSection = document.getElementById('hero');
-                if (navbar && heroSection) {
-                    const navbarHeight = navbar.offsetHeight;
-                    heroSection.style.paddingTop = navbarHeight + 'px';
+                if (navbar) {
+                    const setNavH = () => {
+                        document.documentElement.style.setProperty('--nav-h', `${navbar.offsetHeight}px`);
+                    };
+                    setNavH();
+                    window.addEventListener('resize', setNavH);
                 }
+
+                // Hero image fade
+                const img1 = document.getElementById('hero-img-1');
+                const img2 = document.getElementById('hero-img-2');
+                const tint = document.getElementById('hero-img-2-tint');
+
+                if (img1 && img2) {
+                    let showing = 1;
+                    setInterval(() => {
+                        if (showing === 1) {
+                            img1.classList.remove('is-active');
+                            img2.classList.add('is-active');
+                            if (tint) tint.classList.add('is-active');
+                            showing = 2;
+                        } else {
+                            img2.classList.remove('is-active');
+                            img1.classList.add('is-active');
+                            if (tint) tint.classList.remove('is-active');
+                            showing = 1;
+                        }
+                    }, 20000);
+                }
+
                 // About Read More toggle
                 const aboutBtn = document.getElementById('about-readmore-btn');
                 const aboutFull = document.getElementById('about-full-text');
                 if (aboutBtn && aboutFull) {
                     aboutBtn.addEventListener('click', function () {
-                        if (aboutFull.style.display === 'none' || aboutFull.style.display === '') {
-                            aboutFull.style.display = 'block';
-                            aboutBtn.textContent = 'Read Less';
-                        } else {
-                            aboutFull.style.display = 'none';
-                            aboutBtn.textContent = 'Read More';
-                        }
+                        const isHidden = aboutFull.style.display === 'none' || aboutFull.style.display === '';
+                        aboutFull.style.display = isHidden ? 'block' : 'none';
+                        aboutBtn.textContent = isHidden ? 'Read Less' : 'Read More';
                     });
-                }
-            });
-        </script>
-        <!-- Debug script removed. Clean up any leftover debug outline on the hero element
-                 Also: enforce centering after load and observe DOM mutations that may reapply right-alignment. -->
-        <script>
-            window.addEventListener('load', function () {
-                try {
-                    const h = document.getElementById('hero');
-                    if (h) h.style.outline = '';
-
-                    // Enforce centering on key containers inside the hero.
-                    function enforceCentering() {
-                        try {
-                            const hero = document.getElementById('hero');
-                            if (!hero) return;
-                            const selectors = ['.hero-content', '.hero-content .flex', '.flex'];
-                            selectors.forEach(sel => {
-                                hero.querySelectorAll(sel).forEach(el => {
-                                    el.style.justifyContent = 'center';
-                                    el.style.alignItems = 'center';
-                                    el.style.textAlign = 'center';
-                                });
-                            });
-                        } catch (e) { /* ignore */ }
-                    }
-
-                    // Run immediately and again after a short delay to counter late scripts/styles.
-                    enforceCentering();
-                    setTimeout(enforceCentering, 250);
-
-                    // Observe mutations under #hero and re-enforce centering if classes/styles change.
-                    try {
-                        const hero = document.getElementById('hero');
-                        if (hero && window.MutationObserver) {
-                            const mo = new MutationObserver(() => enforceCentering());
-                            mo.observe(hero, { attributes: true, childList: true, subtree: true });
-                        }
-                    } catch (e) { /* ignore */ }
-                } catch (e) {
-                    /* ignore */
                 }
             });
         </script>

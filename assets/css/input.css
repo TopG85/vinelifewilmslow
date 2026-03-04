@@ -39,7 +39,7 @@
     @apply h-14 w-auto;
   }
   .btn-primary {
-    @apply bg-[#4E7F3A] text-[#FCFAF5] font-bold rounded px-6 py-2 transition-colors duration-200;
+    @apply bg-[#2F6237] text-[#FCFAF5] font-bold rounded px-6 py-2 transition-colors duration-200;
   }
   .btn-primary:hover {
     @apply bg-[#3F6B2F] text-[#2F2F2F];
