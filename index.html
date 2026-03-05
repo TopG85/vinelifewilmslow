@@ -60,7 +60,7 @@
                     <li>
                         <a class="block w-full px-3 py-3 text-grape-blush rounded transition-colors duration-300"
                             aria-current="page" href="#hero">Home</a>
-                        </li>
+                    </li>
                     <li>
                         <a class="block w-full px-3 py-3 text-grape-blush rounded transition-colors duration-300"
                             href="#about">About</a>
@@ -117,7 +117,8 @@
 
             <!-- Foreground Content -->
             <div class="hero-content">
-                <h1 class="hero-title drop-shadow-xl" style="filter: drop-shadow(0 4px 8px rgba(2, 2, 2, 0.689));">Vinelife Church Wilmslow</h1>
+                <h1 class="hero-title drop-shadow-xl" style="filter: drop-shadow(0 4px 8px rgba(2, 2, 2, 0.689));">
+                    Vinelife Church Wilmslow</h1>
 
                 <div class="hero-cta">
                     <a href="#about"
@@ -241,266 +242,99 @@
                         <blockquote id="bible-verse" class="flex justify-center italic text-lg mb-2"
                             style="font-family: Georgia, serif !important; font-style: italic !important;"></blockquote>
                         <div id="bible-ref" class="font-semibold" style="color: #ffffff;"></div>
+                        <div id="bible-source" class="font-semibold" style="color: #ffffff;"></div>
                     </div>
                 </div>
                 <!-- Removed custom gradient, now uses Tailwind gradient for consistency -->
                 <script>
-                    // Bible-API fetch for random verse, persist for one day
                     function getCurrentDayKey() {
                         const now = new Date();
-                        // Day key: yyyy-mm-dd
                         return now.toISOString().slice(0, 10);
                     }
+
+                    const curatedVerses = [
+                        "Psalm 23:1",
+                        "Proverbs 3:5-6",
+                        "Isaiah 41:10",
+                        "Jeremiah 29:11",
+                        "Matthew 11:28",
+                        "John 3:16",
+                        "Romans 8:28",
+                        "2 Corinthians 5:17",
+                        "Philippians 4:6-7",
+                        "Philippians 4:13",
+                        "Ephesians 2:8-9",
+                        "Hebrews 13:5-6"
+                    ];
+
+                    function getDailyIndex(dayKey, length) {
+                        let hash = 0;
+                        for (let i = 0; i < dayKey.length; i++) {
+                            hash = (hash * 31 + dayKey.charCodeAt(i)) >>> 0;
+                        }
+                        return hash % length;
+                    }
+
                     function fetchThought() {
                         const loader = document.querySelector('#thought-content .loader');
                         const verseElem = document.getElementById('bible-verse');
                         const refElem = document.getElementById('bible-ref');
+                        const sourceElem = document.getElementById('bible-source');
+                        if (!verseElem || !refElem || !sourceElem) return;
+
                         const dayKey = getCurrentDayKey();
                         const stored = localStorage.getItem('thoughtForTheDay');
-                        let showStored = false;
+
+                        // Ignore old cached verses that aren't in our curated list
                         if (stored) {
                             try {
                                 const obj = JSON.parse(stored);
-                                if (obj.dayKey === dayKey && obj.text && obj.reference) {
+                                const storedIsCurated = curatedVerses.includes(obj.reference);
+
+                                if (obj.dayKey === dayKey && obj.text && obj.reference && storedIsCurated) {
                                     verseElem.textContent = obj.text;
-                                    refElem.textContent = obj.reference;
-                                    showStored = true;
+                                    refElem.textContent = data.reference;
+                                    if (sourceElem) sourceElem.textContent = "King James Version (KJV)"; return;
                                 }
                             } catch (e) { }
                         }
-                        if (!showStored) {
-                            loader.style.display = 'block';
-                            verseElem.textContent = '';
-                            refElem.textContent = '';
-                            fetch('https://bible-api.com/?random=verse')
-                                .then(res => res.json())
-                                .then(data => {
-                                    loader.style.display = 'none';
-                                    if (data.text && data.reference) {
-                                        verseElem.textContent = data.text.trim();
-                                        refElem.textContent = data.reference;
-                                        localStorage.setItem('thoughtForTheDay', JSON.stringify({
-                                            dayKey,
-                                            text: data.text.trim(),
-                                            reference: data.reference
-                                        }));
-                                    } else {
-                                        verseElem.textContent = 'Could not load verse.';
-                                    }
-                                })
-                                .catch(() => {
-                                    loader.style.display = 'none';
+
+                        loader.style.display = 'block';
+                        verseElem.textContent = '';
+                        refElem.textContent = '';
+
+                        const idx = getDailyIndex(dayKey, curatedVerses.length);
+                        const reference = curatedVerses[idx];
+                        const url = `https://bible-api.com/${encodeURIComponent(reference)}?translation=kjv`;
+
+                        fetch(url)
+                            .then(res => res.json())
+                            .then(data => {
+                                loader.style.display = 'none';
+
+                                const text = (data.text || '').trim().replace(/\n+/g, ' ');
+
+                                if (text && data.reference) {
+                                    verseElem.textContent = text;
+                                    refElem.textContent = `${data.reference} (KJV)`;
+
+                                    localStorage.setItem('thoughtForTheDay', JSON.stringify({
+                                        dayKey,
+                                        text,
+                                        reference: data.reference
+                                    }));
+                                } else {
                                     verseElem.textContent = 'Could not load verse.';
-                                });
-                        }
+                                }
+                            })
+                            .catch(() => {
+                                loader.style.display = 'none';
+                                verseElem.textContent = 'Could not load verse.';
+                            });
                     }
+
                     document.addEventListener('DOMContentLoaded', fetchThought);
                 </script>
-        </section>
-
-        <!-- Worship Meeting Section -->
-        <section id="events" class="py-20 mt-64 pt-32 px-8" style="background: #3B1C4A;">
-            <div class="flex flex-col items-center justify-center text-center w-full" style="color: #ffffff;">
-                <div class="w-full text-center mb-5">
-                    <h2 id="worship-title" class="text-4xl text-center w-full">Sunday Worship Meetings in [Month]</h2>
-                    <script>
-                        // Dynamic title for Worship Meetings section
-                        (function () {
-                            const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-                            const now = new Date();
-                            const month = monthNames[now.getMonth()];
-                            const title = `Sunday Worship Meetings in ${month}`;
-                            document.getElementById('worship-title').textContent = title;
-                        })();
-                    </script>
-                    <p class="text-lg md:text-xl w-full">Stay connected
-                        with
-                        what's happening at Vinelife Wilmslow.</p>
-                </div>
-                <!-- Dynamic Events Loader -->
-                <div id="events-container"
-                    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 justify-items-center w-full"></div>
-                <script>
-                    // Google Calendar API integration
-                    const calendarId = 'e7685f9a0985b807155b873efdc0f555df73f3ddc26aa1b1e99777d08600516b@group.calendar.google.com';
-                    // Google Calendar API integration
-                    const apiKey = 'AIzaSyAW-E5EY9eefCJ_SG-N4J9HsDboRWw59xk';
-                    const maxResults = 6;
-                    const eventsContainer = document.getElementById('events-container');
-                    const titleEl = document.getElementById('worship-title');
-                    const now = new Date().toISOString();
-                    const endpoint = `https://www.googleapis.com/calendar/v3/calendars/${calendarId}/events?key=${apiKey}&timeMin=${now}&maxResults=${maxResults}&orderBy=startTime&singleEvents=true`;
-                    function formatDate(dateStr) {
-                        const date = new Date(dateStr);
-                        return date.toLocaleDateString('en-GB', {
-                            weekday: 'long', day: 'numeric', month: 'long', year: 'numeric',
-                            timeZone: 'Europe/London'
-                        });
-                    }
-
-                    function formatTime(eventStart) {
-                        if (!eventStart) return 'Time TBA';
-                        if (eventStart.date && !eventStart.dateTime) {
-                            return 'All Day';
-                        }
-                        if (eventStart.dateTime) {
-                            const date = new Date(eventStart.dateTime);
-                            return date.toLocaleTimeString('en-GB', {
-                                hour: 'numeric',
-                                minute: '2-digit',
-                                hour12: true,
-                                timeZone: 'Europe/London'
-                            }).toLowerCase();
-                        }
-                        return 'Time TBA';
-                    }
-
-                    function getIcon(summary) {
-                        if (/worship/i.test(summary)) return '<i class="fa-solid fa-hands-praying mr-2" style="color: #ff6b47;"></i>';
-                        if (/church/i.test(summary)) return '<i class="fa-solid fa-church mr-2" style="color: #ff6b47;"></i>';
-                        if (/coffee|informal/i.test(summary)) return '<i class="fa-solid fa-mug-hot mr-2" style="color: #ff6b47;"></i>';
-                        return '<i class="fa-solid fa-calendar-check mr-2" style="color: #ff6b47;"></i>';
-                    }
-
-                    console.log('Making API request to:', endpoint);
-
-                    fetch(endpoint)
-                        .then(response => {
-                            console.log('API Response status:', response.status);
-                            console.log('API Response headers:', response.headers);
-                            if (!response.ok) {
-                                throw new Error(`HTTP error! status: ${response.status}`);
-                            }
-                            return response.json();
-                        })
-                        .then(data => {
-                            console.log('Full API Response:', data);
-
-                            if (data.error) {
-                                console.error('Google Calendar API Error:', data.error);
-                                eventsContainer.innerHTML = `<div class="col-span-3 text-center text-lg text-red-600">
-                            <h3>Google Calendar API Error:</h3>
-                            <p>${data.error.message}</p>
-                            <p>Code: ${data.error.code}</p>
-                            <p>Check console for more details</p>
-                        </div>`;
-                                return;
-                            }
-
-                            console.log('Total events found:', data.items ? data.items.length : 0);
-
-                            if (!data.items || data.items.length === 0) {
-                                eventsContainer.innerHTML = `<div class="col-span-3 text-center text-lg">
-                                    <h3>No events found in calendar</h3>
-                                    <p>Calendar ID: ${calendarId}</p>
-                                    <p>Time range: from ${now}</p>
-                                    <p>Check the browser console for API details</p>
-                                </div>`;
-                                return;
-                            }
-
-                            console.log(`Showing all ${data.items.length} events with detailed date debugging`);
-
-                            eventsContainer.innerHTML = '';
-
-                            console.log(`Filtering for current month events...`);
-                            const currentDate = new Date();
-                            const currentMonth = currentDate.getMonth();
-                            let currentYear = currentDate.getFullYear();
-
-                            let currentMonthEvents = data.items.filter(event => {
-                                const summary = event.summary || '';
-                                const eventDate = new Date(event.start.dateTime || event.start.date);
-                                const isCurrentMonth = eventDate.getMonth() === currentMonth &&
-                                    eventDate.getFullYear() === currentYear;
-
-                                console.log(`Event: ${summary}, Date: ${eventDate.toDateString()}, Month: ${eventDate.getMonth()}, Current Month: ${currentMonth}, Include: ${isCurrentMonth}`);
-
-                                return isCurrentMonth;
-                            }).sort((a, b) => {
-                                const dateTimeA = a.start.dateTime || a.start.date + 'T00:00:00';
-                                const dateTimeB = b.start.dateTime || b.start.date + 'T00:00:00';
-                                const dateA = new Date(dateTimeA);
-                                const dateB = new Date(dateTimeB);
-                                console.log(`Sorting: "${a.summary}" at ${dateTimeA} (${dateA}) vs "${b.summary}" at ${dateTimeB} (${dateB})`);
-                                return dateA.getTime() - dateB.getTime();
-                            });
-
-                            const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
-                                'July', 'August', 'September', 'October', 'November', 'December'];
-                            let currentMonthName = monthNames[currentMonth];
-
-                            // if no events remain this month but there are future items, show next month's
-                            if (currentMonthEvents.length === 0 && data.items.length > 0) {
-                                const firstEvent = new Date(data.items[0].start.dateTime || data.items[0].start.date);
-                                const nextMonth = firstEvent.getMonth();
-                                const nextYear = firstEvent.getFullYear();
-                                // update currentYear so subsequent logging/headers are accurate
-                                currentYear = nextYear;
-                                currentMonthEvents = data.items.filter(ev => {
-                                    const ed = new Date(ev.start.dateTime || ev.start.date);
-                                    return ed.getMonth() === nextMonth && ed.getFullYear() === nextYear;
-                                }).sort((a, b) => {
-                                    const da = new Date(a.start.dateTime || a.start.date);
-                                    const db = new Date(b.start.dateTime || b.start.date);
-                                    return da - db;
-                                });
-                                currentMonthName = monthNames[nextMonth];
-                                console.log(`Falling back to next month: ${currentMonthName} ${currentYear}`);
-                                // update displayed section title as well
-                                if (titleEl) {
-                                    titleEl.textContent = `Sunday Worship Meetings in ${currentMonthName}`;
-                                }
-                            }
-                            if (currentMonthEvents.length === 0) {
-                                eventsContainer.innerHTML = `<div class="col-span-3 text-center text-lg">No events found for ${currentMonthName} ${currentYear}</div>`;
-                                return;
-                            }
-
-                            eventsContainer.innerHTML = '';
-                            if (currentMonthEvents.length === 1) {
-                                eventsContainer.classList.add('single-event');
-                                eventsContainer.classList.remove('two-events');
-                            } else if (currentMonthEvents.length === 2) {
-                                eventsContainer.classList.add('two-events');
-                                eventsContainer.classList.remove('single-event');
-                            } else {
-                                eventsContainer.classList.remove('two-events', 'single-event');
-                            }
-
-                            console.log(`Showing ${currentMonthEvents.length} events for ${currentMonthName} ${currentYear}`);
-
-                            currentMonthEvents.forEach(event => {
-                                const summary = event.summary || 'Sunday Service';
-                                const location = event.location || '';
-                                const eventDate = new Date(event.start.dateTime || event.start.date);
-                                const icon = getIcon(summary);
-                                const displayDate = eventDate.toLocaleDateString('en-GB', {
-                                    weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'
-                                });
-
-                                eventsContainer.innerHTML += `
-                        <div class="meetup-box transform transition-all duration-300">
-                            <h3 class="enhanced-shadow">${icon}${summary}</h3>
-                            <p><strong>${displayDate}</strong></p>
-                            <p>${location}</p>
-                            <p><i class="fa-solid fa-clock mr-2" style="color: #ff6b47;"></i>${formatTime(event.start)}</p>
-                        </div>
-                                `;
-                            });
-                        })
-                        .catch(error => {
-                            console.error('Error fetching calendar events:', error);
-                            eventsContainer.innerHTML = '<div class="col-span-3 text-center text-lg text-red-600">Error loading events. Please check the console for details.</div>';
-                        });
-                </script>
-
-                <div class="text-center mt-4">
-                    <a href="#contact"
-                        class="inline-block text-main-text font-semibold py-2 px-6 rounded border transition-all duration-300 active:scale-95"
-                        style="border-color: #ffffff !important; color: #ffffff !important; background: transparent !important;">
-                        For More Information</a>
-                </div>
             </div>
         </section>
         <!-- Groups Section -->
@@ -758,7 +592,8 @@
         </section>
         <!-- Footer / contact section -->
         <!-- mt-auto added to push footer to the bottom of the page -->
-        <footer class="mt-auto m-0 p-0" id="contact" style="position: relative; z-index: 1; background: #3B1C4A; color: #ffffff;">
+        <footer class="mt-auto m-0 p-0" id="contact"
+            style="position: relative; z-index: 1; background: #3B1C4A; color: #ffffff;">
             <div id="footer-contact" class="m-0 p-0 w-full"
                 style="position: relative; background: #3B1C4A; color: #ffffff; overflow: hidden; margin:0; padding:0; width:100vw;">
                 <div class="m-0 p-0" style="position: relative; z-index: 2; max-width:100vw; background: transparent;">
