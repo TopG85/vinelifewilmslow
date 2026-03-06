@@ -12,7 +12,7 @@
 html, body { overflow-x: clip; }
 
 /* Prevent sections hiding under fixed navbar */
-section {
+[id] {
   scroll-margin-top: calc(var(--nav-h, 90px) + 12px);
 }
 
@@ -1281,7 +1281,7 @@ section {
 html, body { overflow-x: clip; }
 
 /* All anchor jumps account for fixed navbar */
-section {
+[id] {
   scroll-margin-top: calc(var(--nav-h, 90px) + 12px);
 }
 
