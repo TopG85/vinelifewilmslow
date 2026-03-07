@@ -1,4 +1,10 @@
 /** @type {import('tailwindcss').Config} */
+const fontStacks = {
+  ui: ['SohneSchmal', 'Sohne Schmal', 'Inter', 'sans-serif'],
+  display: ['SohneSchmal', 'Sohne Schmal', 'Inter', 'sans-serif'],
+  alt: ['SohneSchmal', 'Sohne Schmal', 'Inter', 'sans-serif'],
+};
+
 module.exports = {
   content: [
     "./index.html",
@@ -8,18 +14,27 @@ module.exports = {
     extend: {
       colors: {
         // Deep Green
-        'Deep-Green': '#2F6237'
-        // Deep Purple 
-        'Deep-Purple': '#3B1C4A'
+        'Deep-Green': '#2F6E4F',
+        // Light Green
+        'Light-Green': '#78B77A',
         // White
-        'White': '#FFFFFF'
-        // Gold Yellow
-        'Gold-Yellow': '#EFC643'
+        'White': '#FFFFFF',
+        // Orange
+        'Orange': '#C96A3A',
+        // Gray
+        'Gray': '#6E776F'
+
       },
       fontFamily: {
-        'lato': ['Lato', 'Arial', 'sans-serif'],
-        'montserrat': ['Montserrat', 'Arial', 'sans-serif'],
-        'playfair': ['Playfair Display', 'serif'],
+        sans: fontStacks.ui,
+        ui: fontStacks.ui,
+        display: fontStacks.display,
+        alt: fontStacks.alt,
+
+        // Backward-compatible aliases for existing utility usage.
+        lato: fontStacks.ui,
+        montserrat: fontStacks.display,
+        playfair: fontStacks.alt,
       },
       minHeight: {
         'screen-minus-nav': 'calc(100vh - 90px)',

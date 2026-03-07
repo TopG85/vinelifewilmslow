@@ -2,32 +2,120 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "SohneSchmal";
+  src: url("/ecom/assets/fonts/SohneSchmal-Halbfett.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 @layer base {
+  :root {
+    --section-space: clamp(2.75rem, 5vw, 5.5rem);
+    --section-divider: rgba(47, 47, 47, 0.16);
+    --heading-underline-width: 2.75rem;
+    --heading-underline-thickness: 6px;
+    --heading-underline-gap: 0.35rem;
+    --vl-font-ui: "SohneSchmal", "Sohne Schmal", "Inter", sans-serif;
+    --vl-font-display: "SohneSchmal", "Sohne Schmal", "Inter", sans-serif;
+    --vl-font-alt: "SohneSchmal", "Sohne Schmal", "Inter", sans-serif;
+    font-stretch: 100%;
+    font-style: normal;
+  }
+
   html {
     scroll-behavior: smooth;
   }
   body {
-    font-family: 'Lato', Arial, sans-serif;
-    color: #2F2F2F;
-    background-color: #E0ECDC;
+    font-family: var(--vl-font-ui);
+    font-stretch: 100%;
+    font-style: normal;
+    font-weight: 200;
+    letter-spacing: -0.025em;
+    color: #1E2521;
+    background-color: #F3EFE3;
     line-height: 1.6;
   }
 
   h1 {
-    font-family: 'Lato', Arial, sans-serif;
+    font-family: var(--vl-font-display);
   }
 
   h2 {
-    font-family: 'Lato', Arial, sans-serif;
+    font-family: var(--vl-font-display);
   }
   h1, h2, h3, h4, h5, h6, nav {
-    font-family: 'Montserrat', Arial, sans-serif;
-    color: #4E7F3A;
+    font-family: var(--vl-font-display);
+    font-stretch: 100%;
+    font-style: normal;
+    color: #2E7D32;
     font-weight: 700;
+    letter-spacing: -0.035em;
+  }
+
+  h2, h3 {
+    position: relative;
+    padding-bottom: calc(var(--heading-underline-gap) + var(--heading-underline-thickness));
+  }
+
+  h2::after,
+  h3::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: var(--heading-underline-width);
+    height: var(--heading-underline-thickness);
+    background: #808080;
+    border-radius: 999px;
+    opacity: 1;
+  }
+
+  .meetup-box h2,
+  .meetup-box h3,
+  .groups-box h2,
+  .groups-box h3,
+  h2.your-class-name {
+    padding-bottom: 0;
+  }
+
+  .meetup-box h2::after,
+  .meetup-box h3::after,
+  .groups-box h2::after,
+  .groups-box h3::after,
+  h2.your-class-name::after {
+    content: none;
   }
   .title, blockquote, .quote {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--vl-font-display);
     color: #ffffff;
+  }
+
+  label,
+  input,
+  textarea,
+  button {
+    font-family: var(--vl-font-alt);
+    font-stretch: 100%;
+    font-style: normal;
+    font-weight: 200;
+    letter-spacing: -0.02em;
+  }
+
+  p,
+  li,
+  a,
+  span,
+  small {
+    font-weight: 200;
+  }
+
+  main > section + section {
+    margin-top: var(--section-space);
+    padding-top: var(--section-space);
+    border-top: 1px solid var(--section-divider);
   }
 }
 
@@ -52,5 +140,23 @@
   }
   .card {
     @apply bg-white rounded-xl shadow p-8 mb-6;
+  }
+
+  .founders-photo-wrap {
+    width: 100%;
+    max-width: 256px;
+    border-radius: 28px !important;
+    overflow: hidden !important;
+    border: 1px solid rgba(47, 47, 47, 0.18);
+  }
+
+  .founders-photo {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 28px !important;
+    overflow: hidden !important;
+    clip-path: inset(0 round 28px);
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
   }
 }
