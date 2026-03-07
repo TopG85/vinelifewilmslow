@@ -192,6 +192,12 @@ vinelifewilmslow/
 
 ## 📋 Recent Updates
 
+### March 7, 2026
+- Updated site wording from `About` to `Mission` in key user-facing labels.
+- Reordered the Resources cards to: `Alpha`, `CAP`, `Hope Central`.
+- Fixed Resources card alignment by standardizing logo sizing and spacing.
+- Updated the global page background to `#F3F3F3` for a softer site backdrop.
+
 ### March 1, 2026
 - Fixed navigation bug: restored default anchor navigation by removing faulty JavaScript that prevented navbar links from working.
 - Improved styles for resource boxes and navigation bar.
