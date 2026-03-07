@@ -14,7 +14,7 @@ A modern, responsive church website for Vinelife Wilmslow - a community church i
 
 ### 🎨 Visual Design
 - **Grape-inspired color palette** with deep purples, greens, and complementary corals
-- **Elegant typography** using Crimson Text for headings and Open Sans for body text
+- **Consistent typography** using Sohne Schmal/Inter with varied font weights for hierarchy
 - **Subtle text shadows** with consistent rgba opacity system for modern appearance
 - **Three-tier shadow hierarchy** - headings (0.5), subheadings (0.4), body text (0.3) opacity
 - **Smooth animations** and hover effects throughout
@@ -22,8 +22,20 @@ A modern, responsive church website for Vinelife Wilmslow - a community church i
 - **Hero image slideshow** alternates between two images every 15 seconds
 - **Tinted hero images**: vinelifewilmslowhero.webp is black and white with a dark tint, ChatGPT image has a balanced dark tint for improved contrast
 
+#### 🎯 Design Inspiration
+- This site takes visual inspiration from the **Waitrose** website, especially in the use of confident, clean color direction and palette-led styling.
+- It also draws inspiration from the **Society for the Protection of Unborn Children (SPUC)** website, particularly its use of a consistent font family with varied weights (regular, semibold, bold) to create hierarchy and emphasis.
+- A key influence was how strong, vibrant color is used to highlight important calls to action.
+- I also liked the amount of content available across the site experience, and that informed the decision to include a larger **Media Library** with additional Vinelife YouTube videos so visitors have more to choose from.
+
+**SPUC reference:** [spuc.org.uk](https://spuc.org.uk)
+
 #### 🧩 Wireframe
 - **Website wireframe (PDF):** [Vinelife Church Wilmslow Wireframe v1](docs/wireframes/vinelifechurchwilmslow-wireframe-v1.pdf)
+- **Website wireframe (Image):**
+
+![Vinelife Church Wilmslow wireframe](assets/images/vinelifewireframe-v1.png)
+
 - **Design note:** This wireframe supports the visual layout decisions documented in the Visual Design section.
 
 ### 📄 Website Sections
@@ -166,9 +178,21 @@ vinelifewilmslow/
 - **Accent**: Coral and orange (#ff6b47, #ff7043)
 - **Background**: Cream and charcoal (#faf7f0, #2e2e2e)
 
+#### Waitrose-Inspired Palette Gradient
+
+![Waitrose-inspired palette gradient](assets/images/waitrose-palette-gradient.svg)
+
+```css
+/* Gradient in Hex */
+linear-gradient(to right, #C5D700 12.437810945273633%, 21.599836144641998%, #FFFFFF 35.90381426202322%, 42.95190713101161%, #F3F3F3 50%, 61.52570480928689%, #114734 70.8955223880597%, 82.91873963515755%, #54565A 91.37645107794361%);
+
+/* Gradient in RGBA */
+linear-gradient(to right, rgba(197, 215, 0, 1) 12.437810945273633%, 21.599836144641998%, rgba(255, 255, 255, 1) 35.90381426202322%, 42.95190713101161%, rgba(243, 243, 243, 1) 50%, 61.52570480928689%, rgba(17, 71, 52, 1) 70.8955223880597%, 82.91873963515755%, rgba(84, 86, 90, 1) 91.37645107794361%);
+```
+
 ### Typography
-- **Headings**: Crimson Text (serif, elegant)
-- **Body**: Open Sans (sans-serif, readable)
+- **Primary font family**: Sohne Schmal with Inter fallback
+- **Usage approach**: one core sans-serif family with varied weights (regular, semibold, bold)
 
 ### Components
 - **Gradient backgrounds** with parallax effects

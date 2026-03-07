@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320" role="img" aria-labelledby="title desc">
+  <title id="title">Waitrose-inspired palette gradient</title>
+  <desc id="desc">Gradient blend of #C5D700, #FFFFFF, #F3F3F3, #114734, and #54565A.</desc>
+  <defs>
+    <linearGradient id="waitroseGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="12.437810945273633%" stop-color="#C5D700" />
+      <stop offset="21.599836144641998%" stop-color="#C5D700" />
+      <stop offset="35.90381426202322%" stop-color="#FFFFFF" />
+      <stop offset="42.95190713101161%" stop-color="#FFFFFF" />
+      <stop offset="50%" stop-color="#F3F3F3" />
+      <stop offset="61.52570480928689%" stop-color="#F3F3F3" />
+      <stop offset="70.8955223880597%" stop-color="#114734" />
+      <stop offset="82.91873963515755%" stop-color="#114734" />
+      <stop offset="91.37645107794361%" stop-color="#54565A" />
+      <stop offset="100%" stop-color="#54565A" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="320" fill="url(#waitroseGradient)" rx="12" ry="12" />
+</svg>
