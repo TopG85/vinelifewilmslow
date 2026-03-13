@@ -119,11 +119,7 @@ main > section + section {
   place-items: center;
 }
 
-.hero-cta a:hover,
-.hero-hover-grape-burgundy:hover,
-.hero-hover-grape-burgundy:focus-visible {
-  color: #FFFFFF !important;
-}
+
 
 /* Hero background images */
 .hero-bg{
@@ -170,7 +166,7 @@ main > section + section {
 /* Title */
 .hero-title{
   font-family: "Inter", sans-serif;
-  color: #fff;
+  color: #2F6E4F;
   font-size: clamp(2.25rem, 5vw, 44px);
   font-weight: 900;
   line-height: 1;
