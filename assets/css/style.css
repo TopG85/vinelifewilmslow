@@ -1,3 +1,40 @@
+/* Add text shadow to Facebook icon in hero section */
+/* Use drop-shadow filter for Facebook icon in hero section */
+#hero .fa-facebook,
+#hero .fa-facebook-f {
+  filter: drop-shadow(0 2px 6px #114734) drop-shadow(0 0 2px #000);
+}
+/* Ensure hero section buttons have text shadow */
+.hero-cta a {
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+/* Restore text shadow to all main site buttons except those in .groups-box */
+button:not(.groups-box button),
+#about-readmore-btn,
+#events .inline-block,
+#local-resources .inline-block,
+.youtube-subscribe-btn,
+#contact-form button,
+#events .text-center.mt-4 > a {
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Remove text shadow from all buttons/links inside .groups-box except the special Groups section button */
+.groups-box button,
+.groups-box a {
+  text-shadow: none !important;
+}
+
+/* Keep text shadow on the Groups section 'For More Information' button */
+#groups-more-info > a.inline-block.text-main-text.font-semibold.py-2.px-6.rounded.border.transition-all.duration-300.active\:scale-95 {
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5) !important;
+}
+/* Text shadow only for the Groups section button */
+#groups-more-info > a.inline-block.text-main-text.font-semibold.py-2.px-6.rounded.border.transition-all.duration-300.active\:scale-95 {
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5) !important;
+}
+}
+
 /* =========================
    FINAL HERO + NAV FIX
    ========================= */
@@ -51,7 +88,6 @@
   color: #333333 !important;
   text-decoration: underline;
   text-decoration-color: #C4D600;
-  text-decoration-thickness: 3px;
   text-underline-offset: 0.22em;
 }
 
@@ -1581,12 +1617,6 @@ html, body { overflow-x: clip; }
   z-index: 0;
   overflow: visible;
   isolation: isolate;
-  padding: 0.5rem 1.5rem !important;
-  font-size: 1rem !important;
-  line-height: 1.5 !important;
-  border-width: 1px !important;
-  border-radius: 0.25rem !important;
-  box-shadow: none !important;
   background: #C4D600 !important;
   color: #FFFFFF !important;
   border-color: #C4D600 !important;
