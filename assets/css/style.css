@@ -1,3 +1,59 @@
+/* Make contact form textarea text bold for better readability */
+#contact-form textarea {
+  font-weight: 700;
+  color: #114734;
+}
+/* Make contact form input text bold for better readability */
+#contact-form input[type="text"],
+#contact-form input[type="tel"],
+#contact-form input[type="email"] {
+  font-weight: 700;
+  color: #114734;
+}
+/* Add dark green text shadow to phone numbers in groups-boxes for contrast */
+/* Set phone numbers in groups-boxes to dark green for contrast */
+.groups-box strong a[href^="tel:"] {
+  color: var(--vl-primary) !important;
+  text-shadow: none !important;
+  font-weight: 700 !important;
+}
+/* Add text shadow to Facebook icon in hero section */
+/* Use drop-shadow filter for Facebook icon in hero section */
+#hero .fa-facebook,
+#hero .fa-facebook-f {
+  filter: drop-shadow(0 2px 6px #114734) drop-shadow(0 0 2px #000);
+}
+/* Ensure hero section buttons have text shadow */
+.hero-cta a {
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+/* Restore text shadow to all main site buttons except those in .groups-box */
+button:not(.groups-box button),
+#about-readmore-btn,
+#events .inline-block,
+#local-resources .inline-block,
+.youtube-subscribe-btn,
+#contact-form button,
+#events .text-center.mt-4 > a {
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Remove text shadow from all buttons/links inside .groups-box except the special Groups section button */
+.groups-box button,
+.groups-box a {
+  text-shadow: none !important;
+}
+
+/* Keep text shadow on the Groups section 'For More Information' button */
+#groups-more-info > a.inline-block.text-main-text.font-semibold.py-2.px-6.rounded.border.transition-all.duration-300.active\:scale-95 {
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5) !important;
+}
+/* Text shadow only for the Groups section button */
+#groups-more-info > a.inline-block.text-main-text.font-semibold.py-2.px-6.rounded.border.transition-all.duration-300.active\:scale-95 {
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5) !important;
+}
+}
+
 /* =========================
    FINAL HERO + NAV FIX
    ========================= */
@@ -51,7 +107,6 @@
   color: #333333 !important;
   text-decoration: underline;
   text-decoration-color: #C4D600;
-  text-decoration-thickness: 3px;
   text-underline-offset: 0.22em;
 }
 
@@ -83,11 +138,7 @@ main > section + section {
   place-items: center;
 }
 
-.hero-cta a:hover,
-.hero-hover-grape-burgundy:hover,
-.hero-hover-grape-burgundy:focus-visible {
-  color: #FFFFFF !important;
-}
+
 
 /* Hero background images */
 .hero-bg{
@@ -134,7 +185,7 @@ main > section + section {
 /* Title */
 .hero-title{
   font-family: "Inter", sans-serif;
-  color: #fff;
+  color: #2F6E4F;
   font-size: clamp(2.25rem, 5vw, 44px);
   font-weight: 900;
   line-height: 1;
@@ -1556,58 +1607,19 @@ html, body { overflow-x: clip; }
 }
 
 /* CTA pulse effect */
-:root {
-  --pulse-orange: #C4D600;
-  --pulse-orange-glow: rgba(255, 107, 0, 0.75);
-}
 
-@keyframes pulseAmberRing {
-  0% {
-    transform: scale(1);
-    opacity: 0.95;
-  }
-  70% {
-    transform: scale(1.22);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(1.26);
-    opacity: 0;
-  }
-}
-
+/* Hero CTA button glow effect */
 .hero-cta a {
   position: relative;
   z-index: 0;
   overflow: visible;
   isolation: isolate;
-  padding: 0.5rem 1.5rem !important;
-  font-size: 1rem !important;
-  line-height: 1.5 !important;
-  border-width: 1px !important;
-  border-radius: 0.25rem !important;
-  box-shadow: none !important;
   background: #C4D600 !important;
   color: #FFFFFF !important;
   border-color: #C4D600 !important;
   font-weight: 400 !important;
-}
-
-.hero-cta a::after {
-  content: "";
-  position: absolute;
-  inset: -5px;
-  border: 3px solid var(--pulse-orange);
-  box-shadow: 0 0 0 2px rgba(255, 107, 0, 0.28), 0 0 20px 2px var(--pulse-orange-glow);
-  background: rgba(255, 107, 0, 0.1);
-  border-radius: inherit;
-  pointer-events: none;
-  z-index: -1;
-  animation: pulseAmberRing 1.8s ease-out infinite;
-}
-
-.hero-cta a:hover::after {
-  animation-play-state: paused;
+  box-shadow: 0 0 18px 6px rgba(255, 255, 120, 0.92), 0 0 32px 10px rgba(196, 214, 0, 0.8);
+  transition: box-shadow 0.3s;
 }
 
 .hero-cta a:hover,
@@ -1615,13 +1627,7 @@ html, body { overflow-x: clip; }
   background: #114734 !important;
   border-color: #114734 !important;
   color: #FFFFFF !important;
-  transform: none !important;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-cta a::after {
-    animation: none;
-  }
+  box-shadow: 0 0 28px 10px rgba(255, 255, 120, 0.98), 0 0 48px 18px rgba(196, 214, 0, 0.9);
 }
 
 /* Non-hero CTA button style */

@@ -452,6 +452,15 @@ vinelife-cms/
 
 ## Changelog
 
+### March 2026 - UI/UX & Accessibility Improvements
+- ✅ **Resource Button Consistency** - All resource buttons in the Local Resources section now use min-width, max-width, and width:auto for consistent sizing and allow full text display (e.g., "Visit Hope Central Website" now displays fully on one line)
+- ✅ **Button Visual Consistency** - Standardized button sizing and styling across hero, mission, worship, and groups sections
+- ✅ **Glow Effect on Buttons** - Replaced pulse effect with a subtle glow for improved accessibility and modern appearance
+- ✅ **Improved Color Contrast** - Enhanced contrast for phone numbers and form fields (bold text, dark green shadow for phone numbers)
+- ✅ **Form Field Readability** - Made all contact form fields and textarea text bold for better legibility
+- ✅ **Semantic HTML & Accessibility** - Corrected <dl> structure, added descriptive alt text and titles, ensured unique and descriptive link text, and improved iframe accessibility
+- ✅ **Documentation Update** - Updated README.md to reflect all recent UI/UX and accessibility changes
+
 > **Note**: The current static website would remain fully functional during development, allowing for gradual migration to the Django-powered version.
 
 ## �👥 About Vinelife Wilmslow
