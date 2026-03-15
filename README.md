@@ -98,6 +98,21 @@ A modern, responsive church website for Vinelife Wilmslow - a community church i
 
 ### 🛠️ Technical Features
 
+#### 📈 Google Analytics Integration
+- **Google Analytics 4 (gtag.js)** is integrated for website traffic and engagement tracking. The tracking code is included in the <head> of index.html using your property ID (`G-WM69C53YSW`).
+- To verify or customize, see the following snippet in index.html:
+
+```html
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WM69C53YSW"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-WM69C53YSW');
+</script>
+```
+
 #### 🎯 Performance Optimizations
 - **WebP image format** for faster loading
 - **Lazy loading** for images
@@ -453,6 +468,7 @@ vinelife-cms/
 ## Changelog
 
 ### March 2026 - UI/UX & Accessibility Improvements
+- ✅ **Google Analytics Integration** - Added Google Analytics 4 (gtag.js) to track website traffic and engagement
 - ✅ **Resource Button Consistency** - All resource buttons in the Local Resources section now use min-width, max-width, and width:auto for consistent sizing and allow full text display (e.g., "Visit Hope Central Website" now displays fully on one line)
 - ✅ **Button Visual Consistency** - Standardized button sizing and styling across hero, mission, worship, and groups sections
 - ✅ **Glow Effect on Buttons** - Replaced pulse effect with a subtle glow for improved accessibility and modern appearance
