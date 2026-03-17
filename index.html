@@ -90,6 +90,10 @@
                     </li>
                     <li>
                         <a class="block w-full px-3 py-3 text-grape-blush rounded transition-colors duration-300"
+                            href="#events">Chilli Night</a>
+                    </li>
+                    <li>
+                        <a class="block w-full px-3 py-3 text-grape-blush rounded transition-colors duration-300"
                             href="#groups">Groups</a>
                     </li>
                     <li>
@@ -388,12 +392,21 @@
 
                 <div id="events-container"
                     class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 justify-items-center w-full"></div>
+                <div id="special-events-center-wrapper" class="flex flex-col items-center justify-center w-full" style="margin-top: 4rem;">
+                    <div class="w-full text-center mb-4">
+                        <h2 class="text-3xl md:text-4xl font-semibold text-center w-full mb-4" style="color: #C4D600;">Special Events</h2>
+                        <p class="text-lg md:text-xl w-full mb-2" style="color: #54565A;">Events outside our regular Sunday meetings</p>
+                    </div>
+                    <div id="special-events-container"
+                        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-12" style="display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-start; width: 100%; margin-top: 0.5rem; margin-bottom: 3rem;"></div>
+                </div>
 
                 <script>
                     const calendarId = 'e7685f9a0985b807155b873efdc0f555df73f3ddc26aa1b1e99777d08600516b@group.calendar.google.com';
                     const apiKey = 'AIzaSyAW-E5EY9eefCJ_SG-N4J9HsDboRWw59xk';
                     const maxResults = 12;
                     const eventsContainer = document.getElementById('events-container');
+                    const specialEventsContainer = document.getElementById('special-events-container');
                     const worshipTitleEl = document.getElementById('worship-title');
                     const nowIso = new Date().toISOString();
                     const endpoint = `https://www.googleapis.com/calendar/v3/calendars/${calendarId}/events?key=${apiKey}&timeMin=${nowIso}&maxResults=${maxResults}&orderBy=startTime&singleEvents=true`;
@@ -430,7 +443,7 @@
                             return response.json();
                         })
                         .then(data => {
-                            if (!eventsContainer) return;
+                            if (!eventsContainer || !specialEventsContainer) return;
 
                             if (data.error) {
                                 eventsContainer.innerHTML = `<div class="col-span-3 text-center text-lg text-red-600">Google Calendar API Error: ${data.error.message}</div>`;
@@ -448,8 +461,17 @@
                             const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
                                 'July', 'August', 'September', 'October', 'November', 'December'];
 
+                            // Identify the special Chilli night event (Monday 23rd March)
+                            const specialEvent = data.items.find(event => {
+                                const eventDate = new Date(event.start.dateTime || event.start.date);
+                                return /chilli/i.test(event.summary || '') && eventDate.getDate() === 23 && eventDate.getMonth() === 2; // March is 2 (0-based)
+                            });
+
+                            // Filter out the special event from the main events
                             let currentMonthEvents = data.items.filter(event => {
                                 const eventDate = new Date(event.start.dateTime || event.start.date);
+                                // Exclude the special event
+                                if (/chilli/i.test(event.summary || '') && eventDate.getDate() === 23 && eventDate.getMonth() === 2) return false;
                                 return eventDate.getMonth() === currentMonth && eventDate.getFullYear() === currentYear;
                             }).sort((a, b) => new Date(a.start.dateTime || a.start.date) - new Date(b.start.dateTime || b.start.date));
 
@@ -462,6 +484,8 @@
                                 currentYear = nextYear;
                                 currentMonthEvents = data.items.filter(ev => {
                                     const eventDate = new Date(ev.start.dateTime || ev.start.date);
+                                    // Exclude the special event
+                                    if (/chilli/i.test(ev.summary || '') && eventDate.getDate() === 23 && eventDate.getMonth() === 2) return false;
                                     return eventDate.getMonth() === nextMonth && eventDate.getFullYear() === nextYear;
                                 }).sort((a, b) => new Date(a.start.dateTime || a.start.date) - new Date(b.start.dateTime || b.start.date));
                                 currentMonthName = monthNames[nextMonth];
@@ -488,25 +512,54 @@
                                 let extraHtml = '';
                                 if (/chilli/i.test(summary)) {
                                     extraHtml = `
-                                        <div style="color: #1F4D2E; font-weight: 600; margin-bottom: 0.25rem;">
+                                        <div style=\"color: #1F4D2E; font-weight: 600; margin-bottom: 0.25rem;\">
                                             RSVP: Call Robert Larkman
                                         </div>
-                                        <span style="color: #1F4D2E; font-weight: 700; display: inline;">
-                                            <a href="tel:07957813360" style="color: #1F4D2E; text-decoration: underline; font-weight: 700;">07957 813360</a>
+                                        <span style=\"color: #1F4D2E; font-weight: 700; display: inline;\">
+                                            <a href=\"tel:07957813360\" style=\"color: #1F4D2E; text-decoration: underline; font-weight: 700;\">07957 813360</a>
                                         </span>
                                     `;
                                 }
 
                                 eventsContainer.innerHTML += `
-                                    <div class="meetup-box transform shadow-lg transition-all duration-300">
-                                        <h3 class="enhanced-shadow">${icon}${summary}</h3>
+                                    <div class=\"meetup-box transform shadow-lg transition-all duration-300\">
+                                        <h3 class=\"enhanced-shadow\">${icon}${summary}</h3>
                                         <p><strong>${displayDate}</strong></p>
                                         <p>${location}</p>
                                         ${extraHtml}
-                                        <p><i class="fa-solid fa-clock mr-2" style="color: #C4D600;"></i>${formatTime(event.start)}</p>
+                                        <p><i class=\"fa-solid fa-clock mr-2\" style=\"color: #C4D600;\"></i>${formatTime(event.start)}</p>
                                     </div>
                                 `;
                             });
+
+                            // Render the special event if it exists
+                            specialEventsContainer.innerHTML = '';
+                            if (specialEvent) {
+                                const summary = specialEvent.summary || 'Special Event';
+                                const location = specialEvent.location || '';
+                                const eventDate = new Date(specialEvent.start.dateTime || specialEvent.start.date);
+                                const icon = getIcon(summary);
+                                const displayDate = eventDate.toLocaleDateString('en-GB', {
+                                    weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'
+                                });
+                                let extraHtml = `
+                                    <div style=\"color: #1F4D2E; font-weight: 600; margin-bottom: 0.25rem;\">
+                                        RSVP: Call Robert Larkman
+                                    </div>
+                                    <span style=\"color: #1F4D2E; font-weight: 700; display: inline;\">
+                                        <a href=\"tel:07957813360\" style=\"color: #1F4D2E; text-decoration: underline; font-weight: 700;\">07957 813360</a>
+                                    </span>
+                                `;
+                                specialEventsContainer.innerHTML += `
+                                    <div class=\"meetup-box transform shadow-lg transition-all duration-300\">
+                                        <h3 class=\"enhanced-shadow\">${icon}${summary}</h3>
+                                        <p><strong>${displayDate}</strong></p>
+                                        <p>${location}</p>
+                                        ${extraHtml}
+                                        <p><i class=\"fa-solid fa-clock mr-2\" style=\"color: #C4D600;\"></i>${formatTime(specialEvent.start)}</p>
+                                    </div>
+                                `;
+                            }
                         })
                         .catch(() => {
                             if (eventsContainer) {
