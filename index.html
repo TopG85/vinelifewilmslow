@@ -414,11 +414,13 @@
                     }
 
                     function getIcon(summary) {
+                        if (/chilli/i.test(summary)) return '<i class="fa-solid fa-pepper-hot mr-2" style="color: #C4D600;"></i>';
                         if (/worship/i.test(summary)) return '<i class="fa-solid fa-hands-praying mr-2" style="color: #C4D600;"></i>';
                         if (/church/i.test(summary)) return '<i class="fa-solid fa-church mr-2" style="color: #C4D600;"></i>';
                         if (/coffee|informal/i.test(summary)) return '<i class="fa-solid fa-mug-hot mr-2" style="color: #C4D600;"></i>';
                         return '<i class="fa-solid fa-calendar-check mr-2" style="color: #C4D600;"></i>';
                     }
+
 
                     fetch(endpoint)
                         .then(response => {
@@ -483,13 +485,26 @@
                                     weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'
                                 });
 
+                                let extraHtml = '';
+                                if (/chilli/i.test(summary)) {
+                                    extraHtml = `
+                                        <div style="color: #1F4D2E; font-weight: 600; margin-bottom: 0.25rem;">
+                                            RSVP: Call Robert Larkman
+                                        </div>
+                                        <span style="color: #1F4D2E; font-weight: 700; display: inline;">
+                                            <a href="tel:07957813360" style="color: #1F4D2E; text-decoration: underline; font-weight: 700;">07957 813360</a>
+                                        </span>
+                                    `;
+                                }
+
                                 eventsContainer.innerHTML += `
-                        <div class="meetup-box transform shadow-lg transition-all duration-300">
-                            <h3 class="enhanced-shadow">${icon}${summary}</h3>
-                            <p><strong>${displayDate}</strong></p>
-                            <p>${location}</p>
-                            <p><i class="fa-solid fa-clock mr-2" style="color: #C4D600;"></i>${formatTime(event.start)}</p>
-                        </div>
+                                    <div class="meetup-box transform shadow-lg transition-all duration-300">
+                                        <h3 class="enhanced-shadow">${icon}${summary}</h3>
+                                        <p><strong>${displayDate}</strong></p>
+                                        <p>${location}</p>
+                                        ${extraHtml}
+                                        <p><i class="fa-solid fa-clock mr-2" style="color: #C4D600;"></i>${formatTime(event.start)}</p>
+                                    </div>
                                 `;
                             });
                         })
