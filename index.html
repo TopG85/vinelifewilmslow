@@ -88,6 +88,8 @@
                         <a class="block w-full px-3 py-3 text-grape-blush rounded transition-colors duration-300"
                             href="#events">Worship</a>
                     </li>
+                       <a class="block w-full px-3 py-3 text-grape-blush rounded transition-colors duration-300"
+                            href="#special-events">Special Events</a>
                     <li>
                         <a class="block w-full px-3 py-3 text-grape-blush rounded transition-colors duration-300"
                             href="#groups">Groups</a>
@@ -459,17 +461,21 @@
 
                             const sundayWorshipRegex = /sunday worship/i;
 
-                            // Special Events: anything NOT Sunday Worship
+
+                            // Broaden Sunday Worship Meetings filter
+                            const sundayWorshipPattern = /(sunday worship|sunday service|worship meeting|worship service)/i;
+
+                            // Special Events: anything NOT a Sunday Worship Meeting
                             const specialEvents = data.items.filter(event =>
-                                !sundayWorshipRegex.test(event.summary || '')
+                                !sundayWorshipPattern.test(event.summary || '')
                             ).filter(event => {
                                 const eventDate = new Date(event.start.dateTime || event.start.date);
                                 return eventDate.getMonth() === currentMonth && eventDate.getFullYear() === currentYear;
                             }).sort((a, b) => new Date(a.start.dateTime || a.start.date) - new Date(b.start.dateTime || b.start.date));
 
-                            // Sunday Worship Meetings: only those with 'Sunday Worship' in summary
+                            // Sunday Worship Meetings: match any of the variants
                             let currentMonthEvents = data.items.filter(event => {
-                                if (!sundayWorshipRegex.test(event.summary || '')) return false;
+                                if (!sundayWorshipPattern.test(event.summary || '')) return false;
                                 const eventDate = new Date(event.start.dateTime || event.start.date);
                                 return eventDate.getMonth() === currentMonth && eventDate.getFullYear() === currentYear;
                             }).sort((a, b) => new Date(a.start.dateTime || a.start.date) - new Date(b.start.dateTime || b.start.date));
