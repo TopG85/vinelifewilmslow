@@ -457,17 +457,20 @@
                             const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
                                 'July', 'August', 'September', 'October', 'November', 'December'];
 
-                            // Identify the special Chilli night event (Monday 23rd March)
-                            const specialEvent = data.items.find(event => {
-                                const eventDate = new Date(event.start.dateTime || event.start.date);
-                                return /chilli/i.test(event.summary || '') && eventDate.getDate() === 23 && eventDate.getMonth() === 2; // March is 2 (0-based)
-                            });
+                            const sundayWorshipRegex = /sunday worship/i;
 
-                            // Filter out the special event from the main events
-                            let currentMonthEvents = data.items.filter(event => {
+                            // Special Events: anything NOT Sunday Worship
+                            const specialEvents = data.items.filter(event =>
+                                !sundayWorshipRegex.test(event.summary || '')
+                            ).filter(event => {
                                 const eventDate = new Date(event.start.dateTime || event.start.date);
-                                // Exclude the special event
-                                if (/chilli/i.test(event.summary || '') && eventDate.getDate() === 23 && eventDate.getMonth() === 2) return false;
+                                return eventDate.getMonth() === currentMonth && eventDate.getFullYear() === currentYear;
+                            }).sort((a, b) => new Date(a.start.dateTime || a.start.date) - new Date(b.start.dateTime || b.start.date));
+
+                            // Sunday Worship Meetings: only those with 'Sunday Worship' in summary
+                            let currentMonthEvents = data.items.filter(event => {
+                                if (!sundayWorshipRegex.test(event.summary || '')) return false;
+                                const eventDate = new Date(event.start.dateTime || event.start.date);
                                 return eventDate.getMonth() === currentMonth && eventDate.getFullYear() === currentYear;
                             }).sort((a, b) => new Date(a.start.dateTime || a.start.date) - new Date(b.start.dateTime || b.start.date));
 
@@ -479,9 +482,8 @@
                                 const nextYear = firstEvent.getFullYear();
                                 currentYear = nextYear;
                                 currentMonthEvents = data.items.filter(ev => {
+                                    if (!sundayWorshipRegex.test(ev.summary || '')) return false;
                                     const eventDate = new Date(ev.start.dateTime || ev.start.date);
-                                    // Exclude the special event
-                                    if (/chilli/i.test(ev.summary || '') && eventDate.getDate() === 23 && eventDate.getMonth() === 2) return false;
                                     return eventDate.getMonth() === nextMonth && eventDate.getFullYear() === nextYear;
                                 }).sort((a, b) => new Date(a.start.dateTime || a.start.date) - new Date(b.start.dateTime || b.start.date));
                                 currentMonthName = monthNames[nextMonth];
@@ -492,69 +494,90 @@
 
                             if (currentMonthEvents.length === 0) {
                                 eventsContainer.innerHTML = `<div class="col-span-3 text-center text-lg">No events found for ${currentMonthName} ${currentYear}</div>`;
-                                return;
+                            } else {
+                                eventsContainer.innerHTML = '';
+                                const colCount = 3; // matches grid-cols-3
+                                const total = currentMonthEvents.length;
+                                currentMonthEvents.forEach((event, idx) => {
+                                    const summary = event.summary || 'Sunday Service';
+                                    const location = event.location || '';
+                                    const eventDate = new Date(event.start.dateTime || event.start.date);
+                                    const icon = getIcon(summary);
+                                    const displayDate = eventDate.toLocaleDateString('en-GB', {
+                                        weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'
+                                    });
+
+                                    let extraHtml = '';
+                                    if (/chilli/i.test(summary)) {
+                                        extraHtml = `
+                                            <div style=\"color: #1F4D2E; font-weight: 600; margin-bottom: 0.25rem;\">
+                                                RSVP: Call Robert Larkman
+                                            </div>
+                                            <span style=\"color: #1F4D2E; font-weight: 700; display: inline;\">
+                                                <a href=\"tel:07957813360\" style=\"color: #1F4D2E; text-decoration: underline; font-weight: 700;\">07957 813360</a>
+                                            </span>
+                                        `;
+                                    }
+
+                                    // If this is the last event and it's alone in the last row, wrap it in a flex container to center
+                                    if ((idx === total - 1) && (total % colCount === 1)) {
+                                        eventsContainer.innerHTML += `
+                                            <div class=\"col-span-3 w-full flex justify-center\">
+                                                <div class=\"meetup-box transform shadow-lg transition-all duration-300\">
+                                                    <h3 class=\"enhanced-shadow\">${icon}${summary}</h3>
+                                                    <p><strong>${displayDate}</strong></p>
+                                                    <p>${location}</p>
+                                                    ${extraHtml}
+                                                    <p><i class=\"fa-solid fa-clock mr-2\" style=\"color: #C4D600;\"></i>${formatTime(event.start)}</p>
+                                                </div>
+                                            </div>
+                                        `;
+                                    } else {
+                                        eventsContainer.innerHTML += `
+                                            <div class=\"meetup-box transform shadow-lg transition-all duration-300\">
+                                                <h3 class=\"enhanced-shadow\">${icon}${summary}</h3>
+                                                <p><strong>${displayDate}</strong></p>
+                                                <p>${location}</p>
+                                                ${extraHtml}
+                                                <p><i class=\"fa-solid fa-clock mr-2\" style=\"color: #C4D600;\"></i>${formatTime(event.start)}</p>
+                                            </div>
+                                        `;
+                                    }
+                                });
                             }
 
-                            eventsContainer.innerHTML = '';
-                            currentMonthEvents.forEach(event => {
-                                const summary = event.summary || 'Sunday Service';
-                                const location = event.location || '';
-                                const eventDate = new Date(event.start.dateTime || event.start.date);
-                                const icon = getIcon(summary);
-                                const displayDate = eventDate.toLocaleDateString('en-GB', {
-                                    weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'
-                                });
-
-                                let extraHtml = '';
-                                if (/chilli/i.test(summary)) {
-                                    extraHtml = `
-                                        <div style=\"color: #1F4D2E; font-weight: 600; margin-bottom: 0.25rem;\">
-                                            RSVP: Call Robert Larkman
-                                        </div>
-                                        <span style=\"color: #1F4D2E; font-weight: 700; display: inline;\">
-                                            <a href=\"tel:07957813360\" style=\"color: #1F4D2E; text-decoration: underline; font-weight: 700;\">07957 813360</a>
-                                        </span>
-                                    `;
-                                }
-
-                                eventsContainer.innerHTML += `
-                                    <div class=\"meetup-box transform shadow-lg transition-all duration-300\">
-                                        <h3 class=\"enhanced-shadow\">${icon}${summary}</h3>
-                                        <p><strong>${displayDate}</strong></p>
-                                        <p>${location}</p>
-                                        ${extraHtml}
-                                        <p><i class=\"fa-solid fa-clock mr-2\" style=\"color: #C4D600;\"></i>${formatTime(event.start)}</p>
-                                    </div>
-                                `;
-                            });
-
-                            // Render the special event if it exists
+                            // Render special events
                             specialEventsContainer.innerHTML = '';
-                            if (specialEvent) {
-                                const summary = specialEvent.summary || 'Special Event';
-                                const location = specialEvent.location || '';
-                                const eventDate = new Date(specialEvent.start.dateTime || specialEvent.start.date);
-                                const icon = getIcon(summary);
-                                const displayDate = eventDate.toLocaleDateString('en-GB', {
-                                    weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'
+                            if (specialEvents.length > 0) {
+                                specialEvents.forEach(event => {
+                                    const summary = event.summary || 'Special Event';
+                                    const location = event.location || '';
+                                    const eventDate = new Date(event.start.dateTime || event.start.date);
+                                    const icon = getIcon(summary);
+                                    const displayDate = eventDate.toLocaleDateString('en-GB', {
+                                        weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'
+                                    });
+                                    let extraHtml = '';
+                                    if (/chilli/i.test(summary)) {
+                                        extraHtml = `
+                                            <div style=\"color: #1F4D2E; font-weight: 600; margin-bottom: 0.25rem;\">
+                                                RSVP: Call Robert Larkman
+                                            </div>
+                                            <span style=\"color: #1F4D2E; font-weight: 700; display: inline;\">
+                                                <a href=\"tel:07957813360\" style=\"color: #1F4D2E; text-decoration: underline; font-weight: 700;\">07957 813360</a>
+                                            </span>
+                                        `;
+                                    }
+                                    specialEventsContainer.innerHTML += `
+                                        <div class=\"meetup-box transform shadow-lg transition-all duration-300\">
+                                            <h3 class=\"enhanced-shadow\">${icon}${summary}</h3>
+                                            <p><strong>${displayDate}</strong></p>
+                                            <p>${location}</p>
+                                            ${extraHtml}
+                                            <p><i class=\"fa-solid fa-clock mr-2\" style=\"color: #C4D600;\"></i>${formatTime(event.start)}</p>
+                                        </div>
+                                    `;
                                 });
-                                let extraHtml = `
-                                    <div style=\"color: #1F4D2E; font-weight: 600; margin-bottom: 0.25rem;\">
-                                        RSVP: Call Robert Larkman
-                                    </div>
-                                    <span style=\"color: #1F4D2E; font-weight: 700; display: inline;\">
-                                        <a href=\"tel:07957813360\" style=\"color: #1F4D2E; text-decoration: underline; font-weight: 700;\">07957 813360</a>
-                                    </span>
-                                `;
-                                specialEventsContainer.innerHTML += `
-                                    <div class=\"meetup-box transform shadow-lg transition-all duration-300\">
-                                        <h3 class=\"enhanced-shadow\">${icon}${summary}</h3>
-                                        <p><strong>${displayDate}</strong></p>
-                                        <p>${location}</p>
-                                        ${extraHtml}
-                                        <p><i class=\"fa-solid fa-clock mr-2\" style=\"color: #C4D600;\"></i>${formatTime(specialEvent.start)}</p>
-                                    </div>
-                                `;
                             }
                         })
                         .catch(() => {
