@@ -34,6 +34,8 @@
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-WM69C53YSW"></script>
     <script>
+
+
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
@@ -41,66 +43,66 @@
         gtag('config', 'G-WM69C53YSW');
     </script>
 
-        <!-- Section and Navigation Tracking -->
-        <script>
-            // Section ID to readable name mapping
-            const sectionMap = {
-                'hero': 'Home',
-                'about': 'Mission',
-                'founders': 'Founders',
-                'thought': 'Thought for the Day',
-                'events': 'Worship',
-                'special-events-center-wrapper': 'Special Events',
-                'groups': 'Groups',
-                'youtube': 'YouTube',
-                'media-library': 'Media Library',
-                'local-resources': 'Resources',
-                'find-us': 'Find Us',
-                'contact': 'Contact'
-            };
+    <!-- Section and Navigation Tracking -->
+    <script>
+        // Section ID to readable name mapping
+        const sectionMap = {
+            'hero': 'Home',
+            'about': 'Mission',
+            'founders': 'Founders',
+            'thought': 'Thought for the Day',
+            'events': 'Worship',
+            'special-events-center-wrapper': 'Special Events',
+            'groups': 'Groups',
+            'youtube': 'YouTube',
+            'media-library': 'Media Library',
+            'local-resources': 'Resources',
+            'find-us': 'Find Us',
+            'contact': 'Contact'
+        };
 
-            const sectionIds = Object.keys(sectionMap);
+        const sectionIds = Object.keys(sectionMap);
 
-            // Intersection Observer for section view tracking
-            window.addEventListener('DOMContentLoaded', function () {
-                if ('IntersectionObserver' in window) {
-                    const observer = new IntersectionObserver((entries) => {
-                        entries.forEach(entry => {
-                            if (entry.isIntersecting) {
-                                gtag('event', 'section_view', {
-                                    section_id: entry.target.id,
-                                    section_name: entry.target.getAttribute('data-section-name') || sectionMap[entry.target.id] || entry.target.id
-                                });
-                                observer.unobserve(entry.target); // Only track first view per session
-                            }
-                        });
-                    }, { threshold: 0.5 }); // 50% visible
-
-                    sectionIds.forEach(id => {
-                        const el = document.getElementById(id);
-                        if (el) observer.observe(el);
-                    });
-                }
-
-                // Click-based navigation tracking
-                const navLinks = document.querySelectorAll('#navbarNav a[href^="#"]');
-                navLinks.forEach(link => {
-                    link.addEventListener('click', function (e) {
-                        const href = link.getAttribute('href');
-                        if (href && href.startsWith('#')) {
-                            const section = href.slice(1);
-                            const sectionEl = document.getElementById(section);
-                            gtag('event', 'nav_click', {
-                                section_id: section,
-                                section_name: (sectionEl && sectionEl.getAttribute('data-section-name')) || sectionMap[section] || section,
-                                nav_target: section,
-                                nav_text: link.textContent.trim()
+        // Intersection Observer for section view tracking
+        window.addEventListener('DOMContentLoaded', function () {
+            if ('IntersectionObserver' in window) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            gtag('event', 'section_view', {
+                                section_id: entry.target.id,
+                                section_name: entry.target.getAttribute('data-section-name') || sectionMap[entry.target.id] || entry.target.id
                             });
+                            observer.unobserve(entry.target); // Only track first view per session
                         }
                     });
+                }, { threshold: 0.5 }); // 50% visible
+
+                sectionIds.forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el) observer.observe(el);
+                });
+            }
+
+            // Click-based navigation tracking
+            const navLinks = document.querySelectorAll('#navbarNav a[href^="#"]');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    const href = link.getAttribute('href');
+                    if (href && href.startsWith('#')) {
+                        const section = href.slice(1);
+                        const sectionEl = document.getElementById(section);
+                        gtag('event', 'nav_click', {
+                            section_id: section,
+                            section_name: (sectionEl && sectionEl.getAttribute('data-section-name')) || sectionMap[section] || section,
+                            nav_target: section,
+                            nav_text: link.textContent.trim()
+                        });
+                    }
                 });
             });
-        </script>
+        });
+    </script>
 
 </head>
 
@@ -149,8 +151,8 @@
                         <a class="block w-full px-3 py-3 text-grape-blush rounded transition-colors duration-300"
                             href="#events">Worship</a>
                     </li>
-                        <a class="block w-full px-3 py-3 text-grape-blush rounded transition-colors duration-300"
-                            href="#special-events-center-wrapper">Special Events</a>
+                    <a class="block w-full px-3 py-3 text-grape-blush rounded transition-colors duration-300"
+                        href="#special-events-center-wrapper">Special Events</a>
                     <li>
                         <a class="block w-full px-3 py-3 text-grape-blush rounded transition-colors duration-300"
                             href="#groups">Groups</a>
@@ -224,8 +226,8 @@
     <!-- Main section -->
     <main class=" flex flex-col items-center mt-0">
         <!-- Mission Section -->
-        <section id="about" class="py-8 mt-8 flex flex-col items-center justify-center text-center w-full" data-section-name="Mission"
-            style="background: #FFFFFF; color: #333333;"
+        <section id="about" class="py-8 mt-8 flex flex-col items-center justify-center text-center w-full"
+            data-section-name="Mission" style="background: #FFFFFF; color: #333333;"
             class="py-8 mt-8 flex flex-col items-center justify-center text-center w-full">
             <div id="about-content" class="py-5 flex flex-col items-center justify-center text-center w-full">
                 <h2 class="text-3xl md:text-4xl font-semibold mb-6 text-center w-full"
@@ -286,8 +288,10 @@
             </div>
         </section>
         <!-- Founders Section -->
-        <section class="flex flex-col items-center justify-center text-center w-full" style="background: #FFFFFF; color: #333333;">
-            <div id="founders" class="py-8 flex flex-col items-center justify-center text-center w-full" data-section-name="Founders">
+        <section class="flex flex-col items-center justify-center text-center w-full"
+            style="background: #FFFFFF; color: #333333;">
+            <div id="founders" class="py-8 flex flex-col items-center justify-center text-center w-full"
+                data-section-name="Founders">
                 <div id="founders-content" class="py-5 flex flex-col items-center justify-center text-center w-full">
                     <h2 class="text-4xl font-crimson mb-6 text-center w-full" style="color: #333333 !important;">
                         Founders</h2>
@@ -319,7 +323,8 @@
         </section>
 
         <!-- Thought for the Day Section -->
-        <section id="thought" class="py-20 relative overflow-hidden mt-16 px-0" style="background: #114734;" data-section-name="Thought for the Day">
+        <section id="thought" class="py-20 relative overflow-hidden mt-16 px-0" style="background: #114734;"
+            data-section-name="Thought for the Day">
             <div class="flex flex-col items-center justify-center text-center w-full">
                 <div class="w-full text-center mb-8">
                     <h2 class="text-3xl md:text-4xl font-semibold mb-4 text-center w-full" style="color: #C4D600;">
@@ -336,6 +341,7 @@
                 </div>
                 <!-- Removed custom gradient, now uses Tailwind gradient for consistency -->
                 <script>
+                    // --- Curated daily verse logic ---
                     function getCurrentDayKey() {
                         const now = new Date();
                         return now.toISOString().slice(0, 10);
@@ -363,6 +369,10 @@
                         }
                         return hash % length;
                     }
+                    // Clear old cache to prevent display of stale (KJV) values
+                    try {
+                        localStorage.removeItem('thoughtForTheDay');
+                    } catch (e) { }
 
                     function fetchThought() {
                         const loader = document.querySelector('#thought-content .loader');
@@ -381,9 +391,13 @@
                                 const storedIsCurated = curatedVerses.includes(obj.reference);
 
                                 if (obj.dayKey === dayKey && obj.text && obj.reference && storedIsCurated) {
-                                    verseElem.textContent = obj.text;
-                                    refElem.textContent = `${obj.reference} (KJV)`;
-                                    if (sourceElem) sourceElem.textContent = "King James Version (KJV)";
+                                    // Remove (KJV) from reference and verse text if present
+                                    const cleanReference = (obj.reference || '').replace(/\s*\(KJV\)\s*/i, '').trim();
+                                    const cleanText = (obj.text || '').replace(/\s*\(KJV\)\s*/i, '').trim();
+                                    verseElem.textContent = cleanText;
+                                    refElem.textContent = cleanReference;
+                                    sourceElem.textContent = 'King James Version (KJV)';
+                                    loader.style.display = 'none';
                                     return;
                                 }
                             } catch (e) { }
@@ -402,26 +416,38 @@
                             .then(data => {
                                 loader.style.display = 'none';
 
+                                // Remove (KJV) from reference and verse text if present
                                 const text = (data.text || '').trim().replace(/\n+/g, ' ');
+                                const cleanReference = (data.reference || '').replace(/\s*\(KJV\)\s*/i, '').trim();
+                                const cleanText = (text || '').replace(/\s*\(KJV\)\s*/i, '').trim();
 
-                                if (text && data.reference) {
-                                    verseElem.textContent = text;
-                                    refElem.textContent = `${data.reference} (KJV)`;
-
-                                    localStorage.setItem('thoughtForTheDay', JSON.stringify({
-                                        dayKey,
-                                        text,
-                                        reference: data.reference
-                                    }));
+                                if (cleanText && cleanReference) {
+                                    verseElem.textContent = cleanText;
+                                    refElem.textContent = cleanReference;
+                                    sourceElem.textContent = 'King James Version (KJV)';
+                                    // Optionally cache the cleaned version
+                                    try {
+                                        localStorage.setItem('thoughtForTheDay', JSON.stringify({
+                                            dayKey,
+                                            text: cleanText,
+                                            reference: cleanReference
+                                        }));
+                                    } catch (e) { }
                                 } else {
                                     verseElem.textContent = 'Could not load verse.';
+                                    refElem.textContent = '';
+                                    sourceElem.textContent = 'King James Version (KJV)';
                                 }
                             })
                             .catch(() => {
                                 loader.style.display = 'none';
                                 verseElem.textContent = 'Could not load verse.';
+                                refElem.textContent = '';
+                                sourceElem.textContent = 'King James Version (KJV)';
                             });
                     }
+
+                    // (Removed duplicate/old fetchThought implementation that appended (KJV) to the reference)
 
                     document.addEventListener('DOMContentLoaded', fetchThought);
                 </script>
@@ -429,7 +455,8 @@
         </section>
 
         <!-- Worship Meeting Section -->
-        <section id="events" class="py-20 mt-16 px-8" style="background: #FFFFFF; color: #333333;" data-section-name="Worship">
+        <section id="events" class="py-20 mt-16 px-8" style="background: #FFFFFF; color: #333333;"
+            data-section-name="Worship">
             <div class="flex flex-col items-center justify-center text-center w-full">
                 <div class="w-full text-center mb-5">
                     <h2 id="worship-title" class="text-4xl text-center w-full" style="color: #333333 !important;">Sunday
@@ -530,46 +557,32 @@
                             // Broaden Sunday Worship Meetings filter
                             const sundayWorshipPattern = /(sunday worship|sunday service|worship meeting|worship service)/i;
 
-                            // Special Events: anything NOT a Sunday Worship Meeting
-                            const specialEvents = data.items.filter(event =>
-                                !sundayWorshipPattern.test(event.summary || '')
-                            ).filter(event => {
-                                const eventDate = new Date(event.start.dateTime || event.start.date);
-                                return eventDate.getMonth() === currentMonth && eventDate.getFullYear() === currentYear;
-                            }).sort((a, b) => new Date(a.start.dateTime || a.start.date) - new Date(b.start.dateTime || b.start.date));
-
-                            // Sunday Worship Meetings: match any of the variants
-                            let currentMonthEvents = data.items.filter(event => {
+                            // Show only Sunday Worship Meetings for the current month
+                            let worshipEvents = data.items.filter(event => {
                                 if (!sundayWorshipPattern.test(event.summary || '')) return false;
                                 const eventDate = new Date(event.start.dateTime || event.start.date);
                                 return eventDate.getMonth() === currentMonth && eventDate.getFullYear() === currentYear;
                             }).sort((a, b) => new Date(a.start.dateTime || a.start.date) - new Date(b.start.dateTime || b.start.date));
 
                             let currentMonthName = monthNames[currentMonth];
-
-                            if (currentMonthEvents.length === 0 && data.items.length > 0) {
-                                const firstEvent = new Date(data.items[0].start.dateTime || data.items[0].start.date);
-                                const nextMonth = firstEvent.getMonth();
-                                const nextYear = firstEvent.getFullYear();
-                                currentYear = nextYear;
-                                currentMonthEvents = data.items.filter(ev => {
-                                    if (!sundayWorshipRegex.test(ev.summary || '')) return false;
-                                    const eventDate = new Date(ev.start.dateTime || ev.start.date);
-                                    return eventDate.getMonth() === nextMonth && eventDate.getFullYear() === nextYear;
-                                }).sort((a, b) => new Date(a.start.dateTime || a.start.date) - new Date(b.start.dateTime || b.start.date));
-                                currentMonthName = monthNames[nextMonth];
-                                if (worshipTitleEl) {
-                                    worshipTitleEl.textContent = `Sunday Worship Meetings in ${currentMonthName}`;
-                                }
+                            if (worshipTitleEl) {
+                                worshipTitleEl.textContent = `Sunday Worship Meetings in ${currentMonthName}`;
                             }
 
-                            if (currentMonthEvents.length === 0) {
-                                eventsContainer.innerHTML = `<div class="col-span-3 text-center text-lg">No events found for ${currentMonthName} ${currentYear}</div>`;
+                            // Show any event NOT on a Sunday in Special Events (regardless of month)
+                            const specialEvents = data.items.filter(event => {
+                                const eventDate = new Date(event.start.dateTime || event.start.date);
+                                // 0 = Sunday
+                                return eventDate.getDay() !== 0;
+                            }).sort((a, b) => new Date(a.start.dateTime || a.start.date) - new Date(b.start.dateTime || b.start.date));
+
+                            if (worshipEvents.length === 0) {
+                                eventsContainer.innerHTML = `<div class=\"col-span-3 text-center text-lg\">No events found for ${currentMonthName} ${currentYear}</div>`;
                             } else {
                                 eventsContainer.innerHTML = '';
                                 const colCount = 3; // matches grid-cols-3
-                                const total = currentMonthEvents.length;
-                                currentMonthEvents.forEach((event, idx) => {
+                                const total = worshipEvents.length;
+                                worshipEvents.forEach((event, idx) => {
                                     const summary = event.summary || 'Sunday Service';
                                     const location = event.location || '';
                                     const eventDate = new Date(event.start.dateTime || event.start.date);
@@ -668,7 +681,8 @@
         </section>
 
         <!-- Groups Section -->
-        <section id="groups" class="py-20 mt-16 px-0" style="background: #FFFFFF; color: #333333;" data-section-name="Groups">
+        <section id="groups" class="py-20 mt-16 px-0" style="background: #FFFFFF; color: #333333;"
+            data-section-name="Groups">
             <div class="flex flex-col items-center justify-center text-center w-full">
                 <div class="w-full text-center mb-5">
                     <h2 class="text-3xl md:text-4xl font-semibold text-center w-full"
@@ -733,7 +747,8 @@
             </div>
         </section>
         <!-- YouTube Channel Section -->
-        <section id="youtube" class="pt-8 pb-20 mt-16 px-0" style="background: #FFFFFF; color: #333333;" data-section-name="YouTube">
+        <section id="youtube" class="pt-8 pb-20 mt-16 px-0" style="background: #FFFFFF; color: #333333;"
+            data-section-name="YouTube">
             <div class="flex flex-col items-center justify-center text-center w-full glass-effect">
                 <div class="w-full text-center mb-5">
                     <h2 class="text-3xl md:text-4xl font-semibold text-center w-full"
@@ -749,7 +764,8 @@
         </section>
 
         <!-- Media Library Section -->
-        <section id="media-library" class="py-20 mt-16 px-0" style="background: #FFFFFF; color: #333333;" data-section-name="Media Library">
+        <section id="media-library" class="py-20 mt-16 px-0" style="background: #FFFFFF; color: #333333;"
+            data-section-name="Media Library">
             <div class="flex flex-col items-center justify-center text-center w-full">
                 <div class="w-full text-center mb-5">
                     <h2 class="text-3xl md:text-4xl font-semibold text-center w-full"
@@ -864,7 +880,8 @@
         </section>
 
         <!-- Local Resources -->
-        <section id="local-resources" class="py-20 mt-16 px-0" style="background: #FFFFFF;" data-section-name="Resources">
+        <section id="local-resources" class="py-20 mt-16 px-0" style="background: #FFFFFF;"
+            data-section-name="Resources">
             <div class="flex flex-col items-center justify-center text-center w-full">
                 <div class="w-full text-center mb-5">
                     <h2 class="text-3xl md:text-4xl font-semibold text-center w-full"
@@ -1045,7 +1062,8 @@
         </style>
         <div class="w-full" aria-hidden="true" style="border-top: 1px solid rgba(47, 47, 47, 0.16);"></div>
         <!-- Find Us Section -->
-        <section id="find-us" class="py-20 mt-16 px-0" style="background: #FFFFFF; color: #333333;" data-section-name="Find Us">
+        <section id="find-us" class="py-20 mt-16 px-0" style="background: #FFFFFF; color: #333333;"
+            data-section-name="Find Us">
             <div class="flex flex-col items-center justify-center text-center w-full">
                 <div class="w-full text-center mb-5">
                     <h2 class="text-3xl md:text-4xl font-semibold text-center mb-6 w-full"
