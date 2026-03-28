@@ -230,6 +230,13 @@ linear-gradient(to right, rgba(197, 215, 0, 1) 12.437810945273633%, 21.599836144
 - **YouTube**: [Vinelife Wilmslow Channel](https://www.youtube.com/channel/UC0G20x3mVQwmqGUAig_MAcA)
 
 ## 📋 Recent Updates
+### March 28, 2026
+- Added advanced Google Analytics tracking:
+	- **Scroll-based section view tracking** using Intersection Observer API. Now tracks when users view each major section of the site.
+	- **Click-based navigation tracking** for all navigation bar links. Tracks which sections users navigate to via clicks.
+- Both tracking methods send custom events to Google Analytics 4 (gtag.js) for improved insight into user engagement.
+- See `index.html` for implementation details.
+
 
 ### March 7, 2026
 - Updated site wording from `About` to `Mission` in key user-facing labels.
