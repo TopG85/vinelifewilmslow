@@ -43,10 +43,23 @@
 
         <!-- Section and Navigation Tracking -->
         <script>
-            // List the section IDs you want to track
-            const sectionIds = [
-                'hero', 'about', 'founders', 'thought', 'events', 'special-events-center-wrapper', 'groups', 'youtube', 'media-library', 'local-resources', 'find-us', 'contact'
-            ];
+            // Section ID to readable name mapping
+            const sectionMap = {
+                'hero': 'Home',
+                'about': 'Mission',
+                'founders': 'Founders',
+                'thought': 'Thought for the Day',
+                'events': 'Worship',
+                'special-events-center-wrapper': 'Special Events',
+                'groups': 'Groups',
+                'youtube': 'YouTube',
+                'media-library': 'Media Library',
+                'local-resources': 'Resources',
+                'find-us': 'Find Us',
+                'contact': 'Contact'
+            };
+
+            const sectionIds = Object.keys(sectionMap);
 
             // Intersection Observer for section view tracking
             window.addEventListener('DOMContentLoaded', function () {
@@ -56,7 +69,7 @@
                             if (entry.isIntersecting) {
                                 gtag('event', 'section_view', {
                                     section_id: entry.target.id,
-                                    section_name: entry.target.getAttribute('data-section-name') || entry.target.id
+                                    section_name: entry.target.getAttribute('data-section-name') || sectionMap[entry.target.id] || entry.target.id
                                 });
                                 observer.unobserve(entry.target); // Only track first view per session
                             }
@@ -76,7 +89,10 @@
                         const href = link.getAttribute('href');
                         if (href && href.startsWith('#')) {
                             const section = href.slice(1);
+                            const sectionEl = document.getElementById(section);
                             gtag('event', 'nav_click', {
+                                section_id: section,
+                                section_name: (sectionEl && sectionEl.getAttribute('data-section-name')) || sectionMap[section] || section,
                                 nav_target: section,
                                 nav_text: link.textContent.trim()
                             });
@@ -161,7 +177,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="hero" class="hero-section">
+    <section id="hero" class="hero-section" data-section-name="Home">
         <div class="hero-wrap">
             <!-- Background Images -->
             <img id="hero-img-1" src="assets/images/ChatGPTImageFeb14,2026,12_57_33PM.webp"
@@ -208,7 +224,7 @@
     <!-- Main section -->
     <main class=" flex flex-col items-center mt-0">
         <!-- Mission Section -->
-        <section id="about" class="py-8 mt-8 flex flex-col items-center justify-center text-center w-full"
+        <section id="about" class="py-8 mt-8 flex flex-col items-center justify-center text-center w-full" data-section-name="Mission"
             style="background: #FFFFFF; color: #333333;"
             class="py-8 mt-8 flex flex-col items-center justify-center text-center w-full">
             <div id="about-content" class="py-5 flex flex-col items-center justify-center text-center w-full">
@@ -270,9 +286,8 @@
             </div>
         </section>
         <!-- Founders Section -->
-        <section class="flex flex-col items-center justify-center text-center w-full"
-            style="background: #FFFFFF; color: #333333;">
-            <div id="founders" class="py-8 flex flex-col items-center justify-center text-center w-full">
+        <section class="flex flex-col items-center justify-center text-center w-full" style="background: #FFFFFF; color: #333333;">
+            <div id="founders" class="py-8 flex flex-col items-center justify-center text-center w-full" data-section-name="Founders">
                 <div id="founders-content" class="py-5 flex flex-col items-center justify-center text-center w-full">
                     <h2 class="text-4xl font-crimson mb-6 text-center w-full" style="color: #333333 !important;">
                         Founders</h2>
@@ -304,7 +319,7 @@
         </section>
 
         <!-- Thought for the Day Section -->
-        <section id="thought" class="py-20 relative overflow-hidden mt-16 px-0" style="background: #114734;">
+        <section id="thought" class="py-20 relative overflow-hidden mt-16 px-0" style="background: #114734;" data-section-name="Thought for the Day">
             <div class="flex flex-col items-center justify-center text-center w-full">
                 <div class="w-full text-center mb-8">
                     <h2 class="text-3xl md:text-4xl font-semibold mb-4 text-center w-full" style="color: #C4D600;">
@@ -414,7 +429,7 @@
         </section>
 
         <!-- Worship Meeting Section -->
-        <section id="events" class="py-20 mt-16 px-8" style="background: #FFFFFF; color: #333333;">
+        <section id="events" class="py-20 mt-16 px-8" style="background: #FFFFFF; color: #333333;" data-section-name="Worship">
             <div class="flex flex-col items-center justify-center text-center w-full">
                 <div class="w-full text-center mb-5">
                     <h2 id="worship-title" class="text-4xl text-center w-full" style="color: #333333 !important;">Sunday
@@ -436,7 +451,7 @@
                 <div id="events-container"
                     class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 justify-items-center w-full"></div>
                 <div id="special-events-center-wrapper" class="flex flex-col items-center justify-center w-full"
-                    style="margin-top: 4rem;">
+                    style="margin-top: 4rem;" data-section-name="Special Events">
                     <div class="w-full text-center mb-4">
                         <h2 class="text-3xl md:text-4xl font-semibold text-center w-full mb-4" style="color: #C4D600;">
                             Special Events</h2>
@@ -653,7 +668,7 @@
         </section>
 
         <!-- Groups Section -->
-        <section id="groups" class="py-20 mt-16 px-0" style="background: #FFFFFF; color: #333333;">
+        <section id="groups" class="py-20 mt-16 px-0" style="background: #FFFFFF; color: #333333;" data-section-name="Groups">
             <div class="flex flex-col items-center justify-center text-center w-full">
                 <div class="w-full text-center mb-5">
                     <h2 class="text-3xl md:text-4xl font-semibold text-center w-full"
@@ -718,7 +733,7 @@
             </div>
         </section>
         <!-- YouTube Channel Section -->
-        <section id="youtube" class="pt-8 pb-20 mt-16 px-0" style="background: #FFFFFF; color: #333333;">
+        <section id="youtube" class="pt-8 pb-20 mt-16 px-0" style="background: #FFFFFF; color: #333333;" data-section-name="YouTube">
             <div class="flex flex-col items-center justify-center text-center w-full glass-effect">
                 <div class="w-full text-center mb-5">
                     <h2 class="text-3xl md:text-4xl font-semibold text-center w-full"
@@ -734,7 +749,7 @@
         </section>
 
         <!-- Media Library Section -->
-        <section id="media-library" class="py-20 mt-16 px-0" style="background: #FFFFFF; color: #333333;">
+        <section id="media-library" class="py-20 mt-16 px-0" style="background: #FFFFFF; color: #333333;" data-section-name="Media Library">
             <div class="flex flex-col items-center justify-center text-center w-full">
                 <div class="w-full text-center mb-5">
                     <h2 class="text-3xl md:text-4xl font-semibold text-center w-full"
@@ -849,7 +864,7 @@
         </section>
 
         <!-- Local Resources -->
-        <section id="local-resources" class="py-20 mt-16 px-0" style="background: #FFFFFF;">
+        <section id="local-resources" class="py-20 mt-16 px-0" style="background: #FFFFFF;" data-section-name="Resources">
             <div class="flex flex-col items-center justify-center text-center w-full">
                 <div class="w-full text-center mb-5">
                     <h2 class="text-3xl md:text-4xl font-semibold text-center w-full"
@@ -1030,7 +1045,7 @@
         </style>
         <div class="w-full" aria-hidden="true" style="border-top: 1px solid rgba(47, 47, 47, 0.16);"></div>
         <!-- Find Us Section -->
-        <section id="find-us" class="py-20 mt-16 px-0" style="background: #FFFFFF; color: #333333;">
+        <section id="find-us" class="py-20 mt-16 px-0" style="background: #FFFFFF; color: #333333;" data-section-name="Find Us">
             <div class="flex flex-col items-center justify-center text-center w-full">
                 <div class="w-full text-center mb-5">
                     <h2 class="text-3xl md:text-4xl font-semibold text-center mb-6 w-full"
@@ -1070,7 +1085,7 @@
         <div class="w-full" aria-hidden="true" style="border-top: 1px solid rgba(47, 47, 47, 0.16);"></div>
         <!-- Footer / contact section -->
         <!-- mt-auto added to push footer to the bottom of the page -->
-        <footer class="mt-auto m-0 p-0" id="contact"
+        <footer class="mt-auto m-0 p-0" id="contact" data-section-name="Contact"
             style="position: relative; z-index: 1; background: #114734; color: #C4D600;">
             <div id="footer-contact" class="m-0 p-0 w-full"
                 style="position: relative; background: #114734; color: #C4D600; overflow: hidden; margin:0; padding:0; width:100vw;">
