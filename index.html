@@ -41,6 +41,51 @@
         gtag('config', 'G-WM69C53YSW');
     </script>
 
+        <!-- Section and Navigation Tracking -->
+        <script>
+            // List the section IDs you want to track
+            const sectionIds = [
+                'hero', 'about', 'founders', 'thought', 'events', 'special-events-center-wrapper', 'groups', 'youtube', 'media-library', 'local-resources', 'find-us', 'contact'
+            ];
+
+            // Intersection Observer for section view tracking
+            window.addEventListener('DOMContentLoaded', function () {
+                if ('IntersectionObserver' in window) {
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                gtag('event', 'section_view', {
+                                    section_id: entry.target.id,
+                                    section_name: entry.target.getAttribute('data-section-name') || entry.target.id
+                                });
+                                observer.unobserve(entry.target); // Only track first view per session
+                            }
+                        });
+                    }, { threshold: 0.5 }); // 50% visible
+
+                    sectionIds.forEach(id => {
+                        const el = document.getElementById(id);
+                        if (el) observer.observe(el);
+                    });
+                }
+
+                // Click-based navigation tracking
+                const navLinks = document.querySelectorAll('#navbarNav a[href^="#"]');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', function (e) {
+                        const href = link.getAttribute('href');
+                        if (href && href.startsWith('#')) {
+                            const section = href.slice(1);
+                            gtag('event', 'nav_click', {
+                                nav_target: section,
+                                nav_text: link.textContent.trim()
+                            });
+                        }
+                    });
+                });
+            });
+        </script>
+
 </head>
 
 <body class="flex flex-col min-h-screen bg-beige-section text-main-text"
