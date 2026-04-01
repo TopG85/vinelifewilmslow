@@ -486,114 +486,110 @@
                             Sunday meetings</p>
                     </div>
                     <div id="special-events-container"
-                        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-12"
-                        style="display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-start; width: 100%; margin-top: 0.5rem; margin-bottom: 3rem;">
+                        class="grid grid-cols-1 gap-6 justify-items-center max-w-xl mx-auto mb-12"
+                        style="margin-top: 0.5rem; margin-bottom: 3rem;">
+                        style="margin-top: 0.5rem; margin-bottom: 3rem;">
                     </div>
-                </div>
 
-                <script>
-                    const calendarId = 'e7685f9a0985b807155b873efdc0f555df73f3ddc26aa1b1e99777d08600516b@group.calendar.google.com';
-                    const apiKey = 'AIzaSyAW-E5EY9eefCJ_SG-N4J9HsDboRWw59xk';
-                    const maxResults = 12;
-                    const eventsContainer = document.getElementById('events-container');
-                    const specialEventsContainer = document.getElementById('special-events-container');
-                    const worshipTitleEl = document.getElementById('worship-title');
-                    const nowIso = new Date().toISOString();
-                    const endpoint = `https://www.googleapis.com/calendar/v3/calendars/${calendarId}/events?key=${apiKey}&timeMin=${nowIso}&maxResults=${maxResults}&orderBy=startTime&singleEvents=true`;
+                    <script>
+                        const calendarId = 'e7685f9a0985b807155b873efdc0f555df73f3ddc26aa1b1e99777d08600516b@group.calendar.google.com';
+                        const apiKey = 'AIzaSyAW-E5EY9eefCJ_SG-N4J9HsDboRWw59xk';
+                        const maxResults = 12;
+                        const eventsContainer = document.getElementById('events-container');
+                        const specialEventsContainer = document.getElementById('special-events-container');
+                        const worshipTitleEl = document.getElementById('worship-title');
+                        const nowIso = new Date().toISOString();
+                        const endpoint = `https://www.googleapis.com/calendar/v3/calendars/${calendarId}/events?key=${apiKey}&timeMin=${nowIso}&maxResults=${maxResults}&orderBy=startTime&singleEvents=true`;
 
-                    function formatTime(eventStart) {
-                        if (!eventStart) return 'Time TBA';
-                        if (eventStart.date && !eventStart.dateTime) return 'All Day';
-                        if (eventStart.dateTime) {
-                            const date = new Date(eventStart.dateTime);
-                            return date.toLocaleTimeString('en-GB', {
-                                hour: 'numeric',
-                                minute: '2-digit',
-                                hour12: true,
-                                timeZone: 'Europe/London'
-                            }).toLowerCase();
+                        function formatTime(eventStart) {
+                            if (!eventStart) return 'Time TBA';
+                            if (eventStart.date && !eventStart.dateTime) return 'All Day';
+                            if (eventStart.dateTime) {
+                                const date = new Date(eventStart.dateTime);
+                                return date.toLocaleTimeString('en-GB', {
+                                    hour: 'numeric',
+                                    minute: '2-digit',
+                                    hour12: true,
+                                    timeZone: 'Europe/London'
+                                }).toLowerCase();
+                            }
+                            return 'Time TBA';
                         }
-                        return 'Time TBA';
-                    }
 
-                    function getIcon(summary) {
-                        if (/chilli/i.test(summary)) return '<i class="fa-solid fa-pepper-hot mr-2" style="color: #C4D600;"></i>';
-                        if (/worship/i.test(summary)) return '<i class="fa-solid fa-hands-praying mr-2" style="color: #C4D600;"></i>';
-                        if (/church/i.test(summary)) return '<i class="fa-solid fa-church mr-2" style="color: #C4D600;"></i>';
-                        if (/coffee|informal/i.test(summary)) return '<i class="fa-solid fa-mug-hot mr-2" style="color: #C4D600;"></i>';
-                        return '<i class="fa-solid fa-calendar-check mr-2" style="color: #C4D600;"></i>';
-                    }
+                        function getIcon(summary) {
+                            if (/chilli/i.test(summary)) return '<i class="fa-solid fa-pepper-hot mr-2" style="color: #C4D600;"></i>';
+                            if (/worship/i.test(summary)) return '<i class="fa-solid fa-hands-praying mr-2" style="color: #C4D600;"></i>';
+                            if (/church/i.test(summary)) return '<i class="fa-solid fa-church mr-2" style="color: #C4D600;"></i>';
+                            if (/coffee|informal/i.test(summary)) return '<i class="fa-solid fa-mug-hot mr-2" style="color: #C4D600;"></i>';
+                            return '<i class="fa-solid fa-calendar-check mr-2" style="color: #C4D600;"></i>';
+                        }
 
 
-                    fetch(endpoint)
-                        .then(response => {
-                            if (!response.ok) {
-                                throw new Error(`HTTP error! status: ${response.status}`);
-                            }
-                            return response.json();
-                        })
-                        .then(data => {
-                            if (!eventsContainer || !specialEventsContainer) return;
+                        fetch(endpoint)
+                            .then(response => {
+                                if (!response.ok) {
+                                    throw new Error(`HTTP error! status: ${response.status}`);
+                                }
+                                return response.json();
+                            })
+                            .then(data => {
+                                if (!eventsContainer || !specialEventsContainer) return;
 
-                            if (data.error) {
-                                eventsContainer.innerHTML = `<div class="col-span-3 text-center text-lg text-red-600">Google Calendar API Error: ${data.error.message}</div>`;
-                                return;
-                            }
+                                if (data.error) {
+                                    eventsContainer.innerHTML = `<div class="col-span-3 text-center text-lg text-red-600">Google Calendar API Error: ${data.error.message}</div>`;
+                                    return;
+                                }
 
-                            if (!data.items || data.items.length === 0) {
-                                eventsContainer.innerHTML = '<div class="col-span-3 text-center text-lg">No upcoming events found.</div>';
-                                return;
-                            }
+                                if (!data.items || data.items.length === 0) {
+                                    eventsContainer.innerHTML = '<div class="col-span-3 text-center text-lg">No upcoming events found.</div>';
+                                    return;
+                                }
 
-                            const currentDate = new Date();
-                            const currentMonth = currentDate.getMonth();
-                            let currentYear = currentDate.getFullYear();
-                            const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
-                                'July', 'August', 'September', 'October', 'November', 'December'];
+                                const currentDate = new Date();
+                                const currentMonth = currentDate.getMonth();
+                                let currentYear = currentDate.getFullYear();
+                                const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
+                                    'July', 'August', 'September', 'October', 'November', 'December'];
 
-                            const sundayWorshipRegex = /sunday worship/i;
+                                // Broaden Sunday Worship Meetings filter (now includes 'Informal Meeting')
+                                const sundayWorshipPattern = /(sunday worship|sunday service|worship meeting|worship service|informal meeting)/i;
 
-
-                            // Broaden Sunday Worship Meetings filter
-                            const sundayWorshipPattern = /(sunday worship|sunday service|worship meeting|worship service)/i;
-
-                            // Show only Sunday Worship Meetings for the current month
-                            let worshipEvents = data.items.filter(event => {
-                                if (!sundayWorshipPattern.test(event.summary || '')) return false;
-                                const eventDate = new Date(event.start.dateTime || event.start.date);
-                                return eventDate.getMonth() === currentMonth && eventDate.getFullYear() === currentYear;
-                            }).sort((a, b) => new Date(a.start.dateTime || a.start.date) - new Date(b.start.dateTime || b.start.date));
-
-                            let currentMonthName = monthNames[currentMonth];
-                            if (worshipTitleEl) {
-                                worshipTitleEl.textContent = `Sunday Worship Meetings in ${currentMonthName}`;
-                            }
-
-                            // Show any event NOT on a Sunday in Special Events (regardless of month)
-                            const specialEvents = data.items.filter(event => {
-                                const eventDate = new Date(event.start.dateTime || event.start.date);
-                                // 0 = Sunday
-                                return eventDate.getDay() !== 0;
-                            }).sort((a, b) => new Date(a.start.dateTime || a.start.date) - new Date(b.start.dateTime || b.start.date));
-
-                            if (worshipEvents.length === 0) {
-                                eventsContainer.innerHTML = `<div class=\"col-span-3 text-center text-lg\">No events found for ${currentMonthName} ${currentYear}</div>`;
-                            } else {
-                                eventsContainer.innerHTML = '';
-                                const colCount = 3; // matches grid-cols-3
-                                const total = worshipEvents.length;
-                                worshipEvents.forEach((event, idx) => {
-                                    const summary = event.summary || 'Sunday Service';
-                                    const location = event.location || '';
+                                // Show only Sunday Worship Meetings for the current month
+                                let worshipEvents = data.items.filter(event => {
+                                    if (!sundayWorshipPattern.test(event.summary || '')) return false;
                                     const eventDate = new Date(event.start.dateTime || event.start.date);
-                                    const icon = getIcon(summary);
-                                    const displayDate = eventDate.toLocaleDateString('en-GB', {
-                                        weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'
-                                    });
+                                    return eventDate.getMonth() === currentMonth && eventDate.getFullYear() === currentYear;
+                                }).sort((a, b) => new Date(a.start.dateTime || a.start.date) - new Date(b.start.dateTime || b.start.date));
 
-                                    let extraHtml = '';
-                                    if (/chilli/i.test(summary)) {
-                                        extraHtml = `
+                                let currentMonthName = monthNames[currentMonth];
+                                if (worshipTitleEl) {
+                                    worshipTitleEl.textContent = `Sunday Worship Meetings in ${currentMonthName}`;
+                                }
+
+                                // Show any event NOT on a Sunday in Special Events (regardless of month)
+                                const specialEvents = data.items.filter(event => {
+                                    const eventDate = new Date(event.start.dateTime || event.start.date);
+                                    // 0 = Sunday
+                                    return eventDate.getDay() !== 0;
+                                }).sort((a, b) => new Date(a.start.dateTime || a.start.date) - new Date(b.start.dateTime || b.start.date));
+
+                                // Render Sunday Worship Meetings (no special wrapper for last event)
+                                if (worshipEvents.length === 0) {
+                                    eventsContainer.innerHTML = `<div class=\"col-span-3 text-center text-lg\">No events found for ${currentMonthName} ${currentYear}</div>`;
+                                } else {
+                                    eventsContainer.innerHTML = '';
+                                    worshipEvents.forEach(event => {
+                                        const summary = event.summary || 'Sunday Service';
+                                        const location = event.location || '';
+                                        const eventDate = new Date(event.start.dateTime || event.start.date);
+                                        const icon = getIcon(summary);
+                                        const displayDate = eventDate.toLocaleDateString('en-GB', {
+                                            weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'
+                                        });
+
+                                        let extraHtml = '';
+                                        if (/chilli/i.test(summary)) {
+                                            extraHtml = `
                                             <div style=\"color: #1F4D2E; font-weight: 600; margin-bottom: 0.25rem;\">
                                                 RSVP: Call Robert Larkman
                                             </div>
@@ -601,58 +597,9 @@
                                                 <a href=\"tel:07957813360\" style=\"color: #1F4D2E; text-decoration: underline; font-weight: 700;\">07957 813360</a>
                                             </span>
                                         `;
-                                    }
+                                        }
 
-                                    // If this is the last event and it's alone in the last row, wrap it in a flex container to center
-                                    if ((idx === total - 1) && (total % colCount === 1)) {
                                         eventsContainer.innerHTML += `
-                                            <div class=\"col-span-3 w-full flex justify-center\">
-                                                <div class=\"meetup-box transform shadow-lg transition-all duration-300\">
-                                                    <h3 class=\"enhanced-shadow\">${icon}${summary}</h3>
-                                                    <p><strong>${displayDate}</strong></p>
-                                                    <p>${location}</p>
-                                                    ${extraHtml}
-                                                    <p><i class=\"fa-solid fa-clock mr-2\" style=\"color: #C4D600;\"></i>${formatTime(event.start)}</p>
-                                                </div>
-                                            </div>
-                                        `;
-                                    } else {
-                                        eventsContainer.innerHTML += `
-                                            <div class=\"meetup-box transform shadow-lg transition-all duration-300\">
-                                                <h3 class=\"enhanced-shadow\">${icon}${summary}</h3>
-                                                <p><strong>${displayDate}</strong></p>
-                                                <p>${location}</p>
-                                                ${extraHtml}
-                                                <p><i class=\"fa-solid fa-clock mr-2\" style=\"color: #C4D600;\"></i>${formatTime(event.start)}</p>
-                                            </div>
-                                        `;
-                                    }
-                                });
-                            }
-
-                            // Render special events
-                            specialEventsContainer.innerHTML = '';
-                            if (specialEvents.length > 0) {
-                                specialEvents.forEach(event => {
-                                    const summary = event.summary || 'Special Event';
-                                    const location = event.location || '';
-                                    const eventDate = new Date(event.start.dateTime || event.start.date);
-                                    const icon = getIcon(summary);
-                                    const displayDate = eventDate.toLocaleDateString('en-GB', {
-                                        weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'
-                                    });
-                                    let extraHtml = '';
-                                    if (/chilli/i.test(summary)) {
-                                        extraHtml = `
-                                            <div style=\"color: #1F4D2E; font-weight: 600; margin-bottom: 0.25rem;\">
-                                                RSVP: Call Robert Larkman
-                                            </div>
-                                            <span style=\"color: #1F4D2E; font-weight: 700; display: inline;\">
-                                                <a href=\"tel:07957813360\" style=\"color: #1F4D2E; text-decoration: underline; font-weight: 700;\">07957 813360</a>
-                                            </span>
-                                        `;
-                                    }
-                                    specialEventsContainer.innerHTML += `
                                         <div class=\"meetup-box transform shadow-lg transition-all duration-300\">
                                             <h3 class=\"enhanced-shadow\">${icon}${summary}</h3>
                                             <p><strong>${displayDate}</strong></p>
@@ -661,23 +608,57 @@
                                             <p><i class=\"fa-solid fa-clock mr-2\" style=\"color: #C4D600;\"></i>${formatTime(event.start)}</p>
                                         </div>
                                     `;
-                                });
-                            }
-                        })
-                        .catch(() => {
-                            if (eventsContainer) {
-                                eventsContainer.innerHTML = '<div class="col-span-3 text-center text-lg text-red-600">Error loading events. Please try again later.</div>';
-                            }
-                        });
-                </script>
+                                    });
+                                }
 
-                <div class="text-center mt-4">
-                    <a href="#contact"
-                        class="inline-block font-semibold py-2 px-6 rounded border transition-all duration-300 active:scale-95"
-                        style="background: #1F4D2E !important; color: #C4D600 !important; border-color: #1F4D2E !important;">
-                        For More Information</a>
+                                // Render special events (no special wrapper for any event)
+                                specialEventsContainer.innerHTML = '';
+                                if (specialEvents.length > 0) {
+                                    specialEvents.forEach(event => {
+                                        const summary = event.summary || 'Special Event';
+                                        const location = event.location || '';
+                                        const eventDate = new Date(event.start.dateTime || event.start.date);
+                                        const icon = getIcon(summary);
+                                        const displayDate = eventDate.toLocaleDateString('en-GB', {
+                                            weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'
+                                        });
+                                        let extraHtml = '';
+                                        if (/chilli/i.test(summary)) {
+                                            extraHtml = `
+                                            <div style=\"color: #1F4D2E; font-weight: 600; margin-bottom: 0.25rem;\">
+                                                RSVP: Call Robert Larkman
+                                            </div>
+                                            <span style=\"color: #1F4D2E; font-weight: 700; display: inline;\">
+                                                <a href=\"tel:07957813360\" style=\"color: #1F4D2E; text-decoration: underline; font-weight: 700;\">07957 813360</a>
+                                            </span>
+                                        `;
+                                        }
+                                        specialEventsContainer.innerHTML += `
+                                        <div class=\"meetup-box transform shadow-lg transition-all duration-300\">
+                                            <h3 class=\"enhanced-shadow\">${icon}${summary}</h3>
+                                            <p><strong>${displayDate}</strong></p>
+                                            <p>${location}</p>
+                                            ${extraHtml}
+                                            <p><i class=\"fa-solid fa-clock mr-2\" style=\"color: #C4D600;\"></i>${formatTime(event.start)}</p>
+                                        </div>
+                                    `;
+                                    });
+                                }
+                            })
+                            .catch(() => {
+                                if (eventsContainer) {
+                                    eventsContainer.innerHTML = '<div class="col-span-3 text-center text-lg text-red-600">Error loading events. Please try again later.</div>';
+                                }
+                            });
+                    </script>
+
+                    <div class="text-center mt-4">
+                        <a href="#contact"
+                            class="inline-block font-semibold py-2 px-6 rounded border transition-all duration-300 active:scale-95"
+                            style="background: #1F4D2E !important; color: #C4D600 !important; border-color: #1F4D2E !important;">
+                            For More Information</a>
+                    </div>
                 </div>
-            </div>
         </section>
 
         <!-- Groups Section -->

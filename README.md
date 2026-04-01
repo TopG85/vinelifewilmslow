@@ -36,7 +36,17 @@ A modern, responsive church website for Vinelife Wilmslow - a community church i
 
 ![Vinelife Church Wilmslow wireframe](assets/images/vinelifewireframe-v1.png)
 
-- **Design note:** This wireframe supports the visual layout decisions documented in the Visual Design section.
+
+---
+
+## 🛠 2026-04-01 Update
+
+- **Special Events grid now always centers event boxes**: The special events section uses a single-column grid, is centered, and has a max width for a visually balanced look. This ensures that even a single event (like EASTERFEST) is always centered on desktop and laptop.
+- **Consistent event box sizing**: All `.meetup-box` elements (for both Sunday Worship Meetings and Special Events) now use the same grid and sizing rules for a unified appearance across all devices.
+- **Code cleanup**: Removed unnecessary flex/grid classes and duplicate inline styles from the special events container. Improved maintainability and visual consistency.
+- **No changes to core functionality or branding.**
+
+---
 
 ### 📄 Website Sections
 

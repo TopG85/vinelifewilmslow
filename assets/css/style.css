@@ -1363,19 +1363,23 @@ body h3 {
   paint-order: stroke fill;
   color: inherit !important; /* Allow inline styles to take precedence */
 }
- .meetup-box {
+/* UNIFIED MEETUP-BOX SIZING FOR ALL DEVICES */
+.meetup-box {
   background-color: #FFFFFF !important;
   border: 1px solid rgba(36, 49, 40, 0.22);
-  max-width: 20rem;
-  min-width: 0;
+  border-radius: 8px;
+  box-shadow: 0 14px 30px rgba(36, 49, 40, 0.12);
   width: 100%;
-  min-height: 10rem;
-  box-shadow: 0 14px 30px rgba(36, 49, 40, 0.12); /* Stronger separation from page background */
-  border-radius: 8px; /* Rounded corners */
-  display: flex; /* Center content */
+  min-width: 0;
+  min-height: 16rem;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 0 auto;
+  text-align: center;
+  padding: 1.25rem;
+  box-sizing: border-box;
 }
 /* Remove 100vw/margin hacks for responsiveness; use w-full and Tailwind utilities in HTML */
 #worship-title, #events, #thought, #groups, #youtube, #local-resources, #find-us, footer {
@@ -1660,4 +1664,89 @@ html, body { overflow-x: clip; }
 
 #groups-subtitle {
   color: #54565A !important;
+}
+
+/* ========================================
+   MOBILE RESPONSIVE - MEETUP BOX CONSISTENCY
+   Portrait orientation fix for all devices
+   ======================================== */
+
+/* Remove duplicate/unnecessary overrides for .meetup-box */
+
+#events-container {
+  display: grid !important;
+  gap: 1rem !important;
+  padding: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* =====================================================
+   PORTRAIT MODE (primary mobile configuration)
+   ===================================================== */
+@media (orientation: portrait) {
+  #events {
+    padding: 1rem !important;
+  }
+  #events-container {
+    grid-template-columns: 1fr !important;
+    gap: 0.875rem !important;
+  }
+}
+
+/* ===================================================== 
+   LANDSCAPE MODE (compact layout)
+   ===================================================== */
+@media (orientation: landscape) {
+  #events {
+    padding: 0.75rem !important;
+  }
+  #events-container {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)) !important;
+    gap: 0.75rem !important;
+  }
+}
+
+/* ===================================================== 
+   EXTRA-SMALL PORTRAIT (< 380px wide)
+   ===================================================== */
+@media (orientation: portrait) and (max-width: 379px) {
+  #events {
+    padding: 0.75rem !important;
+  }
+}
+
+/* ===================================================== 
+   TABLET & DESKTOP (> 768px width)
+   ===================================================== */
+@media (min-width: 769px) {
+  #events {
+    padding: 2rem !important;
+  }
+  #events-container {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+    gap: 1.5rem !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+  }
+}
+
+/* iPhone/Safari safe area support */
+@supports(padding: max(0px)) {
+  @media (orientation: portrait) {
+    #events {
+      padding-left: max(1rem, env(safe-area-inset-left)) !important;
+      padding-right: max(1rem, env(safe-area-inset-right)) !important;
+    }
+  }
+}
+
+/* Word break for ultra-small text */
+@media (max-width: 480px) {
+  .meetup-box h3,
+  .meetup-box p,
+  .meetup-box a {
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+  }
 }
