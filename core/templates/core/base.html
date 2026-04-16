@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Vinelife Church Wilmslow{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        :root {
+            --vl-primary: #1F4D2E;
+            --vl-primary-soft: #6E9B78;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+    </style>
+    {% block extra_css %}{% endblock %}
+</head>
+<body class="flex flex-col min-h-screen bg-beige-section text-main-text">
+    <!-- Navbar -->
+    <nav id="navbar" class="w-full bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold" style="color: #1F4D2E;">
+                <a href="/">Vinelife Wilmslow</a>
+            </div>
+            <div id="navbar-toggle" class="lg:hidden cursor-pointer">
+                <i class="fas fa-bars text-2xl" style="color: #1F4D2E;"></i>
+            </div>
+            <div id="navbarNav"
+                class="hidden lg:flex lg:items-center lg:justify-end lg:w-auto w-full bg-Deep-Green absolute left-0 top-[90px] shadow-lg lg:shadow-none lg:static lg:bg-grape-blush z-50 px-6 pb-4 lg:px-0 lg:py-0 transition-all duration-300"
+                style="max-height: calc(100vh - 90px); overflow-y: auto; background: #FFFFFF !important;">
+                <ul
+                    class="flex flex-col lg:flex-row items-start lg:items-center space-y-2 lg:space-y-0 lg:space-x-4 justify-start lg:justify-end w-full lg:w-auto">
+                    <li>
+                        <a class="block w-full px-3 py-3 text-grape-blush rounded transition-colors duration-300"
+                            aria-current="page" href="#hero">Home</a>
+                    </li>
+                    <li>
+                        <a class="block w-full px-3 py-3 text-grape-blush rounded transition-colors duration-300"
+                            href="#about">Mission</a>
+                    </li>
+                    <li>
+                        <a class="block w-full px-3 py-3 text-grape-blush rounded transition-colors duration-300"
+                            href="#founders">Founders</a>
+                    </li>
+                    <li>
+                        <a class="block w-full px-3 py-3 text-grape-blush rounded transition-colors duration-300"
+                            href="#thought">Thought</a>
+                    </li>
+                    <li>
+                        <a class="block w-full px-3 py-3 text-grape-blush rounded transition-colors duration-300"
+                            href="#events">Worship</a>
+                    </li>
+                    <a class="block w-full px-3 py-3 text-grape-blush rounded transition-colors duration-300"
+                        href="#special-events-center-wrapper">Special Events</a>
+                    <li>
+                        <a class="block w-full px-3 py-3 text-grape-blush rounded transition-colors duration-300"
+                            href="#groups">Groups</a>
+                    </li>
+                    <li>
+                        <a class="block w-full px-3 py-3 text-grape-blush rounded transition-colors duration-300"
+                            href="#youtube">YouTube</a>
+                    </li>
+                    <li>
+                        <a class="block w-full px-3 py-3 text-grape-blush rounded transition-colors duration-300"
+                            href="#local-resources">Resources</a>
+                    </li>
+                    <li>
+                        <a class="block w-full px-3 py-3 text-grape-blush rounded transition-colors duration-300"
+                            href="#find-us">Find</a>
+                    </li>
+                    <li>
+                        <a class="block w-full px-3 py-3 text-grape-blush rounded transition-colors duration-300"
+                            href="#contact">Contact</a>
+                    </li>
+                </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex flex-col items-center flex-grow">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-auto w-full" id="contact" style="background: #114734; color: #C4D600;">
+        <div class="max-w-7xl mx-auto px-4 py-16 text-center">
+            <h2 class="text-3xl md:text-4xl font-semibold mb-6" style="color: #C4D600;">Contact Us</h2>
+            
+            <div class="mb-8">
+                <p class="mb-2"><i class="fas fa-map-marker-alt mr-2"></i><strong>Location:</strong></p>
+                <p>The Open Arms Youth Project<br>Howty Close, Wilmslow</p>
+            </div>
+
+            <div class="mb-8">
+                <p class="mb-2"><i class="fas fa-phone mr-2"></i><strong>Phone:</strong></p>
+                <p><a href="tel:+441625525000" style="color: #C4D600;">+44 (0) 1625 525000</a></p>
+            </div>
+
+            <div class="mb-8">
+                <p class="mb-2"><i class="fas fa-envelope mr-2"></i><strong>Email:</strong></p>
+                <p><a href="mailto:info@vinelifewilmslow.com" style="color: #C4D600;">info@vinelifewilmslow.com</a></p>
+            </div>
+
+            <div class="border-t border-yellow-400 pt-4 mt-4">
+                <p>&copy; {% now "Y" %} Vinelife Church Wilmslow. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile nav toggler
+        const toggler = document.getElementById('navbar-toggle');
+        const navMenu = document.getElementById('navbarNav');
+
+        if (toggler) {
+            toggler.addEventListener('click', function() {
+                navMenu.classList.toggle('hidden');
+            });
+        }
+    </script>
+</body>
+</html>

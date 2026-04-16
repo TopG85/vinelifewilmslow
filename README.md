@@ -2,9 +2,17 @@
 
 ![Vinelife Wilmslow Logo](assets/images/vinelifewilmslow.png)
 
-A modern, responsive church website for Vinelife Wilmslow - a community church in the heart of Wilmslow, Cheshire, UK.
+A modern, responsive church website for Vinelife Wilmslow - a community church in the heart of Wilmslow, Cheshire, UK, **now with Wagtail CMS for easy content management**.
 
 ## 🌟 Features
+
+### 📖 Content Management System (Wagtail CMS)
+- **Wagtail 5.2.0** - A user-friendly Django-based headless CMS
+- **No coding required** - Manage all website content through an intuitive admin interface
+- **Rich text editing** - Format content easily with built-in editor
+- **Image management** - Upload and manage church photos seamlessly
+- **Flexible pages** - Fully customizable HomePage with 80+ fields for all sections
+- **Environment-based configuration** - Secure API keys and settings
 
 ### 📱 Responsive Design
 - Fully responsive design that works on desktop, tablet, and mobile devices
@@ -30,12 +38,167 @@ A modern, responsive church website for Vinelife Wilmslow - a community church i
 
 **SPUC reference:** [spuc.org.uk](https://spuc.org.uk)
 
+#### 📊 Technologies
+
+**Backend**
+- **Django 4.2.13** - Python web framework
+- **Wagtail 5.2.0** - CMS built on Django
+- **SQLite** - Lightweight database
+- **python-dotenv** - Environment variable management
+
+**Frontend**
+- **Tailwind CSS 3.4.19** - Utility-first CSS framework
+- **HTML5** - Semantic markup
+- **Vanilla JavaScript** - No frameworks for simple interactions
+
+**DevOps & Security**
+- **Python 3.13** - Runtime
+- **pip** - Package manager
+- **Git** - Version control
+- **.env file** - Secure secrets management (API keys, SECRET_KEY)
+- **Environment variables** - All sensitive data externalized
+
+**External Integrations**
+- **Google Calendar API** - Events management
+- **Bible API** - Daily verse selection
+- **Formspree** - Contact form submissions
+- **YouTube Embed** - Video integration
+
 #### 🧩 Wireframe
 - **Website wireframe (PDF):** [Vinelife Church Wilmslow Wireframe v1](docs/wireframes/vinelifechurchwilmslow-wireframe-v1.pdf)
 - **Website wireframe (Image):**
 
 ![Vinelife Church Wilmslow wireframe](assets/images/vinelifewireframe-v1.png)
 
+
+---
+
+## 🛠 2026-04-16 Update - Database Recovery & YouTube Fix
+
+### ✨ Latest Changes
+- **Database Recovery**: Recreated SQLite database from migrations after deletion
+- **YouTube Embed Fix**: Fixed video display - changed from watch URLs to embed format
+- **Environment Configuration**: Secured all API keys and secrets in `.env` file
+- **Admin Interface**: Live and functional at http://127.0.0.1:8000/admin/
+- **All Sections Working**: Homepage displaying all sections with full functionality
+
+### 🔧 Technical Improvements
+- **Updated requirements.txt** with correct package versions (Django 4.2.13, Wagtail 5.2.0)
+- **Installed python-dotenv** for environment variable management
+- **Security Hardened**: API keys no longer hardcoded in templates/settings
+- **Migrations Applied**: All database tables created and functional
+- **Custom HomePage Script**: Created workaround for treebeard path issues
+
+### 📋 Working Features
+- ✅ HomePage with all sections properly rendering
+- ✅ YouTube channel with video embedding (embed URL format)
+- ✅ Google Calendar integration for events
+- ✅ Bible API for daily verses
+- ✅ Contact form with Formspree
+- ✅ Media library with video links
+- ✅ Responsive design on all devices
+- ✅ Admin editing interface
+
+### 🚀 Quick Start
+```bash
+# 1. Install dependencies
+pip install -r requirements.txt
+
+# 2. Run migrations (database setup)
+python manage.py migrate
+
+# 3. Create superuser (if not exists)
+python manage.py createsuperuser
+
+# 4. Start server
+python manage.py runserver
+
+# 5. Visit admin panel
+# http://127.0.0.1:8000/admin/
+# Username: danielcarson
+# Password: po@Ched8romans26
+```
+
+### ⚙️ Environment Configuration
+
+**Setup .env file:**
+Copy `.env.example` to `.env` and configure:
+```bash
+cp .env.example .env
+```
+
+**Required variables in .env:**
+```env
+SECRET_KEY=your-secret-key-here
+DEBUG=True  # Set to False in production
+ALLOWED_HOSTS=localhost,127.0.0.1
+
+# Google Calendar API
+GOOGLE_CALENDAR_ID=your-calendar-id
+GOOGLE_CALENDAR_API_KEY=your-api-key
+
+# Formspree Contact Form
+FORMSPREE_ENDPOINT=https://formspree.io/f/your-form-id
+
+# Site Configuration
+WAGTAIL_SITE_NAME=Vinelife Church Wilmslow
+WAGTAILADMIN_BASE_URL=http://127.0.0.1:8000
+```
+
+**Security Notes:**
+- ✅ `.env` file is in `.gitignore` - secrets won't be committed
+- ✅ `SECRET_KEY` loaded from env variables
+- ✅ All API keys externalized in `.env`
+- ✅ DEBUG mode controllable via environment
+
+### 📺 YouTube Configuration
+
+To add a YouTube video:
+1. Go to http://127.0.0.1:8000/admin/pages/3/edit/pages/
+2. Find "YouTube Channel" section
+3. Enter embed URL: `https://www.youtube.com/embed/VIDEO_ID`
+   - Example: `https://www.youtube.com/embed/7ZSEQlR2YZs`
+4. Save and publish
+
+**Note**: Use `embed/` format, not `watch?v=` format
+
+---
+
+## 🛠 2026-04-08 Update - Wagtail CMS Implementation
+
+### ✨ Major Changes
+- **Migrated to Wagtail 5.2.0** for professional content management
+- **Replaced Django admin** with user-friendly Wagtail interface
+- **Created comprehensive page models** for all website sections
+- **Added image management** with automatic optimization
+- **Implemented orderable content** (drag-and-drop sorting)
+
+### 🔧 Technical Updates
+- **Installed dependencies**: wagtail-5.2.0, pillow, django-environ, python-dotenv, etc.
+- **Updated Django settings** with complete Wagtail configuration
+- **Configured URL routing** for `/admin/` (Wagtail) and cascading pages
+- **Database migrations** completed - all Wagtail tables created
+- **Static files** configured for Wagtail admin interface
+
+### 📋 Content Models
+The `HomePage` model includes fields for:
+- Hero section (images, titles, CTAs)
+- Mission statement and history
+- Founders information
+- YouTube embed URL
+- Thought for the day
+- Events and worship meetings
+- Groups (Men's and Women's)
+- Media library references
+- Resources with external links
+- Contact information and social media
+
+### 🚀 Admin Access
+1. Start server: `python manage.py runserver`
+2. Visit: http://127.0.0.1:8000/admin/
+3. Log in with your superuser credentials
+4. Create and edit pages in the Wagtail interface
+5. Publish to make content live
 
 ---
 
@@ -80,12 +243,12 @@ A modern, responsive church website for Vinelife Wilmslow - a community church i
 - Visual event categorization with icons
 
 #### 🎬 **YouTube Channel Section**
-- **Dedicated YouTube section** with channel branding and icon
-- **Direct links** to YouTube channel (UC0G20x3mVQwmqGUAig_MAcA)
-- **Feature highlights**: Live Services, Sermons, Events
-- **Centered Call-to-Action buttons**: "Visit Channel" and "Subscribe"
-- **Responsive design** - adapts to all screen sizes
-- **Animated YouTube icon** with hover effects
+- **Dedicated YouTube section** with video embedding
+- **Direct video embed** with responsive iframe (embed URL format)
+- **Editable via admin** - Change video URL in Wagtail admin panel
+- **Responsive design** - Adapts to all screen sizes
+- **Media Library**: Links to multiple Vinelife videos and playlists
+- **Full YouTube integration** working with proper embed URLs
 
 #### 🔗 Resources Section
 - **CAP (Christians Against Poverty)** - Debt support services
@@ -147,6 +310,141 @@ A modern, responsive church website for Vinelife Wilmslow - a community church i
 - **Fast loading times**
 - **Mobile-friendly design**
 
+## 🎛️ Wagtail CMS - Content Management
+
+### 🔑 Admin Access
+- **Admin URL**: http://127.0.0.1:8000/admin/
+- **Username**: `danielcarson`
+- **Password**: `po@Ched8romans26`
+
+### 📝 HomePage Features
+The HomePage model includes comprehensive fields for:
+- **Hero Section**: Title, images, call-to-action buttons, social links
+- **Mission & History**: Church mission statement and full history
+- **Founders**: Information about church founders (Robert & Cheryl Larkman)
+- **YouTube Section**: Embed URL for video (editable from admin)
+- **Thought for Day**: Daily Bible verses from Bible API
+- **Events**: Google Calendar integration for worship and special events
+- **Groups**: Men's and Women's groups with contact information
+- **Media Library**: Curated videos and playlists
+- **Resources**: Links to Alpha, CAP, Hope Central
+- **Contact Info**: Phone, email, address, social media
+
+### 🚀 Running the CMS Locally
+
+#### Prerequisites
+- Python 3.13+ (use pyenv to manage versions)
+- Virtual environment (venv) activated
+- Dependencies installed: `pip install -r requirements.txt`
+- `.env` file configured with API keys
+
+#### Step 1: Database Setup
+```bash
+# Apply all migrations
+python manage.py migrate
+
+# Create a new superuser (if needed)
+python manage.py createsuperuser
+```
+
+#### Step 2: Start the Development Server
+```bash
+python manage.py runserver
+```
+
+Server runs at: **http://127.0.0.1:8000/**
+
+#### Step 3: Access Wagtail Admin
+1. Visit http://127.0.0.1:8000/admin/
+2. Log in with your superuser credentials
+3. Navigate to Pages > Vinelife Wilmslow > HomePage to edit
+4. Make changes and click "Save" then "Publish"
+
+### 🐛 Troubleshooting
+
+**Port 8000 already in use:**
+```bash
+# Kill existing process on port 8000
+lsof -ti:8000 | xargs kill -9
+
+# Then start server again
+python manage.py runserver
+```
+
+**Missing dependencies:**
+```bash
+# Reinstall all requirements
+pip install -r requirements.txt
+```
+
+**YouTube video not displaying:**
+- Ensure URL uses `embed/` format: `https://www.youtube.com/embed/VIDEO_ID`
+- Not: `https://www.youtube.com/watch?v=VIDEO_ID`
+
+**API keys not working:**
+- Verify `.env` file exists in project root
+- Check GOOGLE_CALENDAR_API_KEY and FORMSPREE_ENDPOINT are set
+- Restart server after .env changes: `python manage.py runserver`
+
+**Database errors:**
+```bash
+# Reset database (WARNING: deletes all data!)
+rm db.sqlite3
+python manage.py migrate
+python manage.py createsuperuser
+```
+
+**Static files missing:**
+```bash
+python manage.py collectstatic
+```
+
+---
+
+### 🔄 Content Workflow
+
+1. **Login to Wagtail Admin** at http://127.0.0.1:8000/admin/
+2. **Navigate to Pages** → Find "Vinelife Wilmslow" home page
+3. **Edit HomePage fields** - All content sections are in one editable page
+4. **Click Save** to save draft changes
+5. **Click Publish** to make changes live on website
+6. **View on website** - Changes appear immediately at http://127.0.0.1:8000/
+4. **Upload images** using the image uploader
+5. **Add sub-items** (e.g., team members, service times) using inline panels
+6. **Publish or save as draft** using the "Publish" or "Save draft" buttons
+7. **View live page** by clicking the eye icon
+
+### 🖼️ Managing Images
+
+- Maximum recommended size: 2MB for optimal loading
+- Supported formats: JPG, PNG, WebP (recommended for best performance)
+- Images are automatically optimized by Wagtail
+- All church images stored in `/media/images/` directory
+
+### 💾 Database & Backups
+
+- Database file: `db.sqlite3` (SQLite)
+- Media files stored in: `media/` directory
+- **Important**: Back up `db.sqlite3` and `media/` folder regularly
+
+### ⚙️ Database Maintenance
+
+#### Reset Database (Emergency Only)
+```bash
+rm db.sqlite3
+python manage.py migrate
+python manage.py shell
+```
+
+Then in Python shell:
+```python
+from django.contrib.auth.models import User
+User.objects.create_superuser('admin', 'admin@vinelife.com', 'ChangeMe123!')
+exit()
+```
+
+---
+
 ## 🚀 Running the Website Locally
 
 ### Method 1: Python HTTP Server (Recommended)
@@ -171,28 +469,39 @@ Then visit: http://localhost:5000
 
 ```
 vinelifewilmslow/
-├── index.html                 # Main website file
+├── manage.py                  # Django management script
+├── db.sqlite3                 # Database (SQLite)
+├── index.html                 # Static frontend (legacy)
 ├── README.md                  # This documentation
+├── package.json               # Node dependencies
+├── tailwind.config.js         # Tailwind CSS configuration
+├── postcss.config.js          # PostCSS configuration
+├── vinelife_cms/              # Django project folder
+│   ├── settings.py            # Django settings (Wagtail config)
+│   ├── urls.py                # URL routing
+│   ├── asgi.py                # ASGI app for Daphne
+│   └── wsgi.py                # WSGI app for production
+├── core/                      # Django app for Wagtail pages
+│   ├── models.py              # Wagtail page models
+│   ├── admin.py               # Admin configuration
+│   ├── migrations/            # Database migrations
+│   └── templates/
+│       └── core/              # Page templates
+├── media/                     # Uploaded images and documents
+│   └── images/                # Church photos and assets
 ├── docs/
 │   └── wireframes/
 │       └── vinelifechurchwilmslow-wireframe-v1.pdf
 ├── assets/
 │   ├── css/
-│   │   └── style.css         # Custom stylesheet with grape color palette
-│   ├── favicons/             # Website icons
-│   └── images/               # Optimized WebP images
+│   │   ├── input.css          # Tailwind input
+│   │   └── style.css          # Compiled styles
+│   ├── favicons/              # Website icons
+│   └── images/                # Optimized WebP images
 │       ├── vinelifewilmslowlogo.webp
 │       ├── vinelifechurch.webp
-│       ├── Vinelife.webp
-│       ├── 2305+R-C-1920w.webp
-│       ├── worship.webp
-│       ├── Vineyardchurch.webp
-│       ├── resources.webp
-│       ├── bokeh.webp
-│       ├── bokeh1.webp
-│       ├── caplogo.webp
-│       ├── alphalogo.webp
-│       └── hopecentral.webp
+│       └── ... (other images)
+└── .gitignore                 # Git ignore rules
 ```
 
 ## 🎨 Design System
