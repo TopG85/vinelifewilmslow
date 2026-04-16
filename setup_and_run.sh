@@ -2,12 +2,18 @@
 cd '/Users/danielcarson/Documents/Visual Studio Code Project/Vinelife Wilmslow/vinelifewilmslow'
 source venv/bin/activate
 
-# Create superuser (non-interactive)
-echo "from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.filter(username='admin').exists() or User.objects.create_superuser('admin', 'admin@vinelife.local', 'admin123')" | python manage.py shell
+# Run migrations to set up database
+echo "⚙️  Running database migrations..."
+python manage.py migrate
 
-# Start server
+# Remind user to create superuser if needed
+echo "✓ Database setup complete"
+echo ""
+echo "📌 To create or update admin user, run:"
+echo "   python manage.py createsuperuser"
+echo ""
 echo "🚀 Wagtail server starting at http://127.0.0.1:8000"
 echo "📱 Admin: http://127.0.0.1:8000/admin"
-echo "👤 Username: admin"
-echo "🔑 Password: admin123"
+echo "ℹ️  Log in with your superuser credentials"
+echo "💡 Tip: Run 'python manage.py createsuperuser' if you need a new admin account"
 python manage.py runserver 0.0.0.0:8000
