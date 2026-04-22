@@ -13,7 +13,7 @@
                 
                 {% if page.overview_image %}
                 <div class="flex justify-center mb-6" style="max-width: 600px; margin-left: auto; margin-right: auto;">
-                    <img src="{{ page.overview_image.get_rendition('width-600').url }}" 
+                    <img src="{{ page.overview_image.url }}" 
                         alt="{{ page.overview_title }}"
                         class="rounded-lg shadow-lg" width="600" height="400">
                 </div>
