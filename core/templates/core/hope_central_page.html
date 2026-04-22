@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<main class="flex flex-col items-center mt-0">
+    <!-- Mission Section -->
+    <section class="py-20 mt-8 flex flex-col items-center justify-center text-center w-full"
+        style="background: #FFFFFF; color: #333333;" data-section-name="Hope Central Mission">
+        <div class="flex flex-col items-center justify-center text-center w-full">
+            <div class="w-full px-4">
+                <h1 class="text-4xl md:text-5xl font-semibold mb-6 text-center w-full"
+                    style="color: #333333 !important;">{{ page.mission_title }}</h1>
+                
+                {% if page.mission_image %}
+                <div class="flex justify-center mb-6" style="max-width: 400px; margin-left: auto; margin-right: auto;">
+                    <img src="{{ page.mission_image.get_rendition('width-400').url }}" 
+                        alt="{{ page.mission_title }}"
+                        class="rounded-lg shadow-lg" width="400" height="300">
+                </div>
+                {% endif %}
+                
+                <div class="text-base md:text-lg text-justify leading-relaxed mb-6 max-w-prose mx-auto"
+                    style="color: #333333;">
+                    {{ page.mission_content|safe }}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="py-20 mt-8 flex flex-col items-center justify-center text-center w-full"
+        style="background: #F9F9F9; color: #333333;" data-section-name="Hope Central Services">
+        <div class="flex flex-col items-center justify-center text-center w-full max-w-4xl px-4">
+            <h2 class="text-3xl md:text-4xl font-semibold mb-8 text-center w-full"
+                style="color: #333333 !important;">{{ page.services_title }}</h2>
+            
+            <div class="text-base md:text-lg text-justify leading-relaxed"
+                style="color: #333333;">
+                {{ page.services_content|safe }}
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="py-20 mt-8 flex flex-col items-center justify-center text-center w-full"
+        style="background: #1F4D2E; color: #C4D600;" data-section-name="Hope Central Impact">
+        <div class="flex flex-col items-center justify-center text-center w-full max-w-4xl px-4">
+            <h2 class="text-3xl md:text-4xl font-semibold mb-12 text-center w-full"
+                style="color: #C4D600 !important;">{{ page.impact_title }}</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8 w-full">
+                <div>
+                    <p class="text-5xl md:text-6xl font-bold mb-2" style="color: #C4D600;">{{ page.referrals_2024 }}</p>
+                    <p class="text-lg" style="color: #C4D600;">Referrals in 2024</p>
+                </div>
+                <div>
+                    <p class="text-5xl md:text-6xl font-bold mb-2" style="color: #C4D600;">{{ page.meals_2024 }}</p>
+                    <p class="text-lg" style="color: #C4D600;">Meals Provided in 2024</p>
+                </div>
+            </div>
+            
+            <div class="text-base md:text-lg text-justify leading-relaxed"
+                style="color: #C4D600;">
+                {{ page.impact_content|safe }}
+            </div>
+        </div>
+    </section>
+
+    <!-- Get Involved Section -->
+    <section class="py-20 mt-8 flex flex-col items-center justify-center text-center w-full"
+        style="background: #FFFFFF; color: #333333;" data-section-name="Get Involved">
+        <div class="flex flex-col items-center justify-center text-center w-full max-w-4xl px-4">
+            <h2 class="text-3xl md:text-4xl font-semibold mb-8 text-center w-full"
+                style="color: #333333 !important;">{{ page.involved_title }}</h2>
+            
+            <div class="text-base md:text-lg text-justify leading-relaxed mb-8"
+                style="color: #333333;">
+                {{ page.volunteer_content|safe }}
+            </div>
+
+            <a href="{{ page.donate_url }}" target="_blank" rel="noopener"
+                class="inline-block font-semibold py-3 px-8 rounded-lg transition-all duration-300 border-2 hover:scale-105"
+                style="background: #1F4D2E !important; color: #C4D600 !important; border-color: #1F4D2E !important;">
+                Support Hope Central
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-20 mt-8 flex flex-col items-center justify-center text-center w-full"
+        style="background: #114734; color: #C4D600;" data-section-name="Hope Central Contact">
+        <div class="flex flex-col items-center justify-center text-center w-full max-w-4xl px-4">
+            <h2 class="text-3xl md:text-4xl font-semibold mb-8 text-center w-full"
+                style="color: #C4D600 !important;">{{ page.contact_title }}</h2>
+            
+            <div class="text-base md:text-lg leading-relaxed mb-6"
+                style="color: #C4D600;">
+                {{ page.contact_info|safe }}
+            </div>
+
+            <div class="mb-8 space-y-4">
+                {% if page.phone %}
+                <div>
+                    <p style="color: #C4D600;"><strong>Phone:</strong></p>
+                    <a href="tel:{{ page.phone }}" style="color: #C4D600; text-decoration: underline;">
+                        {{ page.phone }}
+                    </a>
+                </div>
+                {% endif %}
+
+                {% if page.email %}
+                <div>
+                    <p style="color: #C4D600;"><strong>Email:</strong></p>
+                    <a href="mailto:{{ page.email }}" style="color: #C4D600; text-decoration: underline;">
+                        {{ page.email }}
+                    </a>
+                </div>
+                {% endif %}
+            </div>
+
+            <a href="{{ page.website_url }}" target="_blank" rel="noopener"
+                class="inline-block font-semibold py-3 px-8 rounded-lg transition-all duration-300 border-2 hover:scale-105"
+                style="background: #C4D600 !important; color: #114734 !important; border-color: #C4D600 !important;">
+                Visit Hope Central Website
+            </a>
+        </div>
+    </section>
+
+</main>
+{% endblock %}

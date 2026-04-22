@@ -1,0 +1,150 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<main class="flex flex-col items-center mt-0">
+    <!-- About CAP Section -->
+    <section class="py-20 mt-8 flex flex-col items-center justify-center text-center w-full"
+        style="background: #FFFFFF; color: #333333;" data-section-name="About CAP">
+        <div class="flex flex-col items-center justify-center text-center w-full">
+            <div class="w-full px-4">
+                <h1 class="text-4xl md:text-5xl font-semibold mb-6 text-center w-full"
+                    style="color: #333333 !important;">{{ page.about_title }}</h1>
+                
+                {% if page.about_image %}
+                <div class="flex justify-center mb-6" style="max-width: 400px; margin-left: auto; margin-right: auto;">
+                    <img src="{{ page.about_image.get_rendition('width-400').url }}" 
+                        alt="{{ page.about_title }}"
+                        class="rounded-lg shadow-lg" width="400" height="300">
+                </div>
+                {% endif %}
+                
+                <div class="text-base md:text-lg text-justify leading-relaxed mb-6 max-w-prose mx-auto"
+                    style="color: #333333;">
+                    {{ page.about_content|safe }}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="py-20 mt-8 flex flex-col items-center justify-center text-center w-full"
+        style="background: #F9F9F9; color: #333333;" data-section-name="CAP Services">
+        <div class="flex flex-col items-center justify-center text-center w-full max-w-4xl px-4">
+            <h2 class="text-3xl md:text-4xl font-semibold mb-8 text-center w-full"
+                style="color: #333333 !important;">{{ page.services_title }}</h2>
+            
+            <div class="text-base md:text-lg text-justify leading-relaxed"
+                style="color: #333333;">
+                {{ page.services_content|safe }}
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="py-20 mt-8 flex flex-col items-center justify-center text-center w-full"
+        style="background: #FFFFFF; color: #333333;" data-section-name="CAP Impact">
+        <div class="flex flex-col items-center justify-center text-center w-full max-w-4xl px-4">
+            <h2 class="text-3xl md:text-4xl font-semibold mb-8 text-center w-full"
+                style="color: #333333 !important;">{{ page.impact_title }}</h2>
+            
+            {% if page.people_helped %}
+            <div class="mb-8">
+                <p class="text-5xl md:text-6xl font-bold mb-2"
+                    style="color: #1F4D2E !important;">{{ page.people_helped }}</p>
+                <p class="text-lg" style="color: #54565A;">people have become debt free with CAP support</p>
+            </div>
+            {% endif %}
+            
+            <div class="text-base md:text-lg text-justify leading-relaxed"
+                style="color: #333333;">
+                {{ page.impact_content|safe }}
+            </div>
+        </div>
+    </section>
+
+    <!-- YouTube Videos Section -->
+    {% if page.youtube_embed_1 or page.youtube_embed_2 or page.youtube_channel_url %}
+    <section class="py-20 mt-8 flex flex-col items-center justify-center text-center w-full"
+        style="background: #F9F9F9; color: #333333;" data-section-name="CAP Videos">
+        <div class="flex flex-col items-center justify-center text-center w-full">
+            <h2 class="text-3xl md:text-4xl font-semibold mb-8 text-center w-full px-4"
+                style="color: #333333 !important;">{{ page.youtube_title }}</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-6xl px-4">
+                {% if page.youtube_embed_1 %}
+                <div style="max-width: 100%;">
+                    <iframe src="{{ page.youtube_embed_1 }}" width="100%" height="315"
+                        style="border:0; border-radius: 12px; display:block;" title="CAP Video"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                {% endif %}
+                
+                {% if page.youtube_embed_2 %}
+                <div style="max-width: 100%;">
+                    <iframe src="{{ page.youtube_embed_2 }}" width="100%" height="315"
+                        style="border:0; border-radius: 12px; display:block;" title="CAP Video"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                {% endif %}
+            </div>
+
+            {% if page.youtube_channel_url %}
+            <div class="mt-8 w-full max-w-6xl px-4">
+                <a href="{{ page.youtube_channel_url }}" target="_blank" rel="noopener"
+                    class="inline-block font-semibold py-2 px-6 rounded-lg transition-all duration-300 border-2"
+                    style="background: #1F4D2E !important; color: #C4D600 !important; border-color: #1F4D2E !important;">
+                    Visit CAP YouTube Channel
+                </a>
+            </div>
+            {% endif %}
+        </div>
+    </section>
+    {% endif %}
+
+    <!-- Local Services Section -->
+    {% if page.local_services %}
+    <section class="py-20 mt-8 flex flex-col items-center justify-center text-center w-full"
+        style="background: #FFFFFF; color: #333333;" data-section-name="CAP at Vinelife">
+        <div class="flex flex-col items-center justify-center text-center w-full max-w-4xl px-4">
+            <h2 class="text-3xl md:text-4xl font-semibold mb-8 text-center w-full"
+                style="color: #333333 !important;">{{ page.local_title }}</h2>
+            
+            <div class="text-base md:text-lg text-justify leading-relaxed"
+                style="color: #333333;">
+                {{ page.local_services|safe }}
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
+    <!-- Get Help Section -->
+    <section class="py-20 mt-8 flex flex-col items-center justify-center text-center w-full"
+        style="background: #114734; color: #C4D600;" data-section-name="Get CAP Help">
+        <div class="flex flex-col items-center justify-center text-center w-full max-w-4xl px-4">
+            <h2 class="text-3xl md:text-4xl font-semibold mb-6 text-center w-full"
+                style="color: #C4D600 !important;">{{ page.help_title }}</h2>
+            
+            <div class="text-base md:text-lg text-justify leading-relaxed mb-8"
+                style="color: #C4D600;">
+                {{ page.help_intro|safe }}
+            </div>
+
+            {% if page.local_contact %}
+            <div class="mb-6 p-4 rounded-lg" style="background: rgba(255,255,255,0.1); color: #C4D600;">
+                {{ page.local_contact|safe }}
+            </div>
+            {% endif %}
+            
+            <a href="{{ page.cap_website_url }}" target="_blank" rel="noopener"
+                class="inline-block font-semibold py-3 px-8 rounded-lg transition-all duration-300 border-2 hover:scale-105"
+                style="background: #C4D600 !important; color: #114734 !important; border-color: #C4D600 !important;">
+                Find Help on CAP Website
+            </a>
+        </div>
+    </section>
+
+</main>
+{% endblock %}
