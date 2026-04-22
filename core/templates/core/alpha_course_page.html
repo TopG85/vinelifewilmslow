@@ -3,6 +3,38 @@
 
 {% block content %}
 <main class="flex flex-col items-center mt-0">
+    <!-- Header Section with Logo -->
+    <section class="w-full py-12" style="background: linear-gradient(135deg, #1F4D2E 0%, #114734 100%); color: #C4D600;">
+        <div class="flex flex-col items-center justify-center text-center w-full max-w-6xl mx-auto px-4">
+            <!-- Page Title and Alpha Logo -->
+            <div class="flex flex-col items-center gap-4">
+                <h1 class="text-4xl md:text-5xl font-bold" style="color: #C4D600;">Alpha Course</h1>
+                <img src="{% static 'images/alphalogo.webp' %}" alt="Alpha Logo" 
+                    class="w-32 h-32 object-contain" width="150" height="150">
+            </div>
+            
+            <p class="text-lg mt-6 max-w-2xl" style="color: #C4D600;">
+                Explore your faith questions in a welcoming, non-judgmental environment
+            </p>
+        </div>
+    </section>
+
+    <!-- What is Alpha? Video Section -->
+    <section class="py-20 mt-0 flex flex-col items-center justify-center text-center w-full"
+        style="background: #F9F9F9; color: #333333;" data-section-name="What is Alpha">
+        <div class="flex flex-col items-center justify-center text-center w-full max-w-6xl px-4">
+            <h2 class="text-3xl md:text-4xl font-semibold mb-8 text-center w-full"
+                style="color: #333333 !important;">What is Alpha?</h2>
+            
+            <div style="max-width: 800px; margin: 0 auto;">
+                <iframe src="https://www.youtube.com/embed/rnEy4eqEqPY" width="100%" height="450"
+                    style="border:0; border-radius: 12px; display:block;" title="What is Alpha?"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
     <!-- Overview Section -->
     <section class="py-20 mt-8 flex flex-col items-center justify-center text-center w-full"
         style="background: #FFFFFF; color: #333333;" data-section-name="Alpha Overview">
