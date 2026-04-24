@@ -3,161 +3,184 @@
 
 {% block content %}
 <main class="flex flex-col items-center mt-0">
-    <!-- Header Section with Logo -->
-    <section class="w-full py-12" style="background: linear-gradient(135deg, #1F4D2E 0%, #114734 100%); color: #C4D600;">
+    <!-- Hero Section -->
+    <section class="w-full py-20" style="background: linear-gradient(135deg, #1F4D2E 0%, #114734 100%); color: #C4D600;">
         <div class="flex flex-col items-center justify-center text-center w-full max-w-6xl mx-auto px-4">
-            <!-- Page Title and Alpha Logo -->
-            <div class="flex flex-col items-center gap-4">
-                <h1 class="text-4xl md:text-5xl font-bold" style="color: #C4D600;">Alpha Course</h1>
-                <img src="{% static 'images/alphalogo.webp' %}" alt="Alpha Logo" 
-                    class="w-32 h-32 object-contain" width="150" height="150">
-            </div>
-            
-            <p class="text-lg mt-6 max-w-2xl" style="color: #C4D600;">
-                Explore your faith questions in a welcoming, non-judgmental environment
+            <img src="{% static 'images/alphalogo.webp' %}" alt="Alpha Logo" 
+                class="w-24 h-24 object-contain mb-6" width="120" height="120">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6" style="color: #C4D600;">There's a seat for you</h1>
+            <p class="text-xl md:text-2xl max-w-3xl" style="color: #C4D600;">
+                Explore your faith questions in a welcoming, relaxed environment
             </p>
         </div>
     </section>
 
-    <!-- Overview Section -->
-    <section class="py-20 mt-8 flex flex-col items-center justify-center text-center w-full"
-        style="background: #FFFFFF; color: #333333;" data-section-name="Alpha Overview">
-        <div class="flex flex-col items-center justify-center text-center w-full">
-            <div class="w-full px-4">
-                <h1 class="text-4xl md:text-5xl font-semibold mb-6 text-center w-full"
-                    style="color: #333333 !important;">{{ page.overview_title }}</h1>
-                
-                {% if page.overview_image %}
-                <div class="flex justify-center mb-6" style="max-width: 600px; margin-left: auto; margin-right: auto;">
-                    <img src="{{ page.overview_image.url }}" 
-                        alt="{{ page.overview_title }}"
-                        class="rounded-lg shadow-lg" width="600" height="400">
+    <!-- What is Alpha? Section -->
+    <section class="py-16 flex flex-col items-center justify-center text-center w-full"
+        style="background: #FFFFFF; color: #333333;">
+        <div class="flex flex-col items-center justify-center text-center w-full max-w-4xl px-4">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8" style="color: #333333;">What is Alpha?</h2>
+            <p class="text-lg mb-6 leading-relaxed" style="color: #333333;">
+                Alpha is a series of relaxed evenings where people come together to eat, listen and talk.
+            </p>
+            <p class="text-base mb-4" style="color: #666666;">Some people come with strong beliefs.</p>
+            <p class="text-base mb-4" style="color: #666666;">Others aren't sure what they think.</p>
+            <p class="text-base mb-8" style="color: #666666;">Many are just curious.</p>
+            <p class="text-lg font-semibold" style="color: #1F4D2E;">Wherever you're starting from, you are welcome.</p>
+        </div>
+    </section>
+
+    <!-- A Typical Evening Section -->
+    <section class="py-20 flex flex-col items-center justify-center text-center w-full"
+        style="background: #F9F9F9; color: #333333;">
+        <div class="flex flex-col items-center justify-center text-center w-full max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold mb-16" style="color: #333333;">A Typical Evening</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
+                <!-- Eat -->
+                <div class="flex flex-col items-center">
+                    <div class="mb-6 text-6xl" style="color: #1F4D2E;">🍰</div>
+                    <h3 class="text-2xl font-bold mb-4" style="color: #1F4D2E;">Eat</h3>
+                    <p class="text-base text-justify" style="color: #666666;">
+                        Each evening starts with dessert. It's a chance to arrive, relax and get to know people over something sweet.
+                    </p>
                 </div>
-                {% endif %}
                 
-                <div class="text-base md:text-lg text-justify leading-relaxed mb-6 max-w-prose mx-auto"
-                    style="color: #333333;">
-                    {{ page.overview_content|safe }}
+                <!-- Listen -->
+                <div class="flex flex-col items-center">
+                    <div class="mb-6 text-6xl" style="color: #1F4D2E;">👂</div>
+                    <h3 class="text-2xl font-bold mb-4" style="color: #1F4D2E;">Listen</h3>
+                    <p class="text-base text-justify" style="color: #666666;">
+                        There's a short talk exploring big questions around life and faith. Simple, honest and designed to start conversation.
+                    </p>
+                </div>
+                
+                <!-- Talk -->
+                <div class="flex flex-col items-center">
+                    <div class="mb-6 text-6xl" style="color: #1F4D2E;">💬</div>
+                    <h3 class="text-2xl font-bold mb-4" style="color: #1F4D2E;">Talk</h3>
+                    <p class="text-base text-justify" style="color: #666666;">
+                        This is the most important part. You can say as much or as little as you like. No right answers and no pressure to agree.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- What is Alpha? Video Section -->
-    <section class="py-20 mt-0 flex flex-col items-center justify-center text-center w-full"
-        style="background: #F9F9F9; color: #333333;" data-section-name="What is Alpha">
-        <div class="flex flex-col items-center justify-center text-center w-full max-w-6xl px-4">
-            <h2 class="text-3xl md:text-4xl font-semibold mb-8 text-center w-full"
-                style="color: #333333 !important;">What is Alpha?</h2>
+    <!-- Who is Alpha for? Section -->
+    <section class="py-20 flex flex-col items-center justify-center text-center w-full"
+        style="background: #FFFFFF; color: #333333;">
+        <div class="flex flex-col items-center justify-center text-center w-full max-w-4xl px-4">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8" style="color: #333333;">Who is Alpha for?</h2>
+            <p class="text-lg mb-8" style="color: #666666;">Alpha is for everyone. We're born curious — you should ask, explore, question.</p>
             
-            <div style="max-width: 800px; margin: 0 auto;">
-                <iframe src="https://www.youtube.com/embed/rnEy4eqEqPY" width="100%" height="450"
-                    style="border:0; border-radius: 12px; display:block;" title="What is Alpha?"
+            <div class="text-left max-w-2xl">
+                <ul class="text-lg space-y-4" style="color: #666666;">
+                    <li class="flex items-start">
+                        <span class="mr-3" style="color: #1F4D2E;">✓</span>
+                        <span>Unsure what you believe</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="mr-3" style="color: #1F4D2E;">✓</span>
+                        <span>Coming back to questions you've not thought about in years</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="mr-3" style="color: #1F4D2E;">✓</span>
+                        <span>Sceptical but open to conversation</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="mr-3" style="color: #1F4D2E;">✓</span>
+                        <span>Simply curious</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <p class="text-base mt-8" style="color: #666666;">You don't need any background in church.</p>
+            <p class="text-base" style="color: #666666;">You don't need to know anything about the Bible.</p>
+            <p class="text-lg font-semibold mt-4" style="color: #1F4D2E;">You can just turn up.</p>
+        </div>
+    </section>
+
+    <!-- What is Alpha? Video Section -->
+    <section class="py-20 flex flex-col items-center justify-center text-center w-full"
+        style="background: #F9F9F9; color: #333333;" data-section-name="What is Alpha Video">
+        <div class="flex flex-col items-center justify-center text-center w-full max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8" style="color: #333333;">Watch: What is Alpha?</h2>
+            
+            <div style="width: 100%; max-width: 1000px; position: relative; padding-bottom: 56.25%;">
+                <iframe src="https://www.youtube.com/embed/y89CQgdgrio" width="100%" height="100%"
+                    style="border:0; border-radius: 12px; position: absolute; top: 0; left: 0;" title="What is Alpha?"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
         </div>
     </section>
 
-    <!-- What's Covered Section -->
-    <section class="py-20 mt-8 flex flex-col items-center justify-center text-center w-full"
-        style="background: #F9F9F9; color: #333333;" data-section-name="What's Covered">
-        <div class="flex flex-col items-center justify-center text-center w-full max-w-4xl px-4">
-            <h2 class="text-3xl md:text-4xl font-semibold mb-8 text-center w-full"
-                style="color: #333333 !important;">{{ page.covered_title }}</h2>
-            
-            <div class="text-base md:text-lg text-justify leading-relaxed"
-                style="color: #333333;">
-                {{ page.covered_content|safe }}
-            </div>
-        </div>
-    </section>
-
-    <!-- Why Join Section -->
-    <section class="py-20 mt-8 flex flex-col items-center justify-center text-center w-full"
-        style="background: #FFFFFF; color: #333333;" data-section-name="Why Join Alpha">
-        <div class="flex flex-col items-center justify-center text-center w-full max-w-4xl px-4">
-            <h2 class="text-3xl md:text-4xl font-semibold mb-8 text-center w-full"
-                style="color: #333333 !important;">{{ page.why_join_title }}</h2>
-            
-            <div class="text-base md:text-lg text-justify leading-relaxed"
-                style="color: #333333;">
-                {{ page.why_join_content|safe }}
-            </div>
-        </div>
-    </section>
-
-    <!-- YouTube Videos Section -->
-    {% if page.youtube_embed_1 or page.youtube_embed_2 or page.youtube_playlist_url %}
-    <section class="py-20 mt-8 flex flex-col items-center justify-center text-center w-full"
-        style="background: #F9F9F9; color: #333333;" data-section-name="Alpha Videos">
-        <div class="flex flex-col items-center justify-center text-center w-full">
-            <h2 class="text-3xl md:text-4xl font-semibold mb-8 text-center w-full px-4"
-                style="color: #333333 !important;">{{ page.youtube_title }}</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-6xl px-4">
-                {% if page.youtube_embed_1 %}
-                <div style="max-width: 100%;">
-                    <iframe src="{{ page.youtube_embed_1 }}" width="100%" height="315"
-                        style="border:0; border-radius: 12px; display:block;" title="Alpha Video"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </div>
-                {% endif %}
-                
-                {% if page.youtube_embed_2 %}
-                <div style="max-width: 100%;">
-                    <iframe src="{{ page.youtube_embed_2 }}" width="100%" height="315"
-                        style="border:0; border-radius: 12px; display:block;" title="Alpha Video"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </div>
-                {% endif %}
-            </div>
-
-            {% if page.youtube_playlist_url %}
-            <div class="mt-8 w-full max-w-6xl px-4">
-                <a href="{{ page.youtube_playlist_url }}" target="_blank" rel="noopener"
-                    class="inline-block font-semibold py-2 px-6 rounded-lg transition-all duration-300 border-2"
-                    style="background: #1F4D2E !important; color: #C4D600 !important; border-color: #1F4D2E !important;">
-                    View Alpha Playlist on YouTube
-                </a>
-            </div>
-            {% endif %}
-        </div>
-    </section>
-    {% endif %}
-
     <!-- Local Information Section -->
     {% if page.local_info %}
-    <section class="py-20 mt-8 flex flex-col items-center justify-center text-center w-full"
-        style="background: #FFFFFF; color: #333333;" data-section-name="Alpha at Vinelife">
+    <section class="py-20 flex flex-col items-center justify-center text-center w-full"
+        style="background: #FFFFFF; color: #333333;">
         <div class="flex flex-col items-center justify-center text-center w-full max-w-4xl px-4">
-            <h2 class="text-3xl md:text-4xl font-semibold mb-8 text-center w-full"
-                style="color: #333333 !important;">{{ page.local_title }}</h2>
+            <h2 class="text-3xl md:text-4xl font-bold mb-8" style="color: #333333;">Alpha at Vinelife Wilmslow</h2>
             
-            <div class="text-base md:text-lg text-justify leading-relaxed"
-                style="color: #333333;">
+            <div class="text-base md:text-lg leading-relaxed" style="color: #666666;">
                 {{ page.local_info|safe }}
             </div>
         </div>
     </section>
     {% endif %}
 
-    <!-- Sign Up Section -->
-    <section class="py-20 mt-8 flex flex-col items-center justify-center text-center w-full"
-        style="background: #1F4D2E; color: #C4D600;" data-section-name="Sign Up for Alpha">
-        <div class="flex flex-col items-center justify-center text-center w-full max-w-4xl px-4">
-            <h2 class="text-3xl md:text-4xl font-semibold mb-4 text-center w-full"
-                style="color: #C4D600 !important;">{{ page.signup_title }}</h2>
+    <!-- Reserve Your Place Section -->
+    <section class="py-20 flex flex-col items-center justify-center w-full"
+        style="background: #1F4D2E; color: #C4D600;">
+        <div class="flex flex-col items-center justify-center text-center w-full max-w-2xl px-4">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6" style="color: #C4D600;">Reserve Your Place</h2>
+            <p class="text-lg mb-10" style="color: #C4D600;">Fill in the form below and we'll be in touch with more details.</p>
             
-            <p class="text-lg md:text-xl mb-8" style="color: #C4D600;">{{ page.signup_intro }}</p>
+            <form class="w-full" action="https://formspree.io/f/xvgzvaon" method="POST">
+                <div class="mb-4 text-left">
+                    <label for="name" class="block mb-2 font-semibold">Name *</label>
+                    <input type="text" name="name" id="name" required
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none"
+                        style="border-color: #1F4D2E; color: #333333;">
+                </div>
+                
+                <div class="mb-4 text-left">
+                    <label for="email" class="block mb-2 font-semibold">Email *</label>
+                    <input type="email" name="email" id="email" required
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none"
+                        style="border-color: #1F4D2E; color: #333333;">
+                </div>
+                
+                <div class="mb-4 text-left">
+                    <label for="phone" class="block mb-2 font-semibold">Phone (optional)</label>
+                    <input type="tel" name="phone" id="phone"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none"
+                        style="border-color: #1F4D2E; color: #333333;">
+                </div>
+                
+                <div class="mb-6 text-left">
+                    <label for="dietary" class="block mb-2 font-semibold">Dietary requirements (optional)</label>
+                    <input type="text" name="dietary" id="dietary" placeholder="e.g. vegetarian, gluten-free"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none"
+                        style="border-color: #1F4D2E; color: #333333;">
+                </div>
+                
+                <div class="mb-6 text-left">
+                    <label class="flex items-center">
+                        <input type="checkbox" name="bringing_someone" id="bringing_someone"
+                            class="mr-2">
+                        <span class="text-sm">I'm bringing someone with me</span>
+                    </label>
+                </div>
+                
+                <button type="submit" class="w-full font-bold py-3 px-6 rounded-lg transition-all duration-300 border-2 hover:scale-105"
+                    style="background: #C4D600 !important; color: #1F4D2E !important; border-color: #C4D600 !important;">
+                    Reserve Your Place
+                </button>
+            </form>
             
-            <a href="{{ page.alpha_website_url }}" target="_blank" rel="noopener"
-                class="inline-block font-semibold py-3 px-8 rounded-lg transition-all duration-300 border-2 hover:scale-105"
-                style="background: #C4D600 !important; color: #1F4D2E !important; border-color: #C4D600 !important;">
-                Sign Up at Alpha.org.uk
-            </a>
+            <p class="text-sm mt-6" style="color: #C4D600;">We won't pressure you. You can come once, see what it's like, and decide from there.</p>
         </div>
     </section>
 
