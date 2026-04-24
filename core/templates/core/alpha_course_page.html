@@ -9,9 +9,24 @@
             <img src="{% static 'images/alphalogo.webp' %}" alt="Alpha Logo" 
                 class="w-24 h-24 object-contain mb-6" width="120" height="120">
             <h1 class="text-5xl md:text-6xl font-bold mb-6" style="color: #C4D600;">There's a seat for you</h1>
-            <p class="text-xl md:text-2xl max-w-3xl" style="color: #C4D600;">
-                Explore your faith questions in a welcoming, relaxed environment
-            </p>
+            
+            <div class="text-lg md:text-xl leading-relaxed max-w-3xl mb-8" style="color: #C4D600;">
+                <p class="mb-4"><strong>What really matters to you?</strong> Most people have questions they don't often say out loud.</p>
+                <p class="mb-6">About life. About meaning. About faith.</p>
+                <p class="mb-6">Alpha in Wilmslow is a space to ask questions, explore faith and share thoughts with others who are figuring things out too.</p>
+                <p class="mb-6">No pressure. No expectations. Just conversation. The teams of Life Church and Wilmslow Parish look forward to welcoming you.</p>
+            </div>
+            
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <a href="#reserve-place" class="inline-block font-bold py-3 px-8 rounded-lg transition-all duration-300 border-2 hover:scale-105"
+                    style="background: #C4D600 !important; color: #1F4D2E !important; border-color: #C4D600 !important;">
+                    Join Alpha
+                </a>
+                <a href="#typical-evening" class="inline-block font-bold py-3 px-8 rounded-lg transition-all duration-300 border-2"
+                    style="background: transparent; color: #C4D600; border-color: #C4D600;">
+                    Find Out More
+                </a>
+            </div>
         </div>
     </section>
 
@@ -32,7 +47,7 @@
 
     <!-- A Typical Evening Section -->
     <section class="py-20 flex flex-col items-center justify-center text-center w-full"
-        style="background: #F9F9F9; color: #333333;">
+        style="background: #F9F9F9; color: #333333;" id="typical-evening">
         <div class="flex flex-col items-center justify-center text-center w-full max-w-6xl mx-auto px-4">
             <h2 class="text-3xl md:text-4xl font-bold mb-16" style="color: #333333;">A Typical Evening</h2>
             
@@ -132,7 +147,7 @@
 
     <!-- Reserve Your Place Section -->
     <section class="py-20 flex flex-col items-center justify-center w-full"
-        style="background: #1F4D2E; color: #C4D600;">
+        style="background: #1F4D2E; color: #C4D600;" id="reserve-place">
         <div class="flex flex-col items-center justify-center text-center w-full max-w-2xl px-4">
             <h2 class="text-3xl md:text-4xl font-bold mb-6" style="color: #C4D600;">Reserve Your Place</h2>
             <p class="text-lg mb-10" style="color: #C4D600;">Fill in the form below and we'll be in touch with more details.</p>
