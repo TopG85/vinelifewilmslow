@@ -4,36 +4,56 @@
 {% block content %}
 <main class="flex flex-col items-center mt-0 pt-0">
     <!-- Hero Section -->
-    <section class="py-20" style="width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); margin-top: 0; background: linear-gradient(135deg, #1F4D2E 0%, #114734 100%); color: #C4D600;">
-        <div class="flex flex-col items-center justify-center text-center w-full max-w-6xl mx-auto px-4">
-            <img src="{% static 'images/alphalogo.webp' %}" alt="Alpha Logo" 
-                class="w-24 h-24 object-contain mb-6" width="120" height="120">
-            <h1 class="text-5xl md:text-6xl font-bold mb-6" style="color: #C4D600;">There's a seat for you</h1>
-            
-            <div class="text-lg md:text-xl leading-relaxed max-w-3xl mb-8" style="color: #C4D600;">
-                <p class="mb-4"><strong>What really matters to you?</strong> Most people have questions they don't often say out loud.</p>
-                <p class="mb-6">About life. About meaning. About faith.</p>
-                <p class="mb-6">Alpha in Wilmslow is a space to ask questions, explore faith and share thoughts with others who are figuring things out too.</p>
-                <p class="mb-6">No pressure. No expectations. Just conversation. The teams of Life Church and Wilmslow Parish look forward to welcoming you.</p>
+    <section class="relative flex items-center overflow-hidden" style="width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); margin-top: -120px; padding: 0; min-height: 100vh; background: #114734; color: #C4D600;">
+        <div class="absolute inset-0 bg-black opacity-10"></div>
+         <div class="absolute top-20 right-20 w-96 h-96 rounded-full bg-primary-foreground/20 blur-3xl"></div>
+        <div class="absolute bottom-20 left-10 w-80 h-80 rounded-full bg-primary-foreground/10 blur-3xl"></div>
+        
+        <div class="flex flex-col lg:flex-row items-center justify-between w-full max-w-6xl mx-auto px-4 gap-12 relative z-10 py-20">
+            <!-- Left Column: Content -->
+            <div class="flex flex-col items-start justify-center text-left w-full lg:w-1/2">
+                <p class="font-body text-sm uppercase tracking-[0.2em] text-primary-foreground/40 mb-6" style="color: #C4D600;">Alpha in Wilmslow</p>
+                <h1 class="text-5xl md:text-6xl font-bold mb-8" style="color: #C4D600;">There's a seat for you</h1>
+                
+                <div class="text-lg md:text-xl leading-relaxed mb-8" style="color: #C4D600;">
+                    <p class="mb-4"><strong>What really matters to you?</strong> Most people have questions they don't often say out loud.</p>
+                    <p class="mb-6">About life. About meaning. About faith.</p>
+                    <p class="mb-6">Alpha in Wilmslow is a space to ask questions, explore faith and share thoughts with others who are figuring things out too.</p>
+                    <p>No pressure. No expectations. Just conversation. The teams of Life Church and Wilmslow Parish look forward to welcoming you.</p>
+                </div>
+                
+                <div class="flex flex-col md:flex-row gap-4">
+                    <a href="#reserve-place" class="inline-block font-bold py-3 px-8 rounded-lg transition-all duration-300 border-2 hover:scale-105"
+                        style="background: #C4D600 !important; color: #1F4D2E !important; border-color: #C4D600 !important;">
+                        Join Alpha
+                    </a>
+                    <a href="#typical-evening" class="inline-block font-bold py-3 px-8 rounded-lg transition-all duration-300 border-2"
+                        style="background: transparent; color: #C4D600; border-color: #C4D600;">
+                        Find Out More
+                    </a>
+                </div>
             </div>
             
-            <div class="flex flex-col md:flex-row gap-4 justify-center">
-                <a href="#reserve-place" class="inline-block font-bold py-3 px-8 rounded-lg transition-all duration-300 border-2 hover:scale-105"
-                    style="background: #C4D600 !important; color: #1F4D2E !important; border-color: #C4D600 !important;">
-                    Join Alpha
-                </a>
-                <a href="#typical-evening" class="inline-block font-bold py-3 px-8 rounded-lg transition-all duration-300 border-2"
-                    style="background: transparent; color: #C4D600; border-color: #C4D600;">
-                    Find Out More
-                </a>
+            <!-- Right Column: Image Card -->
+            <div class="flex justify-center w-full lg:w-1/2">
+                <div class="relative w-full max-w-sm">
+                    <!-- Rotated green background -->
+                    <div style="position: absolute; transform: rotate(-5deg); background: #6E9B78; width: 100%; height: 100%; border-radius: 12px; top: 0; left: 0;"></div>
+                    
+                    <!-- Image card on top -->
+                    <div class="relative z-10 rounded-lg overflow-hidden shadow-2xl" style="background: #FFFFFF;">
+                        <img src="{% static 'images/alpha-invited-CR8fGyY3.webp' %}" alt="You're invited to try Alpha" 
+                            class="w-full h-auto object-cover" style="min-height: 400px;">
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- What is Alpha? Section -->
-    <section class="py-16 flex flex-col items-center justify-center text-center w-full"
-        style="background: #FFFFFF; color: #333333;">
-        <div class="flex flex-col items-center justify-center text-center w-full max-w-4xl px-4">
+    <section class="flex flex-col items-center justify-center text-center w-full"
+        style="width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); padding: 0; background: #FFFFFF; color: #333333;">
+        <div class="flex flex-col items-center justify-center text-center w-full max-w-4xl px-4 py-16">
             <h2 class="text-3xl md:text-4xl font-bold mb-8" style="color: #333333;">What is Alpha?</h2>
             <p class="text-lg mb-6 leading-relaxed" style="color: #333333;">
                 Alpha is a series of relaxed evenings where people come together to eat, listen and talk.
@@ -53,9 +73,9 @@
     </section>
 
     <!-- A Typical Evening Section -->
-    <section class="py-20 flex flex-col items-center justify-center text-center w-full"
-        style="background: #F9F9F9; color: #333333;" id="typical-evening">
-        <div class="flex flex-col items-center justify-center text-center w-full max-w-6xl mx-auto px-4">
+    <section class="flex flex-col items-center justify-center text-center w-full"
+        style="width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); padding: 0; background: #F9F9F9; color: #333333;" id="typical-evening">
+        <div class="flex flex-col items-center justify-center text-center w-full max-w-6xl mx-auto px-4 py-20">
             <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color: #333333;">A Typical Evening</h2>
             <p class="text-lg mb-16" style="color: #666666;">What to expect</p>
             
@@ -97,9 +117,9 @@
     </section>
 
     <!-- Who is Alpha for? Section -->
-    <section class="py-20 flex flex-col items-center justify-center text-center w-full"
-        style="background: #FFFFFF; color: #333333;">
-        <div class="flex flex-col items-center justify-center text-center w-full max-w-4xl px-4">
+    <section class="flex flex-col items-center justify-center text-center w-full"
+        style="width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); padding: 0; background: #FFFFFF; color: #333333;">
+        <div class="flex flex-col items-center justify-center text-center w-full max-w-4xl px-4 py-20">
             <h2 class="text-3xl md:text-4xl font-bold mb-8" style="color: #333333;">Who is Alpha for?</h2>
             <p class="text-lg mb-8" style="color: #666666;">Alpha is for everyone. We're born curious — you should ask, explore, question.</p>
             
@@ -127,15 +147,98 @@
             <p class="text-base mt-8" style="color: #666666;">You don't need any background in church.</p>
             <p class="text-base" style="color: #666666;">You don't need to know anything about the Bible.</p>
             <p class="text-lg font-semibold mt-4" style="color: #1F4D2E;">You can just turn up.</p>
+            
+            <div style="width: 100%; max-width: 800px; position: relative; padding-bottom: 56.25%; margin-top: 12px;">
+                <iframe src="https://www.youtube.com/embed/lsoYUl5cj3M" width="100%" height="100%"
+                    style="border:0; border-radius: 12px; position: absolute; top: 0; left: 0;" title="Who is Alpha for?"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upcoming Alpha Events Section -->
+    <section class="flex flex-col items-center justify-center text-center w-full"
+        style="width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); padding: 0; background: #F9F9F9; color: #333333;">
+        <div class="flex flex-col items-center justify-center text-center w-full max-w-6xl mx-auto px-4 py-20">
+            <h2 class="text-3xl md:text-4xl font-bold mb-16" style="color: #333333;">Upcoming Alpha Events</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
+                <!-- Event Card 1 -->
+                <div class="bg-white rounded-lg p-6 shadow-md" style="border-left: 4px solid #1F4D2E;">
+                    <img src="{% static 'images/alphalogo.webp' %}" alt="Alpha Logo" 
+                        class="w-12 h-12 object-contain mx-auto mb-4" width="48" height="48">
+                    <h3 class="text-xl font-bold mb-3" style="color: #1F4D2E;">Is There More to Life Than This?</h3>
+                    <p class="text-base mb-2" style="color: #666666;">
+                        <strong>Thursday 30 April</strong>
+                    </p>
+                    <p class="text-base" style="color: #666666;">7:00 – 9:00pm</p>
+                </div>
+
+                <!-- Event Card 2 -->
+                <div class="bg-white rounded-lg p-6 shadow-md" style="border-left: 4px solid #1F4D2E;">
+                    <img src="{% static 'images/alphalogo.webp' %}" alt="Alpha Logo" 
+                        class="w-12 h-12 object-contain mx-auto mb-4" width="48" height="48">
+                    <h3 class="text-xl font-bold mb-3" style="color: #1F4D2E;">Who is Jesus?</h3>
+                    <p class="text-base mb-2" style="color: #666666;">
+                        <strong>Thursday 7 May</strong>
+                    </p>
+                    <p class="text-base" style="color: #666666;">7:00 – 9:00pm</p>
+                </div>
+
+                <!-- Event Card 3 -->
+                <div class="bg-white rounded-lg p-6 shadow-md" style="border-left: 4px solid #1F4D2E;">
+                    <img src="{% static 'images/alphalogo.webp' %}" alt="Alpha Logo" 
+                        class="w-12 h-12 object-contain mx-auto mb-4" width="48" height="48">
+                    <h3 class="text-xl font-bold mb-3" style="color: #1F4D2E;">Why did Jesus die?</h3>
+                    <p class="text-base mb-2" style="color: #666666;">
+                        <strong>Thursday 14 May</strong>
+                    </p>
+                    <p class="text-base" style="color: #666666;">7:00 – 9:00pm</p>
+                </div>
+
+                <!-- Event Card 4 -->
+                <div class="bg-white rounded-lg p-6 shadow-md" style="border-left: 4px solid #1F4D2E;">
+                    <img src="{% static 'images/alphalogo.webp' %}" alt="Alpha Logo" 
+                        class="w-12 h-12 object-contain mx-auto mb-4" width="48" height="48">
+                    <h3 class="text-xl font-bold mb-3" style="color: #1F4D2E;">How can I have faith?</h3>
+                    <p class="text-base mb-2" style="color: #666666;">
+                        <strong>Thursday 21 May</strong>
+                    </p>
+                    <p class="text-base" style="color: #666666;">7:00 – 9:00pm</p>
+                </div>
+
+                <!-- Event Card 5 -->
+                <div class="bg-white rounded-lg p-6 shadow-md" style="border-left: 4px solid #1F4D2E;">
+                    <img src="{% static 'images/alphalogo.webp' %}" alt="Alpha Logo" 
+                        class="w-12 h-12 object-contain mx-auto mb-4" width="48" height="48">
+                    <h3 class="text-xl font-bold mb-3" style="color: #1F4D2E;">Why and how do I pray?</h3>
+                    <p class="text-base mb-2" style="color: #666666;">
+                        <strong>Thursday 4 June</strong>
+                    </p>
+                    <p class="text-base" style="color: #666666;">7:00 – 9:00pm</p>
+                </div>
+
+                <!-- Event Card 6 -->
+                <div class="bg-white rounded-lg p-6 shadow-md" style="border-left: 4px solid #1F4D2E;">
+                    <img src="{% static 'images/alphalogo.webp' %}" alt="Alpha Logo" 
+                        class="w-12 h-12 object-contain mx-auto mb-4" width="48" height="48">
+                    <h3 class="text-xl font-bold mb-3" style="color: #1F4D2E;">Alpha Away Day</h3>
+                    <p class="text-base mb-2" style="color: #666666;">
+                        <strong>Saturday 20 June</strong>
+                    </p>
+                    <p class="text-base" style="color: #666666;">10:00am – 5:00pm</p>
+                </div>
+            </div>
         </div>
     </section>
 
 
     <!-- Local Information Section -->
     {% if page.local_info %}
-    <section class="py-20 flex flex-col items-center justify-center text-center w-full"
-        style="background: #FFFFFF; color: #333333;">
-        <div class="flex flex-col items-center justify-center text-center w-full max-w-4xl px-4">
+    <section class="flex flex-col items-center justify-center text-center w-full"
+        style="width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); padding: 0; background: #FFFFFF; color: #333333;">
+        <div class="flex flex-col items-center justify-center text-center w-full max-w-4xl px-4 py-20">
             <h2 class="text-3xl md:text-4xl font-bold mb-8" style="color: #333333;">Alpha at Vinelife Wilmslow</h2>
             
             <div class="text-base md:text-lg leading-relaxed" style="color: #666666;">
@@ -146,9 +249,9 @@
     {% endif %}
 
     <!-- Reserve Your Place Section -->
-    <section class="py-20 flex flex-col items-center justify-center w-full"
-        style="background: #1F4D2E; color: #C4D600;" id="reserve-place">
-        <div class="flex flex-col items-center justify-center text-center w-full max-w-2xl px-4">
+    <section class="flex flex-col items-center justify-center w-full"
+        style="width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); padding: 0; background: #114734; color: #C4D600;" id="reserve-place">
+        <div class="flex flex-col items-center justify-center text-center w-full max-w-2xl px-4 py-20">
             <h2 class="text-3xl md:text-4xl font-bold mb-6" style="color: #C4D600;">Reserve Your Place</h2>
             <p class="text-lg mb-10" style="color: #C4D600;">Fill in the form below and we'll be in touch with more details.</p>
             
