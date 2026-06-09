@@ -505,12 +505,13 @@
                             if (!eventStart) return 'Time TBA';
                             if (eventStart.date && !eventStart.dateTime) return 'All Day';
                             if (eventStart.dateTime) {
+                                // Create date from ISO string (Google Calendar returns RFC 3339 format)
                                 const date = new Date(eventStart.dateTime);
+                                // Format without explicit timeZone to use the event's stored timezone
                                 return date.toLocaleTimeString('en-GB', {
                                     hour: 'numeric',
                                     minute: '2-digit',
-                                    hour12: true,
-                                    timeZone: 'Europe/London'
+                                    hour12: true
                                 }).toLowerCase();
                             }
                             return 'Time TBA';
