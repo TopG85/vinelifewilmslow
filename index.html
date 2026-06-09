@@ -505,14 +505,29 @@
                             if (!eventStart) return 'Time TBA';
                             if (eventStart.date && !eventStart.dateTime) return 'All Day';
                             if (eventStart.dateTime) {
-                                // Create date from ISO string (Google Calendar returns RFC 3339 format)
-                                const date = new Date(eventStart.dateTime);
-                                // Format without explicit timeZone to use the event's stored timezone
-                                return date.toLocaleTimeString('en-GB', {
-                                    hour: 'numeric',
-                                    minute: '2-digit',
-                                    hour12: true
-                                }).toLowerCase();
+                                // Parse ISO string directly to extract local time stored in calendar
+                                // Google Calendar returns RFC 3339: 2026-06-15T10:30:00+01:00
+                                const isoString = eventStart.dateTime;
+                                
+                                // Extract time part (HH:MM:SS) from ISO string
+                                const timeMatch = isoString.match(/T(\d{2}):(\d{2}):(\d{2})/);
+                                if (timeMatch) {
+                                    let hours = parseInt(timeMatch[1], 10);
+                                    const minutes = timeMatch[2];
+                                    
+                                    // Convert 24-hour to 12-hour format
+                                    const isAM = hours < 12;
+                                    if (hours === 0) {
+                                        hours = 12;
+                                    } else if (hours > 12) {
+                                        hours = hours - 12;
+                                    }
+                                    
+                                    const ampm = isAM ? 'am' : 'pm';
+                                    return `${hours}:${minutes} ${ampm}`;
+                                }
+                                
+                                return 'Time TBA';
                             }
                             return 'Time TBA';
                         }
